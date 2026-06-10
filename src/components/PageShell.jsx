@@ -64,7 +64,7 @@ function Header({ activePage }) {
           </button>
           <div className="nav-panel" data-mobile-menu>
             <nav className="nav-links" aria-label="Primary navigation">
-              <NavLink activePage={activePage} page="home" href="/">
+              <NavLink activePage={activePage} page="home" href="/" data-scroll-target="roles">
                 Features
               </NavLink>
               <NavLink activePage={activePage} page="modules" href="/modules">

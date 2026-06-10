@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { smoothScrollTo, smoothScrollToElement } from "./smoothScroll.js";
 
 const waves = [
   {
@@ -318,7 +319,7 @@ function setupCleanSectionLinks(cleanups) {
       if (!target) return;
 
       event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      smoothScrollToElement(target);
       history.replaceState(null, "", "/");
     };
 
@@ -519,7 +520,7 @@ function setupPricingToggle(cleanups) {
       el.textContent = isAnnual ? el.dataset.annualNote : el.dataset.monthlyNote;
     });
     badgeEls.forEach((el) => {
-      el.textContent = isAnnual ? "First-year price" : "Monthly";
+      el.textContent = isAnnual ? "Yearly - save 25%" : "Monthly";
     });
     billingOptions.forEach((option) => {
       option.classList.toggle(
@@ -666,7 +667,7 @@ function getHashTarget() {
 function setupHashScroll(cleanups) {
   const scrollToHash = () => {
     const target = getHashTarget();
-    if (target) target.scrollIntoView({ block: "start" });
+    if (target) smoothScrollToElement(target, 850);
   };
 
   if (window.location.hash) {
@@ -674,7 +675,7 @@ function setupHashScroll(cleanups) {
       requestAnimationFrame(scrollToHash);
     });
   } else {
-    window.scrollTo({ top: 0 });
+    smoothScrollTo(0, 650);
   }
 
   window.addEventListener("hashchange", scrollToHash);

@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import HomePage from "./pages/HomePage.jsx";
 import PageShell from "./components/PageShell.jsx";
+import { smoothScrollTo, smoothScrollToElement } from "./smoothScroll.js";
 import { useLandingInteractions } from "./useLandingInteractions.js";
 
 function lazyWithPreload(loader) {
@@ -59,14 +60,15 @@ function useClientNavigation(setPage) {
       idlePreloadId = window.setTimeout(warmRoutes, 2200);
     }
 
-    const scrollToHomeSection = (targetId) => {
-      window.setTimeout(() => {
-        const target = document.getElementById(targetId);
-        if (!target) return;
+    const scrollToHomeSection = (targetId, attempts = 0) => {
+      const target = document.getElementById(targetId);
+      if (!target) {
+        if (attempts < 12) requestAnimationFrame(() => scrollToHomeSection(targetId, attempts + 1));
+        return;
+      }
 
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        window.history.replaceState(null, "", "/");
-      }, 80);
+      smoothScrollToElement(target);
+      window.history.replaceState(null, "", "/");
     };
 
     const navigate = (url, scrollTarget = "") => {
@@ -85,7 +87,7 @@ function useClientNavigation(setPage) {
       } else if (url.hash) {
         window.dispatchEvent(new HashChangeEvent("hashchange"));
       } else {
-        window.scrollTo({ top: 0 });
+        smoothScrollTo(0, 850);
       }
     };
 
@@ -247,44 +249,104 @@ const legalPages = {
     kicker: "Privacy Policy",
     title: "How YeneSchool handles school data.",
     description:
-      "Last updated: June 10, 2026. This policy explains what information we collect, why we use it, and how schools can request updates or deletion.",
-    ariaLabel: "Privacy policy content",
+      "Last updated: June 10, 2026. A clear guide to the school records we process, why we process them, and how authorized schools can control their data.",
+    ariaLabel: "Privacy policy content", 
     toc: [
       ["privacy-collect", "Information we collect"],
       ["privacy-use", "How we use it"],
+      ["privacy-share", "Sharing and disclosure"],
       ["privacy-security", "Security"],
+      ["privacy-retention", "Retention"],
       ["privacy-rights", "School rights"],
       ["privacy-contact", "Contact"],
     ],
     sections: [
-      [
-        "privacy-collect",
-        "Information We Collect",
-        "YeneSchool may collect school account details, administrator contact information, student and parent records entered by the school, staff records, attendance, marks, fee records, communication logs, support messages, and technical data needed to operate the service.",
-      ],
-      [
-        "privacy-use",
-        "How We Use Information",
-        "We use information to provide school management features, authenticate users, protect accounts, support implementation, respond to inquiries, improve product reliability, and send operational notices requested by the school.",
-      ],
-      [
-        "privacy-security",
-        "Data Security",
-        "We use access controls, role-based permissions, secure hosting practices, and operational safeguards to reduce unauthorized access. No internet service can guarantee absolute security, but we treat school records as sensitive operational data.",
-      ],
-      [
-        "privacy-rights",
-        "School Data Rights",
-        "Schools may request access, correction, export, or deletion of their data where technically and contractually possible. Requests should come from an authorized school owner or administrator.",
-      ],
-      [
-        "privacy-contact",
-        "Contact",
-        <>
-          For privacy questions, email <a href="mailto:yeneschool@gmail.com">yeneschool@gmail.com</a> or use the contact
-          page.
-        </>,
-      ],
+      {
+        id: "privacy-collect",
+        title: "Information We Collect",
+        body: [
+          "YeneSchool processes information that schools and authorized users provide while setting up and operating the school management system.",
+          "The exact records depend on the modules a school uses and the data entered by its staff.",
+        ],
+        bullets: [
+          "School profile, administrator contact details, subscription and implementation information.",
+          "Student records, parent and guardian details, enrollment information, class placement, attendance, marks, report cards, discipline, and documents.",
+          "Staff, teacher, finance, registrar, and user account records needed for role-based access.",
+          "Fee structures, payments, receipts, discounts, balances, and finance workflow records.",
+          "Support messages, contact form submissions, usage events, device/browser metadata, and technical logs needed to operate and secure the service.",
+        ],
+      },
+      {
+        id: "privacy-use",
+        title: "How We Use Information",
+        body: [
+          "We use school data to deliver the product features requested by the school, maintain the service, support users, and protect accounts.",
+        ],
+        bullets: [
+          "Authenticate users and apply role-based permissions.",
+          "Run school workflows such as admissions, attendance, grading, report cards, finance, communication, and parent portal access.",
+          "Generate exports, reports, dashboards, notices, receipts, and operational summaries requested by the school.",
+          "Respond to support requests, implementation questions, demo requests, and account issues.",
+          "Monitor reliability, troubleshoot errors, prevent abuse, and improve product performance.",
+        ],
+      },
+      {
+        id: "privacy-share",
+        title: "Sharing and Disclosure",
+        body: [
+          "We do not sell school records. We only disclose information when it is necessary to provide the service, comply with legal requirements, protect the platform, or support the school.",
+        ],
+        bullets: [
+          "Authorized school users can access records according to their assigned role and permissions.",
+          "Service providers may process limited data for hosting, email delivery, infrastructure, analytics, or support operations.",
+          "We may disclose information if required by law, court order, or a lawful government request.",
+          "We may share information to investigate abuse, security incidents, fraud, or threats to the service.",
+        ],
+      },
+      {
+        id: "privacy-security",
+        title: "Security",
+        body: [
+          "School records are sensitive operational data. We use technical and administrative safeguards to reduce unauthorized access and misuse.",
+        ],
+        bullets: [
+          "Role-based access controls and school-level data isolation.",
+          "Authentication, permission checks, audit-friendly operational records, and secure hosting practices.",
+          "Reasonable monitoring, backups, and maintenance processes to support reliability.",
+          "No internet service can guarantee absolute security, so schools should also protect account credentials and assign roles carefully.",
+        ],
+      },
+      {
+        id: "privacy-retention",
+        title: "Retention",
+        body: [
+          "We keep data for as long as needed to provide the service, support school operations, comply with obligations, resolve disputes, and maintain backups.",
+          "Schools may request deletion or export where technically and contractually possible. Some backup, audit, billing, or legal records may be retained for a limited period after deletion requests.",
+        ],
+      },
+      {
+        id: "privacy-rights",
+        title: "School Data Rights",
+        body: [
+          "Authorized school owners or administrators may request access, correction, export, or deletion of their school data.",
+          "For security, we may need to verify the requester before completing a data request.",
+        ],
+        bullets: [
+          "Request a copy or export of school records.",
+          "Ask for inaccurate records to be corrected.",
+          "Request deletion of school data where legally and technically possible.",
+          "Ask questions about how data is processed or protected.",
+        ],
+      },
+      {
+        id: "privacy-contact",
+        title: "Contact",
+        body: [
+          <>
+            For privacy questions or school data requests, email <a href="mailto:yeneschool@gmail.com">yeneschool@gmail.com</a> or use the contact page.
+          </>,
+        ],
+      },
     ],
   },
   terms: {
@@ -292,41 +354,101 @@ const legalPages = {
     kicker: "Terms of Service",
     title: "Terms for using YeneSchool.",
     description:
-      "Last updated: June 10, 2026. These terms outline the responsibilities of schools, users, and YeneSchool when using the service.",
-    ariaLabel: "Terms content",
+      "Last updated: June 10, 2026. These terms explain how schools and authorized users may access YeneSchool and what responsibilities apply when using the service.",
+    ariaLabel: "Terms content", 
     toc: [
       ["terms-acceptance", "Acceptance"],
       ["terms-service", "Service"],
       ["terms-responsibilities", "Responsibilities"],
+      ["terms-accounts", "Accounts"],
+      ["terms-payments", "Payments"],
       ["terms-availability", "Availability"],
       ["terms-liability", "Liability"],
+      ["terms-changes", "Changes"],
     ],
     sections: [
-      [
-        "terms-acceptance",
-        "Acceptance of Terms",
-        "By accessing or using YeneSchool, the school and its authorized users agree to use the service according to these terms and any written agreement between the school and YeneSchool.",
-      ],
-      [
-        "terms-service",
-        "Description of Service",
-        "YeneSchool provides school management tools for student records, attendance, assessments, report cards, finance workflows, parent access, staff operations, notices, and reporting.",
-      ],
-      [
-        "terms-responsibilities",
-        "User Responsibilities",
-        "Schools are responsible for accurate data entry, assigning appropriate roles, protecting account credentials, obtaining required permissions from families and staff, and using the system lawfully.",
-      ],
-      [
-        "terms-availability",
-        "Service Availability",
-        "We work to keep YeneSchool reliable and secure. Planned maintenance, internet issues, third-party outages, or emergency fixes may affect availability.",
-      ],
-      [
-        "terms-liability",
-        "Limitation of Liability",
-        "YeneSchool is provided for operational school management. To the extent allowed by law, we are not liable for indirect losses, missed decisions, or outcomes caused by inaccurate data entered by users.",
-      ],
+      {
+        id: "terms-acceptance",
+        title: "Acceptance of Terms",
+        body: [
+          "By accessing or using YeneSchool, the school and its authorized users agree to these terms and any written agreement between the school and YeneSchool.",
+          "If a user accesses the system on behalf of a school, that user confirms they are authorized to use the service for that school.",
+        ],
+      },
+      {
+        id: "terms-service",
+        title: "Description of Service",
+        body: [
+          "YeneSchool provides school management tools for daily academic, administrative, finance, communication, and reporting workflows.",
+        ],
+        bullets: [
+          "Student records, admissions, classes, sections, subjects, attendance, assessments, and report cards.",
+          "Fee management, receipts, balances, discounts, parent fee visibility, and finance summaries.",
+          "Parent, student, teacher, registrar, finance, admin, IT manager, and super admin workspaces.",
+          "Communication tools, notices, documents, dashboards, exports, and operational reports.",
+        ],
+      },
+      {
+        id: "terms-responsibilities",
+        title: "School and User Responsibilities",
+        body: [
+          "Schools are responsible for how their users configure and use the system. The accuracy of records depends on the information entered by authorized school users.",
+        ],
+        bullets: [
+          "Enter accurate student, parent, staff, academic, attendance, marks, and finance records.",
+          "Assign appropriate roles and permissions to users.",
+          "Protect usernames, passwords, exported files, and generated credentials.",
+          "Obtain any required consent or authority before entering family, student, staff, or financial information.",
+          "Use the system lawfully and avoid uploading illegal, harmful, or unauthorized content.",
+        ],
+      },
+      {
+        id: "terms-accounts",
+        title: "Accounts and Access",
+        body: [
+          "Access is controlled by accounts, roles, and school-level permissions. Schools should review user access regularly and remove accounts that no longer need access.",
+        ],
+        bullets: [
+          "Users must keep login credentials confidential.",
+          "Schools are responsible for activity performed through accounts they create or approve.",
+          "YeneSchool may suspend access if there is suspected abuse, security risk, unpaid service use, or violation of these terms.",
+        ],
+      },
+      {
+        id: "terms-payments",
+        title: "Plans, Payments, and Renewals",
+        body: [
+          "Pricing, payment schedules, included modules, onboarding terms, and renewals may be defined on the website, invoice, proposal, or written agreement with the school.",
+          "Some prices may be launch, promotional, first-year, or plan-specific offers. Renewal pricing may differ by plan.",
+        ],
+      },
+      {
+        id: "terms-availability",
+        title: "Service Availability",
+        body: [
+          "We work to keep YeneSchool reliable and secure, but uninterrupted access is not guaranteed.",
+        ],
+        bullets: [
+          "Planned maintenance, internet connectivity, hosting incidents, third-party provider issues, browser/device limitations, or urgent security fixes may affect availability.",
+          "We may update, modify, add, or remove features to improve the service or maintain platform security.",
+          "Schools should keep appropriate offline or exported backups for critical operational needs.",
+        ],
+      },
+      {
+        id: "terms-liability",
+        title: "Limitation of Liability",
+        body: [
+          "YeneSchool is provided for operational school management. To the extent allowed by law, we are not liable for indirect losses, lost revenue, missed decisions, data entered incorrectly by users, or outcomes caused by unauthorized account use.",
+          "The school remains responsible for academic decisions, financial decisions, legal compliance, and communication with students, families, and staff.",
+        ],
+      },
+      {
+        id: "terms-changes",
+        title: "Changes to These Terms",
+        body: [
+          "We may update these terms as the product, legal requirements, or school workflows change. The updated date at the top of this page identifies the latest version.",
+        ],
+      },
     ],
   },
   cookiePolicy: {
@@ -334,35 +456,65 @@ const legalPages = {
     kicker: "Cookie Policy",
     title: "How cookies support the YeneSchool site.",
     description:
-      "Last updated: June 10, 2026. This policy explains the small browser files and local preferences used by our website and product.",
-    ariaLabel: "Cookie policy content",
+      "Last updated: June 10, 2026. This policy explains how cookies, local storage, and browser preferences help the website and product work reliably.",
+    ariaLabel: "Cookie policy content", 
     toc: [
       ["cookie-what", "What cookies are"],
       ["cookie-use", "How we use them"],
+      ["cookie-types", "Types we use"],
       ["cookie-control", "Your controls"],
       ["cookie-changes", "Changes"],
     ],
     sections: [
-      [
-        "cookie-what",
-        "What Are Cookies?",
-        "Cookies and local storage are small pieces of data saved in your browser. They help websites remember settings, keep sessions working, and understand basic usage patterns.",
-      ],
-      [
-        "cookie-use",
-        "How We Use Cookies",
-        "YeneSchool may use essential cookies for login and security, preference storage for theme and language choices, and limited analytics to understand page performance and improve the service.",
-      ],
-      [
-        "cookie-control",
-        "How to Manage Cookies",
-        "You can block or delete cookies in your browser settings. Some essential features, including sign-in or saved preferences, may not work correctly if cookies are disabled.",
-      ],
-      [
-        "cookie-changes",
-        "Changes to This Policy",
-        "We may update this policy as the website or product changes. The updated date at the top of this page shows the latest version.",
-      ],
+      {
+        id: "cookie-what",
+        title: "What Are Cookies and Local Storage?",
+        body: [
+          "Cookies are small text files saved by a browser. Local storage is browser storage used to remember settings or small pieces of product state.",
+          "Together, they help a website remember preferences, keep sessions working, improve security, and provide a smoother experience.",
+        ],
+      },
+      {
+        id: "cookie-use",
+        title: "How YeneSchool Uses Browser Storage",
+        body: [
+          "YeneSchool uses browser storage for practical product and website needs. We keep this focused on operation, security, preferences, and reliability.",
+        ],
+        bullets: [
+          "Remember theme and language preferences.",
+          "Support login, account security, and session behavior in the product.",
+          "Preserve form or workflow state where needed to avoid unnecessary user friction.",
+          "Understand basic site performance and errors so we can improve reliability.",
+        ],
+      },
+      {
+        id: "cookie-types",
+        title: "Types of Cookies We May Use",
+        body: [
+          "The exact cookies or local storage entries may change as features evolve, but they generally fall into these categories.",
+        ],
+        bullets: [
+          "Essential storage: required for login, security, routing, and core product operation.",
+          "Preference storage: remembers theme, language, and similar interface choices.",
+          "Performance storage: helps understand page reliability, loading behavior, and errors.",
+          "Support or communication storage: may help contact forms, demo requests, or support tools work correctly.",
+        ],
+      },
+      {
+        id: "cookie-control",
+        title: "How to Manage Cookies",
+        body: [
+          "You can block, delete, or limit cookies and local storage through your browser settings.",
+          "If you disable essential cookies or storage, sign-in, saved preferences, dashboards, or form behavior may not work correctly.",
+        ],
+      },
+      {
+        id: "cookie-changes",
+        title: "Changes to This Policy",
+        body: [
+          "We may update this policy as the website, product, hosting, or support tools change. The updated date at the top of this page shows the latest version.",
+        ],
+      },
     ],
   },
 };
@@ -386,10 +538,19 @@ function LegalPage({ config }) {
             ))}
           </aside>
           <article className="legal-content" data-reveal>
-            {config.sections.map(([id, title, body]) => (
+            {config.sections.map(({ id, title, body, bullets }) => (
               <section id={id} className="legal-section" key={id}>
                 <h2>{title}</h2>
-                <p>{body}</p>
+                {body.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+                {bullets?.length ? (
+                  <ul>
+                    {bullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </section>
             ))}
           </article>

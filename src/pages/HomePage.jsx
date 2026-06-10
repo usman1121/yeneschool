@@ -9,10 +9,11 @@ export default function HomePage() {
             <span /><span /><span />
           </div>
           <div className="hero-copy" data-reveal>
-            <h1 id="hero-title">Run your school from one simple system.</h1>
+            <h1 id="hero-title">Bring your whole school into one complete system.</h1>
             <p>
-              YeneSchool brings admissions, student records, attendance, marks,
-              report cards, finance, parents, and daily operations into one connected workspace.
+              YeneSchool is a modern school management platform that helps schools run
+              daily operations, connect staff and families, and keep important decisions
+              backed by clear, organized data.
             </p>
           </div>
           <div className="tailark-preview" data-reveal>
@@ -70,15 +71,10 @@ export default function HomePage() {
               <h3>Teacher</h3>
               <p>Works from assigned classes and subjects to submit attendance, lessons, assignments, grade entries, online exams, timetable activity, and class communication.</p>
             </article>
-            <article className="role-card role-card-tall">
+            <article className="role-card">
               <span className="role-icon">PA</span>
               <h3>Parent</h3>
               <p>Follows each linked child through published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates.</p>
-              <ul className="role-list">
-                <li>Academic-year attendance</li>
-                <li>Published report cards</li>
-                <li>Fees and announcements</li>
-              </ul>
             </article>
             <article className="role-card">
               <span className="role-icon">RG</span>
@@ -287,8 +283,8 @@ export default function HomePage() {
             <p className="pricing-eyebrow">Plans &amp; Pricing</p>
             <h2>Start lean. <span>Grow into the full system.</span></h2>
             <p>
-              Keep the plans easy to understand: core school records first, then academic-finance workflows,
-              then automation and advanced operations for larger schools.
+              Choose monthly, 6-month, or yearly payment. Six-month payment saves 10%,
+              and yearly payment saves 25% compared with paying month by month.
             </p>
           </div>
           <div className="pricing-toggle">
@@ -304,15 +300,14 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">CORE</p>
                 <p className="plan-audience">Small Schools</p>
-                <p className="plan-desc">The essentials for getting the school out of paper files and scattered sheets.</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">30,000 ETB/year</span>
+                  <span className="renewal-price annual-only">24,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>Monthly</span>
                 </div>
                 <p className="launch-price" data-monthly-price="2,000 ETB/mo" data-annual-price="18,000 ETB/year">2,000 ETB/mo</p>
-                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="Then regular yearly plan applies">Billed monthly</p>
+                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="25% yearly discount. Pay once for the year.">Billed monthly</p>
               </div>
               <div className="service-plans" aria-label="Service payment options">
                 <div className="service-plan is-active" data-billing-option="monthly">
@@ -327,7 +322,7 @@ export default function HomePage() {
                 <div className="service-plan" data-billing-option="annual">
                   <div><strong>Yearly</strong><small>18,000 ETB billed yearly</small></div>
                   <span>1,500/mo</span>
-                  <em>Best value</em>
+                  <em>Save 25%</em>
                 </div>
               </div>
               <ul className="plan-features">
@@ -348,30 +343,29 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">STANDARD</p>
                 <p className="plan-audience">Growing Schools</p>
-                <p className="plan-desc">For schools ready to connect academics, finance, parents, and communication.</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">50,000 ETB/year</span>
+                  <span className="renewal-price annual-only">60,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>Monthly</span>
                 </div>
-                <p className="launch-price" data-monthly-price="2,000 ETB/mo" data-annual-price="18,000 ETB/year">2,000 ETB/mo</p>
-                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="Then regular yearly plan applies">Billed monthly</p>
+                <p className="launch-price" data-monthly-price="5,000 ETB/mo" data-annual-price="45,000 ETB/year">5,000 ETB/mo</p>
+                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="25% yearly discount. Pay once for the year.">Billed monthly</p>
               </div>
               <div className="service-plans" aria-label="Service payment options">
                 <div className="service-plan is-active" data-billing-option="monthly">
                   <div><strong>Monthly</strong><small>Billed monthly</small></div>
-                  <span>2,000/mo</span>
+                  <span>5,000/mo</span>
                 </div>
                 <div className="service-plan">
-                  <div><strong>6 Months</strong><small>10,800 ETB billed every 6 months</small></div>
-                  <span>1,800/mo</span>
+                  <div><strong>6 Months</strong><small>27,000 ETB billed every 6 months</small></div>
+                  <span>4,500/mo</span>
                   <em>Save 10%</em>
                 </div>
                 <div className="service-plan" data-billing-option="annual">
-                  <div><strong>Yearly</strong><small>18,000 ETB billed yearly</small></div>
-                  <span>1,500/mo</span>
-                  <em>Best value</em>
+                  <div><strong>Yearly</strong><small>45,000 ETB billed yearly</small></div>
+                  <span>3,750/mo</span>
+                  <em>Save 25%</em>
                 </div>
               </div>
               <ul className="plan-features">
@@ -388,30 +382,29 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">ULTIMATE</p>
                 <p className="plan-audience">Large Schools</p>
-                <p className="plan-desc">For schools that need automation, deeper reports, and stronger daily operations.</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">80,000 ETB/year</span>
+                  <span className="renewal-price annual-only">120,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>Monthly</span>
                 </div>
-                <p className="launch-price" data-monthly-price="2,000 ETB/mo" data-annual-price="18,000 ETB/year">2,000 ETB/mo</p>
-                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="Then regular yearly plan applies">Billed monthly</p>
+                <p className="launch-price" data-monthly-price="10,000 ETB/mo" data-annual-price="90,000 ETB/year">10,000 ETB/mo</p>
+                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="25% yearly discount. Pay once for the year.">Billed monthly</p>
               </div>
               <div className="service-plans" aria-label="Service payment options">
                 <div className="service-plan is-active" data-billing-option="monthly">
                   <div><strong>Monthly</strong><small>Billed monthly</small></div>
-                  <span>2,000/mo</span>
+                  <span>10,000/mo</span>
                 </div>
                 <div className="service-plan">
-                  <div><strong>6 Months</strong><small>10,800 ETB billed every 6 months</small></div>
-                  <span>1,800/mo</span>
+                  <div><strong>6 Months</strong><small>54,000 ETB billed every 6 months</small></div>
+                  <span>9,000/mo</span>
                   <em>Save 10%</em>
                 </div>
                 <div className="service-plan" data-billing-option="annual">
-                  <div><strong>Yearly</strong><small>18,000 ETB billed yearly</small></div>
-                  <span>1,500/mo</span>
-                  <em>Best value</em>
+                  <div><strong>Yearly</strong><small>90,000 ETB billed yearly</small></div>
+                  <span>7,500/mo</span>
+                  <em>Save 25%</em>
                 </div>
               </div>
               <ul className="plan-features">

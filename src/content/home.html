@@ -23,7 +23,7 @@
             <a href="#modules">Modules</a>
             <a href="#parent-visibility">Solution</a>
             <a href="#pricing">Pricing</a>
-            <a href="#testimonials">About</a>
+            <a href="./contact.html">Contact</a>
           </nav>
           <div class="header-actions">
             <button class="theme-switcher" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="true">
@@ -47,14 +47,11 @@
           <span></span><span></span><span></span>
         </div>
         <div class="hero-copy" data-reveal>
-          <h1 id="hero-title">Modern software testing reimagined</h1>
+          <h1 id="hero-title">Run your school from one simple system.</h1>
           <p>
-            Build reliable school workflows with clean APIs, test data, webhook
-            replay, and production-ready dashboards for every team.
+            YeneSchool brings admissions, student records, attendance, marks,
+            report cards, finance, parents, and daily operations into one connected workspace.
           </p>
-          <div class="hero-actions">
-            <a class="primary-btn gradient-btn" href="#snippets">Start Building</a>
-          </div>
         </div>
 
         <div class="tailark-preview" data-reveal>
@@ -73,20 +70,21 @@
         </div>
       </section>
 
-      <section class="partner-section" aria-label="Partner companies" data-reveal>
-        <h2>Your favorite companies are our partners.</h2>
-        <div class="partner-logos">
-          <span>Nvidia</span>
-          <span>Column</span>
-          <span>GitHub</span>
-          <span>Nike</span>
-          <span>Laravel</span>
-          <span>Lilly</span>
-          <span>Lemon Squeezy</span>
-          <span>OpenAI</span>
-          <span>Tailwind CSS</span>
-          <span>Vercel</span>
-          <span>Zapier</span>
+      <section class="school-signals-section" aria-label="School workflows covered by YeneSchool" data-reveal>
+        <h2>Built around the daily work of real schools.</h2>
+        <div class="school-signals">
+          <span>Admissions</span>
+          <span>Student records</span>
+          <span>Attendance</span>
+          <span>Marks</span>
+          <span>Online examinations</span>
+          <span>Report cards</span>
+          <span>Parent portal</span>
+          <span>Finance</span>
+          <span>Announcements</span>
+          <span>Teacher workspace</span>
+          <span>Timetables</span>
+          <span>School operations</span>
         </div>
       </section>
 
@@ -192,6 +190,11 @@
             <strong>Marks &amp; Report Cards</strong>
             <small>Assessments, score entry, exam results, publishing readiness, certificates, parent-visible results, and promotion checks.</small>
           </a>
+          <a class="module-feature-card" href="./modules.html#online-examinations">
+            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M8 9h5M8 12h3M16 9l1.5 1.5L20 8"/></svg></span>
+            <strong>Online Examinations</strong>
+            <small>Teacher-created exams with access codes, timers, question banks, autosaved answers, submissions, scoring, and student result review.</small>
+          </a>
           <a class="module-feature-card" href="./modules.html#finance">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M7 15h.01M11 15h2"/></svg></span>
             <strong>Finance</strong>
@@ -238,21 +241,32 @@
 
           <div class="parent-preview">
             <article class="parent-panel is-active" role="tabpanel" id="parent-panel-attendance" aria-labelledby="parent-tab-attendance" data-parent-panel="attendance">
-              <div class="phone-shell">
-                <div class="phone-topbar">
-                  <span>Parent portal</span>
+              <div class="parent-portal-preview">
+                <div class="portal-topbar">
+                  <div>
+                    <span>Parent Portal</span>
+                    <strong>Selam Bekele</strong>
+                  </div>
                   <b>2018 E.C.</b>
                 </div>
-                <div class="student-row">
+                <div class="portal-student-strip">
                   <span class="avatar">SB</span>
-                  <div><strong>Selam Bekele</strong><small>Grade 8A</small></div>
+                  <div>
+                    <strong>Grade 8A</strong>
+                    <small>Attendance published by homeroom teacher</small>
+                  </div>
+                  <span class="publish-badge">Submitted</span>
                 </div>
-                <div class="status-card good">
-                  <span>Submitted attendance</span>
-                  <strong>No issues in the selected period</strong>
+                <div class="portal-summary-row">
+                  <div><span>Present</span><strong>18</strong></div>
+                  <div><span>Late</span><strong>1</strong></div>
+                  <div><span>Absent</span><strong>0</strong></div>
                 </div>
-                <div class="attendance-days" aria-label="Attendance week preview">
-                  <span class="present">Mon</span><span class="present">Tue</span><span class="late">Wed</span><span class="present">Thu</span><span class="present">Fri</span>
+                <div class="portal-record-list" aria-label="Attendance week preview">
+                  <div><span>Monday</span><b class="good">Present</b></div>
+                  <div><span>Tuesday</span><b class="good">Present</b></div>
+                  <div><span>Wednesday</span><b class="warn">Late arrival</b></div>
+                  <div><span>Thursday</span><b class="good">Present</b></div>
                 </div>
               </div>
               <div class="parent-panel-copy">
@@ -262,20 +276,24 @@
             </article>
 
             <article class="parent-panel" role="tabpanel" id="parent-panel-reports" aria-labelledby="parent-tab-reports" data-parent-panel="reports" hidden>
-              <div class="phone-shell">
-                <div class="phone-topbar">
-                  <span>Report card</span>
-                  <b>Term 3</b>
+              <div class="parent-portal-preview">
+                <div class="portal-topbar">
+                  <div>
+                    <span>Report Card</span>
+                    <strong>Term 3 results</strong>
+                  </div>
+                  <b>Published</b>
                 </div>
-                <div class="score-card">
+                <div class="portal-highlight">
                   <span>Average</span>
                   <strong>91%</strong>
-                  <small>Published by school admin</small>
+                  <small>Released after admin approval</small>
                 </div>
-                <div class="subject-list">
-                  <div><span>Mathematics</span><b>A</b></div>
-                  <div><span>English</span><b>A-</b></div>
-                  <div><span>Science</span><b>A</b></div>
+                <div class="portal-record-list">
+                  <div><span>Mathematics</span><b class="good">A</b></div>
+                  <div><span>English</span><b class="good">A-</b></div>
+                  <div><span>Science</span><b class="good">A</b></div>
+                  <div><span>Conduct note</span><b>Excellent</b></div>
                 </div>
               </div>
               <div class="parent-panel-copy">
@@ -285,19 +303,24 @@
             </article>
 
             <article class="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
-              <div class="phone-shell">
-                <div class="phone-topbar">
-                  <span>Finance</span>
+              <div class="parent-portal-preview">
+                <div class="portal-topbar">
+                  <div>
+                    <span>Finance</span>
+                    <strong>Payment status</strong>
+                  </div>
                   <b>Plan active</b>
                 </div>
-                <div class="status-card warn">
+                <div class="portal-highlight">
                   <span>Next installment</span>
                   <strong>Due in 8 days</strong>
+                  <small>Receipt available after finance confirmation</small>
                 </div>
-                <div class="fee-list">
-                  <div><span>Tuition</span><b>Paid</b></div>
-                  <div><span>Transport</span><b>Pending</b></div>
-                  <div><span>Receipt</span><b>Available</b></div>
+                <div class="portal-record-list">
+                  <div><span>Tuition</span><b class="good">Paid</b></div>
+                  <div><span>Transport</span><b class="warn">Pending</b></div>
+                  <div><span>Discount</span><b>Applied</b></div>
+                  <div><span>Latest receipt</span><b>Available</b></div>
                 </div>
               </div>
               <div class="parent-panel-copy">
@@ -307,104 +330,25 @@
             </article>
 
             <article class="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>
-              <div class="phone-shell">
-                <div class="phone-topbar">
-                  <span>Notifications</span>
+              <div class="parent-portal-preview">
+                <div class="portal-topbar">
+                  <div>
+                    <span>Notices</span>
+                    <strong>School updates</strong>
+                  </div>
                   <b>3 new</b>
                 </div>
-                <div class="notice-list">
-                  <div><strong>Report card published</strong><small>Term 3 is ready to view.</small></div>
-                  <div><strong>Attendance update</strong><small>Late arrival recorded Wednesday.</small></div>
-                  <div><strong>School announcement</strong><small>Parent meeting moved to Friday.</small></div>
+                <div class="portal-record-list portal-notice-list">
+                  <div><span>Report card published</span><small>Term 3 is ready to view.</small></div>
+                  <div><span>Attendance update</span><small>Late arrival recorded Wednesday.</small></div>
+                  <div><span>School announcement</span><small>Parent meeting moved to Friday.</small></div>
+                  <div><span>Communication book</span><small>Teacher reply received.</small></div>
                 </div>
               </div>
               <div class="parent-panel-copy">
                 <h3>Announcements and alerts stay in one parent channel.</h3>
                 <p>Schools can publish notices, absence alerts, and report-card updates without fragmented message groups.</p>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-
-
-
-
-      <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-title" data-reveal>
-        <div class="section-heading compact">
-          <p class="eyebrow">Testimonials</p>
-          <h2 id="testimonials-title">Trusted by teams building better school operations.</h2>
-        </div>
-        <div
-          class="marquee testimonial-marquee pause-on-hover"
-          role="marquee"
-          aria-label="Scrolling customer testimonials"
-          aria-live="off"
-          tabindex="0"
-        >
-          <div class="marquee-track">
-            <article class="testimonial-card">
-              <p>“Attendance, fee reminders, and parent updates finally move through one flow. Our team stopped reconciling three different spreadsheets.”</p>
-              <footer><strong>Hana Bekele</strong><small>Operations Lead, Bright Future Academy</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“The sandbox helped us test report-card publishing before touching production data. That made rollout much calmer for teachers.”</p>
-              <footer><strong>Michael Tesfaye</strong><small>IT Manager, Hilltop School</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“Webhook replay is the feature that saved us. We can audit every parent notification and recover cleanly when a vendor endpoint fails.”</p>
-              <footer><strong>Selam Yusuf</strong><small>Product Engineer, EdBridge</small></footer>
-            </article>
-          </div>
-          <div class="marquee-track" aria-hidden="true">
-            <article class="testimonial-card">
-              <p>“Attendance, fee reminders, and parent updates finally move through one flow. Our team stopped reconciling three different spreadsheets.”</p>
-              <footer><strong>Hana Bekele</strong><small>Operations Lead, Bright Future Academy</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“The sandbox helped us test report-card publishing before touching production data. That made rollout much calmer for teachers.”</p>
-              <footer><strong>Michael Tesfaye</strong><small>IT Manager, Hilltop School</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“Webhook replay is the feature that saved us. We can audit every parent notification and recover cleanly when a vendor endpoint fails.”</p>
-              <footer><strong>Selam Yusuf</strong><small>Product Engineer, EdBridge</small></footer>
-            </article>
-          </div>
-        </div>
-        <div
-          class="marquee testimonial-marquee marquee-reverse pause-on-hover"
-          role="marquee"
-          aria-label="Scrolling more customer testimonials"
-          aria-live="off"
-          tabindex="0"
-        >
-          <div class="marquee-track">
-            <article class="testimonial-card">
-              <p>“Finance and registrar teams now look at the same student record. The API scopes are practical and easy to explain to staff.”</p>
-              <footer><strong>Abel Girma</strong><small>Systems Coordinator, Unity College</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“We integrated parent notices in a week. The docs and examples were clear enough for a small team to ship without extra consulting.”</p>
-              <footer><strong>Liya Mohammed</strong><small>Founder, ParentLink</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“The role-aware permissions match how schools actually work. Teachers, finance, and admins get clean boundaries out of the box.”</p>
-              <footer><strong>Samuel Dawit</strong><small>Director, Sunrise Primary</small></footer>
-            </article>
-          </div>
-          <div class="marquee-track" aria-hidden="true">
-            <article class="testimonial-card">
-              <p>“Finance and registrar teams now look at the same student record. The API scopes are practical and easy to explain to staff.”</p>
-              <footer><strong>Abel Girma</strong><small>Systems Coordinator, Unity College</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“We integrated parent notices in a week. The docs and examples were clear enough for a small team to ship without extra consulting.”</p>
-              <footer><strong>Liya Mohammed</strong><small>Founder, ParentLink</small></footer>
-            </article>
-            <article class="testimonial-card">
-              <p>“The role-aware permissions match how schools actually work. Teachers, finance, and admins get clean boundaries out of the box.”</p>
-              <footer><strong>Samuel Dawit</strong><small>Director, Sunrise Primary</small></footer>
             </article>
           </div>
         </div>
@@ -472,7 +416,7 @@
               <li><svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Secure login and role-based access</span></li>
             </ul>
             <hr class="plan-divider" />
-            <a class="pricing-btn" href="#contact">Contact Sales</a>
+            <a class="pricing-btn" href="./contact.html">Contact Sales</a>
           </article>
 
           <article class="pricing-card popular" data-plan="standard">
@@ -517,7 +461,7 @@
               <li><svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Messaging, lessons, discipline, and parent portal</span></li>
             </ul>
             <hr class="plan-divider" />
-            <a class="pricing-btn primary" href="#contact">Contact Sales</a>
+            <a class="pricing-btn primary" href="./contact.html">Contact Sales</a>
           </article>
 
           <article class="pricing-card pricing-side-right" data-plan="ultimate">
@@ -558,7 +502,7 @@
               <li><svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Siren schedules, custom branding, and backups</span></li>
             </ul>
             <hr class="plan-divider" />
-            <a class="pricing-btn" href="#contact">Contact Sales</a>
+            <a class="pricing-btn" href="./contact.html">Contact Sales</a>
           </article>
         </div>
       </section>
@@ -608,6 +552,7 @@
               <ul>
                 <li><a href="./modules.html#academic-management">Academics</a></li>
                 <li><a href="./modules.html#attendance">Attendance</a></li>
+                <li><a href="./modules.html#online-examinations">Online exams</a></li>
                 <li><a href="./modules.html#finance">Finance</a></li>
                 <li><a href="./modules.html#user-portals">Portals</a></li>
               </ul>
@@ -619,7 +564,7 @@
                 <li><a href="./modules.html#automation-reporting">Reports</a></li>
                 <li><a href="./modules.html#security-permissions">Permissions</a></li>
                 <li><a href="./modules.html#operations">Operations</a></li>
-                <li><a href="#contact">Contact sales</a></li>
+                <li><a href="./contact.html">Contact sales</a></li>
               </ul>
             </section>
 

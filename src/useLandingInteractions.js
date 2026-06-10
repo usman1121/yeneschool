@@ -354,6 +354,56 @@ function setupPricingToggle(cleanups) {
   cleanups.push(() => pricingSwitch.removeEventListener("change", handleChange));
 }
 
+function setupContactForm(cleanups) {
+  const form = document.querySelector("[data-contact-form]");
+  if (!form) return;
+
+  const status = form.querySelector("[data-contact-status]");
+  const submit = form.querySelector("button[type='submit']");
+  const submitLabel = form.querySelector("[data-contact-submit-label]");
+  const defaultLabel = submitLabel?.textContent || "Send message";
+
+  const setStatus = (message, state = "idle") => {
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.state = state;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    submit?.setAttribute("disabled", "true");
+    if (submitLabel) submitLabel.textContent = "Sending...";
+    setStatus("", "idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || "Could not send the message.");
+      }
+
+      form.reset();
+      setStatus("Message sent. We will reply as soon as possible.", "success");
+    } catch (error) {
+      setStatus(error.message || "Could not send the message. Please try again.", "error");
+    } finally {
+      submit?.removeAttribute("disabled");
+      if (submitLabel) submitLabel.textContent = defaultLabel;
+    }
+  };
+
+  form.addEventListener("submit", handleSubmit);
+  cleanups.push(() => form.removeEventListener("submit", handleSubmit));
+}
+
 function setupReveals(cleanups) {
   const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -404,6 +454,7 @@ export function useLandingInteractions(page) {
     setupMobileMenu(cleanups);
     setupParentTabs(cleanups);
     setupPricingToggle(cleanups);
+    setupContactForm(cleanups);
     setupReveals(cleanups);
     setupCanvas(cleanups);
 

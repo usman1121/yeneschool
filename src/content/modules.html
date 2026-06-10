@@ -3,7 +3,7 @@
 
     <header class="site-header" data-site-header>
       <div class="nav-inner">
-        <a class="brand" href="./index.html#top" aria-label="YeneSchool home">
+        <a class="brand" href="/" aria-label="YeneSchool home">
           <span class="brand-wordmark">
             <span>Yene</span>
             <span>School</span>
@@ -19,13 +19,17 @@
         </button>
         <div class="nav-panel" data-mobile-menu>
           <nav class="nav-links" aria-label="Primary navigation">
-            <a href="./index.html#roles">Features</a>
-            <a href="./modules.html" aria-current="page">Modules</a>
-            <a href="./index.html#parent-visibility">Solution</a>
-            <a href="./index.html#pricing">Pricing</a>
-            <a href="./contact.html">Contact</a>
+            <a href="/">Features</a>
+            <a href="/modules" aria-current="page">Modules</a>
+            <a href="/">Pricing</a>
+            <a href="/book">Book</a>
+            <a href="/contact">Contact</a>
           </nav>
           <div class="header-actions">
+            <div class="language-switcher" role="group" aria-label="Language selection" data-language-switcher>
+              <button class="language-option is-active" type="button" data-language-option="en" aria-pressed="true">EN</button>
+              <button class="language-option" type="button" data-language-option="am" aria-pressed="false">አማ</button>
+            </div>
             <button class="theme-switcher" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="true">
               <span class="sr-only" data-theme-label>Switch to light mode</span>
               <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -87,7 +91,7 @@
             <span class="section-kicker">Module Checklist</span>
             <h2 id="module-checklist-title">What each part of the system helps your school manage.</h2>
           </div>
-          <a class="secondary-btn" href="./index.html#pricing">See pricing</a>
+          <a class="secondary-btn" href="/">See pricing</a>
         </div>
 
         <div class="modules-directory-grid">
@@ -227,7 +231,7 @@
         <div class="footer-grid">
           <div class="footer-brand-col" data-reveal>
             <div class="footer-logo-row">
-              <a class="footer-brand" href="./index.html#top" aria-label="YeneSchool home">
+              <a class="footer-brand" href="/" aria-label="YeneSchool home">
                 <span class="brand-wordmark footer-wordmark" id="footer-title">
                   <span>Yene</span>
                   <span>School</span>
@@ -243,9 +247,10 @@
             <section data-reveal>
               <h3>Product</h3>
               <ul>
-                <li><a href="./modules.html">Modules</a></li>
-                <li><a href="./index.html#pricing">Pricing</a></li>
-                <li><a href="./index.html#parent-visibility">Parent visibility</a></li>
+                <li><a href="/modules">Modules</a></li>
+                <li><a href="/">Pricing</a></li>
+                <li><a href="/">Parent visibility</a></li>
+                <li><a href="/book">Book a demo</a></li>
               </ul>
             </section>
             <section data-reveal>
@@ -265,6 +270,14 @@
                 <li><a href="#security-permissions">Permissions</a></li>
               </ul>
             </section>
+            <section data-reveal>
+              <h3>Legal</h3>
+              <ul>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/cookie-policy">Cookie Policy</a></li>
+              </ul>
+            </section>
             <section id="contact" data-reveal>
               <h3>Contact Us</h3>
               <ul>
@@ -277,7 +290,7 @@
         </div>
         <div class="footer-bottom">
           <p><span>All rights reserved.</span></p>
-          <p>&copy; 2025 YeneSchool</p>
+          <p>&copy; <span data-current-year></span> YeneSchool</p>
         </div>
       </div>
     </footer>

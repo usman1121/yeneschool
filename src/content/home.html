@@ -3,7 +3,7 @@
 
     <header class="site-header" data-site-header>
       <div class="nav-inner">
-        <a class="brand" href="#top" aria-label="YeneSchool home">
+        <a class="brand" href="/" aria-label="YeneSchool home">
           <span class="brand-wordmark">
             <span>Yene</span>
             <span>School</span>
@@ -19,13 +19,17 @@
         </button>
         <div class="nav-panel" data-mobile-menu>
           <nav class="nav-links" aria-label="Primary navigation">
-            <a href="#roles">Features</a>
-            <a href="#modules">Modules</a>
-            <a href="#parent-visibility">Solution</a>
-            <a href="#pricing">Pricing</a>
-            <a href="./contact.html">Contact</a>
+            <a href="/" data-scroll-target="roles">Features</a>
+            <a href="/" data-scroll-target="modules">Modules</a>
+            <a href="/" data-scroll-target="pricing">Pricing</a>
+            <a href="/book">Book</a>
+            <a href="/contact">Contact</a>
           </nav>
           <div class="header-actions">
+            <div class="language-switcher" role="group" aria-label="Language selection" data-language-switcher>
+              <button class="language-option is-active" type="button" data-language-option="en" aria-pressed="true">EN</button>
+              <button class="language-option" type="button" data-language-option="am" aria-pressed="false">አማ</button>
+            </div>
             <button class="theme-switcher" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="true">
               <span class="sr-only" data-theme-label>Switch to light mode</span>
               <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,16 +59,26 @@
         </div>
 
         <div class="tailark-preview" data-reveal>
-          <div class="preview-perspective">
+          <div class="preview-perspective" data-dashboard-frame>
             <div class="preview-skew">
               <img
                 class="tailark-dashboard-img"
                 src="./assets/admin.png"
                 alt="YeneSchool admin dashboard preview"
+                data-dashboard-image
                 width="1920"
                 height="1198"
                 loading="eager"
               />
+            </div>
+          </div>
+          <div class="hero-dashboard-switcher" data-dashboard-slider aria-label="Dashboard previews">
+            <div class="dashboard-slide-dots" role="tablist" aria-label="Choose dashboard preview">
+              <button class="dashboard-dot is-active" type="button" data-dashboard-slide="0" aria-label="Show Admin dashboard" aria-selected="true"></button>
+              <button class="dashboard-dot" type="button" data-dashboard-slide="1" aria-label="Show Teacher dashboard" aria-selected="false"></button>
+              <button class="dashboard-dot" type="button" data-dashboard-slide="2" aria-label="Show Parent dashboard" aria-selected="false"></button>
+              <button class="dashboard-dot" type="button" data-dashboard-slide="3" aria-label="Show Finance dashboard" aria-selected="false"></button>
+              <button class="dashboard-dot" type="button" data-dashboard-slide="4" aria-label="Show Registrar dashboard" aria-selected="false"></button>
             </div>
           </div>
         </div>
@@ -93,69 +107,58 @@
           <p class="eyebrow">Role-Based Workflows</p>
           <h2 id="roles-title">Every school team gets the workspace they actually need.</h2>
           <p>
-            YeneSchool SMS separates authority, daily tasks, parent visibility, and operational support so each role works from a focused portal.
+            YeneSchool SMS separates school ownership, academic operations, registration, teaching,
+            finance, parent follow-up, student self-service, and IT support into role-specific dashboards.
+            Each user sees the records, actions, alerts, and reports they are responsible for.
           </p>
         </div>
 
         <div class="role-bento">
-          <article class="role-card role-card-large">
-            <div class="role-card-top">
-              <span class="role-kicker">School Owner</span>
-              <strong>Command center</strong>
-            </div>
-            <p>Track academic health, fee movement, staff activity, parent communication, school settings, and year-end readiness from one leadership view.</p>
-            <div class="role-metrics" aria-label="Owner dashboard metrics">
-              <span><b>8</b> portals</span>
-              <span><b>1</b> school source</span>
-              <span><b>Live</b> oversight</span>
-            </div>
-          </article>
-
           <article class="role-card">
             <span class="role-icon">AD</span>
             <h3>Admin</h3>
-            <p>Coordinates dashboards, school settings, announcements, teacher activity, and operational controls.</p>
+            <p>Runs academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion readiness, siren schedules, and school configuration.</p>
           </article>
 
           <article class="role-card">
             <span class="role-icon">TE</span>
             <h3>Teacher</h3>
-            <p>Handles attendance, gradebook, assignments, lesson activity, class notices, and current-period alerts.</p>
+            <p>Works from assigned classes and subjects to submit attendance, lessons, assignments, grade entries, online exams, timetable activity, and class communication.</p>
           </article>
 
           <article class="role-card role-card-tall">
             <span class="role-icon">PA</span>
             <h3>Parent</h3>
-            <p>Sees submitted attendance, report cards, grades, announcements, notifications, and fee status without calling the office.</p>
+            <p>Follows each linked child through published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates.</p>
             <ul class="role-list">
               <li>Academic-year attendance</li>
               <li>Published report cards</li>
-              <li>School notifications</li>
+              <li>Fees and announcements</li>
             </ul>
           </article>
 
           <article class="role-card">
             <span class="role-icon">RG</span>
             <h3>Registrar</h3>
-            <p>Manages enrollment, sections, student records, candidate flows, exams, and promotion movement.</p>
+            <p>Handles enrollment requests, student records, parent links, class placement, registrar dashboards, promotion movement, national-exam candidates, and school-leaving workflows.</p>
           </article>
 
           <article class="role-card">
             <span class="role-icon">FI</span>
             <h3>Finance</h3>
-            <p>Owns fee structures, installments, overdue follow-up, receipts, and finance reports.</p>
+            <p>Owns fee structures, installment plans, student balances, discounts, receipts, overdue follow-up, payroll access, finance summaries, and parent-visible fee records.</p>
           </article>
 
           <article class="role-card">
             <span class="role-icon">ST</span>
             <h3>Student</h3>
-            <p>Accesses assignments, grades, practice exams, class updates, and academic progress.</p>
+            <p>Checks timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress.</p>
           </article>
 
           <article class="role-card">
             <span class="role-icon">IT</span>
             <h3>IT Manager</h3>
-            <p>Supports system operations and academic visibility without taking over school-owner authority.</p>
+            <p>Supports academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review without becoming the school owner.</p>
           </article>
         </div>
       </section>
@@ -170,55 +173,50 @@
         </div>
 
         <div class="modules-preview-grid" aria-label="YeneSchool module highlights">
-          <a class="module-feature-card" href="./modules.html#academic-management">
+          <a class="module-feature-card" href="/modules#academic-management">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h7M8 11h6"/></svg></span>
             <strong>Academic Management</strong>
             <small>Academic years, terms, Grade 1-8 or Grade 1-12 settings, classes, sections, subjects, assignments, and period times.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#student-management">
+          <a class="module-feature-card" href="/modules#student-management">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></span>
             <strong>Student Records</strong>
             <small>Admissions, registrar review, parent links, class placement, bulk import, credentials, ID cards, and promotion history.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#attendance">
+          <a class="module-feature-card" href="/modules#attendance">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
             <strong>Attendance</strong>
             <small>Session-based attendance with submitted records, offline sync payloads, teacher entry, parent views, and absence/late notifications.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#marks-report-cards">
+          <a class="module-feature-card" href="/modules#marks-report-cards">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span>
             <strong>Marks &amp; Report Cards</strong>
             <small>Assessments, score entry, exam results, publishing readiness, certificates, parent-visible results, and promotion checks.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#online-examinations">
+          <a class="module-feature-card" href="/modules#online-examinations">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M8 9h5M8 12h3M16 9l1.5 1.5L20 8"/></svg></span>
             <strong>Online Examinations</strong>
             <small>Teacher-created exams with access codes, timers, question banks, autosaved answers, submissions, scoring, and student result review.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#finance">
-            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M7 15h.01M11 15h2"/></svg></span>
-            <strong>Finance</strong>
-            <small>Fee structures by grade range, assigned student fees, receipts, discounts, overdue reports, parent fee views, and audit logs.</small>
+          <a class="module-feature-card" href="/modules#local-school-support">
+            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span>
+            <strong>Multi-language Support</strong>
+            <small>Support for 5 languages across local school workflows, calendars, labels, and parent-facing communication.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#communication">
+          <a class="module-feature-card" href="/modules#communication">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg></span>
             <strong>Communication</strong>
             <small>Announcements, communication book, internal messaging, read tracking, notification preferences, push subscriptions, and school events.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#automation-reporting">
+          <a class="module-feature-card" href="/modules#automation-reporting">
             <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-7"/></svg></span>
             <strong>Automation &amp; Reporting</strong>
             <small>Dashboards, teacher leaderboard, entry progress, parent presentation reports, data-quality checks, search, exports, and backups.</small>
           </a>
-          <a class="module-feature-card" href="./modules.html#user-portals">
-            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h4M8 13h8M16 9h.01"/></svg></span>
-            <strong>User Portals</strong>
-            <small>Separate workspaces for super admin, admin, IT manager, registrar, teacher, student, parent, and finance roles.</small>
-          </a>
         </div>
 
         <div class="modules-preview-actions">
-          <a class="secondary-btn" href="./modules.html">View all modules</a>
+          <a class="secondary-btn" href="/modules">View all modules</a>
         </div>
       </section>
 
@@ -416,7 +414,7 @@
               <li><svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Secure login and role-based access</span></li>
             </ul>
             <hr class="plan-divider" />
-            <a class="pricing-btn" href="./contact.html">Contact Sales</a>
+            <a class="pricing-btn" href="/contact">Contact Sales</a>
           </article>
 
           <article class="pricing-card popular" data-plan="standard">
@@ -461,7 +459,7 @@
               <li><svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Messaging, lessons, discipline, and parent portal</span></li>
             </ul>
             <hr class="plan-divider" />
-            <a class="pricing-btn primary" href="./contact.html">Contact Sales</a>
+            <a class="pricing-btn primary" href="/contact">Contact Sales</a>
           </article>
 
           <article class="pricing-card pricing-side-right" data-plan="ultimate">
@@ -502,7 +500,7 @@
               <li><svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Siren schedules, custom branding, and backups</span></li>
             </ul>
             <hr class="plan-divider" />
-            <a class="pricing-btn" href="./contact.html">Contact Sales</a>
+            <a class="pricing-btn" href="/contact">Contact Sales</a>
           </article>
         </div>
       </section>
@@ -515,7 +513,7 @@
         <div class="footer-grid">
           <div class="footer-brand-col" data-reveal>
             <div class="footer-logo-row">
-              <a class="footer-brand" href="#top" aria-label="YeneSchool home">
+              <a class="footer-brand" href="/" aria-label="YeneSchool home">
                 <span class="brand-wordmark footer-wordmark" id="footer-title">
                   <span>Yene</span>
                   <span>School</span>
@@ -540,31 +538,41 @@
             <section data-reveal>
               <h3>Product</h3>
               <ul>
-                <li><a href="./modules.html">Modules</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#parent-visibility">Parent visibility</a></li>
-                <li><a href="#roles">Role workspaces</a></li>
+                <li><a href="/modules">Modules</a></li>
+                <li><a href="/" data-scroll-target="pricing">Pricing</a></li>
+                <li><a href="/" data-scroll-target="parent-visibility">Parent visibility</a></li>
+                <li><a href="/" data-scroll-target="roles">Role workspaces</a></li>
               </ul>
             </section>
 
             <section data-reveal>
               <h3>Core Areas</h3>
               <ul>
-                <li><a href="./modules.html#academic-management">Academics</a></li>
-                <li><a href="./modules.html#attendance">Attendance</a></li>
-                <li><a href="./modules.html#online-examinations">Online exams</a></li>
-                <li><a href="./modules.html#finance">Finance</a></li>
-                <li><a href="./modules.html#user-portals">Portals</a></li>
+                <li><a href="/modules#academic-management">Academics</a></li>
+                <li><a href="/modules#attendance">Attendance</a></li>
+                <li><a href="/modules#online-examinations">Online exams</a></li>
+                <li><a href="/modules#finance">Finance</a></li>
+                <li><a href="/modules#user-portals">Portals</a></li>
               </ul>
             </section>
 
             <section data-reveal>
               <h3>Helpful Links</h3>
               <ul>
-                <li><a href="./modules.html#automation-reporting">Reports</a></li>
-                <li><a href="./modules.html#security-permissions">Permissions</a></li>
-                <li><a href="./modules.html#operations">Operations</a></li>
-                <li><a href="./contact.html">Contact sales</a></li>
+                <li><a href="/modules#automation-reporting">Reports</a></li>
+                <li><a href="/modules#security-permissions">Permissions</a></li>
+                <li><a href="/modules#operations">Operations</a></li>
+                <li><a href="/book">Book a demo</a></li>
+                <li><a href="/contact">Contact sales</a></li>
+              </ul>
+            </section>
+
+            <section data-reveal>
+              <h3>Legal</h3>
+              <ul>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/cookie-policy">Cookie Policy</a></li>
               </ul>
             </section>
 
@@ -596,7 +604,7 @@
 
         <div class="footer-bottom">
           <p><span>All rights reserved.</span></p>
-          <p>&copy; 2025 YeneSchool</p>
+          <p>&copy; <span data-current-year></span> YeneSchool</p>
         </div>
       </div>
     </footer>

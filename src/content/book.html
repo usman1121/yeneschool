@@ -1,0 +1,59 @@
+<canvas class="wave-canvas" data-wave-canvas aria-hidden="true"></canvas>
+    <div class="page-glow" aria-hidden="true"></div>
+
+    <header class="site-header" data-site-header>
+      <div class="nav-inner">
+        <a class="brand" href="/" aria-label="YeneSchool home"><span class="brand-wordmark"><span>Yene</span><span>School</span></span></a>
+        <button class="mobile-toggle" type="button" data-mobile-toggle aria-label="Open Menu" aria-expanded="false"><svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg><svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+        <div class="nav-panel" data-mobile-menu>
+          <nav class="nav-links" aria-label="Primary navigation"><a href="/">Features</a><a href="/modules">Modules</a><a href="/">Pricing</a><a href="/book" aria-current="page">Book</a><a href="/contact">Contact</a></nav>
+          <div class="header-actions"><div class="language-switcher" role="group" aria-label="Language selection" data-language-switcher><button class="language-option is-active" type="button" data-language-option="en" aria-pressed="true">EN</button><button class="language-option" type="button" data-language-option="am" aria-pressed="false">አማ</button></div><button class="theme-switcher" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="true"><span class="sr-only" data-theme-label>Switch to light mode</span><svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg><svg class="theme-icon moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.99 12.7A8.5 8.5 0 1 1 11.3 3.01 6.5 6.5 0 0 0 20.99 12.7Z" /></svg></button></div>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="book-page">
+      <section class="book-hero section" aria-labelledby="book-title" data-reveal>
+        <div class="book-copy">
+          <span class="section-kicker">Book a Demo</span>
+          <h1 id="book-title">See how YeneSchool fits your school.</h1>
+          <p>Request a walkthrough for admissions, attendance, exams, report cards, parent access, finance, and the setup path your team needs.</p>
+          <div class="book-points" aria-label="Demo topics">
+            <span>Module walkthrough</span>
+            <span>Pricing guidance</span>
+            <span>Rollout planning</span>
+          </div>
+        </div>
+        <div class="contact-form-shell book-form-shell">
+          <form class="contact-form" data-contact-form>
+            <div class="form-row">
+              <label><span>Name</span><input type="text" name="name" autocomplete="name" required /></label>
+              <label><span>School name</span><input type="text" name="school" autocomplete="organization" required /></label>
+            </div>
+            <div class="form-row">
+              <label><span>Email</span><input type="email" name="email" autocomplete="email" required /></label>
+              <label><span>Phone</span><input type="tel" name="phone" autocomplete="tel" /></label>
+            </div>
+            <label><span>Demo focus</span><select name="message_focus" required><option value="">Choose one</option><option value="Full school walkthrough">Full school walkthrough</option><option value="Admissions and academics">Admissions and academics</option><option value="Report cards and exams">Report cards and exams</option><option value="Parent portal and communication">Parent portal and communication</option><option value="Pricing and implementation">Pricing and implementation</option></select></label>
+            <input type="hidden" name="topic" value="Book a demo" />
+            <label><span>What should we prepare?</span><textarea name="message" rows="6" required placeholder="Tell us your school size, grades, active modules, and the best time to contact you."></textarea></label>
+            <button class="primary-btn gradient-btn contact-submit" type="submit"><span data-contact-submit-label>Request demo</span></button>
+            <p class="contact-form-status" data-contact-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section booking-steps" aria-labelledby="booking-steps-title" data-reveal>
+        <div class="section-heading compact">
+          <p class="eyebrow">What Happens Next</p>
+          <h2 id="booking-steps-title">A focused demo, not a generic sales call.</h2>
+        </div>
+        <div class="booking-step-grid">
+          <article><strong>1</strong><h3>Share your school context</h3><p>Tell us your grade range, current process, and the areas you want to improve first.</p></article>
+          <article><strong>2</strong><h3>Walk through matching modules</h3><p>We focus on the dashboards and workflows that match your owner, registrar, teacher, finance, and parent needs.</p></article>
+          <article><strong>3</strong><h3>Plan setup and pricing</h3><p>You get the clearest next step for rollout, training, migration, and the plan that fits your school size.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer footer-four-col" aria-labelledby="footer-title"><div class="footer-container"><div class="footer-grid"><div class="footer-brand-col" data-reveal><div class="footer-logo-row"><a class="footer-brand" href="/" aria-label="YeneSchool home"><span class="brand-wordmark footer-wordmark" id="footer-title"><span>Yene</span><span>School</span></span></a></div><p class="footer-desc">A school management system for enrollment, attendance, marks, finance, parents, and daily operations.</p></div><div class="footer-links"><section data-reveal><h3>Product</h3><ul><li><a href="/modules">Modules</a></li><li><a href="/">Pricing</a></li><li><a href="/book" aria-current="page">Book a demo</a></li></ul></section><section data-reveal><h3>Core Areas</h3><ul><li><a href="/modules#academic-management">Academics</a></li><li><a href="/modules#attendance">Attendance</a></li><li><a href="/modules#online-examinations">Online exams</a></li></ul></section><section data-reveal><h3>Legal</h3><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="/cookie-policy">Cookie Policy</a></li></ul></section><section data-reveal><h3>Contact Us</h3><ul><li><a href="mailto:info@yeneschool.com" class="contact-link"><span>info@yeneschool.com</span></a></li><li><a href="tel:+251966074050" class="contact-link"><span>+251 966 074 050</span></a></li><li><a href="https://t.me/YeneSchool" class="contact-link"><span>Telegram</span></a></li></ul></section></div></div><div class="footer-bottom"><p><span>All rights reserved.</span></p><p>&copy; <span data-current-year></span> YeneSchool</p></div></div></footer>

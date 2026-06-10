@@ -43,6 +43,29 @@ const waves = [
   },
 ];
 
+const dashboardSlides = [
+  {
+    alt: "YeneSchool admin dashboard preview",
+    image: "./assets/admin.png",
+  },
+  {
+    alt: "YeneSchool teacher leaderboard dashboard preview",
+    image: "./assets/teacherleaderboard.png",
+  },
+  {
+    alt: "YeneSchool parent dashboard preview",
+    image: "./assets/parent.png",
+  },
+  {
+    alt: "YeneSchool finance dashboard preview",
+    image: "./assets/finance.png",
+  },
+  {
+    alt: "YeneSchool registrar dashboard preview",
+    image: "./assets/registrar.png",
+  },
+];
+
 function readCssVar(styles, name, fallback) {
   return styles.getPropertyValue(name).trim() || fallback;
 }
@@ -60,6 +83,22 @@ function setStoredTheme(theme) {
     localStorage.setItem("theme", theme);
   } catch {
     // Storage can fail in private contexts; the active document still updates.
+  }
+}
+
+function getStoredLanguage() {
+  try {
+    return localStorage.getItem("language");
+  } catch {
+    return null;
+  }
+}
+
+function setStoredLanguage(language) {
+  try {
+    localStorage.setItem("language", language);
+  } catch {
+    // The selected language still applies to the current page.
   }
 }
 
@@ -229,6 +268,138 @@ function setupTheme(cleanups) {
   cleanups.push(() => {
     themeToggle?.removeEventListener("click", handleToggle);
     prefersDarkTheme.removeEventListener("change", handleSystemTheme);
+  });
+}
+
+function setupLanguageSwitcher(cleanups) {
+  const options = Array.from(document.querySelectorAll("[data-language-option]"));
+  if (!options.length) return;
+
+  const applyLanguage = (language, persist = true) => {
+    const activeLanguage = language === "am" ? "am" : "en";
+    document.documentElement.lang = activeLanguage === "am" ? "am" : "en";
+    document.documentElement.dataset.language = activeLanguage;
+
+    options.forEach((option) => {
+      const isActive = option.dataset.languageOption === activeLanguage;
+      option.classList.toggle("is-active", isActive);
+      option.setAttribute("aria-pressed", String(isActive));
+    });
+
+    if (persist) setStoredLanguage(activeLanguage);
+  };
+
+  const handlers = options.map((option) => {
+    const handleClick = () => applyLanguage(option.dataset.languageOption);
+    option.addEventListener("click", handleClick);
+    return { option, handleClick };
+  });
+
+  applyLanguage(getStoredLanguage() || "en", false);
+
+  cleanups.push(() => {
+    handlers.forEach(({ option, handleClick }) => {
+      option.removeEventListener("click", handleClick);
+    });
+  });
+}
+
+function setupCleanSectionLinks(cleanups) {
+  const links = Array.from(document.querySelectorAll("[data-scroll-target]"));
+  if (!links.length) return;
+
+  const pathname = window.location.pathname.replace(/\/+$/, "");
+  const isHomePage = pathname === "" || pathname === "/";
+
+  const handlers = links.map((link) => {
+    const handleClick = (event) => {
+      if (!isHomePage) return;
+      const target = document.getElementById(link.dataset.scrollTarget || "");
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", "/");
+    };
+
+    link.addEventListener("click", handleClick);
+    return { link, handleClick };
+  });
+
+  cleanups.push(() => {
+    handlers.forEach(({ link, handleClick }) => {
+      link.removeEventListener("click", handleClick);
+    });
+  });
+}
+
+function setupDashboardSlider(cleanups) {
+  const slider = document.querySelector("[data-dashboard-slider]");
+  const frame = document.querySelector("[data-dashboard-frame]");
+  const image = document.querySelector("[data-dashboard-image]");
+  const dots = Array.from(document.querySelectorAll("[data-dashboard-slide]"));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!slider || !frame || !image || !dots.length) return;
+
+  let activeIndex = 0;
+  let intervalId = 0;
+
+  dashboardSlides.forEach((slide) => {
+    const preload = new Image();
+    preload.src = slide.image;
+  });
+
+  const setActiveSlide = (index) => {
+    activeIndex = (index + dashboardSlides.length) % dashboardSlides.length;
+    const slide = dashboardSlides[activeIndex];
+
+    frame.classList.remove("is-switching");
+    void frame.offsetWidth;
+    frame.classList.add("is-switching");
+
+    image.setAttribute("src", slide.image);
+    image.setAttribute("alt", slide.alt);
+
+    dots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-selected", String(isActive));
+    });
+  };
+
+  const stopAutoPlay = () => {
+    if (!intervalId) return;
+    window.clearInterval(intervalId);
+    intervalId = 0;
+  };
+
+  const startAutoPlay = () => {
+    if (reduceMotion.matches || intervalId) return;
+    intervalId = window.setInterval(() => setActiveSlide(activeIndex + 1), 3600);
+  };
+
+  const handlers = dots.map((dot) => {
+    const handleClick = () => {
+      setActiveSlide(Number(dot.dataset.dashboardSlide) || 0);
+    };
+    dot.addEventListener("click", handleClick);
+    return { dot, handleClick };
+  });
+
+  const handleReduceMotionChange = () => {
+    stopAutoPlay();
+    startAutoPlay();
+  };
+
+  reduceMotion.addEventListener("change", handleReduceMotionChange);
+
+  setActiveSlide(0);
+  startAutoPlay();
+
+  cleanups.push(() => {
+    stopAutoPlay();
+    handlers.forEach(({ dot, handleClick }) => dot.removeEventListener("click", handleClick));
+    reduceMotion.removeEventListener("change", handleReduceMotionChange);
   });
 }
 
@@ -404,6 +575,13 @@ function setupContactForm(cleanups) {
   cleanups.push(() => form.removeEventListener("submit", handleSubmit));
 }
 
+function setupCurrentYear() {
+  const year = String(new Date().getFullYear());
+  document.querySelectorAll("[data-current-year]").forEach((item) => {
+    item.textContent = year;
+  });
+}
+
 function setupReveals(cleanups) {
   const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -451,10 +629,14 @@ export function useLandingInteractions(page) {
     const cleanups = [];
 
     setupTheme(cleanups);
+    setupLanguageSwitcher(cleanups);
+    setupCleanSectionLinks(cleanups);
+    setupDashboardSlider(cleanups);
     setupMobileMenu(cleanups);
     setupParentTabs(cleanups);
     setupPricingToggle(cleanups);
     setupContactForm(cleanups);
+    setupCurrentYear();
     setupReveals(cleanups);
     setupCanvas(cleanups);
 

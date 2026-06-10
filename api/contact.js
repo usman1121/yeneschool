@@ -48,6 +48,7 @@ export default async function handler(req, res) {
   const school = clean(body.school);
   const topic = clean(body.topic);
   const phone = clean(body.phone) || "Not provided";
+  const messageFocus = clean(body.message_focus);
   const message = clean(body.message);
 
   const subject = `YeneSchool contact: ${topic} from ${school}`;
@@ -65,6 +66,7 @@ export default async function handler(req, res) {
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Topic:</strong> ${escapeHtml(topic)}</p>
+        ${messageFocus ? `<p><strong>Demo focus:</strong> ${escapeHtml(messageFocus)}</p>` : ""}
         <hr style="border: 0; border-top: 1px solid #e5e7eb;" />
         <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
       </div>
@@ -76,6 +78,7 @@ export default async function handler(req, res) {
       `Email: ${email}`,
       `Phone: ${phone}`,
       `Topic: ${topic}`,
+      messageFocus ? `Demo focus: ${messageFocus}` : "",
       "",
       message,
     ].join("\n"),

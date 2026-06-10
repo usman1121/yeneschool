@@ -3,7 +3,7 @@
 
     <header class="site-header" data-site-header>
       <div class="nav-inner">
-        <a class="brand" href="./index.html#top" aria-label="YeneSchool home">
+        <a class="brand" href="/" aria-label="YeneSchool home">
           <span class="brand-wordmark">
             <span>Yene</span>
             <span>School</span>
@@ -19,13 +19,17 @@
         </button>
         <div class="nav-panel" data-mobile-menu>
           <nav class="nav-links" aria-label="Primary navigation">
-            <a href="./index.html#roles">Features</a>
-            <a href="./modules.html">Modules</a>
-            <a href="./index.html#parent-visibility">Solution</a>
-            <a href="./index.html#pricing">Pricing</a>
-            <a href="./contact.html" aria-current="page">Contact</a>
+            <a href="/">Features</a>
+            <a href="/modules">Modules</a>
+            <a href="/">Pricing</a>
+            <a href="/book">Book</a>
+            <a href="/contact" aria-current="page">Contact</a>
           </nav>
           <div class="header-actions">
+            <div class="language-switcher" role="group" aria-label="Language selection" data-language-switcher>
+              <button class="language-option is-active" type="button" data-language-option="en" aria-pressed="true">EN</button>
+              <button class="language-option" type="button" data-language-option="am" aria-pressed="false">አማ</button>
+            </div>
             <button class="theme-switcher" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="true">
               <span class="sr-only" data-theme-label>Switch to light mode</span>
               <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -131,7 +135,7 @@
         <div class="footer-grid">
           <div class="footer-brand-col" data-reveal>
             <div class="footer-logo-row">
-              <a class="footer-brand" href="./index.html#top" aria-label="YeneSchool home">
+              <a class="footer-brand" href="/" aria-label="YeneSchool home">
                 <span class="brand-wordmark footer-wordmark" id="footer-title">
                   <span>Yene</span>
                   <span>School</span>
@@ -147,25 +151,34 @@
             <section data-reveal>
               <h3>Product</h3>
               <ul>
-                <li><a href="./modules.html">Modules</a></li>
-                <li><a href="./index.html#pricing">Pricing</a></li>
-                <li><a href="./index.html#parent-visibility">Parent visibility</a></li>
+                <li><a href="/modules">Modules</a></li>
+                <li><a href="/">Pricing</a></li>
+                <li><a href="/">Parent visibility</a></li>
+                <li><a href="/book">Book a demo</a></li>
               </ul>
             </section>
             <section data-reveal>
               <h3>Core Areas</h3>
               <ul>
-                <li><a href="./modules.html#academic-management">Academics</a></li>
-                <li><a href="./modules.html#attendance">Attendance</a></li>
-                <li><a href="./modules.html#finance">Finance</a></li>
+                <li><a href="/modules#academic-management">Academics</a></li>
+                <li><a href="/modules#attendance">Attendance</a></li>
+                <li><a href="/modules#finance">Finance</a></li>
               </ul>
             </section>
             <section data-reveal>
               <h3>Operations</h3>
               <ul>
-                <li><a href="./modules.html#automation-reporting">Reporting</a></li>
-                <li><a href="./modules.html#operations">Siren schedules</a></li>
-                <li><a href="./modules.html#security-permissions">Permissions</a></li>
+                <li><a href="/modules#automation-reporting">Reporting</a></li>
+                <li><a href="/modules#operations">Siren schedules</a></li>
+                <li><a href="/modules#security-permissions">Permissions</a></li>
+              </ul>
+            </section>
+            <section data-reveal>
+              <h3>Legal</h3>
+              <ul>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/cookie-policy">Cookie Policy</a></li>
               </ul>
             </section>
             <section data-reveal>
@@ -180,7 +193,7 @@
         </div>
         <div class="footer-bottom">
           <p><span>All rights reserved.</span></p>
-          <p>&copy; 2025 YeneSchool</p>
+          <p>&copy; <span data-current-year></span> YeneSchool</p>
         </div>
       </div>
     </footer>

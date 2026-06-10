@@ -343,11 +343,20 @@ function setupDashboardSlider(cleanups) {
 
   let activeIndex = 0;
   let intervalId = 0;
+  let idlePreloadId = 0;
 
-  dashboardSlides.forEach((slide) => {
-    const preload = new Image();
-    preload.src = slide.image;
-  });
+  const preloadRemainingSlides = () => {
+    dashboardSlides.slice(1).forEach((slide) => {
+      const preload = new Image();
+      preload.src = slide.image;
+    });
+  };
+
+  if ("requestIdleCallback" in window) {
+    idlePreloadId = window.requestIdleCallback(preloadRemainingSlides, { timeout: 2500 });
+  } else {
+    idlePreloadId = window.setTimeout(preloadRemainingSlides, 1800);
+  }
 
   const setActiveSlide = (index) => {
     activeIndex = (index + dashboardSlides.length) % dashboardSlides.length;
@@ -398,6 +407,11 @@ function setupDashboardSlider(cleanups) {
 
   cleanups.push(() => {
     stopAutoPlay();
+    if ("cancelIdleCallback" in window) {
+      window.cancelIdleCallback(idlePreloadId);
+    } else {
+      window.clearTimeout(idlePreloadId);
+    }
     handlers.forEach(({ dot, handleClick }) => dot.removeEventListener("click", handleClick));
     reduceMotion.removeEventListener("change", handleReduceMotionChange);
   });
@@ -562,7 +576,12 @@ function setupContactForm(cleanups) {
       }
 
       form.reset();
-      setStatus("Message sent. We will reply as soon as possible.", "success");
+      setStatus(
+        result.dev
+          ? "Local test received. Email was not sent because RESEND_API_KEY is not loaded."
+          : "Message sent. We will reply as soon as possible.",
+        "success",
+      );
     } catch (error) {
       setStatus(error.message || "Could not send the message. Please try again.", "error");
     } finally {
@@ -579,6 +598,16 @@ function setupCurrentYear() {
   const year = String(new Date().getFullYear());
   document.querySelectorAll("[data-current-year]").forEach((item) => {
     item.textContent = year;
+  });
+}
+
+function setupDemoDateInputs() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const minDate = today.toISOString().slice(0, 10);
+
+  document.querySelectorAll("input[name='demo_date']").forEach((input) => {
+    input.setAttribute("min", minDate);
   });
 }
 
@@ -624,6 +653,34 @@ function setupReveals(cleanups) {
   });
 }
 
+function getHashTarget() {
+  if (!window.location.hash) return null;
+
+  try {
+    return document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+  } catch {
+    return document.getElementById(window.location.hash.slice(1));
+  }
+}
+
+function setupHashScroll(cleanups) {
+  const scrollToHash = () => {
+    const target = getHashTarget();
+    if (target) target.scrollIntoView({ block: "start" });
+  };
+
+  if (window.location.hash) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(scrollToHash);
+    });
+  } else {
+    window.scrollTo({ top: 0 });
+  }
+
+  window.addEventListener("hashchange", scrollToHash);
+  cleanups.push(() => window.removeEventListener("hashchange", scrollToHash));
+}
+
 export function useLandingInteractions(page) {
   useEffect(() => {
     const cleanups = [];
@@ -637,16 +694,10 @@ export function useLandingInteractions(page) {
     setupPricingToggle(cleanups);
     setupContactForm(cleanups);
     setupCurrentYear();
+    setupDemoDateInputs();
     setupReveals(cleanups);
     setupCanvas(cleanups);
-
-    if (window.location.hash) {
-      requestAnimationFrame(() => {
-        document.querySelector(window.location.hash)?.scrollIntoView();
-      });
-    } else {
-      window.scrollTo({ top: 0 });
-    }
+    setupHashScroll(cleanups);
 
     return () => cleanups.forEach((cleanup) => cleanup());
   }, [page]);

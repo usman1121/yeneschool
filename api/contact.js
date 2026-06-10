@@ -25,10 +25,6 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    return res.status(500).json({ error: "Contact email is not configured." });
-  }
-
   const body = req.body || {};
   const missing = requiredFields.filter((field) => !clean(body[field]));
 
@@ -41,14 +37,23 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Please enter a valid email address." });
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    if (process.env.NODE_ENV !== "production") {
+      return res.status(200).json({ ok: true, dev: true });
+    }
+
+    return res.status(500).json({ error: "Contact email is not configured." });
+  }
+
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const to = process.env.CONTACT_TO_EMAIL || "info@yeneschool.com";
+  const to = process.env.CONTACT_TO_EMAIL || "yeneschool@gmail.com";
   const from = process.env.CONTACT_FROM_EMAIL || "YeneSchool <onboarding@resend.dev>";
   const name = clean(body.name);
   const school = clean(body.school);
   const topic = clean(body.topic);
   const phone = clean(body.phone) || "Not provided";
   const messageFocus = clean(body.message_focus);
+  const demoDate = clean(body.demo_date);
   const message = clean(body.message);
 
   const subject = `YeneSchool contact: ${topic} from ${school}`;
@@ -67,6 +72,7 @@ export default async function handler(req, res) {
         <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Topic:</strong> ${escapeHtml(topic)}</p>
         ${messageFocus ? `<p><strong>Demo focus:</strong> ${escapeHtml(messageFocus)}</p>` : ""}
+        ${demoDate ? `<p><strong>Preferred demo date:</strong> ${escapeHtml(demoDate)}</p>` : ""}
         <hr style="border: 0; border-top: 1px solid #e5e7eb;" />
         <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
       </div>
@@ -79,12 +85,20 @@ export default async function handler(req, res) {
       `Phone: ${phone}`,
       `Topic: ${topic}`,
       messageFocus ? `Demo focus: ${messageFocus}` : "",
+      demoDate ? `Preferred demo date: ${demoDate}` : "",
       "",
       message,
     ].join("\n"),
   });
 
   if (error) {
+    console.error("Resend contact email failed:", error);
+    if (process.env.NODE_ENV !== "production") {
+      return res.status(502).json({
+        error: error.message || "Could not send the message. Please try again.",
+      });
+    }
+
     return res.status(502).json({ error: "Could not send the message. Please try again." });
   }
 

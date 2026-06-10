@@ -1,4 +1,18 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/modules", "destination": "/" },
+    { "source": "/modules.html", "destination": "/" },
+    { "source": "/contact", "destination": "/" },
+    { "source": "/contact.html", "destination": "/" },
+    { "source": "/book", "destination": "/" },
+    { "source": "/book.html", "destination": "/" },
+    { "source": "/privacy", "destination": "/" },
+    { "source": "/privacy.html", "destination": "/" },
+    { "source": "/terms", "destination": "/" },
+    { "source": "/terms.html", "destination": "/" },
+    { "source": "/cookie-policy", "destination": "/" },
+    { "source": "/cookie-policy.html", "destination": "/" }
+  ]
 }

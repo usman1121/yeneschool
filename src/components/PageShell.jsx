@@ -81,10 +81,10 @@ function Header({ activePage }) {
               <a href="/#pricing" data-scroll-target="pricing">
                 {t("nav.pricing")}
               </a>
-              <NavLink activePage={activePage} page="book" href="/#book-demo" data-scroll-target="book-demo">
+              <NavLink activePage={activePage} page="book" href="/demo">
                 {t("nav.book")}
               </NavLink>
-              <NavLink activePage={activePage} page="contact" href="/#contact" data-scroll-target="contact">
+              <NavLink activePage={activePage} page="contact" href="/contact">
                 {t("nav.contact")}
               </NavLink>
             </nav>
@@ -162,7 +162,7 @@ function Footer({ activePage }) {
                   </a>
                 </li>
                 <li>
-                  <a href="/#book-demo" data-scroll-target="book-demo" {...isActive("book")}>
+                  <a href="/demo" {...isActive("book")}>
                     {t("footer.bookDemo")}
                   </a>
                 </li>

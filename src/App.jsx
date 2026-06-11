@@ -196,14 +196,14 @@ const pageMeta = {
     title: "Contact | YeneSchool",
     description:
       "Contact YeneSchool for school management system pricing, demos, implementation, and support questions.",
-    path: "/#contact",
+    path: "/contact",
     robots: "noindex, follow",
   },
   book: {
     title: "Demo | YeneSchool",
     description:
       "Request a guided YeneSchool demo for school owners, registrars, teachers, finance teams, and parent portal workflows.",
-    path: "/#book-demo",
+    path: "/demo",
     robots: "noindex, follow",
   },
   privacy: {
@@ -647,7 +647,15 @@ function NotFoundPage() {
 }
 
 function PageLoader() {
-  return <div className="route-loader" aria-label="Loading page" />;
+  return (
+    <div className="route-loader" aria-label="Loading page">
+      <ClassicLoader />
+    </div>
+  );
+}
+
+function ClassicLoader() {
+  return <div className="classic-loader" />;
 }
 
 function PageRuntime({ page, children }) {

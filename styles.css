@@ -1988,6 +1988,108 @@ pre {
   color: var(--hot);
 }
 
+.toast-viewport {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  width: min(420px, calc(100vw - 32px));
+  pointer-events: none;
+  perspective: 1000px;
+}
+
+.toast-stack {
+  position: relative;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.toast-card {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 14px 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  opacity: 0;
+  pointer-events: auto;
+  backdrop-filter: blur(18px);
+  transition: all 0.35s cubic-bezier(0.25, 0.75, 0.6, 0.98);
+}
+
+.toast-card.is-visible {
+  opacity: 1;
+}
+
+.toast-message {
+  background: var(--card-bg-strong);
+  color: var(--foreground);
+}
+
+.toast-success {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: linear-gradient(135deg, #0f766e, #0ea5e9);
+  color: #ffffff;
+}
+
+.toast-warning {
+  border-color: rgba(15, 23, 42, 0.16);
+  background: #f59e0b;
+  color: #111827;
+}
+
+.toast-error {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: linear-gradient(135deg, #b91c1c, #ef4444);
+  color: #ffffff;
+}
+
+.toast-close {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: currentColor;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.toast-close svg {
+  fill: currentColor;
+}
+
+.toast-message .toast-close {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.toast-close:hover,
+.toast-close:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.toast-message .toast-close:hover,
+.toast-message .toast-close:focus-visible {
+  background: rgba(15, 23, 42, 0.14);
+}
+
+.toast-close:active {
+  transform: scale(0.94);
+}
+
 .contact-options-section {
   padding-top: 28px;
   padding-bottom: 92px;

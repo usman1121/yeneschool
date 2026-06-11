@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { smoothScrollTo, smoothScrollToElement } from "./smoothScroll.js";
+import { toast } from "./components/toasts.jsx";
 
 const waves = [
   {
@@ -532,12 +533,11 @@ function setupContactForm(cleanups) {
       }
 
       form.reset();
-      setStatus(
-        result.dev ? localTestMessage : successMessage,
-        "success",
-      );
+      setStatus("", "success");
+      toast.success(result.dev ? localTestMessage : successMessage);
     } catch (error) {
-      setStatus(error.message || errorMessage, "error");
+      setStatus("", "error");
+      toast.error(error.message || errorMessage);
     } finally {
       submit?.removeAttribute("disabled");
       if (submitLabel) submitLabel.textContent = defaultLabel;

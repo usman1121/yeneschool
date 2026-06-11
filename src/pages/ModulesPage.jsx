@@ -13,14 +13,6 @@ export default function ModulesPage() {
               Ethiopian calendar support, automation, analytics, and local language needs.
             </p>
           </div>
-          <nav className="modules-jump-nav" aria-label="Module categories">
-            <a href="#academic-management">Academics</a>
-            <a href="#attendance">Attendance</a>
-            <a href="#online-examinations">Online Exams</a>
-            <a href="#finance">Finance</a>
-            <a href="#automation-reporting">Reporting</a>
-            <a href="#user-portals">Portals</a>
-          </nav>
           <div className="modules-fact-grid" aria-label="YeneSchool implementation summary">
             <article>
               <strong>470</strong>
@@ -31,8 +23,8 @@ export default function ModulesPage() {
               <span>super admin, admin, IT manager, registrar, teacher, student, parent, and finance workspaces.</span>
             </article>
             <article>
-              <strong>16 domains</strong>
-              <span>from admissions and academics to online examinations, finance, reporting, siren operations, and data quality.</span>
+              <strong>18 domains</strong>
+              <span>from admissions and academics to online examinations, finance, reporting, lessons, discipline, siren operations, and data quality.</span>
             </article>
             <article>
               <strong>Offline-ready</strong>
@@ -126,6 +118,18 @@ export default function ModulesPage() {
               <h3>User Portals</h3>
               <p>Gives each role a focused workspace so users only see the work they are responsible for.</p>
               <ul><li>Super admin portal for schools, admins, subscriptions, backups, and platform settings</li><li>Admin portal for academics, enrollment, reports, assessments, siren, people, and operations</li><li>Teacher portal for classes, attendance, lessons, timetable, grading, and online exams</li><li>Parent portal for children, attendance, grades, fees, lessons, discipline, and timetable</li><li>Student portal for timetable, attendance, lessons, grades, exams, and practice exams</li><li>Registrar, finance, and IT manager workspaces with narrower operational responsibilities</li></ul>
+            </article>
+            <article className="module-detail-card" id="lessons-assignments">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9h8M8 13h5" /><path d="M6 21h12" /></svg></span>
+              <h3>Lessons &amp; Assignments</h3>
+              <p>Connects teacher lesson activity, class work, homework, and parent/student visibility to the academic timetable.</p>
+              <ul><li>Teacher lesson records tied to assigned classes, sections, subjects, and timetable periods</li><li>Assignments and class work visible to students and linked parents</li><li>Lesson progress signals for admin and teacher dashboards</li><li>Teacher workspace for daily class activity and follow-up tasks</li><li>Student views for lessons, assignments, timetable, and academic work</li><li>Parent visibility into assigned learning tasks without separate message groups</li></ul>
+            </article>
+            <article className="module-detail-card" id="discipline-conduct">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 5 8 8 8 8s8-3 8-8V7Z" /><path d="M9 12l2 2 4-4" /></svg></span>
+              <h3>Discipline &amp; Conduct</h3>
+              <p>Keeps behavior notes, conduct follow-up, and parent-visible discipline records connected to the student profile.</p>
+              <ul><li>Student discipline records scoped to the correct school and academic context</li><li>Conduct notes that can support report-card and parent follow-up workflows</li><li>Parent portal visibility for published discipline updates where the school allows it</li><li>Admin follow-up lists for student behavior and support actions</li><li>Teacher and registrar context when reviewing a student profile</li><li>Audit-friendly records for sensitive student conduct decisions</li></ul>
             </article>
             <article className="module-detail-card" id="staff-directory">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21v-2a4 4 0 0 1 4-4h4" /><circle cx={9} cy={7} r={4} /><path d="M17 11l2 2 4-4" /><path d="M17 19h5" /></svg></span>

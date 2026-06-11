@@ -190,10 +190,10 @@ export default function HomePage() {
                     <b>2018 E.C.</b>
                   </div>
                   <div className="portal-student-strip">
-                    <span className="avatar">SB</span>
+                    <span className="avatar">{t("home.parent.panels.attendance.initials")}</span>
                     <div>
-                      <strong>Grade 8A</strong>
-                      <small>Attendance published by homeroom teacher</small>
+                      <strong>{t("home.parent.panels.attendance.grade")}</strong>
+                      <small>{t("home.parent.panels.attendance.teacherPublished")}</small>
                     </div>
                     <span className="publish-badge">Submitted</span>
                   </div>

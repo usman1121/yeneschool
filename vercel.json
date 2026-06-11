@@ -15,6 +15,7 @@
     { "source": "/terms", "destination": "/" },
     { "source": "/terms.html", "destination": "/" },
     { "source": "/cookie-policy", "destination": "/" },
-    { "source": "/cookie-policy.html", "destination": "/" }
+    { "source": "/cookie-policy.html", "destination": "/" },
+    { "source": "/(.*)", "destination": "/" }
   ]
 }

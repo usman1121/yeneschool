@@ -179,9 +179,9 @@ function useClientNavigation(setPage) {
 
 const pageMeta = {
   home: {
-    title: "YeneSchool | School Management System",
+    title: "YeneSchool | School Management System in Ethiopia",
     description:
-      "YeneSchool is a school management system for enrollment, attendance, marks, report cards, finance, parent portals, communication, and daily school operations.",
+      "The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence.",
     path: "/",
   },
   modules: {

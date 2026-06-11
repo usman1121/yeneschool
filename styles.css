@@ -2086,105 +2086,119 @@ pre {
   padding-bottom: 92px;
 }
 
-.seo-page {
+.not-found-page {
+  min-height: 100svh;
   padding-top: 92px;
 }
 
-.seo-hero {
+.not-found-shell {
+  min-height: calc(100svh - 92px);
   display: grid;
-  justify-items: center;
-  padding-top: 96px;
-  padding-bottom: 52px;
-  text-align: center;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+  gap: 36px;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 72px;
 }
 
-.seo-hero h1 {
-  max-width: 860px;
+.not-found-copy h1 {
+  max-width: 760px;
   margin: 0;
-  font-size: clamp(42px, 6vw, 68px);
+  color: var(--foreground);
+  font-size: clamp(44px, 6.5vw, 76px);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: 0;
 }
 
-.seo-hero p {
-  max-width: 720px;
+.not-found-copy p {
+  max-width: 600px;
   margin: 22px 0 0;
   color: var(--card-text);
   font-size: 18px;
   line-height: 1.7;
 }
 
-.seo-content {
+.not-found-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-  gap: 28px;
-  align-items: start;
-}
-
-.seo-content h2,
-.seo-faq h2 {
-  margin: 0;
-  color: var(--foreground);
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.08;
-  letter-spacing: 0;
-}
-
-.seo-content p:not(.eyebrow),
-.seo-faq p {
-  color: var(--card-text);
-  line-height: 1.7;
-}
-
-.seo-feature-list {
-  display: grid;
-  gap: 12px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.seo-feature-list li,
-.seo-faq-grid article {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--card-bg);
-  box-shadow: var(--shadow);
-}
-
-.seo-feature-list li {
-  padding: 16px;
-  color: var(--foreground);
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.seo-faq {
-  padding-bottom: 96px;
-}
-
-.seo-faq-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin-top: 24px;
-}
-
-.seo-faq-grid article {
   padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card-bg-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
 }
 
-.seo-faq-grid h3 {
-  margin: 0 0 10px;
+.not-found-code {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.not-found-code span {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft-surface);
   color: var(--foreground);
-  font-size: 18px;
-  line-height: 1.35;
+  font-size: clamp(42px, 7vw, 72px);
+  font-weight: 900;
+  line-height: 1;
 }
 
-.seo-faq-grid p {
-  margin: 0;
-  font-size: 14px;
+.not-found-route {
+  display: grid;
+  gap: 4px;
+  padding: 14px 0 2px;
+}
+
+.not-found-route span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.not-found-route strong {
+  color: var(--foreground);
+  font-size: 20px;
+}
+
+.not-found-links {
+  display: grid;
+  gap: 10px;
+}
+
+.not-found-links a {
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft-surface);
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.not-found-links a:hover,
+.not-found-links a:focus-visible {
+  border-color: var(--primary);
+  background: rgba(14, 165, 233, 0.1);
+  transform: translateY(-2px);
+}
+
+.not-found-links strong {
+  color: var(--foreground);
+  font-size: 15px;
+}
+
+.not-found-links span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .contact-options-grid {
@@ -4196,5 +4210,43 @@ html.dark .service-plan {
 
   .parent-panel-copy h3 {
     font-size: clamp(26px, 8vw, 34px);
+  }
+}
+
+@media (max-width: 920px) {
+  .not-found-shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 58px;
+  }
+
+  .not-found-copy,
+  .not-found-copy h1,
+  .not-found-copy p {
+    max-width: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .not-found-page {
+    padding-top: 76px;
+  }
+
+  .not-found-shell {
+    gap: 26px;
+    padding-top: 42px;
+    padding-bottom: 52px;
+  }
+
+  .not-found-copy p {
+    font-size: 16px;
+  }
+
+  .not-found-panel {
+    padding: 16px;
+  }
+
+  .not-found-code span {
+    min-height: 72px;
   }
 }

@@ -1,6 +1,18 @@
 import PageShell from "../components/PageShell.jsx";
+import { useTranslation } from "../i18n/I18nContext.jsx";
+
+function splitHeading(title) {
+  const separator = title.includes("።") ? "።" : ".";
+  const index = title.indexOf(separator);
+  if (index === -1) return [title, ""];
+  return [title.slice(0, index + 1), title.slice(index + 1).trim()];
+}
 
 export default function HomePage() {
+  const { t } = useTranslation();
+  const pricingTitle = t("home.pricing.title") || "Start lean. Grow into the full system.";
+  const [pricingTitleLead, pricingTitleRest] = splitHeading(pricingTitle);
+
   return (
     <PageShell activePage="home">
       <main id="top">
@@ -280,20 +292,23 @@ export default function HomePage() {
         </section>
         <section className="section pricing-section" id="pricing" data-reveal>
           <div className="pricing-heading">
-            <p className="pricing-eyebrow">Plans &amp; Pricing</p>
-            <h2>Start lean. <span>Grow into the full system.</span></h2>
+            <p className="pricing-eyebrow">{t("home.pricing.eyebrow")}</p>
+            <h2>
+              {pricingTitleLead} {pricingTitleRest ? <span>{pricingTitleRest}</span> : null}
+            </h2>
             <p>
-              Choose monthly, 6-month, or yearly payment. Six-month payment saves 10%,
-              and yearly payment saves 25% compared with paying month by month.
+              {t("home.pricing.subtitle")}
             </p>
           </div>
           <div className="pricing-toggle">
-            <span className="toggle-label" data-monthly-label>Monthly</span>
+            <span className="toggle-label" data-monthly-label>{t("home.pricing.toggle.monthly")}</span>
             <label className="switch" aria-label="Toggle annual billing">
               <input type="checkbox" id="pricing-switch" />
               <span className="slider" />
             </label>
-            <span className="toggle-label">Annual billing <span className="save-badge">(Best value)</span></span>
+            <span className="toggle-label">
+              {t("home.pricing.toggle.annual")} <span className="save-badge">{t("home.pricing.toggle.bestValue")}</span>
+            </span>
           </div>
           <div className="pricing-grid">
             <article className="pricing-card pricing-side-left" data-plan="core">

@@ -4,8 +4,6 @@
   "rewrites": [
     { "source": "/modules", "destination": "/" },
     { "source": "/modules.html", "destination": "/" },
-    { "source": "/school-management-system-ethiopia", "destination": "/" },
-    { "source": "/school-management-system-ethiopia.html", "destination": "/" },
     { "source": "/contact", "destination": "/" },
     { "source": "/contact.html", "destination": "/" },
     { "source": "/demo", "destination": "/" },

@@ -6,6 +6,8 @@
     { "source": "/modules.html", "destination": "/" },
     { "source": "/contact", "destination": "/" },
     { "source": "/contact.html", "destination": "/" },
+    { "source": "/demo", "destination": "/" },
+    { "source": "/demo.html", "destination": "/" },
     { "source": "/book", "destination": "/" },
     { "source": "/book.html", "destination": "/" },
     { "source": "/privacy", "destination": "/" },

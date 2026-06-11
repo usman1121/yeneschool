@@ -858,6 +858,11 @@ export const en = {
         description:
           "Explore YeneSchool modules for academics, admissions, attendance, exams, report cards, finance, communication, operations, and parent portals.",
       },
+      ethiopiaSeo: {
+        title: "School Management System in Ethiopia | YeneSchool",
+        description:
+          "YeneSchool is a complete school management system in Ethiopia for academics, finance, parents, staff, exams, and daily school operations.",
+      },
       contact: {
         title: "Contact | YeneSchool",
         description:

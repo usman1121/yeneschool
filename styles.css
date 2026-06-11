@@ -2086,6 +2086,107 @@ pre {
   padding-bottom: 92px;
 }
 
+.seo-page {
+  padding-top: 92px;
+}
+
+.seo-hero {
+  display: grid;
+  justify-items: center;
+  padding-top: 96px;
+  padding-bottom: 52px;
+  text-align: center;
+}
+
+.seo-hero h1 {
+  max-width: 860px;
+  margin: 0;
+  font-size: clamp(42px, 6vw, 68px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.seo-hero p {
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: var(--card-text);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.seo-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.seo-content h2,
+.seo-faq h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.seo-content p:not(.eyebrow),
+.seo-faq p {
+  color: var(--card-text);
+  line-height: 1.7;
+}
+
+.seo-feature-list {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.seo-feature-list li,
+.seo-faq-grid article {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+
+.seo-feature-list li {
+  padding: 16px;
+  color: var(--foreground);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.seo-faq {
+  padding-bottom: 96px;
+}
+
+.seo-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.seo-faq-grid article {
+  padding: 22px;
+}
+
+.seo-faq-grid h3 {
+  margin: 0 0 10px;
+  color: var(--foreground);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.seo-faq-grid p {
+  margin: 0;
+  font-size: 14px;
+}
+
 .contact-options-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

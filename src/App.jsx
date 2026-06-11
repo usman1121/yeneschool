@@ -14,11 +14,13 @@ function lazyWithPreload(loader) {
 const ModulesPage = lazyWithPreload(() => import("./pages/ModulesPage.jsx"));
 const ContactPage = lazyWithPreload(() => import("./pages/ContactPage.jsx"));
 const BookPage = lazyWithPreload(() => import("./pages/BookPage.jsx"));
+const EthiopiaSeoPage = lazyWithPreload(() => import("./pages/EthiopiaSeoPage.jsx"));
 
 const getPageFromRoute = () => {
   const pathname = window.location.pathname.replace(/\/+$/, "");
   if (pathname === "") return "home";
   if (pathname.endsWith("/modules") || pathname.endsWith("/modules.html")) return "modules";
+  if (pathname.endsWith("/school-management-system-ethiopia") || pathname.endsWith("/school-management-system-ethiopia.html")) return "ethiopiaSeo";
   if (pathname.endsWith("/contact") || pathname.endsWith("/contact.html")) return "contact";
   if (pathname.endsWith("/privacy") || pathname.endsWith("/privacy.html")) return "privacy";
   if (pathname.endsWith("/terms") || pathname.endsWith("/terms.html")) return "terms";
@@ -32,6 +34,7 @@ function getPageFromPathname(pathname) {
   const normalizedPath = pathname.replace(/\/+$/, "");
   if (normalizedPath === "") return "home";
   if (normalizedPath.endsWith("/modules") || normalizedPath.endsWith("/modules.html")) return "modules";
+  if (normalizedPath.endsWith("/school-management-system-ethiopia") || normalizedPath.endsWith("/school-management-system-ethiopia.html")) return "ethiopiaSeo";
   if (normalizedPath.endsWith("/contact") || normalizedPath.endsWith("/contact.html")) return "contact";
   if (normalizedPath.endsWith("/privacy") || normalizedPath.endsWith("/privacy.html")) return "privacy";
   if (normalizedPath.endsWith("/terms") || normalizedPath.endsWith("/terms.html")) return "terms";
@@ -43,6 +46,7 @@ function getPageFromPathname(pathname) {
 
 function preloadPage(page) {
   if (page === "modules") ModulesPage.preload();
+  if (page === "ethiopiaSeo") EthiopiaSeoPage.preload();
   if (page === "contact") ContactPage.preload();
   if (page === "book") BookPage.preload();
 }
@@ -189,6 +193,12 @@ const pageMeta = {
     description:
       "Explore YeneSchool modules for academics, admissions, attendance, exams, report cards, finance, communication, operations, and parent portals.",
     path: "/modules",
+  },
+  ethiopiaSeo: {
+    title: "School Management System in Ethiopia | YeneSchool",
+    description:
+      "YeneSchool is a complete school management system in Ethiopia for academics, finance, parents, staff, exams, and daily school operations.",
+    path: "/school-management-system-ethiopia",
   },
   contact: {
     title: "Contact | YeneSchool",
@@ -645,6 +655,16 @@ export default function App() {
       <Suspense fallback={<PageLoader />}>
         <PageRuntime page={page}>
           <ModulesPage />
+        </PageRuntime>
+      </Suspense>
+    );
+  }
+
+  if (page === "ethiopiaSeo") {
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <PageRuntime page={page}>
+          <EthiopiaSeoPage />
         </PageRuntime>
       </Suspense>
     );

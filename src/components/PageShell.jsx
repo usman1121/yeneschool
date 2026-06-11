@@ -1,3 +1,5 @@
+import { useTranslation } from "../i18n/I18nContext.jsx";
+
 function MenuIcon() {
   return (
     <>
@@ -27,7 +29,11 @@ function ThemeIcon() {
 
 function Brand({ footer = false }) {
   return (
-    <span className={`brand-wordmark${footer ? " footer-wordmark" : ""}`} id={footer ? "footer-title" : undefined}>
+    <span
+      className={`brand-wordmark${footer ? " footer-wordmark" : ""}`}
+      id={footer ? "footer-title" : undefined}
+      data-no-translate
+    >
       <span>Yene</span>
       <span>School</span>
     </span>
@@ -44,60 +50,74 @@ function NavLink({ activePage, page, href, children, ...props }) {
 }
 
 function Header({ activePage }) {
+  const { lang, setLanguage, t } = useTranslation();
+
   return (
     <>
       <canvas className="wave-canvas" data-wave-canvas aria-hidden="true" />
       <div className="page-glow" aria-hidden="true" />
       <header className="site-header" data-site-header>
         <div className="nav-inner">
-          <a className="brand" href="/" aria-label="YeneSchool home">
+          <a className="brand" href="/" aria-label="YeneSchool" data-no-translate>
             <Brand />
           </a>
           <button
             className="mobile-toggle"
             type="button"
             data-mobile-toggle
-            aria-label="Open Menu"
+            aria-label={t("nav.openMenu") || "Open Menu"}
             aria-expanded="false"
           >
             <MenuIcon />
           </button>
           <div className="nav-panel" data-mobile-menu>
-            <nav className="nav-links" aria-label="Primary navigation">
+            <nav className="nav-links" aria-label={t("nav.primary") || "Primary navigation"}>
               <NavLink activePage={activePage} page="home" href="/" data-scroll-target="roles">
-                Features
+                {t("nav.features")}
               </NavLink>
               <NavLink activePage={activePage} page="modules" href="/modules">
-                Modules
+                {t("nav.modules")}
               </NavLink>
               <a href="/" data-scroll-target="pricing">
-                Pricing
+                {t("nav.pricing")}
               </a>
-              <NavLink activePage={activePage} page="book" href="/book">
-                Book
+              <NavLink activePage={activePage} page="book" href="/demo">
+                {t("nav.book")}
               </NavLink>
               <NavLink activePage={activePage} page="contact" href="/contact">
-                Contact
+                {t("nav.contact")}
               </NavLink>
             </nav>
             <div className="header-actions">
-              <div className="language-switcher" role="group" aria-label="Language selection" data-language-switcher>
-                <button className="language-option is-active" type="button" data-language-option="en" aria-pressed="true">
-                  EN
+              <div className="language-switcher" role="group" aria-label={t("language.label") || "Language selection"} data-language-switcher>
+                <button
+                  className={`language-option${lang === "en" ? " is-active" : ""}`}
+                  type="button"
+                  data-language-option="en"
+                  aria-pressed={lang === "en"}
+                  onClick={() => setLanguage("en")}
+                >
+                  {t("language.en")}
                 </button>
-                <button className="language-option" type="button" data-language-option="am" aria-pressed="false">
-                  አማ
+                <button
+                  className={`language-option${lang === "am" ? " is-active" : ""}`}
+                  type="button"
+                  data-language-option="am"
+                  aria-pressed={lang === "am"}
+                  onClick={() => setLanguage("am")}
+                >
+                  {t("language.am")}
                 </button>
               </div>
               <button
                 className="theme-switcher"
                 type="button"
                 data-theme-toggle
-                aria-label="Switch to light mode"
+                aria-label={t("theme.switchToLight")}
                 aria-pressed="true"
               >
                 <span className="sr-only" data-theme-label>
-                  Switch to light mode
+                  {t("theme.switchToLight")}
                 </span>
                 <ThemeIcon />
               </button>
@@ -110,6 +130,7 @@ function Header({ activePage }) {
 }
 
 function Footer({ activePage }) {
+  const { t } = useTranslation();
   const isActive = (page) => (activePage === page ? { "aria-current": "page" } : {});
 
   return (
@@ -118,57 +139,57 @@ function Footer({ activePage }) {
         <div className="footer-grid">
           <div className="footer-brand-col" data-reveal>
             <div className="footer-logo-row">
-              <a className="footer-brand" href="/" aria-label="YeneSchool home">
+              <a className="footer-brand" href="/" aria-label="YeneSchool" data-no-translate>
                 <Brand footer />
               </a>
             </div>
             <p className="footer-desc">
-              A school management system for enrollment, attendance, marks, finance, parents, and daily operations.
+              {t("footer.desc")}
             </p>
           </div>
           <div className="footer-links">
             <section data-reveal>
-              <h3>Product</h3>
+              <h3>{t("footer.product")}</h3>
               <ul>
                 <li>
                   <a href="/modules" {...isActive("modules")}>
-                    Modules
+                    {t("footer.modules")}
                   </a>
                 </li>
                 <li>
                   <a href="/" data-scroll-target="pricing">
-                    Pricing
+                    {t("footer.pricing")}
                   </a>
                 </li>
                 <li>
-                  <a href="/book" {...isActive("book")}>
-                    Book a demo
+                  <a href="/demo" {...isActive("book")}>
+                    {t("footer.bookDemo")}
                   </a>
                 </li>
               </ul>
             </section>
             <section data-reveal>
-              <h3>Legal</h3>
+              <h3>{t("footer.legal")}</h3>
               <ul>
                 <li>
                   <a href="/privacy" {...isActive("privacy")}>
-                    Privacy
+                    {t("footer.privacy")}
                   </a>
                 </li>
                 <li>
                   <a href="/terms" {...isActive("terms")}>
-                    Terms
+                    {t("footer.terms")}
                   </a>
                 </li>
                 <li>
                   <a href="/cookie-policy" {...isActive("cookiePolicy")}>
-                    Cookie Policy
+                    {t("footer.cookiePolicy")}
                   </a>
                 </li>
               </ul>
             </section>
             <section data-reveal>
-              <h3>Contact Us</h3>
+              <h3>{t("footer.contactUs")}</h3>
               <ul>
                 <li>
                   <a href="mailto:yeneschool@gmail.com" className="contact-link">
@@ -182,7 +203,7 @@ function Footer({ activePage }) {
                 </li>
                 <li>
                   <a href="https://t.me/YeneSchool" className="contact-link">
-                    <span>Telegram</span>
+                    <span>{t("contactLink.telegram")}</span>
                   </a>
                 </li>
               </ul>
@@ -191,7 +212,7 @@ function Footer({ activePage }) {
         </div>
         <div className="footer-bottom">
           <p>
-            <span>All rights reserved.</span>
+            <span>{t("footer.allRightsReserved")}</span>
           </p>
           <p>
             &copy; <span data-current-year /> YeneSchool

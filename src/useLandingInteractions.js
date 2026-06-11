@@ -87,22 +87,6 @@ function setStoredTheme(theme) {
   }
 }
 
-function getStoredLanguage() {
-  try {
-    return localStorage.getItem("language");
-  } catch {
-    return null;
-  }
-}
-
-function setStoredLanguage(language) {
-  try {
-    localStorage.setItem("language", language);
-  } catch {
-    // The selected language still applies to the current page.
-  }
-}
-
 function setupCanvas(cleanups) {
   const canvas = document.querySelector("[data-wave-canvas]");
   const ctx = canvas?.getContext("2d");
@@ -269,39 +253,6 @@ function setupTheme(cleanups) {
   cleanups.push(() => {
     themeToggle?.removeEventListener("click", handleToggle);
     prefersDarkTheme.removeEventListener("change", handleSystemTheme);
-  });
-}
-
-function setupLanguageSwitcher(cleanups) {
-  const options = Array.from(document.querySelectorAll("[data-language-option]"));
-  if (!options.length) return;
-
-  const applyLanguage = (language, persist = true) => {
-    const activeLanguage = language === "am" ? "am" : "en";
-    document.documentElement.lang = activeLanguage === "am" ? "am" : "en";
-    document.documentElement.dataset.language = activeLanguage;
-
-    options.forEach((option) => {
-      const isActive = option.dataset.languageOption === activeLanguage;
-      option.classList.toggle("is-active", isActive);
-      option.setAttribute("aria-pressed", String(isActive));
-    });
-
-    if (persist) setStoredLanguage(activeLanguage);
-  };
-
-  const handlers = options.map((option) => {
-    const handleClick = () => applyLanguage(option.dataset.languageOption);
-    option.addEventListener("click", handleClick);
-    return { option, handleClick };
-  });
-
-  applyLanguage(getStoredLanguage() || "en", false);
-
-  cleanups.push(() => {
-    handlers.forEach(({ option, handleClick }) => {
-      option.removeEventListener("click", handleClick);
-    });
   });
 }
 
@@ -548,6 +499,10 @@ function setupContactForm(cleanups) {
   const submit = form.querySelector("button[type='submit']");
   const submitLabel = form.querySelector("[data-contact-submit-label]");
   const defaultLabel = submitLabel?.textContent || "Send message";
+  const sendingLabel = submitLabel?.dataset.sendingLabel || "Sending...";
+  const successMessage = form.dataset.successMessage || "Message sent. We will reply as soon as possible.";
+  const errorMessage = form.dataset.errorMessage || "Could not send the message. Please try again.";
+  const localTestMessage = form.dataset.localTestMessage || "Local test received. Email was not sent because RESEND_API_KEY is not loaded.";
 
   const setStatus = (message, state = "idle") => {
     if (!status) return;
@@ -561,7 +516,7 @@ function setupContactForm(cleanups) {
     const payload = Object.fromEntries(formData.entries());
 
     submit?.setAttribute("disabled", "true");
-    if (submitLabel) submitLabel.textContent = "Sending...";
+    if (submitLabel) submitLabel.textContent = sendingLabel;
     setStatus("", "idle");
 
     try {
@@ -578,13 +533,11 @@ function setupContactForm(cleanups) {
 
       form.reset();
       setStatus(
-        result.dev
-          ? "Local test received. Email was not sent because RESEND_API_KEY is not loaded."
-          : "Message sent. We will reply as soon as possible.",
+        result.dev ? localTestMessage : successMessage,
         "success",
       );
     } catch (error) {
-      setStatus(error.message || "Could not send the message. Please try again.", "error");
+      setStatus(error.message || errorMessage, "error");
     } finally {
       submit?.removeAttribute("disabled");
       if (submitLabel) submitLabel.textContent = defaultLabel;
@@ -687,7 +640,6 @@ export function useLandingInteractions(page) {
     const cleanups = [];
 
     setupTheme(cleanups);
-    setupLanguageSwitcher(cleanups);
     setupCleanSectionLinks(cleanups);
     setupDashboardSlider(cleanups);
     setupMobileMenu(cleanups);

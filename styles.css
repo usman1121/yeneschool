@@ -1771,7 +1771,7 @@ pre {
 
 .module-detail-card {
   position: relative;
-  min-height: 548px;
+  min-height: 448px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1810,36 +1810,10 @@ pre {
   line-height: 1.55;
 }
 
-.module-card-meta {
-  width: 100%;
-  display: grid;
-  gap: 4px;
-  margin: 0 0 18px;
-  padding: 12px;
-  border: 1px solid rgba(125, 211, 252, 0.24);
-  border-radius: 8px;
-  background: rgba(125, 211, 252, 0.08);
-}
-
-.module-card-meta span {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.module-card-meta strong {
-  color: var(--foreground);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
 .module-detail-card ul {
   display: grid;
   gap: 9px;
-  margin: auto 0 0;
+  margin: 2px 0 0;
   padding: 0;
   list-style: none;
 }

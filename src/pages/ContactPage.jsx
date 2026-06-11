@@ -1,61 +1,70 @@
 import PageShell from "../components/PageShell.jsx";
+import { useTranslation } from "../i18n/I18nContext.jsx";
 
 export default function ContactPage() {
+  const { t } = useTranslation();
+
   return (
     <PageShell activePage="contact">
       <main id="top" className="contact-page">
         <section className="contact-hero section" aria-labelledby="contact-title" data-reveal>
           <div className="contact-hero-copy">
-            <span className="section-kicker">Contact YeneSchool</span>
-            <h1 id="contact-title">Talk to us about your school setup.</h1>
+            <span className="section-kicker">{t("contact.hero.kicker")}</span>
+            <h1 id="contact-title">{t("contact.hero.title")}</h1>
             <p>
-              Send your school details, rollout needs, or pricing question. We will reply with the clearest next step for your team.
+              {t("contact.hero.subtitle")}
             </p>
             <div className="contact-trust-row" aria-label="Contact support summary">
-              <span><b>Pricing</b> Plan guidance</span>
-              <span><b>Demo</b> Product walkthrough</span>
-              <span><b>Setup</b> Implementation help</span>
+              <span><b>{t("contact.form.pricing")}</b> {t("contact.hero.trust.0")}</span>
+              <span><b>{t("contact.form.demo")}</b> {t("contact.hero.trust.1")}</span>
+              <span><b>{t("contact.form.implementation")}</b> {t("contact.hero.trust.2")}</span>
             </div>
           </div>
           <div className="contact-form-shell">
-            <form className="contact-form" data-contact-form>
+            <form
+              className="contact-form"
+              data-contact-form
+              data-success-message={t("contact.form.success")}
+              data-error-message={t("contact.form.error")}
+              data-local-test-message={t("contact.form.localTest")}
+            >
               <div className="form-row">
                 <label>
-                  <span>Name</span>
+                  <span>{t("contact.form.name")}</span>
                   <input type="text" name="name" autoComplete="name" required />
                 </label>
                 <label>
-                  <span>School name</span>
+                  <span>{t("contact.form.school")}</span>
                   <input type="text" name="school" autoComplete="organization" required />
                 </label>
               </div>
               <div className="form-row">
                 <label>
-                  <span>Email</span>
+                  <span>{t("contact.form.email")}</span>
                   <input type="email" name="email" autoComplete="email" required />
                 </label>
                 <label>
-                  <span>Phone</span>
+                  <span>{t("contact.form.phone")}</span>
                   <input type="tel" name="phone" autoComplete="tel" />
                 </label>
               </div>
               <label>
-                <span>What do you need?</span>
+                <span>{t("contact.form.topic")}</span>
                 <select name="topic" required>
-                  <option value="">Choose one</option>
-                  <option value="Pricing">Pricing</option>
-                  <option value="Demo">Product demo</option>
-                  <option value="Implementation">Implementation</option>
-                  <option value="Support">Support</option>
-                  <option value="Other">Other</option>
+                  <option value="">{t("contact.form.chooseOne")}</option>
+                  <option value="Pricing">{t("contact.form.pricing")}</option>
+                  <option value="Demo">{t("contact.form.demo")}</option>
+                  <option value="Implementation">{t("contact.form.implementation")}</option>
+                  <option value="Support">{t("contact.form.support")}</option>
+                  <option value="Other">{t("contact.form.other")}</option>
                 </select>
               </label>
               <label>
-                <span>Message</span>
+                <span>{t("contact.form.message")}</span>
                 <textarea name="message" rows={6} required defaultValue={""} />
               </label>
               <button className="primary-btn gradient-btn contact-submit" type="submit">
-                <span data-contact-submit-label>Send message</span>
+                <span data-contact-submit-label data-sending-label={t("contact.form.sending")}>{t("contact.form.send")}</span>
               </button>
               <p className="contact-form-status" data-contact-status role="status" aria-live="polite" />
             </form>

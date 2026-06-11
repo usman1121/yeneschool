@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import HomePage from "./pages/HomePage.jsx";
 import PageShell from "./components/PageShell.jsx";
+import { useTranslation } from "./i18n/I18nContext.jsx";
 import { smoothScrollTo, smoothScrollToElement } from "./smoothScroll.js";
 import { useLandingInteractions } from "./useLandingInteractions.js";
 
@@ -22,6 +23,7 @@ const getPageFromRoute = () => {
   if (pathname.endsWith("/privacy") || pathname.endsWith("/privacy.html")) return "privacy";
   if (pathname.endsWith("/terms") || pathname.endsWith("/terms.html")) return "terms";
   if (pathname.endsWith("/cookie-policy") || pathname.endsWith("/cookie-policy.html")) return "cookiePolicy";
+  if (pathname.endsWith("/demo") || pathname.endsWith("/demo.html")) return "book";
   if (pathname.endsWith("/book") || pathname.endsWith("/book.html")) return "book";
   return "notFound";
 };
@@ -34,6 +36,7 @@ function getPageFromPathname(pathname) {
   if (normalizedPath.endsWith("/privacy") || normalizedPath.endsWith("/privacy.html")) return "privacy";
   if (normalizedPath.endsWith("/terms") || normalizedPath.endsWith("/terms.html")) return "terms";
   if (normalizedPath.endsWith("/cookie-policy") || normalizedPath.endsWith("/cookie-policy.html")) return "cookiePolicy";
+  if (normalizedPath.endsWith("/demo") || normalizedPath.endsWith("/demo.html")) return "book";
   if (normalizedPath.endsWith("/book") || normalizedPath.endsWith("/book.html")) return "book";
   return "notFound";
 }
@@ -194,10 +197,10 @@ const pageMeta = {
     path: "/contact",
   },
   book: {
-    title: "Book a Demo | YeneSchool",
+    title: "Demo | YeneSchool",
     description:
-      "Book a guided YeneSchool demo for school owners, registrars, teachers, finance teams, and parent portal workflows.",
-    path: "/book",
+      "Request a guided YeneSchool demo for school owners, registrars, teachers, finance teams, and parent portal workflows.",
+    path: "/demo",
   },
   privacy: {
     title: "Privacy Policy | YeneSchool",
@@ -228,8 +231,15 @@ function setMeta(selector, attribute, value) {
 }
 
 function usePageMeta(page) {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    const meta = pageMeta[page] || pageMeta.home;
+    const staticMeta = pageMeta[page] || pageMeta.home;
+    const translatedMeta = t(`pageMeta.${page}`) || t("pageMeta.home") || {};
+    const meta = {
+      ...staticMeta,
+      ...translatedMeta,
+    };
     const url = `https://www.yeneschool.me${meta.path}`;
 
     document.title = meta.title;
@@ -240,7 +250,7 @@ function usePageMeta(page) {
     setMeta("meta[property='og:url']", "content", url);
     setMeta("meta[name='twitter:title']", "content", meta.title);
     setMeta("meta[name='twitter:description']", "content", meta.description);
-  }, [page]);
+  }, [page, t]);
 }
 
 const legalPages = {
@@ -520,39 +530,70 @@ const legalPages = {
 };
 
 function LegalPage({ config }) {
+  const { t } = useTranslation();
+  const legalKey = config.active === "cookiePolicy" ? "cookie" : config.active;
+  const translated = t(`legal.${legalKey}`) || {};
+  const tocLabels = translated.toc || config.toc.map(([, label]) => label);
+  const keyAliases = {
+    "privacy-collect": "collect",
+    "privacy-use": "use",
+    "privacy-share": "share",
+    "privacy-security": "security",
+    "privacy-retention": "retention",
+    "privacy-rights": "rights",
+    "privacy-contact": "contact",
+    "terms-acceptance": "acceptance",
+    "terms-service": "service",
+    "terms-responsibilities": "responsibilities",
+    "terms-accounts": "accounts",
+    "terms-payments": "payments",
+    "terms-availability": "availability",
+    "terms-liability": "liability",
+    "terms-changes": "changes",
+    "cookie-what": "what",
+    "cookie-use": "use",
+    "cookie-types": "types",
+    "cookie-control": "control",
+    "cookie-changes": "changes",
+  };
+
   return (
     <PageShell activePage={config.active}>
       <main id="top" className="legal-page">
         <section className="legal-hero section" data-reveal>
-          <span className="section-kicker">{config.kicker}</span>
-          <h1>{config.title}</h1>
-          <p>{config.description}</p>
+          <span className="section-kicker">{translated.kicker || config.kicker}</span>
+          <h1>{translated.title || config.title}</h1>
+          <p>{translated.desc || config.description}</p>
         </section>
 
         <section className="legal-layout section" aria-label={config.ariaLabel}>
           <aside className="legal-toc" data-reveal>
-            {config.toc.map(([id, label]) => (
+            {config.toc.map(([id, label], index) => (
               <a href={`#${id}`} key={id}>
-                {label}
+                {tocLabels[index] || label}
               </a>
             ))}
           </aside>
           <article className="legal-content" data-reveal>
-            {config.sections.map(({ id, title, body, bullets }) => (
+            {config.sections.map(({ id, title, body, bullets }) => {
+              const section = translated.sections?.[keyAliases[id]] || {};
+              const sectionBody = section.body || body;
+              const sectionBullets = section.items || bullets;
+              return (
               <section id={id} className="legal-section" key={id}>
-                <h2>{title}</h2>
-                {body.map((paragraph, index) => (
+                <h2>{section.title || title}</h2>
+                {sectionBody.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
-                {bullets?.length ? (
+                {sectionBullets?.length ? (
                   <ul>
-                    {bullets.map((item) => (
+                    {sectionBullets.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
                 ) : null}
               </section>
-            ))}
+            )})}
           </article>
         </section>
       </main>
@@ -561,19 +602,21 @@ function LegalPage({ config }) {
 }
 
 function NotFoundPage() {
+  const { t } = useTranslation();
+
   return (
     <PageShell activePage="notFound">
       <main id="top" className="legal-page">
         <section className="legal-hero section is-visible" data-reveal>
-          <span className="section-kicker">404</span>
-          <h1>Page not found.</h1>
-          <p>The page you opened is not available. Use the links below to continue.</p>
+          <span className="section-kicker">{t("notFound.kicker")}</span>
+          <h1>{t("notFound.title")}</h1>
+          <p>{t("notFound.desc")}</p>
           <div className="hero-actions">
             <a className="primary-btn gradient-btn" href="/">
-              Go home
+              {t("notFound.goHome")}
             </a>
             <a className="secondary-btn" href="/contact">
-              Contact us
+              {t("notFound.contactUs")}
             </a>
           </div>
         </section>

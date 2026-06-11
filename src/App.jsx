@@ -183,46 +183,54 @@ const pageMeta = {
     description:
       "The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence.",
     path: "/",
+    robots: "index, follow",
   },
   modules: {
     title: "Modules | YeneSchool",
     description:
       "Explore YeneSchool modules for academics, admissions, attendance, exams, report cards, finance, communication, operations, and parent portals.",
-    path: "/modules",
+    path: "/",
+    robots: "noindex, follow",
   },
   contact: {
     title: "Contact | YeneSchool",
     description:
       "Contact YeneSchool for school management system pricing, demos, implementation, and support questions.",
-    path: "/contact",
+    path: "/#contact",
+    robots: "noindex, follow",
   },
   book: {
     title: "Demo | YeneSchool",
     description:
       "Request a guided YeneSchool demo for school owners, registrars, teachers, finance teams, and parent portal workflows.",
-    path: "/demo",
+    path: "/#book-demo",
+    robots: "noindex, follow",
   },
   privacy: {
     title: "Privacy Policy | YeneSchool",
     description:
       "Read the YeneSchool privacy policy for school data, account information, security, and data rights.",
-    path: "/privacy",
+    path: "/",
+    robots: "noindex, follow",
   },
   terms: {
     title: "Terms of Service | YeneSchool",
     description:
       "Read the YeneSchool terms of service for schools and authorized users of the school management system.",
-    path: "/terms",
+    path: "/",
+    robots: "noindex, follow",
   },
   cookiePolicy: {
     title: "Cookie Policy | YeneSchool",
     description: "Read how cookies and browser preferences support the YeneSchool website and product.",
-    path: "/cookie-policy",
+    path: "/",
+    robots: "noindex, follow",
   },
   notFound: {
     title: "Page Not Found | YeneSchool",
     description: "The requested YeneSchool page could not be found.",
-    path: "/404",
+    path: "/",
+    robots: "noindex, follow",
   },
 };
 
@@ -245,6 +253,7 @@ function usePageMeta(page) {
     document.title = meta.title;
     setMeta("meta[name='description']", "content", meta.description);
     setMeta("link[rel='canonical']", "href", url);
+    setMeta("meta[name='robots']", "content", meta.robots || "index, follow");
     setMeta("meta[property='og:title']", "content", meta.title);
     setMeta("meta[property='og:description']", "content", meta.description);
     setMeta("meta[property='og:url']", "content", url);

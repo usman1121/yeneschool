@@ -72,19 +72,19 @@ function Header({ activePage }) {
           </button>
           <div className="nav-panel" data-mobile-menu>
             <nav className="nav-links" aria-label={t("nav.primary") || "Primary navigation"}>
-              <NavLink activePage={activePage} page="home" href="/" data-scroll-target="roles">
+              <NavLink activePage={activePage} page="home" href="/#roles" data-scroll-target="roles">
                 {t("nav.features")}
               </NavLink>
-              <NavLink activePage={activePage} page="modules" href="/modules">
+              <NavLink activePage={activePage} page="modules" href="/#modules" data-scroll-target="modules">
                 {t("nav.modules")}
               </NavLink>
-              <a href="/" data-scroll-target="pricing">
+              <a href="/#pricing" data-scroll-target="pricing">
                 {t("nav.pricing")}
               </a>
-              <NavLink activePage={activePage} page="book" href="/demo">
+              <NavLink activePage={activePage} page="book" href="/#book-demo" data-scroll-target="book-demo">
                 {t("nav.book")}
               </NavLink>
-              <NavLink activePage={activePage} page="contact" href="/contact">
+              <NavLink activePage={activePage} page="contact" href="/#contact" data-scroll-target="contact">
                 {t("nav.contact")}
               </NavLink>
             </nav>
@@ -152,17 +152,17 @@ function Footer({ activePage }) {
               <h3>{t("footer.product")}</h3>
               <ul>
                 <li>
-                  <a href="/modules" {...isActive("modules")}>
+                  <a href="/#modules" data-scroll-target="modules" {...isActive("modules")}>
                     {t("footer.modules")}
                   </a>
                 </li>
                 <li>
-                  <a href="/" data-scroll-target="pricing">
+                  <a href="/#pricing" data-scroll-target="pricing">
                     {t("footer.pricing")}
                   </a>
                 </li>
                 <li>
-                  <a href="/demo" {...isActive("book")}>
+                  <a href="/#book-demo" data-scroll-target="book-demo" {...isActive("book")}>
                     {t("footer.bookDemo")}
                   </a>
                 </li>
@@ -188,7 +188,7 @@ function Footer({ activePage }) {
                 </li>
               </ul>
             </section>
-            <section data-reveal>
+            <section id="contact" data-reveal>
               <h3>{t("footer.contactUs")}</h3>
               <ul>
                 <li>

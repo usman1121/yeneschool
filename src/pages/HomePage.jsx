@@ -348,7 +348,7 @@ export default function HomePage() {
                 <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Secure login and role-based access</span></li>
               </ul>
               <hr className="plan-divider" />
-              <a className="pricing-btn" href="/contact">Contact Sales</a>
+              <a className="pricing-btn" href="/#contact" data-scroll-target="contact">Contact Sales</a>
             </article>
             <article className="pricing-card popular" data-plan="standard">
               <div className="popular-badge">
@@ -391,7 +391,7 @@ export default function HomePage() {
                 <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Messaging, lessons, discipline, and parent portal</span></li>
               </ul>
               <hr className="plan-divider" />
-              <a className="pricing-btn primary" href="/contact">Contact Sales</a>
+              <a className="pricing-btn primary" href="/#contact" data-scroll-target="contact">Contact Sales</a>
             </article>
             <article className="pricing-card pricing-side-right" data-plan="ultimate">
               <div className="plan-header">
@@ -430,8 +430,22 @@ export default function HomePage() {
                 <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Siren schedules, custom branding, and backups</span></li>
               </ul>
               <hr className="plan-divider" />
-              <a className="pricing-btn" href="/contact">Contact Sales</a>
+              <a className="pricing-btn" href="/#contact" data-scroll-target="contact">Contact Sales</a>
             </article>
+          </div>
+        </section>
+        <section className="section modules-preview-section" id="book-demo" aria-labelledby="book-demo-title" data-reveal>
+          <div className="section-heading modules-preview-heading">
+            <span className="section-kicker">Demo</span>
+            <h2 id="book-demo-title">See how YeneSchool fits your school.</h2>
+            <p>
+              Request a guided walkthrough for academics, finance, parent visibility,
+              admissions, reports, and the daily dashboards your team will use.
+            </p>
+          </div>
+          <div className="modules-preview-actions">
+            <a className="primary-btn gradient-btn" href="/demo">Request a demo</a>
+            <a className="secondary-btn" href="/#contact" data-scroll-target="contact">Contact sales</a>
           </div>
         </section>
       </main>

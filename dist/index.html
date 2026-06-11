@@ -7,6 +7,7 @@
       name="description"
       content="The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence."
     />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#080b12" data-theme-color />
     <script>
       (() => {
@@ -44,34 +45,66 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "YeneSchool",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "Web",
-        "url": "https://www.yeneschool.me/",
-        "image": "https://www.yeneschool.me/assets/admin.png",
-        "description": "The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence.",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Ethiopia"
-        },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "ETB",
-          "availability": "https://schema.org/InStock"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "YeneSchool",
-          "url": "https://www.yeneschool.me/",
-          "logo": "https://www.yeneschool.me/assets/logo.svg",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "yeneschool@gmail.com",
-            "contactType": "sales and support",
-            "areaServed": "ET"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.yeneschool.me/#organization",
+            "name": "YeneSchool",
+            "url": "https://www.yeneschool.me/",
+            "logo": "https://www.yeneschool.me/assets/logo.svg",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "yeneschool@gmail.com",
+              "telephone": "+251966074050",
+              "contactType": "sales and support",
+              "areaServed": "ET"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.yeneschool.me/#website",
+            "name": "YeneSchool",
+            "url": "https://www.yeneschool.me/",
+            "publisher": {
+              "@id": "https://www.yeneschool.me/#organization"
+            },
+            "inLanguage": ["en", "am"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://www.yeneschool.me/#software",
+            "name": "YeneSchool",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web",
+            "url": "https://www.yeneschool.me/",
+            "image": "https://www.yeneschool.me/assets/admin.png",
+            "description": "The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence.",
+            "areaServed": {
+              "@type": "Country",
+              "name": "Ethiopia"
+            },
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "ETB",
+              "availability": "https://schema.org/InStock"
+            },
+            "publisher": {
+              "@id": "https://www.yeneschool.me/#organization"
+            }
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "@id": "https://www.yeneschool.me/#site-navigation",
+            "name": ["Features", "Modules", "Pricing", "Demo", "Contact"],
+            "url": [
+              "https://www.yeneschool.me/#roles",
+              "https://www.yeneschool.me/#modules",
+              "https://www.yeneschool.me/#pricing",
+              "https://www.yeneschool.me/#book-demo",
+              "https://www.yeneschool.me/#contact"
+            ]
           }
-        }
+        ]
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,8 +113,10 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lexend+Deca:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
-    <script type="module" crossorigin src="/assets/main-Cob2ml5O.js"></script>
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/assets/favicon.png" />
+    <script type="module" crossorigin src="/assets/main-DQRlsMJD.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/main-BXUkCDSv.css">
   </head>
   <body>

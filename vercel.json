@@ -1,6 +1,17 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(modules|modules.html|contact|contact.html|demo|demo.html|book|book.html|privacy|privacy.html|terms|terms.html|cookie-policy|cookie-policy.html)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/modules", "destination": "/" },
     { "source": "/modules.html", "destination": "/" },

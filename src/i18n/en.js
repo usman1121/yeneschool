@@ -303,7 +303,7 @@ export const en = {
           "YeneSchool includes the common modules schools expect, plus standout features for offline work, Ethiopian calendar support, automation, analytics, and local language needs.",
         facts: [
           { value: "470", label: "declared backend endpoints across the SMS API catalog." },
-          { value: "8 roles", label: "super admin, admin, IT manager, registrar, teacher, student, parent, and finance workspaces." },
+          { value: "7 roles", label: "admin, IT manager, registrar, teacher, student, parent, and finance workspaces." },
           { value: "18 domains", label: "from admissions and academics to online examinations, finance, reporting, lessons, discipline, siren operations, and data quality." },
           { value: "Offline-ready", label: "attendance and sync endpoints support schools when connectivity is unreliable." },
         ],
@@ -410,7 +410,7 @@ export const en = {
           desc: "Turns operational data into dashboards, board-ready reports, and follow-up lists rather than disconnected exports.",
           roles: "Admin, Finance, IT Manager",
           items: [
-            "Admin, teacher, parent, student, registrar, finance, and super-admin dashboards",
+            "Admin, teacher, parent, student, registrar, and finance dashboards",
             "Teacher leaderboard using attendance, grading timeliness, lessons, and related metrics",
             "Parent presentation report with overview, class comparison, subject comparison, and insights",
             "School data health checks for consistency and maintenance follow-up",
@@ -502,11 +502,11 @@ export const en = {
           roles: "Super Admin, IT Manager",
           items: [
             "JWT login with cookie or bearer token support, password reset, and password change flows",
-            "Role guards for SUPER_ADMIN, ADMIN, IT_MANAGER, REGISTRAR, TEACHER, STUDENT, PARENT, and FINANCE",
+            "Role guards for ADMIN, IT_MANAGER, REGISTRAR, TEACHER, STUDENT, PARENT, and FINANCE",
             "Permission overrides through role permissions and user-specific permissions",
             "School-level tenant isolation through request body, params, and query schoolId checks",
             "Subscription feature checks for finance, parent portal, and plan-gated capabilities",
-            "Global rate limiting and platform maintenance mode for non-super-admin traffic",
+            "Global rate limiting and platform maintenance mode",
           ],
         },
         search: {
@@ -719,7 +719,7 @@ export const en = {
             items: [
               "Student records, admissions, classes, sections, subjects, attendance, assessments, and report cards.",
               "Fee management, receipts, balances, discounts, parent fee visibility, and finance summaries.",
-              "Parent, student, teacher, registrar, finance, admin, IT manager, and super admin workspaces.",
+              "Parent, student, teacher, registrar, finance, admin, and IT manager workspaces.",
               "Communication tools, notices, documents, dashboards, exports, and operational reports.",
             ],
           },

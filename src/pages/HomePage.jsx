@@ -21,7 +21,7 @@ export default function HomePage() {
             <span /><span /><span />
           </div>
           <div className="hero-copy" data-reveal>
-            <h1 id="hero-title">Bring your whole school into one complete system.</h1>
+            <h1 id="hero-title">YeneSchool | School Management System in Ethiopia</h1>
             <p>
               YeneSchool is a modern school management platform that helps schools run
               daily operations, connect staff and families, and keep important decisions

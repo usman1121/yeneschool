@@ -19,8 +19,8 @@ export default function ModulesPage() {
               <span>declared backend endpoints across the SMS API catalog.</span>
             </article>
             <article>
-              <strong>8 roles</strong>
-              <span>super admin, admin, IT manager, registrar, teacher, student, parent, and finance workspaces.</span>
+              <strong>7 roles</strong>
+              <span>admin, IT manager, registrar, teacher, student, parent, and finance workspaces.</span>
             </article>
             <article>
               <strong>18 domains</strong>
@@ -87,7 +87,7 @@ export default function ModulesPage() {
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18" /><path d="M7 15l4-4 3 3 5-7" /></svg></span>
               <h3>Automation &amp; Reporting</h3>
               <p>Turns operational data into dashboards, board-ready reports, and follow-up lists rather than disconnected exports.</p>
-              <ul><li>Admin, teacher, parent, student, registrar, finance, and super-admin dashboards</li><li>Teacher leaderboard using attendance, grading timeliness, lessons, and related metrics</li><li>Parent presentation report with overview, class comparison, subject comparison, and insights</li><li>School data health checks for consistency and maintenance follow-up</li><li>Finance reports, overdue summaries, academic reports, and attendance trends</li><li>Backups, exports, search-like raw queries, and audit-friendly operational records</li></ul>
+              <ul><li>Admin, teacher, parent, student, registrar, and finance dashboards</li><li>Teacher leaderboard using attendance, grading timeliness, lessons, and related metrics</li><li>Parent presentation report with overview, class comparison, subject comparison, and insights</li><li>School data health checks for consistency and maintenance follow-up</li><li>Finance reports, overdue summaries, academic reports, and attendance trends</li><li>Backups, exports, search-like raw queries, and audit-friendly operational records</li></ul>
             </article>
             <article className="module-detail-card" id="operations">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg></span>
@@ -117,7 +117,7 @@ export default function ModulesPage() {
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9h4M8 13h8M16 9h.01" /></svg></span>
               <h3>User Portals</h3>
               <p>Gives each role a focused workspace so users only see the work they are responsible for.</p>
-              <ul><li>Super admin portal for schools, admins, subscriptions, backups, and platform settings</li><li>Admin portal for academics, enrollment, reports, assessments, siren, people, and operations</li><li>Teacher portal for classes, attendance, lessons, timetable, grading, and online exams</li><li>Parent portal for children, attendance, grades, fees, lessons, discipline, and timetable</li><li>Student portal for timetable, attendance, lessons, grades, exams, and practice exams</li><li>Registrar, finance, and IT manager workspaces with narrower operational responsibilities</li></ul>
+              <ul><li>Admin portal for schools, subscriptions, backups, and platform settings</li><li>Admin portal for academics, enrollment, reports, assessments, siren, people, and operations</li><li>Teacher portal for classes, attendance, lessons, timetable, grading, and online exams</li><li>Parent portal for children, attendance, grades, fees, lessons, discipline, and timetable</li><li>Student portal for timetable, attendance, lessons, grades, exams, and practice exams</li><li>Registrar, finance, and IT manager workspaces with narrower operational responsibilities</li></ul>
             </article>
             <article className="module-detail-card" id="lessons-assignments">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9h8M8 13h5" /><path d="M6 21h12" /></svg></span>
@@ -141,7 +141,7 @@ export default function ModulesPage() {
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg></span>
               <h3>Security &amp; Permissions</h3>
               <p>Protects tenant data with role permissions, school scoping, subscription feature gates, rate limits, and maintenance controls.</p>
-              <ul><li>JWT login with cookie or bearer token support, password reset, and password change flows</li><li>Role guards for SUPER_ADMIN, ADMIN, IT_MANAGER, REGISTRAR, TEACHER, STUDENT, PARENT, and FINANCE</li><li>Permission overrides through role permissions and user-specific permissions</li><li>School-level tenant isolation through request body, params, and query schoolId checks</li><li>Subscription feature checks for finance, parent portal, and plan-gated capabilities</li><li>Global rate limiting and platform maintenance mode for non-super-admin traffic</li></ul>
+              <ul><li>JWT login with cookie or bearer token support, password reset, and password change flows</li><li>Role guards for ADMIN, IT_MANAGER, REGISTRAR, TEACHER, STUDENT, PARENT, and FINANCE</li><li>Permission overrides through role permissions and user-specific permissions</li><li>School-level tenant isolation through request body, params, and query schoolId checks</li><li>Subscription feature checks for finance, parent portal, and plan-gated capabilities</li><li>Global rate limiting and platform maintenance mode</li></ul>
             </article>
             <article className="module-detail-card" id="search-data-quality">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx={11} cy={11} r={7} /><path d="m21 21-4.3-4.3" /><path d="M8 11h6" /></svg></span>

@@ -189,22 +189,22 @@ const pageMeta = {
     title: "Modules | YeneSchool",
     description:
       "Explore YeneSchool modules for academics, admissions, attendance, exams, report cards, finance, communication, operations, and parent portals.",
-    path: "/",
-    robots: "noindex, follow",
+    path: "/modules",
+    robots: "index, follow",
   },
   contact: {
     title: "Contact | YeneSchool",
     description:
       "Contact YeneSchool for school management system pricing, demos, implementation, and support questions.",
     path: "/contact",
-    robots: "noindex, follow",
+    robots: "index, follow",
   },
   book: {
     title: "Demo | YeneSchool",
     description:
       "Request a guided YeneSchool demo for school owners, registrars, teachers, finance teams, and parent portal workflows.",
     path: "/demo",
-    robots: "noindex, follow",
+    robots: "index, follow",
   },
   privacy: {
     title: "Privacy Policy | YeneSchool",
@@ -403,7 +403,7 @@ const legalPages = {
         bullets: [
           "Student records, admissions, classes, sections, subjects, attendance, assessments, and report cards.",
           "Fee management, receipts, balances, discounts, parent fee visibility, and finance summaries.",
-          "Parent, student, teacher, registrar, finance, admin, IT manager, and super admin workspaces.",
+          "Parent, student, teacher, registrar, finance, admin, and IT manager workspaces.",
           "Communication tools, notices, documents, dashboards, exports, and operational reports.",
         ],
       },

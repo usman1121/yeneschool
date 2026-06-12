@@ -337,7 +337,7 @@ function setupDashboardSlider(cleanups) {
 
   const startAutoPlay = () => {
     if (reduceMotion.matches || intervalId) return;
-    intervalId = window.setInterval(() => setActiveSlide(activeIndex + 1), 3600);
+    intervalId = window.setInterval(() => setActiveSlide(activeIndex + 1), 40000);
   };
 
   const handlers = dots.map((dot) => {

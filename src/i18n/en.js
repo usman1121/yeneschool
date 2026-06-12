@@ -304,7 +304,7 @@ export const en = {
         facts: [
           { value: "470", label: "declared backend endpoints across the SMS API catalog." },
           { value: "8 roles", label: "super admin, admin, IT manager, registrar, teacher, student, parent, and finance workspaces." },
-          { value: "16 domains", label: "from admissions and academics to online examinations, finance, reporting, siren operations, and data quality." },
+          { value: "18 domains", label: "from admissions and academics to online examinations, finance, reporting, lessons, discipline, siren operations, and data quality." },
           { value: "Offline-ready", label: "attendance and sync endpoints support schools when connectivity is unreliable." },
         ],
         jumpNav: ["Academics", "Attendance", "Online Exams", "Finance", "Reporting", "Portals"],

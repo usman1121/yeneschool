@@ -315,6 +315,7 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">CORE</p>
                 <p className="plan-audience">Small Schools</p>
+                <p className="plan-students">Up to 200 students</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
@@ -358,6 +359,7 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">STANDARD</p>
                 <p className="plan-audience">Growing Schools</p>
+                <p className="plan-students">Up to 2,000 students</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
@@ -397,6 +399,7 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">ULTIMATE</p>
                 <p className="plan-audience">Large Schools</p>
+                <p className="plan-students">Unlimited students</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">

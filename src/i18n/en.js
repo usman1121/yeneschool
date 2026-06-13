@@ -218,6 +218,7 @@ export const en = {
           core: {
             name: "CORE",
             audience: "Small Schools",
+            students: "Up to 200 students",
             monthlyPrice: "2,000 ETB/mo",
             annualPrice: "18,000 ETB/year",
             monthlyNote: "Billed monthly",
@@ -243,6 +244,7 @@ export const en = {
           standard: {
             name: "STANDARD",
             audience: "Growing Schools",
+            students: "Up to 2,000 students",
             monthlyPrice: "5,000 ETB/mo",
             annualPrice: "45,000 ETB/year",
             monthlyNote: "Billed monthly",
@@ -269,6 +271,7 @@ export const en = {
           ultimate: {
             name: "ULTIMATE",
             audience: "Large Schools",
+            students: "Unlimited students",
             monthlyPrice: "10,000 ETB/mo",
             annualPrice: "90,000 ETB/year",
             monthlyNote: "Billed monthly",

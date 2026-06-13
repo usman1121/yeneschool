@@ -213,6 +213,7 @@ export const am = {
         core: {
           name: "\u1218\u1230\u1228\u1273\u12CA",
           audience: "\u12A0\u1290\u1235\u1270\u129B \u1275\u121D\u1205\u122D\u1275 \u1264\u1276\u127D",
+          students: "\u12A5\u123E\u12A8 200 \u1270\u121B\u122A\u12CE\u127D",
           monthlyPrice: "2,000 ብር/\u12C8\u122D",
           annualPrice: "18,000 ብር/\u12D3\u1218\u1275",
           monthlyNote: "\u1260\u12E8\u12C8\u1229 \u12ED\u12A8\u1348\u120B\u120D",
@@ -238,6 +239,7 @@ export const am = {
         standard: {
           name: "\u1218\u12F0\u1260\u129B",
           audience: "\u1260\u121B\u12F0\u130D \u120B\u12ED \u12EB\u1209 \u1275\u121D\u1205\u122D\u1275 \u1264\u1276\u127D",
+          students: "\u12A5\u123E\u12A8 2,000 \u1270\u121B\u122A\u12CE\u127D",
           monthlyPrice: "5,000 ብር/\u12C8\u122D",
           annualPrice: "45,000 ብር/\u12D3\u1218\u1275",
           monthlyNote: "\u1260\u12E8\u12C8\u1229 \u12ED\u12A8\u1348\u120B\u120D",
@@ -264,6 +266,7 @@ export const am = {
         ultimate: {
           name: "\u1219\u1209",
           audience: "\u1275\u120B\u120D\u1245 \u1275\u121D\u1205\u122D\u1275 \u1264\u1276\u127D",
+          students: "\u12E9\u120D\u1270\u1308\u12F0\u1260 \u1270\u121B\u122A\u12CE\u127D",
           monthlyPrice: "10,000 ብር/\u12C8\u122D",
           annualPrice: "90,000 ብር/\u12D3\u1218\u1275",
           monthlyNote: "\u1260\u12E8\u12C8\u1229 \u12ED\u12A8\u1348\u120B\u120D",

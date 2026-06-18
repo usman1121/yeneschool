@@ -168,7 +168,7 @@ export default function HomePage() {
           <div className="parent-layout">
             <div className="parent-copy">
               <p className="eyebrow">Parent Visibility</p>
-              <h2 id="parent-title">Families see what the school has actually published.</h2>
+              <h2 id="parent-title">Parents see what the school has actually published.</h2>
               <p>
                 Each parent sees their linked children&rsquo;s submitted attendance, approved report cards, fee balances with receipts, lesson plans and assignments, weekly timetable, discipline records, announcements, and direct messaging with teachers — all scoped to the selected academic year.
               </p>

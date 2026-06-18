@@ -19,7 +19,7 @@ export const en = {
     },
     brand: "YeneSchool",
     footer: {
-      desc: "A school management system for enrollment, attendance, marks, finance, parents, and daily operations.",
+      desc: "YeneSchool is the most complete school management system in Ethiopia that unifies enrollment, attendance, grading, finance, parent communication, and school operations on a single platform.",
       product: "Product",
       legal: "Legal",
       contactUs: "Contact Us",

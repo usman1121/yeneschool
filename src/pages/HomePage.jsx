@@ -168,9 +168,9 @@ export default function HomePage() {
           <div className="parent-layout">
             <div className="parent-copy">
               <p className="eyebrow">Parent Visibility</p>
-              <h2 id="parent-title">Families see what the school has actually published.</h2>
+              <h2 id="parent-title">Parents track attendance, grades, fees, lessons, timetable, and discipline — all published by the school.</h2>
               <p>
-                Parent pages stay tied to submitted school records, selected academic years, and published outputs so families get clear updates instead of confusing raw admin data.
+                Each parent sees their linked children&rsquo;s submitted attendance, approved report cards, fee balances with receipts, lesson plans and assignments, weekly timetable, discipline records, announcements, and direct messaging with teachers — all scoped to the selected academic year.
               </p>
               <div className="parent-tabs" role="tablist" aria-label="Parent visibility views">
                 <button className="parent-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="parent-panel-attendance" id="parent-tab-attendance" data-parent-tab="attendance">Attendance</button>
@@ -210,8 +210,8 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="parent-panel-copy">
-                  <h3>Attendance only appears after school submission.</h3>
-                  <p>Parents see academic-year scoped attendance and clear empty states when no submitted sessions exist yet.</p>
+                  <h3>Session-based attendance with offline support.</h3>
+                  <p>Teachers mark Present, Absent, Late, or Excused per timetable slot. Parents see a monthly calendar with color-coded status, summary stats, and absence alerts when absences exceed 3 days.</p>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-reports" aria-labelledby="parent-tab-reports" data-parent-panel="reports" hidden>
@@ -236,8 +236,8 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="parent-panel-copy">
-                  <h3>Published report cards reach families cleanly.</h3>
-                  <p>Marks, conduct, attendance notes, and term status can be reviewed from one parent-facing view.</p>
+                  <h3>Per-subject grades with GPA, ranking, and fee gating.</h3>
+                  <p>Parents see assessment component scores (Quiz, Test, Mid, Final), letter grades, GPA, class rank, and teacher remarks. Report cards are locked if fees are unpaid.</p>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
@@ -262,8 +262,8 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="parent-panel-copy">
-                  <h3>Fee status is visible without office follow-up.</h3>
-                  <p>Families can check installments, receipts, overdue reminders, and the current payment state.</p>
+                  <h3>Installments, discounts, penalties, and receipt history.</h3>
+                  <p>Parents see fee breakdown by type, payment progress bars, per-period due amounts with late penalties, applied discounts, and a full payment history with receipt numbers.</p>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>
@@ -283,8 +283,8 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="parent-panel-copy">
-                  <h3>Announcements and alerts stay in one parent channel.</h3>
-                  <p>Schools can publish notices, absence alerts, and report-card updates without fragmented message groups.</p>
+                  <h3>School announcements, alerts, and teacher communication.</h3>
+                  <p>Parents receive priority announcements, absence alerts, and report-card notifications. Direct messaging with teachers via conversation-based inbox with read receipts.</p>
                 </div>
               </article>
             </div>

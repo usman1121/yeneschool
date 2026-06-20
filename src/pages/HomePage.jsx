@@ -389,7 +389,7 @@ export default function HomePage() {
                 ))}
               </ul>
               <hr className="plan-divider" />
-              <a className="pricing-btn primary" href="/contact">{t("home.pricing.contactSales")}</a>
+              <a className="pricing-btn" href="/contact">{t("home.pricing.contactSales")}</a>
             </article>
             <article className="pricing-card pricing-side-right" data-plan="ultimate">
               <div className="plan-header">

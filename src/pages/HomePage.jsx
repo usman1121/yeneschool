@@ -151,8 +151,8 @@ export default function HomePage() {
             </a>
             <a className="module-feature-card" href="/modules#communication">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
-              <strong>Communication</strong>
-              <small>Announcements, communication book, internal messaging, read tracking, notification preferences, push subscriptions, and school events.</small>
+              <strong>{t("home.modules.cards.communication.title")}</strong>
+              <small>{t("home.modules.cards.communication.desc")}</small>
             </a>
             <a className="module-feature-card" href="/modules#automation-reporting">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18" /><path d="M7 15l4-4 3 3 5-7" /></svg></span>
@@ -313,127 +313,121 @@ export default function HomePage() {
           <div className="pricing-grid">
             <article className="pricing-card pricing-side-left" data-plan="core">
               <div className="plan-header">
-                <p className="plan-name">CORE</p>
-                <p className="plan-audience">Small Schools</p>
-                <p className="plan-students">Up to 200 students</p>
+                <p className="plan-name">{t("home.pricing.plans.core.name")}</p>
+                <p className="plan-audience">{t("home.pricing.plans.core.audience")}</p>
+                <p className="plan-students">{t("home.pricing.plans.core.students")}</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
                   <span className="renewal-price annual-only">24,000 ETB/year</span>
-                  <span className="launch-badge" data-billing-badge>Monthly</span>
+                  <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.core.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="2,000 ETB/mo" data-annual-price="18,000 ETB/year">2,000 ETB/mo</p>
-                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="25% yearly discount. Pay once for the year.">Billed monthly</p>
+                <p className="launch-price" data-monthly-price="2,000 ETB/mo" data-annual-price="18,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
+                <p className="first-year-note" data-monthly-note={t("home.pricing.plans.core.monthlyNote")} data-annual-note={t("home.pricing.plans.core.annualNote")}>{t("home.pricing.plans.core.monthlyNote")}</p>
               </div>
               <div className="service-plans" aria-label="Service payment options">
                 <div className="service-plan is-active" data-billing-option="monthly">
-                  <div><strong>Monthly</strong><small>Billed monthly</small></div>
-                  <span>2,000/mo</span>
+                  <div><strong>{t("home.pricing.plans.core.monthlyLabel")}</strong><small>{t("home.pricing.plans.core.monthlyDetail")}</small></div>
+                  <span>{t("home.pricing.plans.core.monthlyPrice")}</span>
                 </div>
                 <div className="service-plan">
-                  <div><strong>6 Months</strong><small>10,800 ETB billed every 6 months</small></div>
-                  <span>1,800/mo</span>
-                  <em>Save 10%</em>
+                  <div><strong>{t("home.pricing.plans.core.sixMonth")}</strong><small>{t("home.pricing.plans.core.sixMonthDetail")}</small></div>
+                  <span>{t("home.pricing.plans.core.sixMonthPrice")}</span>
+                  <em>{t("home.pricing.plans.core.sixMonthSave")}</em>
                 </div>
                 <div className="service-plan" data-billing-option="annual">
-                  <div><strong>Yearly</strong><small>18,000 ETB billed yearly</small></div>
-                  <span>1,500/mo</span>
-                  <em>Save 25%</em>
+                  <div><strong>{t("home.pricing.plans.core.yearly")}</strong><small>{t("home.pricing.plans.core.yearlyDetail")}</small></div>
+                  <span>{t("home.pricing.plans.core.yearlyPrice")}</span>
+                  <em>{t("home.pricing.plans.core.yearlySave")}</em>
                 </div>
               </div>
               <ul className="plan-features">
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Student, parent, teacher, and user records</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Classes, sections, subjects, and academic years</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Attendance tracking and announcements</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>School calendar and basic reports</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Secure login and role-based access</span></li>
+                {t("home.pricing.plans.core.features").map((f, i) => (
+                  <li key={i}><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>{f}</span></li>
+                ))}
               </ul>
               <hr className="plan-divider" />
-              <a className="pricing-btn" href="/contact">Contact Sales</a>
+              <a className="pricing-btn" href="/contact">{t("home.pricing.contactSales")}</a>
             </article>
             <article className="pricing-card popular" data-plan="standard">
               <div className="popular-badge">
                 <svg className="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                Most Popular
+                {t("home.pricing.plans.standard.mostPopular")}
               </div>
               <div className="plan-header">
-                <p className="plan-name">STANDARD</p>
-                <p className="plan-audience">Growing Schools</p>
-                <p className="plan-students">Up to 2,000 students</p>
+                <p className="plan-name">{t("home.pricing.plans.standard.name")}</p>
+                <p className="plan-audience">{t("home.pricing.plans.standard.audience")}</p>
+                <p className="plan-students">{t("home.pricing.plans.standard.students")}</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
                   <span className="renewal-price annual-only">60,000 ETB/year</span>
-                  <span className="launch-badge" data-billing-badge>Monthly</span>
+                  <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.standard.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="5,000 ETB/mo" data-annual-price="45,000 ETB/year">5,000 ETB/mo</p>
-                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="25% yearly discount. Pay once for the year.">Billed monthly</p>
+                <p className="launch-price" data-monthly-price="5,000 ETB/mo" data-annual-price="45,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
+                <p className="first-year-note" data-monthly-note={t("home.pricing.plans.standard.monthlyNote")} data-annual-note={t("home.pricing.plans.standard.annualNote")}>{t("home.pricing.plans.standard.monthlyNote")}</p>
               </div>
               <div className="service-plans" aria-label="Service payment options">
                 <div className="service-plan is-active" data-billing-option="monthly">
-                  <div><strong>Monthly</strong><small>Billed monthly</small></div>
-                  <span>5,000/mo</span>
+                  <div><strong>{t("home.pricing.plans.standard.monthlyLabel")}</strong><small>{t("home.pricing.plans.standard.monthlyDetail")}</small></div>
+                  <span>{t("home.pricing.plans.standard.monthlyPrice")}</span>
                 </div>
                 <div className="service-plan">
-                  <div><strong>6 Months</strong><small>27,000 ETB billed every 6 months</small></div>
-                  <span>4,500/mo</span>
-                  <em>Save 10%</em>
+                  <div><strong>{t("home.pricing.plans.standard.sixMonth")}</strong><small>{t("home.pricing.plans.standard.sixMonthDetail")}</small></div>
+                  <span>{t("home.pricing.plans.standard.sixMonthPrice")}</span>
+                  <em>{t("home.pricing.plans.standard.sixMonthSave")}</em>
                 </div>
                 <div className="service-plan" data-billing-option="annual">
-                  <div><strong>Yearly</strong><small>45,000 ETB billed yearly</small></div>
-                  <span>3,750/mo</span>
-                  <em>Save 25%</em>
+                  <div><strong>{t("home.pricing.plans.standard.yearly")}</strong><small>{t("home.pricing.plans.standard.yearlyDetail")}</small></div>
+                  <span>{t("home.pricing.plans.standard.yearlyPrice")}</span>
+                  <em>{t("home.pricing.plans.standard.yearlySave")}</em>
                 </div>
               </div>
               <ul className="plan-features">
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Everything in CORE</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Marks, exams, grading, and report cards</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Finance, receipts, balances, and parent fee views</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Enrollment approvals and credential generation</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Messaging, lessons, discipline, and parent portal</span></li>
+                {t("home.pricing.plans.standard.features").map((f, i) => (
+                  <li key={i}><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>{f}</span></li>
+                ))}
               </ul>
               <hr className="plan-divider" />
-              <a className="pricing-btn primary" href="/contact">Contact Sales</a>
+              <a className="pricing-btn primary" href="/contact">{t("home.pricing.contactSales")}</a>
             </article>
             <article className="pricing-card pricing-side-right" data-plan="ultimate">
               <div className="plan-header">
-                <p className="plan-name">ULTIMATE</p>
-                <p className="plan-audience">Large Schools</p>
-                <p className="plan-students">Unlimited students</p>
+                <p className="plan-name">{t("home.pricing.plans.ultimate.name")}</p>
+                <p className="plan-audience">{t("home.pricing.plans.ultimate.audience")}</p>
+                <p className="plan-students">{t("home.pricing.plans.ultimate.students")}</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
                   <span className="renewal-price annual-only">120,000 ETB/year</span>
-                  <span className="launch-badge" data-billing-badge>Monthly</span>
+                  <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.ultimate.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="10,000 ETB/mo" data-annual-price="90,000 ETB/year">10,000 ETB/mo</p>
-                <p className="first-year-note" data-monthly-note="Billed monthly" data-annual-note="25% yearly discount. Pay once for the year.">Billed monthly</p>
+                <p className="launch-price" data-monthly-price="10,000 ETB/mo" data-annual-price="90,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
+                <p className="first-year-note" data-monthly-note={t("home.pricing.plans.ultimate.monthlyNote")} data-annual-note={t("home.pricing.plans.ultimate.annualNote")}>{t("home.pricing.plans.ultimate.monthlyNote")}</p>
               </div>
               <div className="service-plans" aria-label="Service payment options">
                 <div className="service-plan is-active" data-billing-option="monthly">
-                  <div><strong>Monthly</strong><small>Billed monthly</small></div>
-                  <span>10,000/mo</span>
+                  <div><strong>{t("home.pricing.plans.ultimate.monthlyLabel")}</strong><small>{t("home.pricing.plans.ultimate.monthlyDetail")}</small></div>
+                  <span>{t("home.pricing.plans.ultimate.monthlyPrice")}</span>
                 </div>
                 <div className="service-plan">
-                  <div><strong>6 Months</strong><small>54,000 ETB billed every 6 months</small></div>
-                  <span>9,000/mo</span>
-                  <em>Save 10%</em>
+                  <div><strong>{t("home.pricing.plans.ultimate.sixMonth")}</strong><small>{t("home.pricing.plans.ultimate.sixMonthDetail")}</small></div>
+                  <span>{t("home.pricing.plans.ultimate.sixMonthPrice")}</span>
+                  <em>{t("home.pricing.plans.ultimate.sixMonthSave")}</em>
                 </div>
                 <div className="service-plan" data-billing-option="annual">
-                  <div><strong>Yearly</strong><small>90,000 ETB billed yearly</small></div>
-                  <span>7,500/mo</span>
-                  <em>Save 25%</em>
+                  <div><strong>{t("home.pricing.plans.ultimate.yearly")}</strong><small>{t("home.pricing.plans.ultimate.yearlyDetail")}</small></div>
+                  <span>{t("home.pricing.plans.ultimate.yearlyPrice")}</span>
+                  <em>{t("home.pricing.plans.ultimate.yearlySave")}</em>
                 </div>
               </div>
               <ul className="plan-features">
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Everything in STANDARD</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Exam seating, rankings, promotion, and ID cards</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Auto class and section placement</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Advanced analytics, exports, and bulk operations</span></li>
-                <li><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>Siren schedules, custom branding, and backups</span></li>
+                {t("home.pricing.plans.ultimate.features").map((f, i) => (
+                  <li key={i}><svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg><span>{f}</span></li>
+                ))}
               </ul>
               <hr className="plan-divider" />
-              <a className="pricing-btn" href="/contact">Contact Sales</a>
+              <a className="pricing-btn" href="/contact">{t("home.pricing.contactSales")}</a>
             </article>
           </div>
         </section>

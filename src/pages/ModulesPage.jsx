@@ -1,6 +1,8 @@
 import PageShell from "../components/PageShell.jsx";
+import { useTranslation } from "../i18n/I18nContext.jsx";
 
 export default function ModulesPage() {
+  const { t } = useTranslation();
   return (
     <PageShell activePage="modules">
       <main id="top" className="modules-page">
@@ -73,9 +75,11 @@ export default function ModulesPage() {
             </article>
             <article className="module-detail-card" id="communication">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
-              <h3>Communication</h3>
-              <p>Combines public announcements, school communication books, internal messaging, notifications, and events.</p>
-              <ul><li>Announcements with active counts, audience filtering, and notification creation</li><li>Communication book records with categories, status, and reply threads</li><li>Internal chat rooms, conversations, messages, participants, and read tracking</li><li>Notification preferences, push subscriptions, and role-targeted notifications</li><li>School events and calendar-visible operational updates</li><li>Dedicated messages, announcements, and communications pages in the dashboard</li></ul>
+              <h3>{t("modules.details.communication.title")}</h3>
+              <p>{t("modules.details.communication.desc")}</p>
+              <ul>{t("modules.details.communication.items").map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}</ul>
             </article>
             <article className="module-detail-card" id="local-school-support">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></svg></span>

@@ -548,11 +548,33 @@ function setupContactForm(cleanups) {
   cleanups.push(() => form.removeEventListener("submit", handleSubmit));
 }
 
+function getEthiopianYear(date) {
+  const gregYear = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+  return month < 8 || (month === 8 && day < 11) ? gregYear - 8 : gregYear - 7;
+}
+
 function setupCurrentYear() {
-  const year = String(new Date().getFullYear());
-  document.querySelectorAll("[data-current-year]").forEach((item) => {
-    item.textContent = year;
-  });
+  const now = new Date();
+
+  const updateYear = () => {
+    const lang = document.documentElement.dataset.language;
+    let year;
+    if (lang === "am") {
+      year = String(getEthiopianYear(now)) + " \u12D3.\u121D.";
+    } else {
+      year = String(now.getFullYear());
+    }
+    document.querySelectorAll("[data-current-year]").forEach((item) => {
+      item.textContent = year;
+    });
+  };
+
+  updateYear();
+
+  const observer = new MutationObserver(() => updateYear());
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-language"] });
 }
 
 function setupDemoDateInputs() {

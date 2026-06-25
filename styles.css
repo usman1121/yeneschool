@@ -2903,7 +2903,7 @@ tr:last-child td {
 
 .footer-wordmark {
   font-size: 30px;
-  color: var(--foreground);
+  color: #60a5fa;
   font-family: "C8aTajra", serif;
   font-weight: 400;
   line-height: 1;
@@ -3942,6 +3942,56 @@ html.dark .service-plan {
 
   .footer-desc {
     max-width: none;
+  }
+}
+
+/* Video container styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  margin: 48px auto 0;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 14px;
+}
+
+/* Dark mode video styles */
+html.dark .video-container {
+  background: var(--soft-surface);
+  border-color: var(--line);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .video-container {
+    max-width: 100%;
+    margin: 32px 0 0;
+    border-radius: 10px;
+  }
+  
+  .video-container iframe {
+    border-radius: 10px;
+  }
+}
+
+/* Hide iframe by default on desktop */
+@media (min-width: 621px) {
+  .video-container {
+    display: none;
   }
 }
 

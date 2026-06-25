@@ -44,6 +44,15 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          <div className="video-container" data-reveal>
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0&modestbranding=1"
+              title="YeneSchool Demo Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
         </section>
         <section className="school-signals-section" aria-label="School workflows covered by YeneSchool" data-reveal>
           <h2>Built around the daily work of real schools.</h2>

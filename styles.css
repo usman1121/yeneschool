@@ -2903,10 +2903,16 @@ tr:last-child td {
 
 .footer-wordmark {
   font-size: 30px;
+  color: var(--foreground);
+  font-family: "C8aTajra", serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 180ms ease;
 }
 
 .footer-desc {
-  margin: 0;
+  margin: 16px 0 0;
   max-width: 360px;
   color: var(--muted);
   font-size: 15px;
@@ -2918,7 +2924,7 @@ tr:last-child td {
   flex-wrap: wrap;
   gap: 18px;
   padding: 0;
-  margin: 0;
+  margin: 24px 0 0;
   list-style: none;
 }
 
@@ -2950,23 +2956,71 @@ tr:last-child td {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 34px;
+  position: relative;
+}
+
+.footer-links::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  right: -20px;
+  top: -20px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--line), transparent);
 }
 
 .footer-links h3 {
-  margin: 0;
+  margin: 0 0 20px;
   color: var(--foreground);
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-links h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary), transparent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-links section:hover h3::after {
+  transform: scaleX(1);
 }
 
 .footer-links ul {
   display: grid;
   gap: 16px;
   padding: 0;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
   list-style: none;
   font-size: 14px;
+  position: relative;
+}
+
+.footer-links ul::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 8px;
+  width: 1px;
+  height: calc(100% - 16px);
+  background: linear-gradient(to bottom, var(--primary), transparent);
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+
+.footer-links section:hover ul::before {
+  opacity: 0.3;
 }
 
 .footer-links a {
@@ -2975,7 +3029,7 @@ tr:last-child td {
   gap: 8px;
   color: var(--muted);
   text-decoration: none;
-  transition: color 200ms ease, transform 200ms ease;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
 .footer-links a:hover,
@@ -2999,6 +3053,31 @@ tr:last-child td {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  position: relative;
+}
+
+.link-with-indicator::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0;
+  transform: translateY(-50%) scale(0);
+  transition: all 280ms ease;
+}
+
+.link-with-indicator:hover::before,
+.link-with-indicator:focus-visible::before {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.link-with-indicator:hover {
+  gap: 10px;
 }
 
 .live-dot {
@@ -3018,6 +3097,16 @@ tr:last-child td {
   animation: live-pulse 2s ease-out infinite;
 }
 
+.live-ping::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, var(--primary), transparent 70%);
+  opacity: 0.6;
+  animation: live-pulse-glow 2s ease-out infinite;
+}
+
 .live-dot::after {
   content: "";
   position: absolute;
@@ -3026,7 +3115,53 @@ tr:last-child td {
   height: 10px;
   border-radius: 999px;
   background: var(--primary);
+  animation: live-pulse-reverse 2s ease-out infinite reverse;
 }
+
+@keyframes live-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+@keyframes live-pulse-glow {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes live-pulse-reverse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+.footer-links section:nth-child(1) {
+  border-right: 1px solid var(--line);
+  padding-right: 20px;
+}
+
+.footer-links section:nth-child(2),
+.footer-links section:nth-child(3),
+.footer-links section:nth-child(4) {
+  padding-left: 20px;
+}
+
 
 @keyframes live-pulse {
   0% {

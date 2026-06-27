@@ -5,6 +5,7 @@ export const en = {
       features: "Features",
       modules: "Modules",
       pricing: "Pricing",
+      compare: "Why Us?",
       book: "Demo",
       contact: "Contact",
     },
@@ -26,6 +27,7 @@ export const en = {
       modules: "Modules",
       pricing: "Pricing",
       bookDemo: "Demo",
+      compare: "Why Us?",
       privacy: "Privacy",
       terms: "Terms",
       cookiePolicy: "Cookie Policy",
@@ -907,5 +909,103 @@ export const en = {
         title: "Page Not Found | YeneSchool",
         description: "The requested YeneSchool page could not be found.",
       },
+      compare: {
+        title: "Why YeneSchool | Best School Management System in Ethiopia",
+        description:
+          "Compare YeneSchool with international legacy systems and basic local portals. Discover why our 8-role, multi-tenant, Ethiopian-calendar-native platform is built for Ethiopian schools.",
+      },
     },
-};
+    compare: {
+      hero: {
+        title: "Why YeneSchool is the Best School Management System in Ethiopia",
+        desc: "When Ethiopian schools evaluate software, they face a choice between expensive international systems that don't fit our academic calendar, or rigid local portals that lack the depth schools actually need. YeneSchool was purpose-built from the ground up for Ethiopian education — not adapted or bolted on. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar support, offline-first attendance, and 8 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
+      },
+      table: {
+        colFeature: "Feature / Requirement",
+        colLegacy: "International Legacy Systems",
+        colLocal: "Basic Local Portals",
+        colYene: "YeneSchool 🇪🇹",
+        rows: [
+          {
+            feature: "Architecture & Scale",
+            legacy: "Monolithic codebases with no school-level tenant isolation",
+            local: "Single-school spreadsheets or basic portals, no multi-tenancy",
+            yene: "Multi-tenant SaaS (schoolId on every table, Redis namespace isolation). 52 backend modules, 48 NestJS modules, 523+ declared API endpoints, 95+ Prisma models across PostgreSQL 16.",
+          },
+          {
+            feature: "Calendar & Academic Fit",
+            legacy: "Gregorian-only calendars requiring manual workarounds for Ethiopian terms",
+            local: "Hardcoded term structures that don't adapt to Grade 1-8 vs Grade 1-12",
+            yene: "Native Ethiopian calendar (13 months, Meskerem–Sene) + Gregorian dual support. Configurable grade-system: Grade 1-8 or Grade 1-12 mode. Academic years, terms, quarters, semesters all driven by school settings.",
+          },
+          {
+            feature: "Offline & Connectivity",
+            legacy: "Requires constant high-speed internet; no offline fallback",
+            local: "No offline capability; data lost when connection drops",
+            yene: "Offline-first attendance via Dexie.js (IndexedDB). Teachers mark attendance without internet — data syncs automatically when connectivity returns. Critical for Ethiopian schools with unreliable infrastructure.",
+          },
+          {
+            feature: "Language Support",
+            legacy: "English-only UI; no support for local languages",
+            local: "Amharic-only or limited bilingual interfaces",
+            yene: "5 languages: English, Amharic, Arabic, Oromo, Somali. Full UI switching, parent portal, student dashboard, report cards, and notifications all support all 5 languages.",
+          },
+          {
+            feature: "Role Isolation",
+            legacy: "Generic admin/teacher/student with no fine-grained access control",
+            local: "Basic role separation with limited dashboards",
+            yene: "8 strictly isolated roles: SUPER_ADMIN, ADMIN, TEACHER, STUDENT, PARENT, REGISTRAR, FINANCE, HR. Each sees only their records, actions, and reports. RBAC with granular permission overrides per user.",
+          },
+          {
+            feature: "Finance & Billing",
+            legacy: "Not integrated; requires separate accounting software",
+            local: "Basic fee logs without installment plans or overdue tracking",
+            yene: "Full finance module: fee structures, installment plans (10-month Ethiopian billing cycle), discounts, late penalties, receipts, payroll, parent-visible fee records, overdue reports, and audit logs.",
+          },
+          {
+            feature: "Report Cards & Grading",
+            legacy: "Manual PDF generation or disconnected gradebooks",
+            local: "Static report templates with no publishing workflow",
+            yene: "DRAFT → PUBLISHED → ARCHIVED workflow. Assessment setup, weighted scores, exam rankings, publish-results validation, bulk report-card generation (PDF/ZIP), certificate templates with watermark, promotion eligibility checks.",
+          },
+          {
+            feature: "Exams & Assessments",
+            legacy: "Paper-based or external exam platforms",
+            local: "Basic score entry without online examination support",
+            yene: "Online examinations with access codes, timers, question banks (MCQ, True/False, short answer), autosave, shuffled questions, automatic scoring. Plus formal exam seating plans and national-exam workflows for Grade 6, 8, and 12 ESLCE.",
+          },
+          {
+            feature: "Notifications",
+            legacy: "Expensive bulk SMS at scale",
+            local: "No notification system or only manual phone calls",
+            yene: "Free, unlimited Web Push notifications for grades, fees, attendance alerts, announcements. No per-message costs — scales to thousands of parents without SMS fees.",
+          },
+        ],
+      },
+      roles: {
+        title: "The 8-Role Isolation Advantage",
+        desc: "Unlike generic software applications, YeneSchool completely eliminates administrative friction and communication bottlenecks by splitting ecosystem data access into eight strictly secured, role-based workspaces — each user sees the records, actions, alerts, and reports they are responsible for:",
+        items: [
+          { name: "Admin (AD)", desc: "Full school ownership: academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion, siren schedules, and school configuration." },
+          { name: "Registrar (RG)", desc: "Enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, school-leaving workflows, and credential generation." },
+          { name: "Teacher (TE)", desc: "Assigned classes and subjects: attendance entry, lesson plans, assignments, grade submissions, online exams, timetable, and class communication." },
+          { name: "Student (ST)", desc: "Timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress." },
+          { name: "Parent (PA)", desc: "Each linked child's attendance, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates." },
+          { name: "Finance (FI)", desc: "Fee structures, installment plans, student balances, discounts, receipts, overdue follow-up, payroll access, finance summaries, and parent-visible fee records." },
+          { name: "IT Manager (IT)", desc: "Academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review." },
+          { name: "HR (HR)", desc: "Staff profiles, departments, teacher subject assignments, credentials, document management, and performance visibility through teacher leaderboard." },
+        ],
+      },
+      stats: {
+        subtitle: "by the numbers",
+        items: [
+          "backend modules",
+          "API endpoints",
+          "isolated roles",
+          "languages",
+          "data models",
+          "schools piloting",
+        ],
+      },
+    },
+  };

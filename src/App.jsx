@@ -14,6 +14,7 @@ function lazyWithPreload(loader) {
 const ModulesPage = lazyWithPreload(() => import("./pages/ModulesPage.jsx"));
 const ContactPage = lazyWithPreload(() => import("./pages/ContactPage.jsx"));
 const BookPage = lazyWithPreload(() => import("./pages/BookPage.jsx"));
+const ComparePage = lazyWithPreload(() => import("./pages/ComparePage.jsx"));
 
 const getPageFromRoute = () => {
   const pathname = window.location.pathname.replace(/\/+$/, "");
@@ -25,6 +26,7 @@ const getPageFromRoute = () => {
   if (pathname.endsWith("/cookie-policy") || pathname.endsWith("/cookie-policy.html")) return "cookiePolicy";
   if (pathname.endsWith("/demo") || pathname.endsWith("/demo.html")) return "book";
   if (pathname.endsWith("/book") || pathname.endsWith("/book.html")) return "book";
+  if (pathname.endsWith("/vs-others") || pathname.endsWith("/vs-others.html")) return "compare";
   return "notFound";
 };
 
@@ -38,6 +40,7 @@ function getPageFromPathname(pathname) {
   if (normalizedPath.endsWith("/cookie-policy") || normalizedPath.endsWith("/cookie-policy.html")) return "cookiePolicy";
   if (normalizedPath.endsWith("/demo") || normalizedPath.endsWith("/demo.html")) return "book";
   if (normalizedPath.endsWith("/book") || normalizedPath.endsWith("/book.html")) return "book";
+  if (normalizedPath.endsWith("/vs-others") || normalizedPath.endsWith("/vs-others.html")) return "compare";
   return "notFound";
 }
 
@@ -45,6 +48,7 @@ function preloadPage(page) {
   if (page === "modules") ModulesPage.preload();
   if (page === "contact") ContactPage.preload();
   if (page === "book") BookPage.preload();
+  if (page === "compare") ComparePage.preload();
 }
 
 function useClientNavigation(setPage) {
@@ -204,6 +208,13 @@ const pageMeta = {
     description:
       "Request a guided YeneSchool demo for school owners, registrars, teachers, finance teams, and parent portal workflows.",
     path: "/demo",
+    robots: "index, follow",
+  },
+  compare: {
+    title: "YeneSchool vs Others | Best School Management System in Ethiopia Comparison",
+    description:
+      "Compare YeneSchool with legacy and traditional school software. Discover why our 7-role integrated ERP is the best fit for schools in Ethiopia.",
+    path: "/vs-others",
     robots: "index, follow",
   },
   privacy: {
@@ -694,6 +705,16 @@ export default function App() {
       <Suspense fallback={<PageLoader />}>
         <PageRuntime page={page}>
           <BookPage />
+        </PageRuntime>
+      </Suspense>
+    );
+  }
+
+  if (page === "compare") {
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <PageRuntime page={page}>
+          <ComparePage />
         </PageRuntime>
       </Suspense>
     );

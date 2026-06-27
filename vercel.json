@@ -21,6 +21,8 @@
     { "source": "/demo.html", "destination": "/" },
     { "source": "/book", "destination": "/" },
     { "source": "/book.html", "destination": "/" },
+    { "source": "/vs-others", "destination": "/" },
+    { "source": "/vs-others.html", "destination": "/" },
     { "source": "/privacy", "destination": "/" },
     { "source": "/privacy.html", "destination": "/" },
     { "source": "/terms", "destination": "/" },

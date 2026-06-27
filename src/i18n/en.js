@@ -297,6 +297,21 @@ export const en = {
         },
         contactSales: "Contact Sales",
       },
+      testimonials: {
+        eyebrow: "Testimonials",
+        title: "Trusted by educators and parents across Ethiopia",
+        desc: "Hear from the schools, teachers, and parents who use YeneSchool every day.",
+        row1: [
+          { name: "Abebe Kebede", role: "School Director", text: "YeneSchool has streamlined our attendance tracking and parent communication. The offline support is a game-changer for schools outside Addis." },
+          { name: "Meron Assefa", role: "Parent", text: "I love being able to check my child's attendance and grades anytime. The fee status feature helps me stay on top of payments without visiting the school." },
+          { name: "Henok Desta", role: "Finance Officer", text: "The fee management module eliminated our manual reconciliation work. Parents can pay and get receipts digitally — it's saved us countless hours." },
+        ],
+        row2: [
+          { name: "Sara Hailu", role: "Teacher", text: "Marking attendance and grades used to take hours. Now I do it in minutes. Parents are much more engaged since they can see everything in real time." },
+          { name: "Tadesse Mulugeta", role: "IT Administrator", text: "Setting up the system was straightforward. The role-based dashboards for admin, teachers, parents, and finance are exactly what we needed." },
+          { name: "Betelhem Wondimu", role: "Principal", text: "Having attendance, report cards, and discipline records all in one platform gives me a complete picture of each student's progress." },
+        ],
+      },
     },
     modules: {
       hero: {

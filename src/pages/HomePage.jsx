@@ -13,6 +13,18 @@ export default function HomePage() {
   const pricingTitle = t("home.pricing.title") || "Start lean. Grow into the full system.";
   const [pricingTitleLead, pricingTitleRest] = splitHeading(pricingTitle);
 
+  const row1 = [
+    { name: "Abebe Kebede", role: "School Director", text: "YeneSchool has streamlined our attendance tracking and parent communication. The offline support is a game-changer for schools outside Addis.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" },
+    { name: "Meron Assefa", role: "Parent", text: "I love being able to check my child's attendance and grades anytime. The fee status feature helps me stay on top of payments without visiting the school.", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" },
+    { name: "Henok Desta", role: "Finance Officer", text: "The fee management module eliminated our manual reconciliation work. Parents can pay and get receipts digitally — it's saved us countless hours.", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" },
+  ];
+
+  const row2 = [
+    { name: "Sara Hailu", role: "Teacher", text: "Marking attendance and grades used to take hours. Now I do it in minutes. Parents are much more engaged since they can see everything in real time.", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" },
+    { name: "Tadesse Mulugeta", role: "IT Administrator", text: "Setting up the system was straightforward. The role-based dashboards for admin, teachers, parents, and finance are exactly what we needed.", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" },
+    { name: "Betelhem Wondimu", role: "Principal", text: "Having attendance, report cards, and discipline records all in one platform gives me a complete picture of each student's progress.", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" },
+  ];
+
   return (
     <PageShell activePage="home">
       <main id="top">
@@ -438,6 +450,45 @@ export default function HomePage() {
               <hr className="plan-divider" />
               <a className="pricing-btn" href="/contact">{t("home.pricing.contactSales")}</a>
             </article>
+          </div>
+        </section>
+        <section className="section testimonials-section">
+          <div className="testimonials-header" data-reveal>
+            <p className="eyebrow">Testimonials</p>
+            <h2>Trusted by educators across Ethiopia</h2>
+            <p className="testimonials-desc">Hear from the schools, teachers, and parents who use YeneSchool every day.</p>
+          </div>
+          <div className="testimonials-marquee" data-reveal>
+            <div className="testimonials-track">
+              {[...Array(3)].flatMap(() => row1).map((item, i) => (
+                <article key={i} className="testimonial-card">
+                  <div className="testimonial-card-header">
+                    <img className="testimonial-avatar" src={item.avatar} alt="" width={40} height={40} loading="lazy" />
+                    <div>
+                      <strong>{item.name}</strong>
+                      <span>{item.role}</span>
+                    </div>
+                  </div>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="testimonials-marquee reverse" data-reveal>
+            <div className="testimonials-track">
+              {[...Array(3)].flatMap(() => row2).map((item, i) => (
+                <article key={i} className="testimonial-card">
+                  <div className="testimonial-card-header">
+                    <img className="testimonial-avatar" src={item.avatar} alt="" width={40} height={40} loading="lazy" />
+                    <div>
+                      <strong>{item.name}</strong>
+                      <span>{item.role}</span>
+                    </div>
+                  </div>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       </main>

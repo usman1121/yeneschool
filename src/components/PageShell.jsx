@@ -1,4 +1,11 @@
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslation } from "../i18n/I18nContext.jsx";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 function MenuIcon() {
   return (
@@ -129,13 +136,60 @@ function Header({ activePage }) {
   );
 }
 
+function ScrollToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    onScroll();
+    addEventListener("scroll", onScroll, { passive: true });
+    return () => removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <button
+      className={`scroll-to-top${visible ? " visible" : ""}`}
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Scroll to top"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+        <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  );
+}
+
 function Footer({ activePage }) {
   const { t } = useTranslation();
   const isActive = (page) => (activePage === page ? { "aria-current": "page" } : {});
+  const giantRef = useRef(null);
+
+  useEffect(() => {
+    if (!giantRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        giantRef.current,
+        { y: "8vh" },
+        {
+          y: "-4vh",
+          ease: "none",
+          scrollTrigger: {
+            trigger: giantRef.current,
+            start: "top 100%",
+            end: "bottom top",
+            scrub: 1.5,
+          },
+        }
+      );
+    }, giantRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <footer className="site-footer footer-four-col" aria-labelledby="footer-title">
       <div className="footer-container">
+        <span ref={giantRef} className="footer-giant-text" aria-hidden="true">YeneSchool</span>
         <div className="footer-grid">
           <div className="footer-brand-col" data-reveal>
             <div className="footer-logo-row">
@@ -215,7 +269,7 @@ function Footer({ activePage }) {
             <span>{t("footer.allRightsReserved")}</span>
           </p>
           <p>
-            &copy; <span data-current-year /> YeneSchool
+            &copy; <span data-current-year /> YeneSchool by <a href="https://afrodigital.dev" target="_blank" rel="noopener noreferrer" class="footer-credit-link">Afro Digital</a>
           </p>
         </div>
       </div>
@@ -229,6 +283,7 @@ export default function PageShell({ activePage, children }) {
       <Header activePage={activePage} />
       {children}
       <Footer activePage={activePage} />
+      <ScrollToTop />
     </div>
   );
 }

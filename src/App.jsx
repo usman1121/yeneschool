@@ -211,9 +211,9 @@ const pageMeta = {
     robots: "index, follow",
   },
   compare: {
-    title: "YeneSchool vs Others | Best School Management System in Ethiopia Comparison",
+    title: "Best School Management System in Ethiopia | Why YeneSchool?",
     description:
-      "Compare YeneSchool with legacy and traditional school software. Discover why our 7-role integrated ERP is the best fit for schools in Ethiopia.",
+      "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 8-role, multi-tenant platform with native Ethiopian calendar support, offline attendance, and multi-language UI.",
     path: "/vs-others",
     robots: "index, follow",
   },

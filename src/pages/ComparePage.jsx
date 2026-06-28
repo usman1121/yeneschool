@@ -1,18 +1,58 @@
 import PageShell from "../components/PageShell.jsx";
 import { useTranslation } from "../i18n/I18nContext.jsx";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 export default function ComparePage() {
   const { t } = useTranslation();
   const rows = t("compare.table.rows");
   const roles = t("compare.roles.items");
+  const faq = t("compare.faq");
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const headingRef = useRef(null);
+  const compareTitle = t("compare.hero.title") || "";
+  const splitCompare = compareTitle.split(" ").map((word, i) =>
+    <span key={i} className="word">{word}</span>
+  );
+
+  useEffect(() => {
+    if (!headingRef.current) return;
+    const words = headingRef.current.querySelectorAll(".word");
+    const ctx = gsap.context(() => {
+      gsap.fromTo(words,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: "power2.out" }
+      );
+    }, headingRef);
+    return () => ctx.revert();
+  }, [compareTitle]);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faq.items.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  };
+
   return (
     <PageShell activePage="compare">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main id="top" className="compare-page">
         <section className="compare-hero section" data-reveal>
           <div className="compare-hero-layout">
             <div className="compare-hero-copy">
               <span className="section-kicker">{t("nav.compare")}</span>
-              <h1>{t("compare.hero.title")}</h1>
+              <h1 ref={headingRef}>{splitCompare}</h1>
               <p>{t("compare.hero.desc")}</p>
             </div>
             <div className="compare-hero-stats">
@@ -82,6 +122,25 @@ export default function ComparePage() {
                 <p>{item.desc}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section compare-faq" data-reveal>
+          <div className="compare-faq-container">
+            <h2>{faq.title}</h2>
+            <div className="compare-faq-list">
+              {faq.items.map((item, i) => (
+                <article key={i} className={`faq-item${openIndex === i ? " is-open" : ""}`}>
+                  <button className="faq-trigger" onClick={() => setOpenIndex(openIndex === i ? null : i)}>
+                    <span>{item.q}</span>
+                    <svg className="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                  <div className="faq-answer">
+                    <p>{item.a}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       </main>

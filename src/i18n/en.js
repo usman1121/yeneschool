@@ -910,9 +910,9 @@ export const en = {
         description: "The requested YeneSchool page could not be found.",
       },
       compare: {
-        title: "Why YeneSchool | Best School Management System in Ethiopia",
+        title: "Best School Management System in Ethiopia | Why YeneSchool?",
         description:
-          "Compare YeneSchool with international legacy systems and basic local portals. Discover why our 8-role, multi-tenant, Ethiopian-calendar-native platform is built for Ethiopian schools.",
+          "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 8-role, multi-tenant platform with native Ethiopian calendar support, offline attendance, and multi-language UI.",
       },
     },
     compare: {
@@ -927,12 +927,6 @@ export const en = {
         colYene: "YeneSchool 🇪🇹",
         rows: [
           {
-            feature: "Architecture & Scale",
-            legacy: "Monolithic codebases with no school-level tenant isolation",
-            local: "Single-school spreadsheets or basic portals, no multi-tenancy",
-            yene: "Multi-tenant SaaS (schoolId on every table, Redis namespace isolation). 52 backend modules, 48 NestJS modules, 523+ declared API endpoints, 95+ Prisma models across PostgreSQL 16.",
-          },
-          {
             feature: "Calendar & Academic Fit",
             legacy: "Gregorian-only calendars requiring manual workarounds for Ethiopian terms",
             local: "Hardcoded term structures that don't adapt to Grade 1-8 vs Grade 1-12",
@@ -942,7 +936,7 @@ export const en = {
             feature: "Offline & Connectivity",
             legacy: "Requires constant high-speed internet; no offline fallback",
             local: "No offline capability; data lost when connection drops",
-            yene: "Offline-first attendance via Dexie.js (IndexedDB). Teachers mark attendance without internet — data syncs automatically when connectivity returns. Critical for Ethiopian schools with unreliable infrastructure.",
+            yene: "Offline-first mobile app & Desktop. Attendance, Grade Entry, and more work offline with local storage. Data syncs automatically when connectivity returns.",
           },
           {
             feature: "Language Support",
@@ -951,34 +945,46 @@ export const en = {
             yene: "5 languages: English, Amharic, Arabic, Oromo, Somali. Full UI switching, parent portal, student dashboard, report cards, and notifications all support all 5 languages.",
           },
           {
-            feature: "Role Isolation",
-            legacy: "Generic admin/teacher/student with no fine-grained access control",
-            local: "Basic role separation with limited dashboards",
-            yene: "8 strictly isolated roles: SUPER_ADMIN, ADMIN, TEACHER, STUDENT, PARENT, REGISTRAR, FINANCE, HR. Each sees only their records, actions, and reports. RBAC with granular permission overrides per user.",
+            feature: "Siren & Time Management",
+            legacy: "Manual bell ringing by staff or teachers",
+            local: "Manual or basic timer with no term-wide scheduling",
+            yene: "Automated Smart Siren. Set entire term's bell schedule in advance. System rings physical bell automatically via IoT-ready controllers; push notifications as backup.",
+          },
+          {
+            feature: "Timetable & Scheduling",
+            legacy: "Manual Excel planning with high error risk (3-5 days)",
+            local: "Static grids without conflict detection or teacher availability",
+            yene: "AI-ready Auto-Timetable. Subject, teacher, and room conflict detection. Drag-and-drop adjustments; instant visibility for parents and staff.",
           },
           {
             feature: "Finance & Billing",
             legacy: "Not integrated; requires separate accounting software",
             local: "Basic fee logs without installment plans or overdue tracking",
-            yene: "Full finance module: fee structures, installment plans (10-month Ethiopian billing cycle), discounts, late penalties, receipts, payroll, parent-visible fee records, overdue reports, and audit logs.",
+            yene: "Complete Finance ERP. Auto-generated 10-month fee plans, automatic staff/sibling discounts, late penalties, receipts, payroll, and real-time revenue leak tracking.",
           },
           {
             feature: "Report Cards & Grading",
             legacy: "Manual PDF generation or disconnected gradebooks",
             local: "Static report templates with no publishing workflow",
-            yene: "DRAFT → PUBLISHED → ARCHIVED workflow. Assessment setup, weighted scores, exam rankings, publish-results validation, bulk report-card generation (PDF/ZIP), certificate templates with watermark, promotion eligibility checks.",
+            yene: "One-Click Generation. GPA, class rank, percentage, and teacher remarks. Draft → Published → Archived workflow. Certificate templates with auto-watermarks.",
+          },
+          {
+            feature: "ID Cards & Enrollment",
+            legacy: "Manual printing/design in Photoshop; paper folders",
+            local: "Paper-based forms and physical student files",
+            yene: "Online-to-Print. Parents apply online; system auto-assigns sections and generates ID cards with student photos instantly. Ready for bulk printing.",
           },
           {
             feature: "Exams & Assessments",
-            legacy: "Paper-based or external exam platforms",
+            legacy: "Paper-based or generic external CBT platforms",
             local: "Basic score entry without online examination support",
-            yene: "Online examinations with access codes, timers, question banks (MCQ, True/False, short answer), autosave, shuffled questions, automatic scoring. Plus formal exam seating plans and national-exam workflows for Grade 6, 8, and 12 ESLCE.",
+            yene: "National Exam Practice. Timed CBT with question banks (MCQ, T/F), access codes, and auto-grading. Aligned to MoE standards for Grade 6, 8, and 12 ESLCE.",
           },
           {
-            feature: "Notifications",
-            legacy: "Expensive bulk SMS at scale",
+            feature: "Notifications & Alerts",
+            legacy: "Expensive bulk SMS with delivery delays",
             local: "No notification system or only manual phone calls",
-            yene: "Free, unlimited Web Push notifications for grades, fees, attendance alerts, announcements. No per-message costs — scales to thousands of parents without SMS fees.",
+            yene: "Unlimited Free Push Notifications. Real-time alerts for grades, fees, attendance, and sirens at zero cost. No SMS fees for thousands of parents.",
           },
         ],
       },
@@ -1007,5 +1013,42 @@ export const en = {
           "schools piloting",
         ],
       },
+      faq: {
+        title: "Frequently Asked Questions",
+        items: [
+          {
+            q: "What is the best school management system in Ethiopia?",
+            a: "YeneSchool is widely considered the best school management system in Ethiopia because it is the only platform that offers native Ethiopian calendar support, offline-first attendance for unreliable connectivity, and 5-language UI (including Amharic and Oromo) alongside a comprehensive 8-role ERP architecture."
+          },
+          {
+            q: "Does YeneSchool support the Ethiopian calendar?",
+            a: "Yes, YeneSchool has native support for the Ethiopian calendar (13 months, Meskerem to Sene) and handles all local academic term configurations automatically."
+          },
+          {
+            q: "Can teachers use YeneSchool without internet?",
+            a: "Yes, YeneSchool features an offline-first attendance module, allowing teachers to record daily attendance even when the internet is down. Data syncs automatically once the connection is restored."
+          },
+          {
+            q: "Is it affordable for small private schools?",
+            a: "Absolutely. YeneSchool offers tiered pricing starting at 2,000 ETB/month for small schools (up to 200 students), making high-end school management technology accessible to every educator."
+          },
+          {
+            q: "How is YeneSchool built specifically for Ethiopian schools?",
+            a: "Native Fit: Built specifically for the Ethiopian academic calendar (13 months) and Grade 1-12 assessment models."
+          },
+          {
+            q: "How does YeneSchool handle internet outages?",
+            a: "Infrastructure Ready: Offline-first attendance ensures no data loss during internet outages."
+          },
+          {
+            q: "What modules does YeneSchool include?",
+            a: "Complete ERP: Unifies Finance, Academics, Registrar, and Communication in one 8-role secured platform."
+          },
+          {
+            q: "What languages does YeneSchool support?",
+            a: "Local Languages: UI and parent reports available in Amharic, Oromo, Somali, Arabic, and English."
+          }
+        ]
+      }
     },
   };

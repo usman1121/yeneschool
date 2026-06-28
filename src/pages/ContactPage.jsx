@@ -1,8 +1,27 @@
 import PageShell from "../components/PageShell.jsx";
 import { useTranslation } from "../i18n/I18nContext.jsx";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export default function ContactPage() {
   const { t } = useTranslation();
+  const headingRef = useRef(null);
+  const contactTitle = t("contact.hero.title") || "";
+  const splitContact = contactTitle.split(" ").map((word, i) =>
+    <span key={i} className="word">{word}</span>
+  );
+
+  useEffect(() => {
+    if (!headingRef.current) return;
+    const words = headingRef.current.querySelectorAll(".word");
+    const ctx = gsap.context(() => {
+      gsap.fromTo(words,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: "power2.out" }
+      );
+    }, headingRef);
+    return () => ctx.revert();
+  }, [contactTitle]);
 
   return (
     <PageShell activePage="contact">
@@ -10,7 +29,7 @@ export default function ContactPage() {
         <section className="contact-hero section" aria-labelledby="contact-title" data-reveal>
           <div className="contact-hero-copy">
             <span className="section-kicker">{t("contact.hero.kicker")}</span>
-            <h1 id="contact-title">{t("contact.hero.title")}</h1>
+            <h1 id="contact-title" ref={headingRef}>{splitContact}</h1>
             <p>
               {t("contact.hero.subtitle")}
             </p>

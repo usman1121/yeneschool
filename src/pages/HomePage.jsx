@@ -1,5 +1,7 @@
 import PageShell from "../components/PageShell.jsx";
 import { useTranslation } from "../i18n/I18nContext.jsx";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 function splitHeading(title) {
   const separator = title.includes("።") ? "።" : ".";
@@ -14,6 +16,21 @@ export default function HomePage() {
   const [pricingTitleLead, pricingTitleRest] = splitHeading(pricingTitle);
   const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=100&w=100`;
 
+  const headingRef = useRef(null);
+  const heroTitle = "YeneSchool | School Management System in Ethiopia";
+  const splitHero = heroTitle.split(" ").map((word, i) =>
+    <span key={i} className="word">{word}</span>
+  );
+
+  useEffect(() => {
+    if (!headingRef.current) return;
+    const words = headingRef.current.querySelectorAll(".word");
+    gsap.fromTo(words,
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" }
+    );
+  }, []);
+
   const avatars1 = [25856915, 33769839, 25849114];
   const avatars2 = [25856887, 25849069, 25849070];
   const row1 = (t("home.testimonials.row1") || []).map((item, i) => ({ ...item, avatar: pexel(avatars1[i] || avatars1[0]) }));
@@ -26,9 +43,9 @@ export default function HomePage() {
           <div className="hero-orbits" aria-hidden="true">
             <span /><span /><span />
           </div>
-          <div className="hero-copy" data-reveal>
-            <h1 id="hero-title">YeneSchool | School Management System in Ethiopia</h1>
-            <p>
+          <div className="hero-copy">
+            <h1 id="hero-title" ref={headingRef}>{splitHero}</h1>
+            <p data-reveal>
               YeneSchool is a modern school management platform that helps schools run
               daily operations, connect staff and families, and keep important decisions
               backed by clear, organized data.
@@ -176,7 +193,7 @@ export default function HomePage() {
             </a>
           </div>
           <div className="modules-preview-actions">
-            <a className="secondary-btn" href="/modules">View all modules</a>
+            <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/modules">View all modules</a>
           </div>
         </section>
         <section className="section parent-section" id="parent-visibility" aria-labelledby="parent-title" data-reveal>
@@ -188,118 +205,115 @@ export default function HomePage() {
                 Each parent sees their linked children&rsquo;s submitted attendance, approved report cards, fee balances with receipts, lesson plans and assignments, weekly timetable, discipline records, announcements, and direct messaging with teachers — all scoped to the selected academic year.
               </p>
               <div className="parent-tabs" role="tablist" aria-label="Parent visibility views">
-                <button className="parent-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="parent-panel-attendance" id="parent-tab-attendance" data-parent-tab="attendance">Attendance</button>
-                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-reports" id="parent-tab-reports" data-parent-tab="reports">Report cards</button>
-                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-fees" id="parent-tab-fees" data-parent-tab="fees">Fee status</button>
-                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-notices" id="parent-tab-notices" data-parent-tab="notices">Notices</button>
+                <button className="parent-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="parent-panel-attendance" id="parent-tab-attendance" data-parent-tab="attendance">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+                  Attendance
+                </button>
+                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-reports" id="parent-tab-reports" data-parent-tab="reports">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
+                  Report cards
+                </button>
+                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-fees" id="parent-tab-fees" data-parent-tab="fees">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={10} /><path d="M12 6v12M8 12h8" /></svg>
+                  Fee status
+                </button>
+                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-notices" id="parent-tab-notices" data-parent-tab="notices">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+                  Notices
+                </button>
               </div>
             </div>
             <div className="parent-preview">
               <article className="parent-panel is-active" role="tabpanel" id="parent-panel-attendance" aria-labelledby="parent-tab-attendance" data-parent-panel="attendance">
-                <div className="parent-portal-preview">
-                  <div className="portal-topbar">
-                    <div>
-                      <span>Parent Portal</span>
-                      <strong>Selam Bekele</strong>
-                    </div>
-                    <b>2018 E.C.</b>
+                <div className="parent-panel-card-content">
+                  <div className="parent-panel-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
                   </div>
-                  <div className="portal-student-strip">
-                    <span className="avatar">{t("home.parent.panels.attendance.initials")}</span>
-                    <div>
-                      <strong>{t("home.parent.panels.attendance.grade")}</strong>
-                      <small>{t("home.parent.panels.attendance.teacherPublished")}</small>
-                    </div>
-                    <span className="publish-badge">Submitted</span>
-                  </div>
-                  <div className="portal-summary-row">
-                    <div><span>Present</span><strong>18</strong></div>
-                    <div><span>Late</span><strong>1</strong></div>
-                    <div><span>Absent</span><strong>0</strong></div>
-                  </div>
-                  <div className="portal-record-list" aria-label="Attendance week preview">
-                    <div><span>Monday</span><b className="good">Present</b></div>
-                    <div><span>Tuesday</span><b className="good">Present</b></div>
-                    <div><span>Wednesday</span><b className="warn">Late arrival</b></div>
-                    <div><span>Thursday</span><b className="good">Present</b></div>
+                  <div className="parent-panel-card-text">
+                    <h3>Session-based attendance with offline support.</h3>
+                    <p>Teachers mark Present, Absent, Late, or Excused per timetable slot. Parents see a monthly calendar with color-coded status, summary stats, and absence alerts when absences exceed 3 days.</p>
                   </div>
                 </div>
-                <div className="parent-panel-copy">
-                  <h3>Session-based attendance with offline support.</h3>
-                  <p>Teachers mark Present, Absent, Late, or Excused per timetable slot. Parents see a monthly calendar with color-coded status, summary stats, and absence alerts when absences exceed 3 days.</p>
+                <div className="parent-panel-card-stats">
+                  <div className="parent-stat">
+                    <span className="parent-stat-value">18</span>
+                    <span className="parent-stat-label">Present</span>
+                  </div>
+                  <div className="parent-stat">
+                    <span className="parent-stat-value warn">1</span>
+                    <span className="parent-stat-label">Late</span>
+                  </div>
+                  <div className="parent-stat">
+                    <span className="parent-stat-value good">0</span>
+                    <span className="parent-stat-label">Absent</span>
+                  </div>
+                </div>
+                <div className="parent-panel-card-list">
+                  <div className="parent-list-row"><span>Monday</span><span className="badge badge-good">Present</span></div>
+                  <div className="parent-list-row"><span>Tuesday</span><span className="badge badge-good">Present</span></div>
+                  <div className="parent-list-row"><span>Wednesday</span><span className="badge badge-warn">Late arrival</span></div>
+                  <div className="parent-list-row"><span>Thursday</span><span className="badge badge-good">Present</span></div>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-reports" aria-labelledby="parent-tab-reports" data-parent-panel="reports" hidden>
-                <div className="parent-portal-preview">
-                  <div className="portal-topbar">
-                    <div>
-                      <span>Report Card</span>
-                      <strong>Term 3 results</strong>
-                    </div>
-                    <b>Published</b>
+                <div className="parent-panel-card-content">
+                  <div className="parent-panel-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
                   </div>
-                  <div className="portal-highlight">
-                    <span>Average</span>
-                    <strong>91%</strong>
-                    <small>Released after admin approval</small>
-                  </div>
-                  <div className="portal-record-list">
-                    <div><span>Mathematics</span><b className="good">A</b></div>
-                    <div><span>English</span><b className="good">A-</b></div>
-                    <div><span>Science</span><b className="good">A</b></div>
-                    <div><span>Conduct note</span><b>Excellent</b></div>
+                  <div className="parent-panel-card-text">
+                    <h3>Per-subject grades with GPA, ranking, and fee gating.</h3>
+                    <p>Parents see assessment component scores (Quiz, Test, Mid, Final), letter grades, GPA, class rank, and teacher remarks. Report cards are locked if fees are unpaid.</p>
                   </div>
                 </div>
-                <div className="parent-panel-copy">
-                  <h3>Per-subject grades with GPA, ranking, and fee gating.</h3>
-                  <p>Parents see assessment component scores (Quiz, Test, Mid, Final), letter grades, GPA, class rank, and teacher remarks. Report cards are locked if fees are unpaid.</p>
+                <div className="parent-panel-card-highlight">
+                  <span>Average</span>
+                  <strong>91%</strong>
+                  <small>Released after admin approval</small>
+                </div>
+                <div className="parent-panel-card-list">
+                  <div className="parent-list-row"><span>Mathematics</span><span className="badge badge-good">A</span></div>
+                  <div className="parent-list-row"><span>English</span><span className="badge badge-good">A-</span></div>
+                  <div className="parent-list-row"><span>Science</span><span className="badge badge-good">A</span></div>
+                  <div className="parent-list-row"><span>Conduct note</span><span>Excellent</span></div>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
-                <div className="parent-portal-preview">
-                  <div className="portal-topbar">
-                    <div>
-                      <span>Finance</span>
-                      <strong>Payment status</strong>
-                    </div>
-                    <b>Plan active</b>
+                <div className="parent-panel-card-content">
+                  <div className="parent-panel-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={10} /><path d="M12 6v12M8 12h8" /></svg>
                   </div>
-                  <div className="portal-highlight">
-                    <span>Next installment</span>
-                    <strong>Due in 8 days</strong>
-                    <small>Receipt available after finance confirmation</small>
-                  </div>
-                  <div className="portal-record-list">
-                    <div><span>Tuition</span><b className="good">Paid</b></div>
-                    <div><span>Transport</span><b className="warn">Pending</b></div>
-                    <div><span>Discount</span><b>Applied</b></div>
-                    <div><span>Latest receipt</span><b>Available</b></div>
+                  <div className="parent-panel-card-text">
+                    <h3>Installments, discounts, penalties, and receipt history.</h3>
+                    <p>Parents see fee breakdown by type, payment progress bars, per-period due amounts with late penalties, applied discounts, and a full payment history with receipt numbers.</p>
                   </div>
                 </div>
-                <div className="parent-panel-copy">
-                  <h3>Installments, discounts, penalties, and receipt history.</h3>
-                  <p>Parents see fee breakdown by type, payment progress bars, per-period due amounts with late penalties, applied discounts, and a full payment history with receipt numbers.</p>
+                <div className="parent-panel-card-highlight">
+                  <span>Next installment</span>
+                  <strong>Due in 8 days</strong>
+                  <small>Receipt available after finance confirmation</small>
+                </div>
+                <div className="parent-panel-card-list">
+                  <div className="parent-list-row"><span>Tuition</span><span className="badge badge-good">Paid</span></div>
+                  <div className="parent-list-row"><span>Transport</span><span className="badge badge-warn">Pending</span></div>
+                  <div className="parent-list-row"><span>Discount</span><span className="badge">Applied</span></div>
+                  <div className="parent-list-row"><span>Latest receipt</span><span className="badge">Available</span></div>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>
-                <div className="parent-portal-preview">
-                  <div className="portal-topbar">
-                    <div>
-                      <span>Notices</span>
-                      <strong>School updates</strong>
-                    </div>
-                    <b>3 new</b>
+                <div className="parent-panel-card-content">
+                  <div className="parent-panel-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
                   </div>
-                  <div className="portal-record-list portal-notice-list">
-                    <div><span>Report card published</span><small>Term 3 is ready to view.</small></div>
-                    <div><span>Attendance update</span><small>Late arrival recorded Wednesday.</small></div>
-                    <div><span>School announcement</span><small>Parent meeting moved to Friday.</small></div>
-                    <div><span>Communication book</span><small>Teacher reply received.</small></div>
+                  <div className="parent-panel-card-text">
+                    <h3>School announcements, alerts, and teacher communication.</h3>
+                    <p>Parents receive priority announcements, absence alerts, and report-card notifications. Direct messaging with teachers via conversation-based inbox with read receipts.</p>
                   </div>
                 </div>
-                <div className="parent-panel-copy">
-                  <h3>School announcements, alerts, and teacher communication.</h3>
-                  <p>Parents receive priority announcements, absence alerts, and report-card notifications. Direct messaging with teachers via conversation-based inbox with read receipts.</p>
+                <div className="parent-panel-card-list parent-notice-list">
+                  <div className="parent-list-row parent-notice-row"><span>Report card published</span><small>Term 3 is ready to view.</small></div>
+                  <div className="parent-list-row parent-notice-row"><span>Attendance update</span><small>Late arrival recorded Wednesday.</small></div>
+                  <div className="parent-list-row parent-notice-row"><span>School announcement</span><small>Parent meeting moved to Friday.</small></div>
+                  <div className="parent-list-row parent-notice-row"><span>Communication book</span><small>Teacher reply received.</small></div>
                 </div>
               </article>
             </div>

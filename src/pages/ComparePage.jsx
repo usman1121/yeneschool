@@ -90,18 +90,19 @@ export default function ComparePage() {
         <section className="section compare-matrix" data-reveal>
           <div className="compare-table-wrapper">
             <table className="compare-table">
+              <caption>{t("compare.table.caption")}</caption>
               <thead>
                 <tr>
-                  <th>{t("compare.table.colFeature")}</th>
-                  <th className="col-legacy">{t("compare.table.colLegacy")}</th>
-                  <th className="col-local">{t("compare.table.colLocal")}</th>
-                  <th className="col-yene">{t("compare.table.colYene")}</th>
+                  <th scope="col">{t("compare.table.colFeature")}</th>
+                  <th scope="col" className="col-legacy">{t("compare.table.colLegacy")}</th>
+                  <th scope="col" className="col-local">{t("compare.table.colLocal")}</th>
+                  <th scope="col" className="col-yene">{t("compare.table.colYene")}</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((row, i) => (
                   <tr key={i}>
-                    <td className="cell-feature">{row.feature}</td>
+                    <th scope="row" className="cell-feature">{row.feature}</th>
                     <td className="cell-legacy">{row.legacy}</td>
                     <td className="cell-local">{row.local}</td>
                     <td className="cell-yene">{row.yene}</td>

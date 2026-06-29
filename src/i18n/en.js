@@ -922,10 +922,11 @@ export const en = {
         desc: "When Ethiopian schools evaluate software, they face a choice between expensive international systems that don't fit our academic calendar, or rigid local portals that lack the depth schools actually need. YeneSchool was purpose-built from the ground up for Ethiopian education — not adapted or bolted on. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar support, offline-first attendance, and 8 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
       },
       table: {
+        caption: "YeneSchool vs International Legacy Systems vs Basic Local Portals — feature comparison table",
         colFeature: "Feature / Requirement",
         colLegacy: "International Legacy Systems",
         colLocal: "Basic Local Portals",
-        colYene: "YeneSchool 🇪🇹",
+        colYene: "YeneSchool",
         rows: [
           {
             feature: "Calendar & Academic Fit",

@@ -2926,6 +2926,15 @@ pre {
   line-height: 1.6;
 }
 
+.compare-table caption {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  caption-side: top;
+}
+
 .compare-table th {
   padding: 18px 20px;
   text-align: left;

@@ -994,14 +994,14 @@ export const en = {
         title: "The 8-Role Isolation Advantage",
         desc: "Unlike generic software applications, YeneSchool completely eliminates administrative friction and communication bottlenecks by splitting ecosystem data access into eight strictly secured, role-based workspaces — each user sees the records, actions, alerts, and reports they are responsible for:",
         items: [
-          { name: "Admin (AD)", desc: "Full school ownership: academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion, siren schedules, and school configuration." },
-          { name: "Registrar (RG)", desc: "Enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, school-leaving workflows, and credential generation." },
-          { name: "Teacher (TE)", desc: "Assigned classes and subjects: attendance entry, lesson plans, assignments, grade submissions, online exams, timetable, and class communication." },
-          { name: "Student (ST)", desc: "Timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress." },
-          { name: "Parent (PA)", desc: "Each linked child's attendance, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates." },
-          { name: "Finance (FI)", desc: "Fee structures, installment plans, student balances, discounts, receipts, overdue follow-up, payroll access, finance summaries, and parent-visible fee records." },
-          { name: "IT Manager (IT)", desc: "Academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review." },
-          { name: "HR (HR)", desc: "Staff profiles, departments, teacher subject assignments, credentials, document management, and performance visibility through teacher leaderboard." },
+          { name: "Admin", desc: "Full school ownership: academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion, siren schedules, and school configuration." },
+          { name: "Registrar", desc: "Enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, school-leaving workflows, and credential generation." },
+          { name: "Teacher", desc: "Assigned classes and subjects: attendance entry, lesson plans, assignments, grade submissions, online exams, timetable, and class communication." },
+          { name: "Student", desc: "Timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress." },
+          { name: "Parent", desc: "Each linked child's attendance, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates." },
+          { name: "Finance", desc: "Fee structures, installment plans, student balances, discounts, receipts, overdue follow-up, payroll access, finance summaries, and parent-visible fee records." },
+          { name: "IT Manager", desc: "Academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review." },
+
         ],
       },
       stats: {

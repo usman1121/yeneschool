@@ -332,6 +332,7 @@ export const en = {
       checklist: {
         title: "What each part of the system helps your school manage.",
         viewPricing: "See pricing",
+        andMuchMore: "and much more",
       },
       details: {
         academic: {

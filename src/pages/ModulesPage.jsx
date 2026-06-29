@@ -175,6 +175,7 @@ export default function ModulesPage() {
               <ul><li>Cross-entity search endpoints for fast record lookup</li><li>Data consistency report page for school data health review</li><li>Duplicate and missing-record style checks for operational maintenance</li><li>Audit-friendly finance logs, grade change logs, credentials, and notification records</li><li>Export-ready information from reports, credentials, finance, certificates, and bulk operations</li><li>Backups and platform-level operational support for safer maintenance</li></ul>
             </article>
           </div>
+          <p style={{ textAlign: 'center', marginTop: '3rem', fontWeight: 600, fontSize: '1.2rem' }}>{t("modules.checklist.andMuchMore")}</p>
         </section>
       </main>
     </PageShell>

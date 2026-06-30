@@ -913,13 +913,13 @@ export const en = {
       compare: {
         title: "Best School Management System in Ethiopia | Why YeneSchool?",
         description:
-          "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 8-role, multi-tenant platform with native Ethiopian calendar support, offline attendance, and multi-language UI.",
+          "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 7-role, multi-tenant platform with native Ethiopian calendar support, offline attendance, and multi-language UI.",
       },
     },
     compare: {
       hero: {
         title: "Why YeneSchool is the Best School Management System in Ethiopia",
-        desc: "When Ethiopian schools evaluate software, they face a choice between expensive international systems that don't fit our academic calendar, or rigid local portals that lack the depth schools actually need. YeneSchool was purpose-built from the ground up for Ethiopian education — not adapted or bolted on. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar support, offline-first attendance, and 8 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
+        desc: "When Ethiopian schools evaluate software, they face a choice between expensive international systems that don't fit our academic calendar, or rigid local portals that lack the depth schools actually need. YeneSchool was purpose-built from the ground up for Ethiopian education — not adapted or bolted on. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar support, offline-first attendance, smart siren & bell automation with IoT hardware integration, and 7 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
       },
       table: {
         caption: "YeneSchool vs International Legacy Systems vs Basic Local Portals — feature comparison table",
@@ -947,10 +947,10 @@ export const en = {
             yene: "5 languages: English, Amharic, Arabic, Oromo, Somali. Full UI switching, parent portal, student dashboard, report cards, and notifications all support all 5 languages.",
           },
           {
-            feature: "Siren & Time Management",
-            legacy: "Manual bell ringing by staff or teachers",
-            local: "Manual or basic timer with no term-wide scheduling",
-            yene: "Automated Smart Siren. Set entire term's bell schedule in advance. System rings physical bell automatically via IoT-ready controllers; push notifications as backup.",
+            feature: "Smart Siren & Bell Automation",
+            legacy: "Manual bell ringing by staff or teachers; no integration with timetable",
+            local: "Basic timer with no term-wide scheduling or physical hardware support",
+            yene: "Smart School Bell System.\nTwo Automatic Modes:\n(1) Class Schedule Mode: Automatically rings at the start and end of each class period. It is smart enough to skip weekends, holidays, and days off.\n(2) Custom Schedule Mode: Easily set recurring timers for morning assembly, short breaks, lunch, and end-of-day dismissal, featuring a live countdown to the next ring.\n\nHow it Works: Connects easily to your physical school bells using simple smart controllers (like Raspberry Pi or any smart switch). It also features live digital sound alerts, instant phone notifications, a full activity history log you can download, and a dedicated 'Emergency Button' for instant manual ringing.",
           },
           {
             feature: "Timetable & Scheduling",
@@ -991,10 +991,10 @@ export const en = {
         ],
       },
       roles: {
-        title: "The 8-Role Isolation Advantage",
-        desc: "Unlike generic software applications, YeneSchool completely eliminates administrative friction and communication bottlenecks by splitting ecosystem data access into eight strictly secured, role-based workspaces — each user sees the records, actions, alerts, and reports they are responsible for:",
+        title: "The 7-Role Isolation Advantage",
+        desc: "Unlike generic software applications, YeneSchool completely eliminates administrative friction and communication bottlenecks by splitting ecosystem data access into seven strictly secured, role-based workspaces — each user sees the records, actions, alerts, and reports they are responsible for:",
         items: [
-          { name: "Admin", desc: "Full school ownership: academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion, siren schedules, and school configuration." },
+          { name: "Admin", desc: "Full school ownership: academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion, smart siren/bell schedules with IoT hardware integration, and school configuration." },
           { name: "Registrar", desc: "Enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, school-leaving workflows, and credential generation." },
           { name: "Teacher", desc: "Assigned classes and subjects: attendance entry, lesson plans, assignments, grade submissions, online exams, timetable, and class communication." },
           { name: "Student", desc: "Timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress." },
@@ -1020,7 +1020,7 @@ export const en = {
         items: [
           {
             q: "What is the best school management system in Ethiopia?",
-            a: "YeneSchool is widely considered the best school management system in Ethiopia because it is the only platform that offers native Ethiopian calendar support, offline-first attendance for unreliable connectivity, and 5-language UI (including Amharic and Oromo) alongside a comprehensive 8-role ERP architecture."
+            a: "YeneSchool is widely considered the best school management system in Ethiopia because it is the only platform that offers native Ethiopian calendar support, offline-first attendance for unreliable connectivity, and 5-language UI (including Amharic and Oromo) alongside a comprehensive 7-role ERP architecture."
           },
           {
             q: "Does YeneSchool support the Ethiopian calendar?",
@@ -1044,7 +1044,7 @@ export const en = {
           },
           {
             q: "What modules does YeneSchool include?",
-            a: "Complete ERP: Unifies Finance, Academics, Registrar, and Communication in one 8-role secured platform."
+            a: "Complete ERP: Unifies Finance, Academics, Registrar, and Communication in one 7-role secured platform."
           },
           {
             q: "What languages does YeneSchool support?",

@@ -70,7 +70,7 @@ export default function ComparePage() {
                     <strong>523+</strong>
                   </div>
                   <div className="orbit-item" style={{ "--i": 2 }} data-label={t("compare.stats.items")[2]}>
-                    <strong>8</strong>
+                    <strong>7</strong>
                   </div>
                   <div className="orbit-item" style={{ "--i": 3 }} data-label={t("compare.stats.items")[3]}>
                     <strong>5</strong>

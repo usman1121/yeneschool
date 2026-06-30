@@ -62,6 +62,19 @@ export default defineConfig(({ mode }) => {
         input: {
           main: resolve(__dirname, "index.html"),
         },
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules/react-dom") || id.includes("node_modules/react/")) {
+              return "vendor-react";
+            }
+            if (id.includes("node_modules/gsap")) {
+              return "vendor-gsap";
+            }
+            if (id.includes("node_modules/resend")) {
+              return "vendor-email";
+            }
+          },
+        },
       },
     },
   };

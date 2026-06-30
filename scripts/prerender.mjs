@@ -170,7 +170,14 @@ async function prerender() {
         "--headless=new",
       ],
     });
+  } catch (err) {
+    console.warn(`  ⚠ Browser launch failed: ${err.message.slice(0, 120)}`);
+    console.warn("  ⚠ Skipping prerender. Install system deps (libnspr4 etc.) for full prerendering.\n");
+    server.close();
+    return;
+  }
 
+  try {
     for (const route of ROUTES) {
       const url = `${baseUrl}${route.path}`;
       const outputPath = path.join(dist, route.file);

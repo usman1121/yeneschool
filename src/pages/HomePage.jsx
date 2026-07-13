@@ -17,7 +17,7 @@ export default function HomePage() {
   const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=100&w=100`;
 
   const headingRef = useRef(null);
-  const heroTitle = "YeneSchool | School Management System in Ethiopia";
+  const heroTitle = t("home.hero.titleExtended");
   const splitHero = heroTitle.split(" ").map((word, i) =>
     <span key={i} className="word">{word}</span>
   );
@@ -25,9 +25,10 @@ export default function HomePage() {
   useEffect(() => {
     if (!headingRef.current) return;
     const words = headingRef.current.querySelectorAll(".word");
+    gsap.set(words, { willChange: "transform, opacity" });
     gsap.fromTo(words,
-      { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" }
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: "power3.out" }
     );
   }, []);
 
@@ -46,9 +47,7 @@ export default function HomePage() {
           <div className="hero-copy">
             <h1 id="hero-title" ref={headingRef}>{splitHero}</h1>
             <p data-reveal>
-              YeneSchool is a modern school management platform that helps schools run
-              daily operations, connect staff and families, and keep important decisions
-              backed by clear, organized data.
+              {t("home.hero.subtitle")}
             </p>
           </div>
           <div className="tailark-preview" data-reveal>
@@ -83,6 +82,7 @@ export default function HomePage() {
             <span>Teacher workspace</span>
             <span>Timetables</span>
             <span>School operations</span>
+            <span>AI Assistant</span>
           </div>
         </section>
         <section className="section role-section" id="roles" aria-labelledby="roles-title" data-reveal>
@@ -152,11 +152,6 @@ export default function HomePage() {
               <strong>Student Records</strong>
               <small>Admissions, registrar review, parent links, class placement, bulk import, credentials, ID cards, and promotion history.</small>
             </a>
-            <a className="module-feature-card" href="/modules#attendance">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg></span>
-              <strong>Attendance</strong>
-              <small>Session-based attendance with submitted records, offline sync payloads, teacher entry, parent views, and absence/late notifications.</small>
-            </a>
             <a className="module-feature-card" href="/modules#marks-report-cards">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg></span>
               <strong>Marks &amp; Report Cards</strong>
@@ -182,6 +177,11 @@ export default function HomePage() {
               <strong>Automation &amp; Reporting</strong>
               <small>Dashboards, teacher leaderboard, entry progress, parent presentation reports, data-quality checks, search, exports, and backups.</small>
             </a>
+            <a className="module-feature-card" href="/modules#ai">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 8-10 10C6 20 2 17 2 12A10 10 0 0 1 12 2Z" /><path d="M8 12h8M12 8v8" /></svg></span>
+              <strong>AI-Powered Intelligence</strong>
+              <small>AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment.</small>
+            </a>
           </div>
           <div className="modules-preview-actions">
             <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/modules">View all modules</a>
@@ -190,27 +190,27 @@ export default function HomePage() {
         <section className="section parent-section" id="parent-visibility" aria-labelledby="parent-title" data-reveal>
           <div className="parent-layout">
             <div className="parent-copy">
-              <p className="eyebrow">Parent Visibility</p>
-              <h2 id="parent-title">Parents see what the school has actually published.</h2>
+              <p className="eyebrow">{t("home.parent.eyebrow")}</p>
+              <h2 id="parent-title">{t("home.parent.title")}</h2>
               <p>
-                Each parent sees their linked children&rsquo;s submitted attendance, approved report cards, fee balances with receipts, lesson plans and assignments, weekly timetable, discipline records, announcements, and direct messaging with teachers — all scoped to the selected academic year.
+                {t("home.parent.subtitle")}
               </p>
               <div className="parent-tabs" role="tablist" aria-label="Parent visibility views">
                 <button className="parent-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="parent-panel-attendance" id="parent-tab-attendance" data-parent-tab="attendance">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
-                  Attendance
+                  {t("home.parent.tabs.attendance")}
                 </button>
                 <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-reports" id="parent-tab-reports" data-parent-tab="reports">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
-                  Report cards
+                  {t("home.parent.tabs.reportCards")}
                 </button>
                 <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-fees" id="parent-tab-fees" data-parent-tab="fees">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={10} /><path d="M12 6v12M8 12h8" /></svg>
-                  Fee status
+                  {t("home.parent.tabs.feeStatus")}
                 </button>
                 <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-notices" id="parent-tab-notices" data-parent-tab="notices">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
-                  Notices
+                  {t("home.parent.tabs.notices")}
                 </button>
               </div>
             </div>
@@ -221,29 +221,29 @@ export default function HomePage() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
                   </div>
                   <div className="parent-panel-card-text">
-                    <h3>Session-based attendance with offline support.</h3>
-                    <p>Teachers mark Present, Absent, Late, or Excused per timetable slot. Parents see a monthly calendar with color-coded status, summary stats, and absence alerts when absences exceed 3 days.</p>
+                    <h3>{t("home.parent.panels.attendance.title")}</h3>
+                    <p>{t("home.parent.panels.attendance.desc")}</p>
                   </div>
                 </div>
                 <div className="parent-panel-card-stats">
                   <div className="parent-stat">
                     <span className="parent-stat-value">18</span>
-                    <span className="parent-stat-label">Present</span>
+                    <span className="parent-stat-label">{t("home.parent.panels.attendance.present")}</span>
                   </div>
                   <div className="parent-stat">
                     <span className="parent-stat-value warn">1</span>
-                    <span className="parent-stat-label">Late</span>
+                    <span className="parent-stat-label">{t("home.parent.panels.attendance.late")}</span>
                   </div>
                   <div className="parent-stat">
                     <span className="parent-stat-value good">0</span>
-                    <span className="parent-stat-label">Absent</span>
+                    <span className="parent-stat-label">{t("home.parent.panels.attendance.absent")}</span>
                   </div>
                 </div>
                 <div className="parent-panel-card-list">
-                  <div className="parent-list-row"><span>Monday</span><span className="badge badge-good">Present</span></div>
-                  <div className="parent-list-row"><span>Tuesday</span><span className="badge badge-good">Present</span></div>
-                  <div className="parent-list-row"><span>Wednesday</span><span className="badge badge-warn">Late arrival</span></div>
-                  <div className="parent-list-row"><span>Thursday</span><span className="badge badge-good">Present</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.attendance.monday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.attendance.tuesday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.attendance.wednesday")}</span><span className="badge badge-warn">{t("home.parent.panels.attendance.late")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.attendance.thursday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-reports" aria-labelledby="parent-tab-reports" data-parent-panel="reports" hidden>
@@ -252,20 +252,20 @@ export default function HomePage() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
                   </div>
                   <div className="parent-panel-card-text">
-                    <h3>Per-subject grades with GPA, ranking, and fee gating.</h3>
-                    <p>Parents see assessment component scores (Quiz, Test, Mid, Final), letter grades, GPA, class rank, and teacher remarks. Report cards are locked if fees are unpaid.</p>
+                    <h3>{t("home.parent.panels.reportCards.title")}</h3>
+                    <p>{t("home.parent.panels.reportCards.desc")}</p>
                   </div>
                 </div>
                 <div className="parent-panel-card-highlight">
-                  <span>Average</span>
+                  <span>{t("home.parent.panels.reportCards.average")}</span>
                   <strong>91%</strong>
-                  <small>Released after admin approval</small>
+                  <small>{t("home.parent.panels.reportCards.released")}</small>
                 </div>
                 <div className="parent-panel-card-list">
-                  <div className="parent-list-row"><span>Mathematics</span><span className="badge badge-good">A</span></div>
-                  <div className="parent-list-row"><span>English</span><span className="badge badge-good">A-</span></div>
-                  <div className="parent-list-row"><span>Science</span><span className="badge badge-good">A</span></div>
-                  <div className="parent-list-row"><span>Conduct note</span><span>Excellent</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.mathematics")}</span><span className="badge badge-good">A</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.english")}</span><span className="badge badge-good">A-</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.science")}</span><span className="badge badge-good">A</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.conductNote")}</span><span>Excellent</span></div>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
@@ -274,20 +274,20 @@ export default function HomePage() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={10} /><path d="M12 6v12M8 12h8" /></svg>
                   </div>
                   <div className="parent-panel-card-text">
-                    <h3>Installments, discounts, penalties, and receipt history.</h3>
-                    <p>Parents see fee breakdown by type, payment progress bars, per-period due amounts with late penalties, applied discounts, and a full payment history with receipt numbers.</p>
+                    <h3>{t("home.parent.panels.fees.title")}</h3>
+                    <p>{t("home.parent.panels.fees.desc")}</p>
                   </div>
                 </div>
                 <div className="parent-panel-card-highlight">
-                  <span>Next installment</span>
-                  <strong>Due in 8 days</strong>
-                  <small>Receipt available after finance confirmation</small>
+                  <span>{t("home.parent.panels.fees.nextInstallment")}</span>
+                  <strong>{t("home.parent.panels.fees.dueIn")}</strong>
+                  <small>{t("home.parent.panels.fees.receiptAvailable")}</small>
                 </div>
                 <div className="parent-panel-card-list">
-                  <div className="parent-list-row"><span>Tuition</span><span className="badge badge-good">Paid</span></div>
-                  <div className="parent-list-row"><span>Transport</span><span className="badge badge-warn">Pending</span></div>
-                  <div className="parent-list-row"><span>Discount</span><span className="badge">Applied</span></div>
-                  <div className="parent-list-row"><span>Latest receipt</span><span className="badge">Available</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.tuition")}</span><span className="badge badge-good">Paid</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.transport")}</span><span className="badge badge-warn">Pending</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.discount")}</span><span className="badge">Applied</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.latestReceipt")}</span><span className="badge">Available</span></div>
                 </div>
               </article>
               <article className="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>
@@ -296,15 +296,15 @@ export default function HomePage() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
                   </div>
                   <div className="parent-panel-card-text">
-                    <h3>School announcements, alerts, and teacher communication.</h3>
-                    <p>Parents receive priority announcements, absence alerts, and report-card notifications. Direct messaging with teachers via conversation-based inbox with read receipts.</p>
+                    <h3>{t("home.parent.panels.notices.title")}</h3>
+                    <p>{t("home.parent.panels.notices.desc")}</p>
                   </div>
                 </div>
                 <div className="parent-panel-card-list parent-notice-list">
-                  <div className="parent-list-row parent-notice-row"><span>Report card published</span><small>Term 3 is ready to view.</small></div>
-                  <div className="parent-list-row parent-notice-row"><span>Attendance update</span><small>Late arrival recorded Wednesday.</small></div>
-                  <div className="parent-list-row parent-notice-row"><span>School announcement</span><small>Parent meeting moved to Friday.</small></div>
-                  <div className="parent-list-row parent-notice-row"><span>Communication book</span><small>Teacher reply received.</small></div>
+                  <div className="parent-list-row parent-notice-row"><span>{t("home.parent.panels.notices.notice1")}</span><small>{t("home.parent.panels.notices.notice1Desc")}</small></div>
+                  <div className="parent-list-row parent-notice-row"><span>{t("home.parent.panels.notices.notice2")}</span><small>{t("home.parent.panels.notices.notice2Desc")}</small></div>
+                  <div className="parent-list-row parent-notice-row"><span>{t("home.parent.panels.notices.notice3")}</span><small>{t("home.parent.panels.notices.notice3Desc")}</small></div>
+                  <div className="parent-list-row parent-notice-row"><span>{t("home.parent.panels.notices.notice4")}</span><small>{t("home.parent.panels.notices.notice4Desc")}</small></div>
                 </div>
               </article>
             </div>

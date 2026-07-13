@@ -88,6 +88,7 @@ export default function ComparePage() {
         </section>
 
         <section className="section compare-matrix" data-reveal>
+          <span className="section-kicker" style={{ marginBottom: 16, display: 'block' }}>Side by Side</span>
           <div className="compare-table-wrapper">
             <table className="compare-table">
               <caption>{t("compare.table.caption")}</caption>
@@ -128,6 +129,7 @@ export default function ComparePage() {
 
         <section className="section compare-faq" data-reveal>
           <div className="compare-faq-container">
+            <span className="section-kicker" style={{ marginBottom: 8, display: 'block' }}>FAQ</span>
             <h2>{faq.title}</h2>
             <div className="compare-faq-list">
               {faq.items.map((item, i) => (

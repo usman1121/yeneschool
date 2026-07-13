@@ -37,7 +37,8 @@ export const en = {
       hero: {
         title: "Bring your whole school into one complete system.",
         subtitle:
-          "YeneSchool is a modern school management platform that helps schools run daily operations, connect staff and families, and keep important decisions backed by clear, organized data.",
+          "YeneSchool is a modern school management platform that helps schools run daily operations, connect staff and families, and keep important decisions backed by clear, organized data and AI-powered intelligence.",
+        titleExtended: "YeneSchool | School Management System in Ethiopia",
       },
       signals: {
         title: "Built around the daily work of real schools.",
@@ -54,6 +55,7 @@ export const en = {
           "Teacher workspace",
           "Timetables",
           "School operations",
+          "AI Assistant",
         ],
       },
       roles: {
@@ -96,7 +98,7 @@ export const en = {
         eyebrow: "Core Modules",
         title: "The modules schools actually use.",
         subtitle:
-          "A quick look at the connected workflows inside YeneSchool. The full modules page breaks each area down by what the school can manage.",
+          "A quick look at the connected workflows inside YeneSchool, including AI-powered features. The full modules page breaks each area down by what the school can manage.",
         viewAll: "View all modules",
         cards: {
           academic: {
@@ -130,6 +132,30 @@ export const en = {
           automation: {
             title: "Automation & Reporting",
             desc: "Dashboards, teacher leaderboard, entry progress, parent presentation reports, data-quality checks, search, exports, and backups.",
+          },
+          ai: {
+            title: "AI-Powered Intelligence",
+            desc: "AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment.",
+          },
+          backup: {
+            title: "Backup & Data Export",
+            desc: "Scheduled platform backups, per-school data exports, ZIP downloads, and secure archive management.",
+          },
+          idCards: {
+            title: "ID Cards & Certificates",
+            desc: "Student ID card generation, certificate templates, watermark upload, and bulk PDF/ZIP downloads.",
+          },
+          discipline: {
+            title: "Discipline & Conduct",
+            desc: "Behavior incident reports, severity tracking, student conduct history, and parent-visible discipline records.",
+          },
+          events: {
+            title: "Events & Calendar",
+            desc: "School events, holiday scheduling, academic calendar feeds, and upcoming event tracking.",
+          },
+          messaging: {
+            title: "Staff Messaging",
+            desc: "Internal staff messaging, conversation threads, read tracking, and school directory.",
           },
         },
       },
@@ -320,11 +346,11 @@ export const en = {
         kicker: "All Modules",
         title: "A complete school system, organized by real school work.",
         subtitle:
-          "YeneSchool includes the common modules schools expect, plus standout features for offline work, Ethiopian calendar support, automation, analytics, and local language needs.",
+          "YeneSchool includes the common modules schools expect, plus standout features for offline work, Ethiopian calendar support, AI-powered intelligence, automation, analytics, and local language needs.",
         facts: [
           { value: "470", label: "declared backend endpoints across the SMS API catalog." },
           { value: "7 roles", label: "admin, IT manager, registrar, teacher, student, parent, and finance workspaces." },
-          { value: "18 domains", label: "from admissions and academics to online examinations, finance, reporting, lessons, discipline, siren operations, and data quality." },
+          { value: "24 domains", label: "from admissions and academics to online examinations, finance, reporting, lessons, discipline, siren operations, data quality, AI-powered intelligence, backup, ID cards, events, and staff messaging." },
           { value: "Offline-ready", label: "attendance and sync endpoints support schools when connectivity is unreliable." },
         ],
         jumpNav: ["Academics", "Attendance", "Online Exams", "Finance", "Reporting", "Portals"],
@@ -543,7 +569,85 @@ export const en = {
             "Backups and platform-level operational support for safer maintenance",
           ],
         },
-      },
+          ai: {
+            title: "AI-Powered Intelligence",
+            desc: "Integrates AI into school operations for conversational assistance, automated reporting, smart alerts, recommendations, and school assessments.",
+            roles: "Admin, Teacher, Parent",
+            items: [
+              "AI Assistant chatbot for instant answers to school-related queries from staff and parents",
+              "AI Report Generator that produces academic reports, summaries, and insights from school data",
+              "AI Smart Alerts that detect anomalies, attendance patterns, and operational issues requiring attention",
+              "AI Recommendations engine for personalized student learning paths and school improvement suggestions",
+              "AI School Assessment that evaluates overall school performance, trends, and benchmarking",
+              "Natural language processing across attendance, marks, finance, and communication data",
+            ],
+          },
+          backup: {
+            title: "Backup & Data Export",
+            desc: "Protects school data with automated platform backups, per-school export options, and downloadable archives.",
+            roles: "Super Admin, IT Manager",
+            items: [
+              "Automated platform backup with full database and file system snapshot",
+              "Per-school backup download with configurable data type selection",
+              "ZIP file generation, archive cleanup, and secure storage management",
+              "Credential roll CSV export and bulk upload template downloads",
+              "Password validation, roll number assignment, and credential tracking statistics",
+              "Maintenance-ready operational safety net for platform and school recovery",
+            ],
+          },
+          idCards: {
+            title: "ID Cards & Certificates",
+            desc: "Generates student ID cards and school certificates with customizable templates, watermarks, and bulk printing.",
+            roles: "Admin, Registrar",
+            items: [
+              "Student ID card generation with template selection and watermark overlay",
+              "Single and bulk PDF output with print-ready card layouts",
+              "Certificate templates with dynamic field mapping for student data",
+              "Watermark image upload, activation, and positioning controls",
+              "Bulk ZIP download for certificates and ID cards by class or section",
+              "Template management with active version tracking and field configuration",
+            ],
+          },
+          discipline: {
+            title: "Discipline & Conduct",
+            desc: "Keeps behavior notes, conduct follow-up, and parent-visible discipline records connected to the student profile.",
+            roles: "Admin, Teacher, Parent",
+            items: [
+              "Student discipline records scoped to the correct school and academic context",
+              "Conduct notes that can support report-card and parent follow-up workflows",
+              "Parent portal visibility for published discipline updates where the school allows it",
+              "Admin follow-up lists for student behavior and support actions",
+              "Teacher and registrar context when reviewing a student profile",
+              "Audit-friendly records for sensitive student conduct decisions",
+            ],
+          },
+          events: {
+            title: "Events & Calendar",
+            desc: "Manages school events, holidays, and calendar visibility for staff, students, and parents.",
+            roles: "Admin, Teacher, Student, Parent",
+            items: [
+              "School events CRUD with dates, descriptions, and category tagging",
+              "Calendar feed integration for upcoming and active event visibility",
+              "Holiday scheduling and academic calendar records tied to school settings",
+              "Upcoming event counts and active event tracking for dashboards",
+              "Event integration with announcements and notification workflows",
+              "Role-based event viewing scoped to the correct school and academic year",
+            ],
+          },
+          messaging: {
+            title: "Staff Messaging",
+            desc: "Enables internal staff-to-staff communication with conversations, messages, and role-based access.",
+            roles: "Admin, Teacher, Finance, IT Manager",
+            items: [
+              "Internal chat rooms and conversation management for staff collaboration",
+              "Staff-to-staff messaging with participant tracking and conversation history",
+              "Mark-as-read confirmation and unread count indicators for each conversation",
+              "Staff directory for finding and initiating conversations across the school",
+              "Role-based conversation visibility and access controls",
+              "Dedicated messages page integrated into each role's dashboard workspace",
+            ],
+          },
+        },
     },
     contact: {
       hero: {
@@ -875,12 +979,12 @@ export const en = {
       home: {
         title: "YeneSchool | School Management System in Ethiopia",
         description:
-          "The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence.",
+          "The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence — now with AI-powered intelligence.",
       },
       modules: {
         title: "Modules | YeneSchool",
         description:
-          "Explore YeneSchool modules for academics, admissions, attendance, exams, report cards, finance, communication, operations, and parent portals.",
+          "Explore YeneSchool modules for academics, admissions, attendance, exams, report cards, finance, communication, operations, AI-powered intelligence, and parent portals.",
       },
       contact: {
         title: "Contact | YeneSchool",
@@ -919,9 +1023,10 @@ export const en = {
     compare: {
       hero: {
         title: "Why YeneSchool is the Best School Management System in Ethiopia",
-        desc: "When Ethiopian schools evaluate software, they face a choice between expensive international systems that don't fit our academic calendar, or rigid local portals that lack the depth schools actually need. YeneSchool was purpose-built from the ground up for Ethiopian education — not adapted or bolted on. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar support, offline-first attendance, smart siren & bell automation with IoT hardware integration, and 7 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
+        desc: "Ethiopian schools face a choice between expensive international systems that don't fit our calendar, or rigid local portals without real depth. YeneSchool was built from the ground up for Ethiopian education — not adapted. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar, AI-powered intelligence, offline-first attendance, smart siren & bell automation with IoT hardware, and 7 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
       },
       table: {
+        title: "Feature Comparison",
         caption: "YeneSchool vs International Legacy Systems vs Basic Local Portals — feature comparison table",
         colFeature: "Feature / Requirement",
         colLegacy: "International Legacy Systems",
@@ -950,7 +1055,7 @@ export const en = {
             feature: "Smart Siren & Bell Automation",
             legacy: "Manual bell ringing by staff or teachers; no integration with timetable",
             local: "Basic timer with no term-wide scheduling or physical hardware support",
-            yene: "Smart School Bell System.\nTwo Automatic Modes:\n(1) Class Schedule Mode: Automatically rings at the start and end of each class period. It is smart enough to skip weekends, holidays, and days off.\n(2) Custom Schedule Mode: Easily set recurring timers for morning assembly, short breaks, lunch, and end-of-day dismissal, featuring a live countdown to the next ring.\n\nHow it Works: Connects easily to your physical school bells using simple smart controllers (like Raspberry Pi or any smart switch). It also features live digital sound alerts, instant phone notifications, a full activity history log you can download, and a dedicated 'Emergency Button' for instant manual ringing.",
+            yene: "Smart School Bell System with automatic ringing by class schedule (skips weekends/holidays) or custom timers. Connects to physical bells via smart controllers. Includes live digital alerts, phone notifications, activity logs, and an emergency button.",
           },
           {
             feature: "Timetable & Scheduling",
@@ -987,6 +1092,12 @@ export const en = {
             legacy: "Expensive bulk SMS with delivery delays",
             local: "No notification system or only manual phone calls",
             yene: "Unlimited Free Push Notifications. Real-time alerts for grades, fees, attendance, and sirens at zero cost. No SMS fees for thousands of parents.",
+          },
+          {
+            feature: "AI & Intelligence",
+            legacy: "No AI integration; manual report generation and data analysis",
+            local: "Basic data entry with no analytics or intelligent features",
+            yene: "AI integration: AI Assistant chatbot for staff and parent queries, AI Report Generator, AI Smart Alerts for anomaly detection, AI Recommendations for personalized learning paths, and AI School Assessment for performance benchmarking.",
           },
         ],
       },

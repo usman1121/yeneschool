@@ -20,7 +20,7 @@ export default function ModulesPage() {
     return () => ctx.revert();
   }, []);
 
-  const heading = "A complete school system, organized by real school work.";
+  const heading = t("modules.hero.title");
   const splitHeading = heading.split(" ").map((word, i) =>
     <span key={i} className="word">{word}</span>
   );
@@ -28,33 +28,73 @@ export default function ModulesPage() {
     <PageShell activePage="modules">
       <main id="top" className="modules-page">
         <section className="modules-hero" aria-labelledby="modules-page-title" data-reveal>
-          <div className="modules-hero-copy">
-            <span className="section-kicker">All Modules</span>
-            <h1 id="modules-page-title" ref={headingRef}>{splitHeading}</h1>
-            <p>
-              YeneSchool includes the common modules schools expect, plus standout features for offline work,
-              Ethiopian calendar support, automation, analytics, and local language needs.
-            </p>
-          </div>
-          <div className="modules-fact-grid" aria-label="YeneSchool implementation summary">
-            <article>
-              <strong>523+</strong>
-              <span>declared backend endpoints across the SMS API catalog.</span>
-            </article>
-            <article>
-              <strong>7 roles</strong>
-              <span>admin, IT manager, registrar, teacher, student, parent, and finance workspaces.</span>
-            </article>
-            <article>
-              <strong>18 domains</strong>
-              <span>from admissions and academics to online examinations, finance, reporting, lessons, discipline, siren operations, and data quality.</span>
-            </article>
-            <article>
-              <strong>Offline-ready</strong>
-              <span>attendance and sync endpoints support schools when connectivity is unreliable.</span>
-            </article>
+          <div className="modules-hero-layout">
+            <div className="modules-hero-copy">
+              <span className="section-kicker">{t("modules.hero.kicker")}</span>
+              <h1 id="modules-page-title" ref={headingRef}>{splitHeading}</h1>
+              <p>
+                {t("modules.hero.subtitle")}
+              </p>
+            </div>
+            <div className="modules-hero-stats">
+              <div className="modules-orbit-geo">
+                <svg className="geo-lines" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+                  <line x1="250" y1="250" x2="218" y2="53" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
+                  <line x1="250" y1="250" x2="427" y2="138" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
+                  <line x1="250" y1="250" x2="73" y2="138" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
+                  <line x1="250" y1="250" x2="427" y2="362" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
+                  <line x1="250" y1="250" x2="218" y2="447" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
+                  <line x1="250" y1="250" x2="73" y2="362" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
+                  <circle cx="250" cy="250" r="55" fill="none" stroke="rgba(96,165,250,0.12)" strokeWidth="1" strokeDasharray="3 3" />
+                  <circle cx="250" cy="250" r="48" fill="none" stroke="rgba(96,165,250,0.06)" strokeWidth="1" strokeDasharray="2 4" />
+                  <text x="250" y="250" textAnchor="middle" dominantBaseline="central" fontSize="26" fontWeight="700" fill="#60a5fa" fontFamily="C8aTajra, serif">YeneSchool</text>
+                </svg>
+                <div className="geo-node" style={{ "--i": 0, top: 5, left: 170 }}>
+                  <strong>13 months</strong>
+                  <span>Ethiopian calendar</span>
+                </div>
+                <div className="geo-node" style={{ "--i": 1, top: 90, right: 25 }}>
+                  <strong>G1-12</strong>
+                  <span>grade system</span>
+                </div>
+                <div className="geo-node" style={{ "--i": 2, top: 90, left: 25 }}>
+                  <strong>AI</strong>
+                  <span>integrated</span>
+                </div>
+                <div className="geo-node" style={{ "--i": 3, bottom: 90, right: 25 }}>
+                  <strong>IoT</strong>
+                  <span>siren & bell</span>
+                </div>
+                <div className="geo-node" style={{ "--i": 4, bottom: 5, left: 170 }}>
+                  <strong>Backups</strong>
+                  <span>data protection</span>
+                </div>
+                <div className="geo-node" style={{ "--i": 5, bottom: 90, left: 25 }}>
+                  <strong>Offline</strong>
+                  <span>functionality</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+        <div className="modules-tag-cloud" data-reveal>
+          <span className="section-kicker" style={{ marginBottom: 14, display: 'block' }}>All 24 Domains</span>
+          <div className="tag-cloud-track">
+            {[
+              "Academic Management", "Student Management", "Attendance",
+              "Marks & Report Cards", "Finance", "Communication Book",
+              "Local School Support", "Automation & Reporting", "Operations",
+              "Admissions & Enrollment", "Exams", "Online Examinations",
+              "User Portals", "Lessons & Assignments", "Discipline & Conduct",
+              "Staff Directory", "Security & Permissions", "Search & Data Quality",
+              "AI-Powered Intelligence", "Backup & Data Export",
+              "ID Cards & Certificates", "Events & Calendar", "Staff Messaging",
+              "Timetable & Scheduling",
+            ].map((name, i) => (
+              <span key={i} className="tag-cloud-pill">{name}</span>
+            ))}
+          </div>
+        </div>
         <section className="modules-directory section" aria-labelledby="module-checklist-title" data-reveal>
           <div className="modules-directory-heading">
             <div>
@@ -173,6 +213,36 @@ export default function ModulesPage() {
               <h3>Search &amp; Data Quality</h3>
               <p>Helps staff find records quickly and keep operational data clean enough for reports, exports, and audits.</p>
               <ul><li>Cross-entity search endpoints for fast record lookup</li><li>Data consistency report page for school data health review</li><li>Duplicate and missing-record style checks for operational maintenance</li><li>Audit-friendly finance logs, grade change logs, credentials, and notification records</li><li>Export-ready information from reports, credentials, finance, certificates, and bulk operations</li><li>Backups and platform-level operational support for safer maintenance</li></ul>
+            </article>
+            <article className="module-detail-card" data-reveal id="ai">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx={12} cy={12} r={10} /><path d="M12 2a10 10 0 0 1 10 10c0 5-4 8-10 10C6 20 2 17 2 12A10 10 0 0 1 12 2Z" /><path d="M8 12h8M12 8v8" /></svg></span>
+              <h3>AI-Powered Intelligence</h3>
+              <p>Integrates AI into school operations for conversational assistance, automated reporting, smart alerts, recommendations, and school assessments.</p>
+              <ul><li>AI Assistant chatbot for instant answers to school-related queries from staff and parents</li><li>AI Report Generator that produces academic reports, summaries, and insights from school data</li><li>AI Smart Alerts that detect anomalies, attendance patterns, and operational issues requiring attention</li><li>AI Recommendations engine for personalized student learning paths and school improvement suggestions</li><li>AI School Assessment that evaluates overall school performance, trends, and benchmarking</li><li>Natural language processing across attendance, marks, finance, and communication data</li></ul>
+            </article>
+            <article className="module-detail-card" data-reveal id="backup-data-export">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2Z" /><path d="M12 7v10M7 12h10" /></svg></span>
+              <h3>Backup &amp; Data Export</h3>
+              <p>Protects school data with automated platform backups, per-school export options, and downloadable archives.</p>
+              <ul><li>Automated platform backup with full database and file system snapshot</li><li>Per-school backup download with configurable data type selection</li><li>ZIP file generation, archive cleanup, and secure storage management</li><li>Credential roll CSV export and bulk upload template downloads</li><li>Password validation, roll number assignment, and credential tracking statistics</li><li>Maintenance-ready operational safety net for platform and school recovery</li></ul>
+            </article>
+            <article className="module-detail-card" data-reveal id="id-cards-certificates">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x={2} y={3} width={20} height={18} rx={2} /><path d="M12 7v2M12 11v2" /><circle cx={12} cy={16} r={1} /></svg></span>
+              <h3>ID Cards &amp; Certificates</h3>
+              <p>Generates student ID cards and school certificates with customizable templates, watermarks, and bulk printing.</p>
+              <ul><li>Student ID card generation with template selection and watermark overlay</li><li>Single and bulk PDF output with print-ready card layouts</li><li>Certificate templates with dynamic field mapping for student data</li><li>Watermark image upload, activation, and positioning controls</li><li>Bulk ZIP download for certificates and ID cards by class or section</li><li>Template management with active version tracking and field configuration</li></ul>
+            </article>
+            <article className="module-detail-card" data-reveal id="events-calendar">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x={3} y={4} width={18} height={18} rx={2} /><path d="M3 10h18M8 2v4M16 2v4" /><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" /></svg></span>
+              <h3>Events &amp; Calendar</h3>
+              <p>Manages school events, holidays, and calendar visibility for staff, students, and parents.</p>
+              <ul><li>School events CRUD with dates, descriptions, and category tagging</li><li>Calendar feed integration for upcoming and active event visibility</li><li>Holiday scheduling and academic calendar records tied to school settings</li><li>Upcoming event counts and active event tracking for dashboards</li><li>Event integration with announcements and notification workflows</li><li>Role-based event viewing scoped to the correct school and academic year</li></ul>
+            </article>
+            <article className="module-detail-card" data-reveal id="staff-messaging">
+              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
+              <h3>Staff Messaging</h3>
+              <p>Enables internal staff-to-staff communication with conversations, messages, and role-based access.</p>
+              <ul><li>Internal chat rooms and conversation management for staff collaboration</li><li>Staff-to-staff messaging with participant tracking and conversation history</li><li>Mark-as-read confirmation and unread count indicators for each conversation</li><li>Staff directory for finding and initiating conversations across the school</li><li>Role-based conversation visibility and access controls</li><li>Dedicated messages page integrated into each role's dashboard workspace</li></ul>
             </article>
           </div>
           <p style={{ textAlign: 'center', marginTop: '3rem', fontWeight: 600, fontSize: '1.2rem' }}>{t("modules.checklist.andMuchMore")}</p>

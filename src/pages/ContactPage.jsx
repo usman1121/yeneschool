@@ -108,6 +108,26 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+        <section className="section contact-map-section" data-reveal>
+          <div className="contact-map-container">
+            <div className="contact-map-frame">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252229.92814711466!2d38.61666945!3d8.9637745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b84b2e5b12b6!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2s!4v1"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="YeneSchool location in Addis Ababa, Ethiopia"
+              />
+            </div>
+            <div className="contact-map-overlay">
+              <h3>{t("contact.map.title") || "Serving schools across Ethiopia"}</h3>
+              <p>{t("contact.map.desc") || "YeneSchool supports schools throughout Ethiopia. Reach out and we will help you get started."}</p>
+            </div>
+          </div>
+        </section>
       </main>
     </PageShell>
     

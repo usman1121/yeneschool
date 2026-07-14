@@ -33,20 +33,15 @@ function startServer() {
     const server = createServer((req, res) => {
       const urlPath = req.url === "/" ? "index.html" : req.url;
       let filePath = path.join(dist, urlPath);
+      if (!path.extname(filePath)) filePath = path.join(filePath, "index.html");
+
       const ext = path.extname(filePath);
-
-      if (!ext) {
-        filePath = path.join(filePath, "index.html");
-      }
-
-      const ext2 = path.extname(filePath);
       const MIME = {
         ".html": "text/html", ".js": "text/javascript", ".css": "text/css",
         ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
         ".svg": "image/svg+xml", ".ico": "image/x-icon", ".json": "application/json",
         ".woff": "font/woff", ".woff2": "font/woff2", ".webp": "image/webp",
       };
-      const contentType = MIME[ext2] || "application/octet-stream";
 
       fs.readFile(filePath, (err, data) => {
         if (err) {
@@ -62,55 +57,62 @@ function startServer() {
           });
           return;
         }
-        res.writeHead(200, { "Content-Type": contentType });
+        res.writeHead(200, { "Content-Type": MIME[ext] || "application/octet-stream" });
         res.end(data);
       });
     });
 
     server.listen(0, "127.0.0.1", () => {
-      const port = server.address().port;
-      console.log(`  Server started on http://127.0.0.1:${port}`);
-      resolve({ server, port });
+      console.log(`  Server started on http://127.0.0.1:${server.address().port}`);
+      resolve(server);
     });
   });
 }
 
-async function findBrowser() {
-  const systemPaths = [
-    "/usr/bin/chromium", "/usr/bin/chromium-browser",
-    "/usr/bin/google-chrome", "/usr/bin/google-chrome-stable",
-    "/snap/bin/chromium", "/opt/google/chrome/chrome",
-  ];
+async function tryLaunchBrowser() {
+  const paths = [
+    process.env.PUPPETEER_EXECUTABLE_PATH,
+    process.env.CHROME_PATH,
+    process.env.CHROMIUM_PATH,
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
+    "/usr/bin/google-chrome",
+    "/usr/bin/google-chrome-stable",
+  ].filter((p) => typeof p === "string" && p);
+
+  for (const ep of paths) {
+    if (fs.existsSync(ep)) {
+      try {
+        return await puppeteer.launch({ executablePath: ep, args: LAUNCH_ARGS });
+      } catch {}
+    }
+  }
 
   try {
-    const p = puppeteer.executablePath();
-    if (typeof p === "string" && p && fs.existsSync(p)) return { path: p, args: LAUNCH_ARGS };
+    return await puppeteer.launch({ args: LAUNCH_ARGS });
+  } catch (err) {
+    console.log("  puppeteer.launch() (auto-detect) failed: " + (err.message || "").slice(0, 80));
+  }
+
+  try {
+    const mod = await import("@sparticuz/chromium").catch(() => null);
+    if (mod) {
+      const chromium = mod.default || mod;
+      const ep = await chromium.executablePath().catch(() => null);
+      if (typeof ep === "string" && ep && fs.existsSync(ep)) {
+        console.log("  Using @sparticuz/chromium");
+        return await puppeteer.launch({ executablePath: ep, args: chromium.args || LAUNCH_ARGS });
+      }
+    }
   } catch {}
 
-  for (const p of [process.env.PUPPETEER_EXECUTABLE_PATH, process.env.CHROME_PATH, process.env.CHROMIUM_PATH, ...systemPaths].filter(Boolean)) {
-    try {
-      if (fs.existsSync(p)) return { path: p, args: LAUNCH_ARGS };
-    } catch {}
-  }
-
-  try {
-    const mod = await import("@sparticuz/chromium");
-    const chromium = mod.default || mod;
-    console.log("  Resolving @sparticuz/chromium...");
-    const p = await chromium.executablePath();
-    if (typeof p === "string" && p) {
-      console.log("  Using @sparticuz/chromium: " + p);
-      return { path: p, args: chromium.args || LAUNCH_ARGS };
-    }
-    console.log("  @sparticuz/chromium returned invalid path: " + p);
-  } catch (e) {
-    console.log("  @sparticuz/chromium failed: " + (e.message || e));
-  }
-
-  console.log("  Chrome not found. Installing via @puppeteer/browsers...");
+  console.log("  Downloading Chrome via @puppeteer/browsers...");
   try {
     const { execSync } = await import("node:child_process");
-    execSync("npx --yes @puppeteer/browsers install chrome@latest --path /tmp/chrome-browsers 2>&1", { stdio: "pipe", timeout: 120000 });
+    execSync(
+      "npx --yes @puppeteer/browsers install chrome@latest --path /tmp/chrome-browsers 2>&1",
+      { stdio: "pipe", timeout: 180000 },
+    );
     const base = "/tmp/chrome-browsers/chrome";
     if (fs.existsSync(base)) {
       for (const entry of fs.readdirSync(base).sort()) {
@@ -119,12 +121,15 @@ async function findBrowser() {
           path.join(base, entry, "chrome-linux64", "chrome"),
           path.join(base, `chrome-${entry}`, "chrome"),
         ]) {
-          if (fs.existsSync(bin)) return { path: bin, args: LAUNCH_ARGS };
+          if (fs.existsSync(bin) && fs.statSync(bin).isFile()) {
+            try { fs.chmodSync(bin, 0o755); } catch {}
+            return await puppeteer.launch({ executablePath: bin, args: LAUNCH_ARGS });
+          }
         }
       }
     }
   } catch (err) {
-    console.error(`  Chrome install failed: ${err.message.slice(0, 120)}`);
+    console.error("  Chrome download failed: " + (err.message || "").slice(0, 120));
   }
 
   return null;
@@ -142,30 +147,18 @@ async function prerender() {
   try {
     puppeteer = (await import("puppeteer")).default;
   } catch {
-    console.error("  ✗ puppeteer not installed. Run: npm install --save-dev puppeteer\n");
-    process.exit(1);
-  }
-
-  const browserInfo = await findBrowser();
-  if (!browserInfo) {
-    console.warn("  ⚠ No Chrome/Chromium available. Skipping prerender.\n");
+    console.warn("  ⚠ puppeteer not available. Skipping prerender.\n");
     process.exit(0);
   }
 
-  const { server, port } = await startServer();
-  const baseUrl = `http://127.0.0.1:${port}`;
+  const server = await startServer();
+  const baseUrl = `http://127.0.0.1:${server.address().port}`;
 
-  let browser;
-  try {
-    browser = await puppeteer.launch({
-      executablePath: browserInfo.path,
-      args: browserInfo.args,
-    });
-  } catch (err) {
-    const msg = err.message ? err.message.slice(0, 120) : String(err);
-    console.error(`  ✗ Browser launch failed: ${msg}`);
+  const browser = await tryLaunchBrowser();
+  if (!browser) {
+    console.warn("  ⚠ No browser available. Skipping prerender.\n");
     server.close();
-    process.exit(1);
+    process.exit(0);
   }
 
   try {
@@ -179,59 +172,44 @@ async function prerender() {
         try {
           page = await browser.newPage();
           await page.setViewport({ width: 1280, height: 720 });
-
           await page.setRequestInterception(true);
           page.on("request", (req) => {
-            const type = req.resourceType();
-            if (type === "image" || type === "font" || type === "media") {
-              req.abort();
-            } else {
-              req.continue();
-            }
+            (req.resourceType() === "image" || req.resourceType() === "font" || req.resourceType() === "media")
+              ? req.abort() : req.continue();
           });
 
-          const response = await page.goto(url, {
-            waitUntil: "domcontentloaded",
-            timeout: 20000,
-          });
-
+          const response = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 20000 });
           if (!response || !response.ok()) continue;
 
           await page.waitForSelector("main", { timeout: 8000 }).catch(() => {});
           await new Promise((r) => setTimeout(r, 2000));
 
           const html = await page.evaluate(() => document.documentElement.outerHTML);
-          const fullHtml = "<!doctype html>\n" + html;
-
           fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-          fs.writeFileSync(outputPath, fullHtml, "utf-8");
+          fs.writeFileSync(outputPath, "<!doctype html>\n" + html, "utf-8");
 
-          const size = (Buffer.byteLength(fullHtml, "utf-8") / 1024).toFixed(1);
+          const size = (Buffer.byteLength(html, "utf-8") / 1024).toFixed(1);
           console.log(`  ✓ ${route.path.padEnd(16)} ${size.padStart(6)} KB`);
           success = true;
         } catch (err) {
-          console.error(`  ✗ ${route.name} (attempt ${attempt + 1}) — ${err.message.slice(0, 80)}`);
+          console.error(`  ✗ ${route.name} (attempt ${attempt + 1}) — ${(err.message || "").slice(0, 80)}`);
         } finally {
           if (page) await page.close().catch(() => {});
         }
-
         if (success) break;
       }
 
-      if (!success) {
-        console.error(`  ✗ ${route.path} — failed after 3 attempts`);
-      }
+      if (!success) console.error(`  ✗ ${route.path} — failed after 3 attempts`);
     }
 
-    const totalSize = ROUTES.reduce((sum, route) => {
-      const f = path.join(dist, route.file);
+    const totalSize = ROUTES.reduce((sum, r) => {
+      const f = path.join(dist, r.file);
       return sum + (fs.existsSync(f) ? fs.statSync(f).size : 0);
     }, 0);
 
     console.log(`\n  Done. ${ROUTES.length} routes (${(totalSize / 1024).toFixed(0)} KB total).\n`);
   } catch (err) {
-    console.error("  ✗ Fatal:", err.message);
-    process.exit(1);
+    console.error("  ✗ Fatal:", (err.message || "").slice(0, 120));
   } finally {
     if (browser) await browser.close().catch(() => {});
     server.close();

@@ -50,6 +50,7 @@ export default function BookPage() {
               </div>
               <form
                 className="booking-form"
+                aria-label={t("book.form.title") || "Request a YeneSchool demo"}
                 data-contact-form
                 data-success-message={t("contact.form.success")}
                 data-error-message={t("contact.form.error")}

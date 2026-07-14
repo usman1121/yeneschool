@@ -63,22 +63,22 @@ export default function ComparePage() {
                   <span>{t("compare.stats.subtitle")}</span>
                 </div>
                 <div className="orbit-track">
-                  <div className="orbit-item" style={{ "--i": 0 }} data-label={t("compare.stats.items")[0]}>
+                  <div className="orbit-item" style={{ "--i": 0 }} aria-label={t("compare.stats.items")[0]}>
                     <strong>52</strong>
                   </div>
-                  <div className="orbit-item" style={{ "--i": 1 }} data-label={t("compare.stats.items")[1]}>
+                  <div className="orbit-item" style={{ "--i": 1 }} aria-label={t("compare.stats.items")[1]}>
                     <strong>523+</strong>
                   </div>
-                  <div className="orbit-item" style={{ "--i": 2 }} data-label={t("compare.stats.items")[2]}>
+                  <div className="orbit-item" style={{ "--i": 2 }} aria-label={t("compare.stats.items")[2]}>
                     <strong>7</strong>
                   </div>
-                  <div className="orbit-item" style={{ "--i": 3 }} data-label={t("compare.stats.items")[3]}>
+                  <div className="orbit-item" style={{ "--i": 3 }} aria-label={t("compare.stats.items")[3]}>
                     <strong>5</strong>
                   </div>
-                  <div className="orbit-item" style={{ "--i": 4 }} data-label={t("compare.stats.items")[4]}>
+                  <div className="orbit-item" style={{ "--i": 4 }} aria-label={t("compare.stats.items")[4]}>
                     <strong>95</strong>
                   </div>
-                  <div className="orbit-item" style={{ "--i": 5 }} data-label={t("compare.stats.items")[5]}>
+                  <div className="orbit-item" style={{ "--i": 5 }} aria-label={t("compare.stats.items")[5]}>
                     <strong>6</strong>
                   </div>
                 </div>
@@ -134,11 +134,17 @@ export default function ComparePage() {
             <div className="compare-faq-list">
               {faq.items.map((item, i) => (
                 <article key={i} className={`faq-item${openIndex === i ? " is-open" : ""}`}>
-                  <button className="faq-trigger" onClick={() => setOpenIndex(openIndex === i ? null : i)}>
+                  <button
+                    className="faq-trigger"
+                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                    aria-expanded={openIndex === i}
+                    aria-controls={`faq-answer-${i}`}
+                    id={`faq-trigger-${i}`}
+                  >
                     <span>{item.q}</span>
                     <svg className="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                   </button>
-                  <div className="faq-answer">
+                  <div className="faq-answer" id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-trigger-${i}`}>
                     <p>{item.a}</p>
                   </div>
                 </article>

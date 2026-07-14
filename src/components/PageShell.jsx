@@ -74,6 +74,7 @@ function Header({ activePage }) {
             data-mobile-toggle
             aria-label={t("nav.openMenu") || "Open Menu"}
             aria-expanded="false"
+            data-mobile-toggle-aria
           >
             <MenuIcon />
           </button>
@@ -122,6 +123,7 @@ function Header({ activePage }) {
                 data-theme-toggle
                 aria-label={t("theme.switchToLight")}
                 aria-pressed="true"
+                data-theme-toggle-aria
               >
                 <span className="sr-only" data-theme-label>
                   {t("theme.switchToLight")}
@@ -201,9 +203,9 @@ function Footer({ activePage }) {
               {t("footer.desc")}
             </p>
           </div>
-          <div className="footer-links">
-            <section data-reveal>
-              <h3>{t("footer.product")}</h3>
+          <div className="footer-links" role="list" aria-label={t("footer.links") || "Footer links"}>
+            <nav aria-labelledby="footer-product-heading" data-reveal>
+              <h3 id="footer-product-heading">{t("footer.product")}</h3>
               <ul>
                 <li>
                   <a href="/#modules" data-scroll-target="modules" {...isActive("modules")}>
@@ -226,9 +228,9 @@ function Footer({ activePage }) {
                   </a>
                 </li>
               </ul>
-            </section>
-            <section data-reveal>
-              <h3>{t("footer.legal")}</h3>
+            </nav>
+            <nav aria-labelledby="footer-legal-heading" data-reveal>
+              <h3 id="footer-legal-heading">{t("footer.legal")}</h3>
               <ul>
                 <li>
                   <a href="/privacy" {...isActive("privacy")}>
@@ -246,9 +248,9 @@ function Footer({ activePage }) {
                   </a>
                 </li>
               </ul>
-            </section>
-            <section id="contact" data-reveal>
-              <h3>{t("footer.contactUs")}</h3>
+            </nav>
+            <nav aria-labelledby="footer-contact-heading" data-reveal>
+              <h3 id="footer-contact-heading">{t("footer.contactUs")}</h3>
               <ul>
                 <li>
                   <a href="mailto:yeneschool@gmail.com" className="contact-link">
@@ -276,7 +278,7 @@ function Footer({ activePage }) {
                   </a>
                 </li>
               </ul>
-            </section>
+            </nav>
           </div>
         </div>
         <div className="footer-bottom">
@@ -294,7 +296,7 @@ function Footer({ activePage }) {
 
 export default function PageShell({ activePage, children }) {
   return (
-    <div>
+    <div id="main-content" tabIndex={-1}>
       <Header activePage={activePage} />
       {children}
       <Footer activePage={activePage} />

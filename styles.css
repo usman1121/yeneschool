@@ -131,6 +131,25 @@ html.dark {
   color-scheme: dark;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 8px;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: var(--foreground, #0f172a);
+  color: var(--background, #f8fbff);
+  border-radius: 0 0 6px 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 180ms ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 * {
   box-sizing: border-box;
 }

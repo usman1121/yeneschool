@@ -42,6 +42,7 @@ export default function ContactPage() {
           <div className="contact-form-shell">
             <form
               className="contact-form"
+              aria-label={t("contact.form.title") || "Contact YeneSchool"}
               data-contact-form
               data-success-message={t("contact.form.success")}
               data-error-message={t("contact.form.error")}
@@ -70,7 +71,7 @@ export default function ContactPage() {
               <label>
                 <span>{t("contact.form.topic")}</span>
                 <select name="topic" required>
-                  <option value="">{t("contact.form.chooseOne")}</option>
+                  <option value="" disabled hidden>{t("contact.form.chooseOne")}</option>
                   <option value="Pricing">{t("contact.form.pricing")}</option>
                   <option value="Demo">{t("contact.form.demo")}</option>
                   <option value="Implementation">{t("contact.form.implementation")}</option>

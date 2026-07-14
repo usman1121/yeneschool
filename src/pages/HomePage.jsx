@@ -314,10 +314,10 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <section className="section pricing-section" id="pricing" data-reveal>
+        <section className="section pricing-section" id="pricing" aria-labelledby="pricing-heading" data-reveal>
           <div className="pricing-heading">
             <p className="pricing-eyebrow">{t("home.pricing.eyebrow")}</p>
-            <h2>
+            <h2 id="pricing-heading">
               {pricingTitleLead} {pricingTitleRest ? <span>{pricingTitleRest}</span> : null}
             </h2>
             <p>
@@ -349,17 +349,17 @@ export default function HomePage() {
                 <p className="launch-price" data-monthly-price="2,000 ETB/mo" data-annual-price="18,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.core.monthlyNote")} data-annual-note={t("home.pricing.plans.core.annualNote")}>{t("home.pricing.plans.core.monthlyNote")}</p>
               </div>
-              <div className="service-plans" aria-label="Service payment options">
-                <div className="service-plan is-active" data-billing-option="monthly">
+              <div className="service-plans" role="radiogroup" aria-label="Service payment options">
+                <div className="service-plan is-active" role="radio" aria-checked="true" data-billing-option="monthly" tabIndex={0}>
                   <div><strong>{t("home.pricing.plans.core.monthlyLabel")}</strong><small>{t("home.pricing.plans.core.monthlyDetail")}</small></div>
                   <span>{t("home.pricing.plans.core.monthlyPrice")}</span>
                 </div>
-                <div className="service-plan">
+                <div className="service-plan" role="radio" aria-checked="false" data-billing-option="" tabIndex={-1}>
                   <div><strong>{t("home.pricing.plans.core.sixMonth")}</strong><small>{t("home.pricing.plans.core.sixMonthDetail")}</small></div>
                   <span>{t("home.pricing.plans.core.sixMonthPrice")}</span>
                   <em>{t("home.pricing.plans.core.sixMonthSave")}</em>
                 </div>
-                <div className="service-plan" data-billing-option="annual">
+                <div className="service-plan" role="radio" aria-checked="false" data-billing-option="annual" tabIndex={-1}>
                   <div><strong>{t("home.pricing.plans.core.yearly")}</strong><small>{t("home.pricing.plans.core.yearlyDetail")}</small></div>
                   <span>{t("home.pricing.plans.core.yearlyPrice")}</span>
                   <em>{t("home.pricing.plans.core.yearlySave")}</em>
@@ -391,17 +391,17 @@ export default function HomePage() {
                 <p className="launch-price" data-monthly-price="5,000 ETB/mo" data-annual-price="45,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.standard.monthlyNote")} data-annual-note={t("home.pricing.plans.standard.annualNote")}>{t("home.pricing.plans.standard.monthlyNote")}</p>
               </div>
-              <div className="service-plans" aria-label="Service payment options">
-                <div className="service-plan is-active" data-billing-option="monthly">
+              <div className="service-plans" role="radiogroup" aria-label="Service payment options">
+                <div className="service-plan is-active" role="radio" aria-checked="true" data-billing-option="monthly" tabIndex={0}>
                   <div><strong>{t("home.pricing.plans.standard.monthlyLabel")}</strong><small>{t("home.pricing.plans.standard.monthlyDetail")}</small></div>
                   <span>{t("home.pricing.plans.standard.monthlyPrice")}</span>
                 </div>
-                <div className="service-plan">
+                <div className="service-plan" role="radio" aria-checked="false" data-billing-option="" tabIndex={-1}>
                   <div><strong>{t("home.pricing.plans.standard.sixMonth")}</strong><small>{t("home.pricing.plans.standard.sixMonthDetail")}</small></div>
                   <span>{t("home.pricing.plans.standard.sixMonthPrice")}</span>
                   <em>{t("home.pricing.plans.standard.sixMonthSave")}</em>
                 </div>
-                <div className="service-plan" data-billing-option="annual">
+                <div className="service-plan" role="radio" aria-checked="false" data-billing-option="annual" tabIndex={-1}>
                   <div><strong>{t("home.pricing.plans.standard.yearly")}</strong><small>{t("home.pricing.plans.standard.yearlyDetail")}</small></div>
                   <span>{t("home.pricing.plans.standard.yearlyPrice")}</span>
                   <em>{t("home.pricing.plans.standard.yearlySave")}</em>
@@ -429,17 +429,17 @@ export default function HomePage() {
                 <p className="launch-price" data-monthly-price="10,000 ETB/mo" data-annual-price="90,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.ultimate.monthlyNote")} data-annual-note={t("home.pricing.plans.ultimate.annualNote")}>{t("home.pricing.plans.ultimate.monthlyNote")}</p>
               </div>
-              <div className="service-plans" aria-label="Service payment options">
-                <div className="service-plan is-active" data-billing-option="monthly">
+              <div className="service-plans" role="radiogroup" aria-label="Service payment options">
+                <div className="service-plan is-active" role="radio" aria-checked="true" data-billing-option="monthly" tabIndex={0}>
                   <div><strong>{t("home.pricing.plans.ultimate.monthlyLabel")}</strong><small>{t("home.pricing.plans.ultimate.monthlyDetail")}</small></div>
                   <span>{t("home.pricing.plans.ultimate.monthlyPrice")}</span>
                 </div>
-                <div className="service-plan">
+                <div className="service-plan" role="radio" aria-checked="false" data-billing-option="" tabIndex={-1}>
                   <div><strong>{t("home.pricing.plans.ultimate.sixMonth")}</strong><small>{t("home.pricing.plans.ultimate.sixMonthDetail")}</small></div>
                   <span>{t("home.pricing.plans.ultimate.sixMonthPrice")}</span>
                   <em>{t("home.pricing.plans.ultimate.sixMonthSave")}</em>
                 </div>
-                <div className="service-plan" data-billing-option="annual">
+                <div className="service-plan" role="radio" aria-checked="false" data-billing-option="annual" tabIndex={-1}>
                   <div><strong>{t("home.pricing.plans.ultimate.yearly")}</strong><small>{t("home.pricing.plans.ultimate.yearlyDetail")}</small></div>
                   <span>{t("home.pricing.plans.ultimate.yearlyPrice")}</span>
                   <em>{t("home.pricing.plans.ultimate.yearlySave")}</em>
@@ -455,10 +455,10 @@ export default function HomePage() {
             </article>
           </div>
         </section>
-        <section className="section testimonials-section">
+        <section className="section testimonials-section" aria-labelledby="testimonials-heading">
           <div className="testimonials-header" data-reveal>
             <p className="eyebrow">{t("home.testimonials.eyebrow")}</p>
-            <h2>{t("home.testimonials.title")}</h2>
+            <h2 id="testimonials-heading">{t("home.testimonials.title")}</h2>
             <p className="testimonials-desc">{t("home.testimonials.desc")}</p>
           </div>
           <div className="testimonials-marquee" data-reveal>

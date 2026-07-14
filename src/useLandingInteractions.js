@@ -316,8 +316,11 @@ function setupDashboardSlider(cleanups) {
     const slide = dashboardSlides[activeIndex];
 
     frame.classList.remove("is-switching");
-    void frame.offsetWidth;
-    frame.classList.add("is-switching");
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        frame.classList.add("is-switching");
+      });
+    });
 
     image.setAttribute("src", slide.image);
     image.setAttribute("alt", slide.alt);

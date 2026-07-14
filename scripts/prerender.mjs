@@ -2,7 +2,6 @@ import fs from "node:fs";
 import path from "node:path";
 import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
-import { execSync } from "node:child_process";
 
 let puppeteer;
 
@@ -76,8 +75,8 @@ function startServer() {
   });
 }
 
-async function findBrowser() {
-  const candidates = [
+function findBrowser() {
+  let candidates = [
     process.env.PUPPETEER_EXECUTABLE_PATH,
     process.env.CHROME_PATH,
     process.env.CHROMIUM_PATH,
@@ -85,42 +84,38 @@ async function findBrowser() {
     "/usr/bin/chromium-browser",
     "/usr/bin/google-chrome",
     "/usr/bin/google-chrome-stable",
-    "/usr/bin/brave-browser",
     "/snap/bin/chromium",
     "/opt/google/chrome/chrome",
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-    "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
-    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-  ].filter(Boolean);
+  ];
+  try { candidates.unshift(puppeteer.executablePath()); } catch {}
+  candidates = candidates.filter((p) => typeof p === "string");
 
   for (const candidate of candidates) {
     try {
-      await fs.promises.access(candidate);
-      return candidate;
+      if (candidate && fs.existsSync(candidate)) return candidate;
     } catch {}
   }
   return null;
 }
 
 async function installChrome() {
-  console.log("  Chrome not found locally. Installing...");
+  console.log("  Chrome not found. Installing via @puppeteer/browsers...");
   try {
+    const { execSync } = await import("node:child_process");
     execSync(
-      "npx --yes @puppeteer/browsers install chrome@latest --path /tmp/chrome-browsers 2>/dev/null",
+      "npx --yes @puppeteer/browsers install chrome@latest --path /tmp/chrome-browsers 2>&1",
       { stdio: "pipe", timeout: 120000 },
     );
     const base = "/tmp/chrome-browsers/chrome";
     if (!fs.existsSync(base)) return null;
     const entries = fs.readdirSync(base).sort();
     for (const entry of entries) {
-      const candidates = [
+      for (const bin of [
         path.join(base, entry, "chrome"),
         path.join(base, entry, "chrome-linux64", "chrome"),
         path.join(base, `chrome-${entry}`, "chrome"),
-      ];
-      for (const c of candidates) {
-        if (fs.existsSync(c)) return c;
+      ]) {
+        if (fs.existsSync(bin)) return bin;
       }
     }
     return null;
@@ -131,7 +126,7 @@ async function installChrome() {
 }
 
 async function prerender() {
-  console.log("\n  ── Prerendering ──\n");
+  console.log("\n  ── Prerender ──\n");
 
   const distIndex = path.join(dist, "index.html");
   if (!fs.existsSync(distIndex)) {
@@ -140,18 +135,19 @@ async function prerender() {
   }
 
   try {
-    puppeteer = (await import("puppeteer-core")).default;
+    puppeteer = (await import("puppeteer")).default;
   } catch {
-    console.warn("  ✗ puppeteer-core not installed. Run: npm install --save-dev puppeteer-core\n");
-    process.exit(0);
+    console.error("  ✗ puppeteer not installed. Run: npm install --save-dev puppeteer\n");
+    process.exit(1);
   }
 
-  let browserPath = await findBrowser();
+  let browserPath = findBrowser();
   if (!browserPath) {
     browserPath = await installChrome();
   }
   if (!browserPath) {
-    console.warn("  ⚠ No browser found — skipping prerender. Install Chromium for full prerendering.\n");
+    console.warn("  ⚠ No Chrome/Chromium available. Skipping prerender.\n");
+    console.warn("  ⚠ Install Chromium or set PUPPETEER_EXECUTABLE_PATH for full prerendering.\n");
     process.exit(0);
   }
 
@@ -171,10 +167,9 @@ async function prerender() {
       ],
     });
   } catch (err) {
-    console.warn(`  ⚠ Browser launch failed: ${err.message.slice(0, 120)}`);
-    console.warn("  ⚠ Skipping prerender. Install system deps (libnspr4 etc.) for full prerendering.\n");
+    console.error(`  ✗ Browser launch failed: ${err.message.slice(0, 120)}`);
     server.close();
-    return;
+    process.exit(1);
   }
 
   try {

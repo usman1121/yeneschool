@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import HomePage from "./pages/HomePage.jsx";
-import PageShell from "./components/PageShell.jsx";
 import { useTranslation } from "./i18n/I18nContext.jsx";
 import { smoothScrollTo, smoothScrollToElement } from "./smoothScroll.js";
 import { useLandingInteractions } from "./useLandingInteractions.js";
@@ -15,20 +14,6 @@ const ModulesPage = lazyWithPreload(() => import("./pages/ModulesPage.jsx"));
 const ContactPage = lazyWithPreload(() => import("./pages/ContactPage.jsx"));
 const BookPage = lazyWithPreload(() => import("./pages/BookPage.jsx"));
 const ComparePage = lazyWithPreload(() => import("./pages/ComparePage.jsx"));
-
-const getPageFromRoute = () => {
-  const pathname = window.location.pathname.replace(/\/+$/, "");
-  if (pathname === "") return "home";
-  if (pathname.endsWith("/modules") || pathname.endsWith("/modules.html")) return "modules";
-  if (pathname.endsWith("/contact") || pathname.endsWith("/contact.html")) return "contact";
-  if (pathname.endsWith("/privacy") || pathname.endsWith("/privacy.html")) return "privacy";
-  if (pathname.endsWith("/terms") || pathname.endsWith("/terms.html")) return "terms";
-  if (pathname.endsWith("/cookie-policy") || pathname.endsWith("/cookie-policy.html")) return "cookiePolicy";
-  if (pathname.endsWith("/demo") || pathname.endsWith("/demo.html")) return "book";
-  if (pathname.endsWith("/book") || pathname.endsWith("/book.html")) return "book";
-  if (pathname.endsWith("/vs-others") || pathname.endsWith("/vs-others.html")) return "compare";
-  return "notFound";
-};
 
 function getPageFromPathname(pathname) {
   const normalizedPath = pathname.replace(/\/+$/, "");
@@ -133,7 +118,7 @@ function useClientNavigation(setPage) {
       preloadPage(getPageFromPathname(url.pathname));
     };
 
-    const handlePopState = () => setPage(getPageFromRoute());
+    const handlePopState = () => setPage(getPageFromPathname(window.location.pathname));
 
     const prefetchVisibleLinks = () => {
       if (!("IntersectionObserver" in window)) return () => {};
@@ -676,7 +661,7 @@ function PageRuntime({ page, children }) {
 }
 
 export default function App() {
-  const [page, setPage] = useState(getPageFromRoute);
+  const [page, setPage] = useState(() => getPageFromPathname(window.location.pathname));
 
   useClientNavigation(setPage);
 

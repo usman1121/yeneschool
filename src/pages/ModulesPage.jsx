@@ -20,6 +20,32 @@ export default function ModulesPage() {
     return () => ctx.revert();
   }, []);
 
+  const moduleCards = [
+    { id: "academic-management", key: "academic", icon: <svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-1.5Z" /><path d="M8 7h7M8 11h6" /></svg> },
+    { id: "student-management", key: "student", icon: <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2" /><circle cx={12} cy={7} r={4} /><path d="M20 8v6M23 11h-6" /></svg> },
+    { id: "attendance", key: "attendance", icon: <svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg> },
+    { id: "marks-report-cards", key: "marks", icon: <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg> },
+    { id: "finance", key: "finance", icon: <svg viewBox="0 0 24 24"><rect x={2} y={5} width={20} height={14} rx={2} /><path d="M2 10h20M7 15h.01M11 15h2" /></svg> },
+    { id: "communication", key: "communication", icon: <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg> },
+    { id: "local-school-support", key: "localSupport", icon: <svg viewBox="0 0 24 24"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></svg> },
+    { id: "lessons-assignments", key: "lessons", icon: <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9h8M8 13h5" /><path d="M6 21h12" /></svg> },
+    { id: "automation-reporting", key: "automation", icon: <svg viewBox="0 0 24 24"><path d="M3 3v18h18" /><path d="M7 15l4-4 3 3 5-7" /></svg> },
+    { id: "operations", key: "operations", icon: <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg> },
+    { id: "admissions-enrollment", key: "admissions", icon: <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /><path d="M9 15l2 2 4-4" /></svg> },
+    { id: "exams", key: "exams", icon: <svg viewBox="0 0 24 24"><path d="M9 3h6l1 3h4v15H4V6h4Z" /><path d="M9 11h6M9 15h4" /></svg> },
+    { id: "online-examinations", key: "onlineExams", icon: <svg viewBox="0 0 24 24"><rect x={3} y={4} width={18} height={12} rx={2} /><path d="M8 20h8M12 16v4M8 9h5M8 12h3M16 9l1.5 1.5L20 8" /></svg> },
+    { id: "user-portals", key: "portals", icon: <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9h4M8 13h8M16 9h.01" /></svg> },
+    { id: "discipline-conduct", key: "discipline", icon: <svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 5 8 8 8 8s8-3 8-8V7Z" /><path d="M9 12l2 2 4-4" /></svg> },
+    { id: "staff-directory", key: "staff", icon: <svg viewBox="0 0 24 24"><path d="M3 21v-2a4 4 0 0 1 4-4h4" /><circle cx={9} cy={7} r={4} /><path d="M17 11l2 2 4-4" /><path d="M17 19h5" /></svg> },
+    { id: "security-permissions", key: "security", icon: <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg> },
+    { id: "search-data-quality", key: "search", icon: <svg viewBox="0 0 24 24"><circle cx={11} cy={11} r={7} /><path d="m21 21-4.3-4.3" /><path d="M8 11h6" /></svg> },
+    { id: "ai", key: "ai", icon: <svg viewBox="0 0 24 24"><circle cx={12} cy={12} r={10} /><path d="M12 2a10 10 0 0 1 10 10c0 5-4 8-10 10C6 20 2 17 2 12A10 10 0 0 1 12 2Z" /><path d="M8 12h8M12 8v8" /></svg> },
+    { id: "backup-data-export", key: "backup", icon: <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2Z" /><path d="M12 7v10M7 12h10" /></svg> },
+    { id: "id-cards-certificates", key: "idCards", icon: <svg viewBox="0 0 24 24"><rect x={2} y={3} width={20} height={18} rx={2} /><path d="M12 7v2M12 11v2" /><circle cx={12} cy={16} r={1} /></svg> },
+    { id: "events-calendar", key: "events", icon: <svg viewBox="0 0 24 24"><rect x={3} y={4} width={18} height={18} rx={2} /><path d="M3 10h18M8 2v4M16 2v4" /><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" /></svg> },
+    { id: "staff-messaging", key: "messaging", icon: <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg> },
+  ];
+
   const heading = t("modules.hero.title");
   const splitHeading = heading.split(" ").map((word, i) =>
     <span key={i} className="word">{word}</span>
@@ -49,48 +75,27 @@ export default function ModulesPage() {
                   <circle cx="250" cy="250" r="48" fill="none" stroke="rgba(96,165,250,0.06)" strokeWidth="1" strokeDasharray="2 4" />
                   <text x="250" y="250" textAnchor="middle" dominantBaseline="central" fontSize="26" fontWeight="700" fill="#60a5fa" fontFamily="C8aTajra, serif">YeneSchool</text>
                 </svg>
-                <div className="geo-node" style={{ "--i": 0, top: 5, left: 170 }}>
-                  <strong>13 months</strong>
-                  <span>Ethiopian calendar</span>
-                </div>
-                <div className="geo-node" style={{ "--i": 1, top: 90, right: 25 }}>
-                  <strong>G1-12</strong>
-                  <span>grade system</span>
-                </div>
-                <div className="geo-node" style={{ "--i": 2, top: 90, left: 25 }}>
-                  <strong>AI</strong>
-                  <span>integrated</span>
-                </div>
-                <div className="geo-node" style={{ "--i": 3, bottom: 90, right: 25 }}>
-                  <strong>IoT</strong>
-                  <span>siren & bell</span>
-                </div>
-                <div className="geo-node" style={{ "--i": 4, bottom: 5, left: 170 }}>
-                  <strong>Backups</strong>
-                  <span>data protection</span>
-                </div>
-                <div className="geo-node" style={{ "--i": 5, bottom: 90, left: 25 }}>
-                  <strong>Offline</strong>
-                  <span>functionality</span>
-                </div>
+                {[
+                  { style: { top: 5, left: 170 }, label: t("modules.orbit.labels")[0], desc: t("modules.orbit.descs")[0] },
+                  { style: { top: 90, right: 25 }, label: t("modules.orbit.labels")[1], desc: t("modules.orbit.descs")[1] },
+                  { style: { top: 90, left: 25 }, label: t("modules.orbit.labels")[2], desc: t("modules.orbit.descs")[2] },
+                  { style: { bottom: 90, right: 25 }, label: t("modules.orbit.labels")[3], desc: t("modules.orbit.descs")[3] },
+                  { style: { bottom: 5, left: 170 }, label: t("modules.orbit.labels")[4], desc: t("modules.orbit.descs")[4] },
+                  { style: { bottom: 90, left: 25 }, label: t("modules.orbit.labels")[5], desc: t("modules.orbit.descs")[5] },
+                ].map((node, i) => (
+                  <div key={i} className="geo-node" style={{ "--i": i, ...node.style }}>
+                    <strong>{node.label}</strong>
+                    <span>{node.desc}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
         <div className="modules-tag-cloud" data-reveal>
-          <span className="section-kicker" style={{ marginBottom: 14, display: 'block' }}>All 24 Domains</span>
+          <span className="section-kicker" style={{ marginBottom: 14, display: 'block' }}>{t("modules.tagCloud.kicker")}</span>
           <div className="tag-cloud-track">
-            {[
-              "Academic Management", "Student Management", "Attendance",
-              "Marks & Report Cards", "Finance", "Communication Book",
-              "Local School Support", "Automation & Reporting", "Operations",
-              "Admissions & Enrollment", "Exams", "Online Examinations",
-              "User Portals", "Lessons & Assignments", "Discipline & Conduct",
-              "Staff Directory", "Security & Permissions", "Search & Data Quality",
-              "AI-Powered Intelligence", "Backup & Data Export",
-              "ID Cards & Certificates", "Events & Calendar", "Staff Messaging",
-              "Timetable & Scheduling",
-            ].map((name, i) => (
+            {t("modules.tagCloud.domains").map((name, i) => (
               <span key={i} className="tag-cloud-pill">{name}</span>
             ))}
           </div>
@@ -98,152 +103,22 @@ export default function ModulesPage() {
         <section className="modules-directory section" aria-labelledby="module-checklist-title" data-reveal>
           <div className="modules-directory-heading">
             <div>
-              <span className="section-kicker">Module Checklist</span>
-              <h2 id="module-checklist-title">What each part of the system helps your school manage.</h2>
+              <span className="section-kicker">{t("modules.checklist.title")}</span>
+              <h2 id="module-checklist-title">{t("modules.checklist.subtitle")}</h2>
             </div>
-                        <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/">See pricing</a>
+                        <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/">{t("modules.checklist.viewPricing")}</a>
           </div>
           <div className="modules-directory-grid">
-                        <article className="module-detail-card" data-reveal id="academic-management">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-1.5Z" /><path d="M8 7h7M8 11h6" /></svg></span>
-              <h3>Academic Management</h3>
-              <p>Controls the school structure that every other workflow depends on, including Ethiopian academic periods and school grade-system settings.</p>
-              <ul><li>Academic years, terms, quarters, semesters, and current-period selection</li><li>Grade-system setup for Grade 1-8 or Grade 1-12 schools</li><li>Classes, sections, capacity syncing, and homeroom teachers</li><li>Subjects, class-subject links, and teacher subject assignments</li><li>Timetable slots, period times, and school calendar records</li><li>Feeds attendance, grading, report cards, promotion, and exam seating</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="student-management">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2" /><circle cx={12} cy={7} r={4} /><path d="M20 8v6M23 11h-6" /></svg></span>
-              <h3>Student Management</h3>
-              <p>Manages the full student lifecycle from admission request to active enrollment, credentials, documents, and yearly movement.</p>
-              <ul><li>Enrollment requests with approval, rejection, waitlist, and credential generation</li><li>Student profile records with parent and guardian relationships</li><li>Class, section, roll number, stream, and academic-year placement</li><li>Bulk upload for students and users with generated credential exports</li><li>ID card generation and document records tied to student profiles</li><li>Promotion history, retained/promoted status, and transfer-ready records</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="attendance">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg></span>
-              <h3>Attendance</h3>
-              <p>Session-based attendance built for teachers, admins, parents, and unreliable connectivity.</p>
-              <ul><li>Teacher attendance entry by class, section, date, and period context</li><li>Attendance sessions with submitted status and per-student records</li><li>Offline attendance capture and sync endpoints for local-first workflows</li><li>Admin attendance overview, missing-session follow-up, and reports</li><li>Parent and student attendance pages scoped to the selected academic year</li><li>Absence and late notification flow for parent-visible updates</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="marks-report-cards">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg></span>
-              <h3>Marks &amp; Report Cards</h3>
-              <p>Connects teacher score entry, assessment setup, publishing readiness, report cards, certificates, and year-end promotion.</p>
-              <ul><li>Assessment setup, assessment subjects, weights, score status, and grading scales</li><li>Teacher marks entry with admin assessment and entry-progress visibility</li><li>Exam results, rankings, publish-results workflow, and report-card readiness checks</li><li>Bulk report-card generation, publish summary, parent/student published views</li><li>Certificate template, watermark upload, single PDF, and bulk ZIP downloads</li><li>Promotion candidates with published report-card and eligibility checks</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="finance">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x={2} y={5} width={20} height={14} rx={2} /><path d="M2 10h20M7 15h.01M11 15h2" /></svg></span>
-              <h3>Finance</h3>
-              <p>Separates fee setup, assigned student balances, receipts, discounts, overdue follow-up, and parent-facing fee visibility.</p>
-              <ul><li>Fee structures by academic year, category, grade range, and installment plan</li><li>Student fee assignment, outstanding balances, payment status, and receipts</li><li>Discount policies, reversals, audit logs, and finance summaries</li><li>Overdue reports, total overdue counts, and export-friendly report pages</li><li>Parent fee views connected to published student finance records</li><li>Payroll page and finance-only navigation for restricted money workflows</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="communication">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
-              <h3>{t("modules.details.communication.title")}</h3>
-              <p>{t("modules.details.communication.desc")}</p>
-              <ul>{t("modules.details.communication.items").map((f, i) => (
-                <li key={i}>{f}</li>
-              ))}</ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="local-school-support">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></svg></span>
-              <h3>Local School Support</h3>
-              <p>Handles the local constraints that generic school systems usually miss: languages, calendars, grade models, and Ethiopian academic periods.</p>
-              <ul><li>English, Amharic, Arabic, Oromo, and Somali UI language support</li><li>Ethiopian and Gregorian calendar workflows for school operations</li><li>Grade 1-8 and Grade 1-12 mode driven by school settings</li><li>Local academic periods, term labels, and current academic-year behavior</li><li>Grade 6 and Grade 8 national-exam style workflows for primary/middle schools</li><li>School name, logo, favicon, profile, and branding configuration</li><li>Operational defaults, system preferences, and academic-year management</li><li>School-level settings for attendance, grading, promotion, and communication rules</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="automation-reporting">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18" /><path d="M7 15l4-4 3 3 5-7" /></svg></span>
-              <h3>Automation &amp; Reporting</h3>
-              <p>Turns operational data into dashboards, board-ready reports, and follow-up lists rather than disconnected exports.</p>
-              <ul><li>Admin, teacher, parent, student, registrar, and finance dashboards</li><li>Teacher leaderboard using attendance, grading timeliness, lessons, and related metrics</li><li>Parent presentation report with overview, class comparison, subject comparison, and insights</li><li>School data health checks for consistency and maintenance follow-up</li><li>Finance reports, overdue summaries, academic reports, and attendance trends</li><li>Backups, exports, search-like raw queries, and audit-friendly operational records</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="operations">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg></span>
-              <h3>Operations</h3>
-              <p>Supports the daily routines that keep the school moving: bells, templates, imports, device hooks, and operational alerts.</p>
-              <ul><li>Siren schedules, siren events, manual ring action, and browser audio fallback</li><li>Hardware bell configuration and webhook-friendly siren controller routes</li><li>Dynamic timetable sirens scoped to the assigned teacher for the current period</li><li>Period-time setup and timetable-driven start/end-of-class alerts</li><li>Document templates for school records and generated outputs</li><li>Bulk import/export and operational notifications across school workflows</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="admissions-enrollment">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" /><path d="M9 15l2 2 4-4" /></svg></span>
-              <h3>Admissions &amp; Enrollment</h3>
-              <p>Moves applicants from public enrollment into active student, parent, class, and credential records.</p>
-              <ul><li>Public school pages and enrollment request forms for applicants</li><li>Registrar/admin review with approve, reject, and waitlist flows</li><li>Encrypted enrollment tokens and configured frontend enrollment URLs</li><li>Credential generation for student and parent accounts after approval</li><li>Class placement, section placement, roll numbers, and parent linkage</li><li>Admission details including nationality, documents, guardians, and profile fields</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="exams">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6l1 3h4v15H4V6h4Z" /><path d="M9 11h6M9 15h4" /></svg></span>
-              <h3>Exams</h3>
-              <p>Covers formal school exams, seating logistics, result entry, publishing readiness, and exam-related registrar workflows.</p>
-              <ul><li>Assessment and exam setup, result entry, publish-results flow, rankings, and entry progress</li><li>Exam seating plans, section assignments, exam-section students, and seating modes</li><li>Current-period exam visibility for teachers, students, and parents</li><li>Publishing workflow that validates completion before releasing results</li><li>Registrar national exams and school-leaving workflows where enabled by grade system</li><li>Report-card readiness checks connected to formal exam and assessment data</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="online-examinations">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x={3} y={4} width={18} height={12} rx={2} /><path d="M8 20h8M12 16v4M8 9h5M8 12h3M16 9l1.5 1.5L20 8" /></svg></span>
-              <h3>Online Examinations</h3>
-              <p>Lets teachers create controlled online exams while students complete timed attempts with saved answers and result feedback.</p>
-              <ul><li>Teacher-created online exams tied to assigned class, section, subject, grade, and stream</li><li>Draft, ready, active, archived, duration, pass mark, access-code, and shuffle-question controls</li><li>Question banks with multiple choice, true/false, and short-answer support</li><li>Student online examination list filtered by grade and stream with required access code</li><li>Timed attempts with local draft recovery, autosave, flagged questions, submit, and expiry handling</li><li>Automatic scoring, correct/wrong/skipped counts, percentage, pass-mark result, and submitted-at review</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="user-portals">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9h4M8 13h8M16 9h.01" /></svg></span>
-              <h3>User Portals</h3>
-              <p>Gives each role a focused workspace so users only see the work they are responsible for.</p>
-              <ul><li>Admin portal for schools, subscriptions, backups, and platform settings</li><li>Admin portal for academics, enrollment, reports, assessments, siren, people, and operations</li><li>Teacher portal for classes, attendance, lessons, timetable, grading, and online exams</li><li>Parent portal for children, attendance, grades, fees, lessons, discipline, and timetable</li><li>Student portal for timetable, attendance, lessons, grades, exams, and practice exams</li><li>Registrar, finance, and IT manager workspaces with narrower operational responsibilities</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="lessons-assignments">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 9h8M8 13h5" /><path d="M6 21h12" /></svg></span>
-              <h3>Lessons &amp; Assignments</h3>
-              <p>Connects teacher lesson activity, class work, homework, and parent/student visibility to the academic timetable.</p>
-              <ul><li>Teacher lesson records tied to assigned classes, sections, subjects, and timetable periods</li><li>Assignments and class work visible to students and linked parents</li><li>Lesson progress signals for admin and teacher dashboards</li><li>Teacher workspace for daily class activity and follow-up tasks</li><li>Student views for lessons, assignments, timetable, and academic work</li><li>Parent visibility into assigned learning tasks without separate message groups</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="discipline-conduct">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 5 8 8 8 8s8-3 8-8V7Z" /><path d="M9 12l2 2 4-4" /></svg></span>
-              <h3>Discipline &amp; Conduct</h3>
-              <p>Keeps behavior notes, conduct follow-up, and parent-visible discipline records connected to the student profile.</p>
-              <ul><li>Student discipline records scoped to the correct school and academic context</li><li>Conduct notes that can support report-card and parent follow-up workflows</li><li>Parent portal visibility for published discipline updates where the school allows it</li><li>Admin follow-up lists for student behavior and support actions</li><li>Teacher and registrar context when reviewing a student profile</li><li>Audit-friendly records for sensitive student conduct decisions</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="staff-directory">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21v-2a4 4 0 0 1 4-4h4" /><circle cx={9} cy={7} r={4} /><path d="M17 11l2 2 4-4" /><path d="M17 19h5" /></svg></span>
-              <h3>Staff Directory &amp; Responsibilities</h3>
-              <p>Connects people records to responsibilities, assignments, credentials, departments, and accountability reporting.</p>
-              <ul><li>Teacher profiles, staff records, departments, and employee documents</li><li>Teacher subject assignments and class-subject responsibility tracking</li><li>Generated credentials, pending credential queue, password reset support, and CSV exports</li><li>Teacher class pages, assigned students, timetable, lessons, attendance, and grading</li><li>Performance visibility through teacher leaderboard and dashboard metrics</li><li>User management through bulk upload, role assignment, and profile management</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="security-permissions">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg></span>
-              <h3>Security &amp; Permissions</h3>
-              <p>Protects tenant data with role permissions, school scoping, subscription feature gates, rate limits, and maintenance controls.</p>
-              <ul><li>JWT login with cookie or bearer token support, password reset, and password change flows</li><li>Role guards for ADMIN, IT_MANAGER, REGISTRAR, TEACHER, STUDENT, PARENT, and FINANCE</li><li>Permission overrides through role permissions and user-specific permissions</li><li>School-level tenant isolation through request body, params, and query schoolId checks</li><li>Subscription feature checks for finance, parent portal, and plan-gated capabilities</li><li>Global rate limiting and platform maintenance mode</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="search-data-quality">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx={11} cy={11} r={7} /><path d="m21 21-4.3-4.3" /><path d="M8 11h6" /></svg></span>
-              <h3>Search &amp; Data Quality</h3>
-              <p>Helps staff find records quickly and keep operational data clean enough for reports, exports, and audits.</p>
-              <ul><li>Cross-entity search endpoints for fast record lookup</li><li>Data consistency report page for school data health review</li><li>Duplicate and missing-record style checks for operational maintenance</li><li>Audit-friendly finance logs, grade change logs, credentials, and notification records</li><li>Export-ready information from reports, credentials, finance, certificates, and bulk operations</li><li>Backups and platform-level operational support for safer maintenance</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="ai">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx={12} cy={12} r={10} /><path d="M12 2a10 10 0 0 1 10 10c0 5-4 8-10 10C6 20 2 17 2 12A10 10 0 0 1 12 2Z" /><path d="M8 12h8M12 8v8" /></svg></span>
-              <h3>AI-Powered Intelligence</h3>
-              <p>Integrates AI into school operations for conversational assistance, automated reporting, smart alerts, recommendations, and school assessments.</p>
-              <ul><li>AI Assistant chatbot for instant answers to school-related queries from staff and parents</li><li>AI Report Generator that produces academic reports, summaries, and insights from school data</li><li>AI Smart Alerts that detect anomalies, attendance patterns, and operational issues requiring attention</li><li>AI Recommendations engine for personalized student learning paths and school improvement suggestions</li><li>AI School Assessment that evaluates overall school performance, trends, and benchmarking</li><li>Natural language processing across attendance, marks, finance, and communication data</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="backup-data-export">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2Z" /><path d="M12 7v10M7 12h10" /></svg></span>
-              <h3>Backup &amp; Data Export</h3>
-              <p>Protects school data with automated platform backups, per-school export options, and downloadable archives.</p>
-              <ul><li>Automated platform backup with full database and file system snapshot</li><li>Per-school backup download with configurable data type selection</li><li>ZIP file generation, archive cleanup, and secure storage management</li><li>Credential roll CSV export and bulk upload template downloads</li><li>Password validation, roll number assignment, and credential tracking statistics</li><li>Maintenance-ready operational safety net for platform and school recovery</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="id-cards-certificates">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x={2} y={3} width={20} height={18} rx={2} /><path d="M12 7v2M12 11v2" /><circle cx={12} cy={16} r={1} /></svg></span>
-              <h3>ID Cards &amp; Certificates</h3>
-              <p>Generates student ID cards and school certificates with customizable templates, watermarks, and bulk printing.</p>
-              <ul><li>Student ID card generation with template selection and watermark overlay</li><li>Single and bulk PDF output with print-ready card layouts</li><li>Certificate templates with dynamic field mapping for student data</li><li>Watermark image upload, activation, and positioning controls</li><li>Bulk ZIP download for certificates and ID cards by class or section</li><li>Template management with active version tracking and field configuration</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="events-calendar">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x={3} y={4} width={18} height={18} rx={2} /><path d="M3 10h18M8 2v4M16 2v4" /><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" /></svg></span>
-              <h3>Events &amp; Calendar</h3>
-              <p>Manages school events, holidays, and calendar visibility for staff, students, and parents.</p>
-              <ul><li>School events CRUD with dates, descriptions, and category tagging</li><li>Calendar feed integration for upcoming and active event visibility</li><li>Holiday scheduling and academic calendar records tied to school settings</li><li>Upcoming event counts and active event tracking for dashboards</li><li>Event integration with announcements and notification workflows</li><li>Role-based event viewing scoped to the correct school and academic year</li></ul>
-            </article>
-            <article className="module-detail-card" data-reveal id="staff-messaging">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
-              <h3>Staff Messaging</h3>
-              <p>Enables internal staff-to-staff communication with conversations, messages, and role-based access.</p>
-              <ul><li>Internal chat rooms and conversation management for staff collaboration</li><li>Staff-to-staff messaging with participant tracking and conversation history</li><li>Mark-as-read confirmation and unread count indicators for each conversation</li><li>Staff directory for finding and initiating conversations across the school</li><li>Role-based conversation visibility and access controls</li><li>Dedicated messages page integrated into each role's dashboard workspace</li></ul>
-            </article>
+            {moduleCards.map((card) => (
+              <article key={card.id} className="module-detail-card" data-reveal id={card.id}>
+                <span className="module-icon" aria-hidden="true">{card.icon}</span>
+                <h3>{t(`modules.details.${card.key}.title`)}</h3>
+                <p>{t(`modules.details.${card.key}.desc`)}</p>
+                <ul>{t(`modules.details.${card.key}.items`).map((f, i) => (
+                  <li key={i}>{f}</li>
+                ))}</ul>
+              </article>
+            ))}
           </div>
           <p style={{ textAlign: 'center', marginTop: '3rem', fontWeight: 600, fontSize: '1.2rem' }}>{t("modules.checklist.andMuchMore")}</p>
         </section>

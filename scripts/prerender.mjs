@@ -20,20 +20,13 @@ const ROUTES = [
   { path: "/cookie-policy", file: path.join("cookie-policy", "index.html"), name: "cookiePolicy" },
 ];
 
-const MIME_TYPES = {
-  ".html": "text/html",
-  ".js": "text/javascript",
-  ".css": "text/css",
-  ".png": "image/png",
-  ".jpg": "image/jpeg",
-  ".jpeg": "image/jpeg",
-  ".svg": "image/svg+xml",
-  ".ico": "image/x-icon",
-  ".json": "application/json",
-  ".woff": "font/woff",
-  ".woff2": "font/woff2",
-  ".webp": "image/webp",
-};
+const LAUNCH_ARGS = [
+  "--no-sandbox",
+  "--disable-setuid-sandbox",
+  "--disable-dev-shm-usage",
+  "--disable-gpu",
+  "--headless=new",
+];
 
 function startServer() {
   return new Promise((resolve) => {
@@ -46,7 +39,14 @@ function startServer() {
         filePath = path.join(filePath, "index.html");
       }
 
-      const contentType = MIME_TYPES[path.extname(filePath)] || "application/octet-stream";
+      const ext2 = path.extname(filePath);
+      const MIME = {
+        ".html": "text/html", ".js": "text/javascript", ".css": "text/css",
+        ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+        ".svg": "image/svg+xml", ".ico": "image/x-icon", ".json": "application/json",
+        ".woff": "font/woff", ".woff2": "font/woff2", ".webp": "image/webp",
+      };
+      const contentType = MIME[ext2] || "application/octet-stream";
 
       fs.readFile(filePath, (err, data) => {
         if (err) {
@@ -75,54 +75,55 @@ function startServer() {
   });
 }
 
-function findBrowser() {
-  let candidates = [
-    process.env.PUPPETEER_EXECUTABLE_PATH,
-    process.env.CHROME_PATH,
-    process.env.CHROMIUM_PATH,
-    "/usr/bin/chromium",
-    "/usr/bin/chromium-browser",
-    "/usr/bin/google-chrome",
-    "/usr/bin/google-chrome-stable",
-    "/snap/bin/chromium",
-    "/opt/google/chrome/chrome",
+async function findBrowser() {
+  const systemPaths = [
+    "/usr/bin/chromium", "/usr/bin/chromium-browser",
+    "/usr/bin/google-chrome", "/usr/bin/google-chrome-stable",
+    "/snap/bin/chromium", "/opt/google/chrome/chrome",
   ];
-  try { candidates.unshift(puppeteer.executablePath()); } catch {}
-  candidates = candidates.filter((p) => typeof p === "string");
 
-  for (const candidate of candidates) {
+  try {
+    const p = puppeteer.executablePath();
+    if (typeof p === "string" && p && fs.existsSync(p)) return { path: p, args: LAUNCH_ARGS };
+  } catch {}
+
+  for (const p of [process.env.PUPPETEER_EXECUTABLE_PATH, process.env.CHROME_PATH, process.env.CHROMIUM_PATH, ...systemPaths].filter(Boolean)) {
     try {
-      if (candidate && fs.existsSync(candidate)) return candidate;
+      if (fs.existsSync(p)) return { path: p, args: LAUNCH_ARGS };
     } catch {}
   }
-  return null;
-}
 
-async function installChrome() {
+  try {
+    const mod = await import("@sparticuz/chromium");
+    const chromium = mod.default || mod;
+    const p = await chromium.executablePath();
+    if (p) {
+      console.log("  Using @sparticuz/chromium");
+      return { path: p, args: chromium.args || LAUNCH_ARGS };
+    }
+  } catch {}
+
   console.log("  Chrome not found. Installing via @puppeteer/browsers...");
   try {
     const { execSync } = await import("node:child_process");
-    execSync(
-      "npx --yes @puppeteer/browsers install chrome@latest --path /tmp/chrome-browsers 2>&1",
-      { stdio: "pipe", timeout: 120000 },
-    );
+    execSync("npx --yes @puppeteer/browsers install chrome@latest --path /tmp/chrome-browsers 2>&1", { stdio: "pipe", timeout: 120000 });
     const base = "/tmp/chrome-browsers/chrome";
-    if (!fs.existsSync(base)) return null;
-    const entries = fs.readdirSync(base).sort();
-    for (const entry of entries) {
-      for (const bin of [
-        path.join(base, entry, "chrome"),
-        path.join(base, entry, "chrome-linux64", "chrome"),
-        path.join(base, `chrome-${entry}`, "chrome"),
-      ]) {
-        if (fs.existsSync(bin)) return bin;
+    if (fs.existsSync(base)) {
+      for (const entry of fs.readdirSync(base).sort()) {
+        for (const bin of [
+          path.join(base, entry, "chrome"),
+          path.join(base, entry, "chrome-linux64", "chrome"),
+          path.join(base, `chrome-${entry}`, "chrome"),
+        ]) {
+          if (fs.existsSync(bin)) return { path: bin, args: LAUNCH_ARGS };
+        }
       }
     }
-    return null;
   } catch (err) {
     console.error(`  Chrome install failed: ${err.message.slice(0, 120)}`);
-    return null;
   }
+
+  return null;
 }
 
 async function prerender() {
@@ -141,13 +142,9 @@ async function prerender() {
     process.exit(1);
   }
 
-  let browserPath = findBrowser();
-  if (!browserPath) {
-    browserPath = await installChrome();
-  }
-  if (!browserPath) {
+  const browserInfo = await findBrowser();
+  if (!browserInfo) {
     console.warn("  ⚠ No Chrome/Chromium available. Skipping prerender.\n");
-    console.warn("  ⚠ Install Chromium or set PUPPETEER_EXECUTABLE_PATH for full prerendering.\n");
     process.exit(0);
   }
 
@@ -157,17 +154,12 @@ async function prerender() {
   let browser;
   try {
     browser = await puppeteer.launch({
-      executablePath: browserPath,
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--disable-gpu",
-        "--headless=new",
-      ],
+      executablePath: browserInfo.path,
+      args: browserInfo.args,
     });
   } catch (err) {
-    console.error(`  ✗ Browser launch failed: ${err.message.slice(0, 120)}`);
+    const msg = err.message ? err.message.slice(0, 120) : String(err);
+    console.error(`  ✗ Browser launch failed: ${msg}`);
     server.close();
     process.exit(1);
   }
@@ -199,9 +191,7 @@ async function prerender() {
             timeout: 20000,
           });
 
-          if (!response || !response.ok()) {
-            continue;
-          }
+          if (!response || !response.ok()) continue;
 
           await page.waitForSelector("main", { timeout: 8000 }).catch(() => {});
           await new Promise((r) => setTimeout(r, 2000));

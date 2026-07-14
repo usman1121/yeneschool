@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@puppeteer/browsers": "^3.0.6",
+    "@sparticuz/chromium": "^149.0.0",
     "puppeteer": "^25.3.0",
     "sharp": "^0.35.3"
   }

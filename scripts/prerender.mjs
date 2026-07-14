@@ -96,12 +96,16 @@ async function findBrowser() {
   try {
     const mod = await import("@sparticuz/chromium");
     const chromium = mod.default || mod;
+    console.log("  Resolving @sparticuz/chromium...");
     const p = await chromium.executablePath();
-    if (p) {
-      console.log("  Using @sparticuz/chromium");
+    if (typeof p === "string" && p) {
+      console.log("  Using @sparticuz/chromium: " + p);
       return { path: p, args: chromium.args || LAUNCH_ARGS };
     }
-  } catch {}
+    console.log("  @sparticuz/chromium returned invalid path: " + p);
+  } catch (e) {
+    console.log("  @sparticuz/chromium failed: " + (e.message || e));
+  }
 
   console.log("  Chrome not found. Installing via @puppeteer/browsers...");
   try {

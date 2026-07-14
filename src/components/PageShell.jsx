@@ -256,8 +256,18 @@ function Footer({ activePage }) {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+251966074050" className="contact-link">
+                  <a href="tel:+251983355598" className="contact-link">
                     <span>+251 983 355 598</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+251966074050" className="contact-link">
+                    <span>+251 966 074 050</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+251912207180" className="contact-link">
+                    <span>+251 912 207 180</span>
                   </a>
                 </li>
                 <li>

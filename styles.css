@@ -2832,6 +2832,54 @@ pre {
 
 /* Hero */
 
+.contact-info-section {
+  padding: 60px 0 80px;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: var(--page-width);
+  margin: 0 auto;
+}
+
+.contact-info-card {
+  padding: 28px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--card-bg);
+}
+
+.contact-info-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.contact-info-card a {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color 200ms ease;
+}
+
+.contact-info-card a:hover {
+  color: #60a5fa;
+}
+
+@media (max-width: 768px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .compare-hero {
   padding: 80px 0 0;
 }

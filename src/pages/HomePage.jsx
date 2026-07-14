@@ -53,7 +53,11 @@ export default function HomePage() {
           <div className="tailark-preview" data-reveal>
             <div className="preview-perspective" data-dashboard-frame>
               <div className="preview-skew">
-                <img className="tailark-dashboard-img" src="./assets/admin.png" alt="YeneSchool admin dashboard preview" data-dashboard-image width={1920} height={1198} loading="eager" fetchPriority="high" decoding="async" />
+                <picture>
+                  <source srcSet="./assets/admin-1280.webp 1280w, ./assets/admin-960.webp 960w, ./assets/admin-640.webp 640w" sizes="(max-width: 768px) 100vw, 1281px" type="image/webp" />
+                  <source srcSet="./assets/admin-1280.png 1280w, ./assets/admin-960.png 960w, ./assets/admin-640.png 640w" sizes="(max-width: 768px) 100vw, 1281px" type="image/png" />
+                  <img className="tailark-dashboard-img" src="./assets/admin.webp" srcSet="./assets/admin-1280.webp 1280w, ./assets/admin-960.webp 960w, ./assets/admin-640.webp 640w" sizes="(max-width: 768px) 100vw, 1281px" alt="YeneSchool admin dashboard preview" data-dashboard-image width={1920} height={1198} loading="eager" fetchPriority="high" decoding="async" />
+                </picture>
               </div>
             </div>
             <div className="hero-dashboard-switcher" data-dashboard-slider aria-label="Dashboard previews">

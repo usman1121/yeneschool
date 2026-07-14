@@ -48,23 +48,33 @@ const waves = [
 const dashboardSlides = [
   {
     alt: "YeneSchool admin dashboard preview",
-    image: "./assets/admin.png",
+    image: "./assets/admin.webp",
+    fallback: "./assets/admin.png",
+    srcset: "./assets/admin-1280.webp 1280w, ./assets/admin-960.webp 960w, ./assets/admin-640.webp 640w",
   },
   {
     alt: "YeneSchool teacher leaderboard dashboard preview",
-    image: "./assets/teacherleaderboard.png",
+    image: "./assets/teacherleaderboard.webp",
+    fallback: "./assets/teacherleaderboard.png",
+    srcset: "./assets/teacherleaderboard-1280.webp 1280w, ./assets/teacherleaderboard-960.webp 960w, ./assets/teacherleaderboard-640.webp 640w",
   },
   {
     alt: "YeneSchool parent dashboard preview",
-    image: "./assets/parent.png",
+    image: "./assets/parent.webp",
+    fallback: "./assets/parent.png",
+    srcset: "./assets/parent-1280.webp 1280w, ./assets/parent-960.webp 960w, ./assets/parent-640.webp 640w",
   },
   {
     alt: "YeneSchool finance dashboard preview",
-    image: "./assets/finance.png",
+    image: "./assets/finance.webp",
+    fallback: "./assets/finance.png",
+    srcset: "./assets/finance-1280.webp 1280w, ./assets/finance-960.webp 960w, ./assets/finance-640.webp 640w",
   },
   {
     alt: "YeneSchool registrar dashboard preview",
-    image: "./assets/registrar.png",
+    image: "./assets/registrar.webp",
+    fallback: "./assets/registrar.png",
+    srcset: "./assets/registrar-1280.webp 1280w, ./assets/registrar-960.webp 960w, ./assets/registrar-640.webp 640w",
   },
 ];
 
@@ -301,7 +311,7 @@ function setupDashboardSlider(cleanups) {
   const preloadRemainingSlides = () => {
     dashboardSlides.slice(1).forEach((slide) => {
       const preload = new Image();
-      preload.src = slide.image;
+      preload.src = slide.fallback || slide.image;
     });
   };
 
@@ -323,6 +333,7 @@ function setupDashboardSlider(cleanups) {
     });
 
     image.setAttribute("src", slide.image);
+    image.setAttribute("srcset", slide.srcset);
     image.setAttribute("alt", slide.alt);
 
     dots.forEach((dot, dotIndex) => {

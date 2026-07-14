@@ -89,6 +89,24 @@ export default function ContactPage() {
             </form>
           </div>
         </section>
+        <section className="section contact-info-section" data-reveal>
+          <div className="contact-info-grid">
+            <div className="contact-info-card">
+              <h3>Email</h3>
+              <a href="mailto:yeneschool@gmail.com">yeneschool@gmail.com</a>
+            </div>
+            <div className="contact-info-card">
+              <h3>Phone</h3>
+              <a href="tel:+251983355598">+251 983 355 598</a>
+              <a href="tel:+251966074050">+251 966 074 050</a>
+              <a href="tel:+251912207180">+251 912 207 180</a>
+            </div>
+            <div className="contact-info-card">
+              <h3>Telegram</h3>
+              <a href="https://t.me/YeneSchool" target="_blank" rel="noopener noreferrer">@YeneSchool</a>
+            </div>
+          </div>
+        </section>
       </main>
     </PageShell>
     

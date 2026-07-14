@@ -203,7 +203,7 @@ function Footer({ activePage }) {
               {t("footer.desc")}
             </p>
           </div>
-          <div className="footer-links" role="list" aria-label={t("footer.links") || "Footer links"}>
+          <div className="footer-links">
             <nav aria-labelledby="footer-product-heading" data-reveal>
               <h3 id="footer-product-heading">{t("footer.product")}</h3>
               <ul>

@@ -156,7 +156,7 @@ function ScrollToTop() {
       aria-label="Scroll to top"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
-        <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </button>
   );
@@ -286,7 +286,7 @@ function Footer({ activePage }) {
             <span>{t("footer.allRightsReserved")}</span>
           </p>
           <p>
-            &copy; <span data-current-year /> YeneSchool by <a href="https://afrodigital.dev" target="_blank" rel="noopener noreferrer" class="footer-credit-link">Afro Digital</a>
+            &copy; <span data-current-year /> YeneSchool by <a href="https://afrodigital.dev" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Afro Digital</a>
           </p>
         </div>
       </div>

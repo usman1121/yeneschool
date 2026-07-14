@@ -63,24 +63,11 @@ export default function ComparePage() {
                   <span>{t("compare.stats.subtitle")}</span>
                 </div>
                 <div className="orbit-track">
-                  <div className="orbit-item" style={{ "--i": 0 }} aria-label={t("compare.stats.items")[0]}>
-                    <strong>52</strong>
-                  </div>
-                  <div className="orbit-item" style={{ "--i": 1 }} aria-label={t("compare.stats.items")[1]}>
-                    <strong>523+</strong>
-                  </div>
-                  <div className="orbit-item" style={{ "--i": 2 }} aria-label={t("compare.stats.items")[2]}>
-                    <strong>7</strong>
-                  </div>
-                  <div className="orbit-item" style={{ "--i": 3 }} aria-label={t("compare.stats.items")[3]}>
-                    <strong>5</strong>
-                  </div>
-                  <div className="orbit-item" style={{ "--i": 4 }} aria-label={t("compare.stats.items")[4]}>
-                    <strong>95</strong>
-                  </div>
-                  <div className="orbit-item" style={{ "--i": 5 }} aria-label={t("compare.stats.items")[5]}>
-                    <strong>6</strong>
-                  </div>
+                  {t("compare.stats.items").map((text, i) => (
+                    <div key={i} className="orbit-item" style={{ "--i": i }} data-label={text}>
+                      <strong>{["52", "523+", "7", "5", "95", "6"][i]}</strong>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -62,11 +62,11 @@ export default function HomePage() {
             </div>
             <div className="hero-dashboard-switcher" data-dashboard-slider aria-label="Dashboard previews">
               <div className="dashboard-slide-dots" role="tablist" aria-label="Choose dashboard preview">
-                <button className="dashboard-dot is-active" type="button" data-dashboard-slide={0} aria-label="Show Admin dashboard" aria-selected="true" />
-                <button className="dashboard-dot" type="button" data-dashboard-slide={1} aria-label="Show Teacher dashboard" aria-selected="false" />
-                <button className="dashboard-dot" type="button" data-dashboard-slide={2} aria-label="Show Parent dashboard" aria-selected="false" />
-                <button className="dashboard-dot" type="button" data-dashboard-slide={3} aria-label="Show Finance dashboard" aria-selected="false" />
-                <button className="dashboard-dot" type="button" data-dashboard-slide={4} aria-label="Show Registrar dashboard" aria-selected="false" />
+                <button className="dashboard-dot is-active" type="button" role="tab" data-dashboard-slide={0} aria-label="Show Admin dashboard" aria-selected="true" />
+                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={1} aria-label="Show Teacher dashboard" aria-selected="false" />
+                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={2} aria-label="Show Parent dashboard" aria-selected="false" />
+                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={3} aria-label="Show Finance dashboard" aria-selected="false" />
+                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={4} aria-label="Show Registrar dashboard" aria-selected="false" />
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="parent-preview">
-              <article className="parent-panel is-active" role="tabpanel" id="parent-panel-attendance" aria-labelledby="parent-tab-attendance" data-parent-panel="attendance">
+              <div className="parent-panel is-active" role="tabpanel" id="parent-panel-attendance" aria-labelledby="parent-tab-attendance" data-parent-panel="attendance">
                 <div className="parent-panel-card-content">
                   <div className="parent-panel-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
@@ -249,8 +249,8 @@ export default function HomePage() {
                   <div className="parent-list-row"><span>{t("home.parent.panels.attendance.wednesday")}</span><span className="badge badge-warn">{t("home.parent.panels.attendance.late")}</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.attendance.thursday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
                 </div>
-              </article>
-              <article className="parent-panel" role="tabpanel" id="parent-panel-reports" aria-labelledby="parent-tab-reports" data-parent-panel="reports" hidden>
+              </div>
+              <div className="parent-panel" role="tabpanel" id="parent-panel-reports" aria-labelledby="parent-tab-reports" data-parent-panel="reports" hidden>
                 <div className="parent-panel-card-content">
                   <div className="parent-panel-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
@@ -271,8 +271,8 @@ export default function HomePage() {
                   <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.science")}</span><span className="badge badge-good">A</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.conductNote")}</span><span>Excellent</span></div>
                 </div>
-              </article>
-              <article className="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
+              </div>
+              <div className="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
                 <div className="parent-panel-card-content">
                   <div className="parent-panel-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={10} /><path d="M12 6v12M8 12h8" /></svg>
@@ -293,8 +293,8 @@ export default function HomePage() {
                   <div className="parent-list-row"><span>{t("home.parent.panels.fees.discount")}</span><span className="badge">Applied</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.fees.latestReceipt")}</span><span className="badge">Available</span></div>
                 </div>
-              </article>
-              <article className="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>
+              </div>
+              <div className="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>
                 <div className="parent-panel-card-content">
                   <div className="parent-panel-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
@@ -310,7 +310,7 @@ export default function HomePage() {
                   <div className="parent-list-row parent-notice-row"><span>{t("home.parent.panels.notices.notice3")}</span><small>{t("home.parent.panels.notices.notice3Desc")}</small></div>
                   <div className="parent-list-row parent-notice-row"><span>{t("home.parent.panels.notices.notice4")}</span><small>{t("home.parent.panels.notices.notice4Desc")}</small></div>
                 </div>
-              </article>
+              </div>
             </div>
           </div>
         </section>

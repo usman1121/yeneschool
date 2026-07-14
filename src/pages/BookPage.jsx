@@ -75,7 +75,7 @@ export default function BookPage() {
                 <input type="hidden" name="topic" defaultValue="Demo" />
                 <label className="booking-field">
                   <span>{t("book.form.schoolContext")}</span>
-                  <textarea name="message" rows={4} required placeholder={t("book.form.contextPlaceholder")} defaultValue={""} />
+                  <textarea name="message" rows={4} required placeholder={t("book.form.contextPlaceholder")} defaultValue="" />
                 </label>
                 <button className="primary-btn gradient-btn booking-submit" type="submit"><span data-contact-submit-label data-sending-label={t("contact.form.sending")}>{t("book.form.submit")}</span></button>
                 <p className="contact-form-status" data-contact-status role="status" aria-live="polite" />

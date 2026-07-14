@@ -1,0 +1,22 @@
+# YeneSchool
+
+> YeneSchool is a school management system for Ethiopian schools. It provides role-based workspaces for admin, teacher, parent, registrar, finance, student, and IT roles — covering admissions, attendance, marks, report cards, exams, finance, communication, and parent portals.
+
+The platform supports the Ethiopian calendar, multiple languages, offline attendance, and AI-powered assistance. It is built for Grade 1-8 and Grade 1-12 schools and serves as a multi-tenant, role-based SaaS.
+
+## Pages
+
+- [Home](https://www.yeneschool.me/): Landing page with features, modules, pricing, and testimonials
+- [Modules](https://www.yeneschool.me/modules): Detailed breakdown of all YeneSchool modules including academic management, student records, marks and report cards, online examinations, multi-language support, communication, automation and reporting, AI-powered intelligence
+- [Demo](https://www.yeneschool.me/demo): Request a guided demo of YeneSchool
+- [Compare](https://www.yeneschool.me/vs-others): Side-by-side comparison of YeneSchool vs international legacy systems and local portals
+- [Contact](https://www.yeneschool.me/contact): Contact sales and support
+- [Privacy Policy](https://www.yeneschool.me/privacy): How YeneSchool handles school data
+- [Terms of Service](https://www.yeneschool.me/terms): Terms for using YeneSchool
+- [Cookie Policy](https://www.yeneschool.me/cookie-policy): How cookies support the YeneSchool site
+
+## Optional
+
+- [Pricing](https://www.yeneschool.me/#pricing): Pricing plans for Core (up to 500 students, 2,000 ETB/mo), Standard (up to 1,500 students, 5,000 ETB/mo), and Ultimate (unlimited students, 10,000 ETB/mo)
+- [Contact](mailto:yeneschool@gmail.com): yeneschool@gmail.com
+- [Telegram](https://t.me/YeneSchool): @YeneSchool

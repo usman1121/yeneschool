@@ -34,9 +34,9 @@ export default function ContactPage() {
               {t("contact.hero.subtitle")}
             </p>
             <div className="contact-trust-row" aria-label="Contact support summary">
-              <span><b>{t("contact.form.pricing")}</b> {t("contact.hero.trust.0")}</span>
-              <span><b>{t("contact.form.demo")}</b> {t("contact.hero.trust.1")}</span>
-              <span><b>{t("contact.form.implementation")}</b> {t("contact.hero.trust.2")}</span>
+              <span><b>Email</b> yeneschool@gmail.com</span>
+              <span><b>Phone</b> +251 983 355 598<br />+251 966 074 050<br />+251 912 207 180</span>
+              <span><b>Telegram</b> @YeneSchool</span>
             </div>
           </div>
           <div className="contact-form-shell">
@@ -68,44 +68,16 @@ export default function ContactPage() {
                   <input type="tel" name="phone" autoComplete="tel" />
                 </label>
               </div>
-              <label>
-                <span>{t("contact.form.topic")}</span>
-                <select name="topic" required>
-                  <option value="" disabled hidden>{t("contact.form.chooseOne")}</option>
-                  <option value="Pricing">{t("contact.form.pricing")}</option>
-                  <option value="Demo">{t("contact.form.demo")}</option>
-                  <option value="Implementation">{t("contact.form.implementation")}</option>
-                  <option value="Support">{t("contact.form.support")}</option>
-                  <option value="Other">{t("contact.form.other")}</option>
-                </select>
-              </label>
+              <input type="hidden" name="topic" value="General" />
               <label>
                 <span>{t("contact.form.message")}</span>
-                <textarea name="message" rows={6} required defaultValue={""} />
+                <textarea name="message" rows={6} required defaultValue="" />
               </label>
               <button className="primary-btn gradient-btn contact-submit" type="submit">
                 <span data-contact-submit-label data-sending-label={t("contact.form.sending")}>{t("contact.form.send")}</span>
               </button>
               <p className="contact-form-status" data-contact-status role="status" aria-live="polite" />
             </form>
-          </div>
-        </section>
-        <section className="section contact-info-section" data-reveal>
-          <div className="contact-info-grid">
-            <div className="contact-info-card">
-              <h3>Email</h3>
-              <a href="mailto:yeneschool@gmail.com">yeneschool@gmail.com</a>
-            </div>
-            <div className="contact-info-card">
-              <h3>Phone</h3>
-              <a href="tel:+251983355598">+251 983 355 598</a>
-              <a href="tel:+251966074050">+251 966 074 050</a>
-              <a href="tel:+251912207180">+251 912 207 180</a>
-            </div>
-            <div className="contact-info-card">
-              <h3>Telegram</h3>
-              <a href="https://t.me/YeneSchool" target="_blank" rel="noopener noreferrer">@YeneSchool</a>
-            </div>
           </div>
         </section>
         <section className="section contact-map-section" data-reveal>
@@ -116,7 +88,7 @@ export default function ContactPage() {
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="YeneSchool location in Addis Ababa, Ethiopia"

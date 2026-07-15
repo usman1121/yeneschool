@@ -31,6 +31,15 @@
           document.documentElement.dataset.theme = "dark";
         }
       })();
+      (() => {
+        try {
+          const lang = localStorage.getItem("language");
+          if (lang === "am") {
+            document.documentElement.lang = "am";
+            document.documentElement.dataset.language = "am";
+          }
+        } catch {}
+      })();
     </script>
     <title>YeneSchool | School Management System in Ethiopia</title>
     <link rel="canonical" href="https://www.yeneschool.me/" />

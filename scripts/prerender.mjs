@@ -178,6 +178,13 @@ async function prerender() {
               ? req.abort() : req.continue();
           });
 
+          await page.evaluateOnNewDocument(() => {
+            try {
+              localStorage.setItem("language", "en");
+              localStorage.removeItem("theme");
+            } catch {}
+          });
+
           const response = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 20000 });
           if (!response || !response.ok()) continue;
 

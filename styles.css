@@ -1756,6 +1756,12 @@ pre {
   color: transparent;
 }
 
+@media (max-width: 640px) {
+  .hero-copy h1 .word-separator {
+    display: none;
+  }
+}
+
 .modules-hero-layout {
   display: grid;
   grid-template-columns: 1fr 520px;

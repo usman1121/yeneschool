@@ -17,6 +17,6 @@ The platform supports the Ethiopian calendar, multiple languages, offline attend
 
 ## Optional
 
-- [Pricing](https://www.yeneschool.me/#pricing): Pricing plans for Core (up to 500 students, 2,000 ETB/mo), Standard (up to 1,500 students, 5,000 ETB/mo), and Ultimate (unlimited students, 10,000 ETB/mo)
+- [Pricing](https://www.yeneschool.me/#pricing): Pricing plans for Core (up to 200 students, 15,000 ETB/mo), Standard (up to 2,000 students, 20,000 ETB/mo), and Ultimate (unlimited students, 35,000 ETB/mo)
 - [Contact](mailto:yeneschool@gmail.com): yeneschool@gmail.com
 - [Telegram](https://t.me/YeneSchool): @YeneSchool

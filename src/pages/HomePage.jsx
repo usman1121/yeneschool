@@ -19,7 +19,7 @@ export default function HomePage() {
   const headingRef = useRef(null);
   const heroTitle = t("home.hero.titleExtended");
   const splitHero = heroTitle.split(" ").map((word, i) =>
-    <span key={i} className="word">{word}</span>
+    <span key={i} className={`word${word === "|" ? " word-separator" : ""}`}>{word}</span>
   );
 
   useEffect(() => {
@@ -339,10 +339,10 @@ export default function HomePage() {
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">24,000 ETB/year</span>
+                  <span className="renewal-price annual-only">180,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.core.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="2,000 ETB/mo" data-annual-price="18,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="15,000 ETB/mo" data-annual-price="135,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.core.monthlyNote")} data-annual-note={t("home.pricing.plans.core.annualNote")}>{t("home.pricing.plans.core.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">
@@ -381,10 +381,10 @@ export default function HomePage() {
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">60,000 ETB/year</span>
+                  <span className="renewal-price annual-only">240,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.standard.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="5,000 ETB/mo" data-annual-price="45,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="20,000 ETB/mo" data-annual-price="180,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.standard.monthlyNote")} data-annual-note={t("home.pricing.plans.standard.annualNote")}>{t("home.pricing.plans.standard.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">
@@ -419,10 +419,10 @@ export default function HomePage() {
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">120,000 ETB/year</span>
+                  <span className="renewal-price annual-only">420,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.ultimate.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="10,000 ETB/mo" data-annual-price="90,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="35,000 ETB/mo" data-annual-price="315,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.ultimate.monthlyNote")} data-annual-note={t("home.pricing.plans.ultimate.annualNote")}>{t("home.pricing.plans.ultimate.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">

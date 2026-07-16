@@ -953,6 +953,43 @@ p {
   outline-offset: 3px;
 }
 
+.dashboard-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  background: var(--card-bg, rgba(255, 255, 255, 0.06));
+  color: var(--foreground, #e2e8f0);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+  opacity: 0.6;
+  flex: 0 0 auto;
+}
+
+.dashboard-btn:hover,
+.dashboard-btn:focus-visible {
+  opacity: 1;
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.dashboard-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.dashboard-buttons-hidden .dashboard-btn {
+  display: none;
+}
+
 .preview-perspective {
   margin-right: -5vw;
   padding-left: 5vw;

@@ -57,6 +57,11 @@ export default function HomePage() {
               </div>
             </div>
             <div className="hero-dashboard-switcher" data-dashboard-slider aria-label="Dashboard previews">
+              <button className="dashboard-btn dashboard-prev" type="button" data-dashboard-prev aria-label="Previous dashboard">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
               <div className="dashboard-slide-dots" role="tablist" aria-label="Choose dashboard preview">
                 <button className="dashboard-dot is-active" type="button" role="tab" data-dashboard-slide={0} aria-label="Show Admin dashboard" aria-selected="true" />
                 <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={1} aria-label="Show Teacher dashboard" aria-selected="false" />
@@ -64,6 +69,11 @@ export default function HomePage() {
                 <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={3} aria-label="Show Finance dashboard" aria-selected="false" />
                 <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={4} aria-label="Show Registrar dashboard" aria-selected="false" />
               </div>
+              <button className="dashboard-btn dashboard-next" type="button" data-dashboard-next aria-label="Next dashboard">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+                  <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
             </div>
           </div>
         </section>

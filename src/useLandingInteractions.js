@@ -356,11 +356,33 @@ function setupDashboardSlider(cleanups) {
 
   const handlers = dots.map((dot) => {
     const handleClick = () => {
+      stopAutoPlay();
       setActiveSlide(Number(dot.dataset.dashboardSlide) || 0);
     };
     dot.addEventListener("click", handleClick);
     return { dot, handleClick };
   });
+
+  const prevBtn = document.querySelector("[data-dashboard-prev]");
+  const nextBtn = document.querySelector("[data-dashboard-next]");
+
+  if (prevBtn) {
+    const handlePrev = () => {
+      stopAutoPlay();
+      setActiveSlide(activeIndex - 1);
+    };
+    prevBtn.addEventListener("click", handlePrev);
+    handlers.push({ dot: prevBtn, handleClick: handlePrev });
+  }
+
+  if (nextBtn) {
+    const handleNext = () => {
+      stopAutoPlay();
+      setActiveSlide(activeIndex + 1);
+    };
+    nextBtn.addEventListener("click", handleNext);
+    handlers.push({ dot: nextBtn, handleClick: handleNext });
+  }
 
   const handleReduceMotionChange = () => {
     stopAutoPlay();

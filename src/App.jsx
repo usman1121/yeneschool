@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage.jsx";
 import { useTranslation } from "./i18n/I18nContext.jsx";
 import { smoothScrollTo, smoothScrollToElement } from "./smoothScroll.js";
 import { useLandingInteractions } from "./useLandingInteractions.js";
+import PageShell from "./components/PageShell.jsx";
 
 function lazyWithPreload(loader) {
   const Component = lazy(loader);

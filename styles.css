@@ -4863,6 +4863,15 @@ html.dark .service-plan {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-size: clamp(200px, 42vw, 320px);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: none;
+    white-space: nowrap;
   }
 
   .footer-brand-col,

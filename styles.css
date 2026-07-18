@@ -4862,6 +4862,7 @@ html.dark .service-plan {
   .footer-giant-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    font-size: clamp(200px, 42vw, 320px);
   }
 
   .footer-brand-col,

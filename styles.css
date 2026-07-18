@@ -4859,6 +4859,11 @@ html.dark .service-plan {
     padding: 20px;
   }
 
+  .footer-giant-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
   .footer-brand-col,
   .footer-logo-row,
   .footer-socials {

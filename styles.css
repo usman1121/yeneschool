@@ -4801,6 +4801,7 @@ html.dark .service-plan {
 
   .footer-four-col {
     border-radius: 12px 12px 0 0;
+    overflow: hidden;
   }
 
   .hero h1 {

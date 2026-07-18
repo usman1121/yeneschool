@@ -4862,15 +4862,9 @@ html.dark .service-plan {
   .footer-giant-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-size: clamp(200px, 42vw, 320px);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
+    font-size: clamp(240px, 50vw, 360px);
+    bottom: -0.08em;
     align-items: center;
-    transform: none;
     white-space: nowrap;
   }
 

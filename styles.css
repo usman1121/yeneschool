@@ -381,7 +381,7 @@ html.theme-changing *::after {
     opacity 700ms ease !important;
 }
 
-html.theme-changing body {
+html.theme-changing #top {
   animation: theme-page-fade 700ms ease;
 }
 
@@ -406,7 +406,7 @@ html.theme-changing body {
   html.theme-changing *::after {
     transition: none !important;
   }
-  html.theme-changing body {
+  html.theme-changing #top {
     animation: none;
   }
 }

@@ -37,7 +37,7 @@ export const en = {
       hero: {
         title: "Bring your whole school into one complete system.",
         subtitle:
-          "YeneSchool is a modern school management platform that helps schools run daily operations, connect staff and families, and keep important decisions backed by clear, organized data and AI-powered intelligence.",
+          "YeneSchool is a modern AI school management platform that helps Ethiopian schools run daily operations, connect staff and families, and keep important decisions backed by clear, organized data and AI-powered intelligence. It is the complete school management system in Ethiopia for attendance, grading, fees, and parent communication.",
         titleExtended: "YeneSchool | School Management System in Ethiopia",
       },
       signals: {

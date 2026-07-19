@@ -81,18 +81,19 @@ export default function HomePage() {
           <h2>Built around the daily work of real schools.</h2>
           <div className="school-signals">
             <span>Admissions</span>
-            <span>Student records</span>
-            <span>Attendance</span>
-            <span>Marks</span>
+            <span>Student Information System</span>
+            <span>Attendance Management</span>
+            <span>Grade Management</span>
             <span>Online examinations</span>
             <span>Report cards</span>
-            <span>Parent portal</span>
-            <span>Finance</span>
+            <span>Parent Portal</span>
+            <span>Fee Management</span>
             <span>Announcements</span>
             <span>Teacher workspace</span>
             <span>Timetables</span>
             <span>School operations</span>
             <span>AI Assistant</span>
+            <span>AI Integration</span>
           </div>
         </section>
         <section className="section role-section" id="roles" aria-labelledby="roles-title" data-reveal>
@@ -100,7 +101,8 @@ export default function HomePage() {
             <p className="eyebrow">Role-Based Workflows</p>
             <h2 id="roles-title">Every school team gets the workspace they actually need.</h2>
             <p>
-              YeneSchool SMS separates school ownership, academic operations, registration, teaching,
+              YeneSchool is a complete School ERP and Student Information System (SIS) built for
+              Ethiopian schools. It separates school ownership, academic operations, registration, teaching,
               finance, parent follow-up, student self-service, and IT support into role-specific dashboards.
               Each user sees the records, actions, alerts, and reports they are responsible for.
             </p>
@@ -190,7 +192,7 @@ export default function HomePage() {
             <a className="module-feature-card" href="/modules#ai">
               <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 8-10 10C6 20 2 17 2 12A10 10 0 0 1 12 2Z" /><path d="M8 12h8M12 8v8" /></svg></span>
               <strong>AI-Powered Intelligence</strong>
-              <small>AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment.</small>
+              <small>AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment. Built-in AI integration connects every workflow to intelligent automation.</small>
             </a>
           </div>
           <div className="modules-preview-actions">

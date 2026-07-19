@@ -388,15 +388,12 @@ html.theme-changing #top {
 @keyframes theme-page-fade {
   0% {
     opacity: 1;
-    filter: blur(0);
   }
   45% {
-    opacity: 0.2;
-    filter: blur(4px);
+    opacity: 0.35;
   }
   100% {
     opacity: 1;
-    filter: blur(0);
   }
 }
 

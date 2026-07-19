@@ -217,8 +217,15 @@ function setupTheme(cleanups) {
   const themeMeta = document.querySelector("[data-theme-color]");
   const prefersDarkTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
+  let themeChangingTimer;
   const applyTheme = (theme, persist = true) => {
     const isDark = theme === "dark";
+    document.documentElement.classList.add("theme-changing");
+    window.clearTimeout(themeChangingTimer);
+    themeChangingTimer = window.setTimeout(() => {
+      document.documentElement.classList.remove("theme-changing");
+    }, 760);
+
     document.documentElement.classList.toggle("dark", isDark);
     document.documentElement.classList.toggle("light", !isDark);
     document.documentElement.dataset.theme = theme;

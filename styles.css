@@ -381,6 +381,36 @@ html.theme-changing *::after {
     opacity 700ms ease !important;
 }
 
+html.theme-changing body {
+  animation: theme-page-fade 700ms ease;
+}
+
+@keyframes theme-page-fade {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  45% {
+    opacity: 0.2;
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-changing *,
+  html.theme-changing *::before,
+  html.theme-changing *::after {
+    transition: none !important;
+  }
+  html.theme-changing body {
+    animation: none;
+  }
+}
+
 .language-switcher {
   min-height: 40px;
   display: inline-flex;

@@ -332,16 +332,24 @@ function setupDashboardSlider(cleanups) {
     activeIndex = (index + dashboardSlides.length) % dashboardSlides.length;
     const slide = dashboardSlides[activeIndex];
 
-    frame.classList.remove("is-switching");
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        frame.classList.add("is-switching");
-      });
-    });
+    if (image.dataset.activeSlide === String(activeIndex)) return;
 
-    image.setAttribute("src", slide.image);
-    image.setAttribute("srcset", slide.srcset);
-    image.setAttribute("alt", slide.alt);
+    frame.classList.add("is-leaving");
+    const swapImage = () => {
+      const finishSwap = () => {
+        frame.classList.remove("is-leaving");
+        frame.classList.add("is-entering");
+        window.setTimeout(() => frame.classList.remove("is-entering"), 560);
+      };
+      image.addEventListener("load", finishSwap, { once: true });
+      image.addEventListener("error", finishSwap, { once: true });
+      image.dataset.activeSlide = String(activeIndex);
+      image.setAttribute("src", slide.image);
+      image.setAttribute("srcset", slide.srcset);
+      image.setAttribute("alt", slide.alt);
+      if (image.complete && image.naturalWidth) finishSwap();
+    };
+    window.setTimeout(swapImage, 220);
 
     dots.forEach((dot, dotIndex) => {
       const isActive = dotIndex === activeIndex;

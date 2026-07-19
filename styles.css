@@ -1042,8 +1042,18 @@ p {
   mask-composite: intersect;
 }
 
-.preview-perspective.is-switching .tailark-dashboard-img {
-  animation: dashboardSlideFade 520ms ease both;
+.preview-perspective.is-leaving .tailark-dashboard-img {
+  opacity: 0;
+  transform: skewX(0.36rad) translateY(10px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.preview-perspective.is-entering .tailark-dashboard-img {
+  animation: dashboardSlideEnter 540ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.tailark-dashboard-img {
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
 .preview-skew {
@@ -1083,10 +1093,10 @@ html.dark .preview-skew::after {
   box-shadow: var(--shadow);
 }
 
-@keyframes dashboardSlideFade {
+@keyframes dashboardSlideEnter {
   from {
-    opacity: 0.72;
-    filter: saturate(0.86);
+    opacity: 0;
+    filter: saturate(0.88);
     transform: skewX(0.36rad) translateY(10px);
   }
   to {

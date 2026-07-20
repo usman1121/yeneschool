@@ -191,11 +191,18 @@ async function prerender() {
           await page.waitForSelector("main", { timeout: 8000 }).catch(() => {});
           await new Promise((r) => setTimeout(r, 2000));
 
-          const html = await page.evaluate(() => document.documentElement.outerHTML);
-          fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-          fs.writeFileSync(outputPath, "<!doctype html>\n" + html, "utf-8");
+          const bodyHtml = await page.evaluate(() => document.documentElement.querySelector("body").outerHTML);
 
-          const size = (Buffer.byteLength(html, "utf-8") / 1024).toFixed(1);
+          fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+          const template = fs.readFileSync(distIndex, "utf-8");
+          const headMatch = template.match(/<head[^>]*>[\s\S]*?<\/head>/i);
+          const head = headMatch ? headMatch[0] : "<head></head>";
+          const prerendered = template
+            .replace(/<body[^>]*>[\s\S]*?<\/body>/i, bodyHtml)
+            .replace(/<head[^>]*>[\s\S]*?<\/head>/i, head);
+          fs.writeFileSync(outputPath, prerendered, "utf-8");
+
+          const size = (Buffer.byteLength(prerendered, "utf-8") / 1024).toFixed(1);
           console.log(`  ✓ ${route.path.padEnd(16)} ${size.padStart(6)} KB`);
           success = true;
         } catch (err) {

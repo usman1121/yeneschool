@@ -1067,13 +1067,13 @@ export const en = {
       compare: {
         title: "Best School Management System in Ethiopia | Why YeneSchool?",
         description:
-          "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 7-role, multi-tenant platform with native Ethiopian calendar support, offline attendance, and multi-language UI.",
+          "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 7-role, multi-tenant platform with native Ethiopian calendar support, offline-first workflows for attendance, grading, and more, and multi-language UI.",
       },
     },
     compare: {
       hero: {
         title: "Why YeneSchool is the Best School Management System in Ethiopia",
-        desc: "Ethiopian schools face a choice between expensive international systems that don't fit our calendar, or rigid local portals without real depth. YeneSchool was built from the ground up for Ethiopian education — not adapted. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar, AI-powered intelligence, offline-first attendance, smart siren & bell automation with IoT hardware, and 7 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
+        desc: "Ethiopian schools face a choice between expensive international systems that don't fit our calendar, or rigid local portals without real depth. YeneSchool was built from the ground up for Ethiopian education — not adapted. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar, AI-powered intelligence, offline-first workflows for attendance, grading, and more, smart siren & bell automation with IoT hardware, and 7 role-isolated dashboards, it replaces five disconnected systems with one unified platform. Already piloting in 6 schools in Addis Ababa.",
       },
       table: {
         title: "Feature Comparison",
@@ -1181,7 +1181,7 @@ export const en = {
         items: [
           {
             q: "What is the best school management system in Ethiopia?",
-            a: "YeneSchool is widely considered the best school management system in Ethiopia because it is the only platform that offers native Ethiopian calendar support, offline-first attendance for unreliable connectivity, and 5-language UI (including Amharic and Oromo) alongside a comprehensive 7-role ERP architecture."
+            a: "YeneSchool is widely considered the best school management system in Ethiopia because it is the only platform that offers native Ethiopian calendar support, offline-first workflows for attendance, grading, and more on unreliable connectivity, and 5-language UI (including Amharic and Oromo) alongside a comprehensive 7-role ERP architecture."
           },
           {
             q: "Does YeneSchool support the Ethiopian calendar?",
@@ -1189,7 +1189,7 @@ export const en = {
           },
           {
             q: "Can teachers use YeneSchool without internet?",
-            a: "Yes, YeneSchool features an offline-first attendance module, allowing teachers to record daily attendance even when the internet is down. Data syncs automatically once the connection is restored."
+            a: "Yes, YeneSchool features an offline-first design, allowing teachers to record daily attendance and enter grades even when the internet is down. Data syncs automatically once the connection is restored."
           },
           {
             q: "Is it affordable for small private schools?",
@@ -1201,7 +1201,7 @@ export const en = {
           },
           {
             q: "How does YeneSchool handle internet outages?",
-            a: "Infrastructure Ready: Offline-first attendance ensures no data loss during internet outages."
+            a: "Infrastructure Ready: Offline-first workflows for attendance, grading, and more ensure no data loss during internet outages."
           },
           {
             q: "What modules does YeneSchool include?",

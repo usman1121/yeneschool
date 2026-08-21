@@ -65,7 +65,7 @@ export default function ComparePage() {
                 <div className="orbit-track">
                   {t("compare.stats.items").map((text, i) => (
                     <div key={i} className="orbit-item" style={{ "--i": i }} data-label={text}>
-                      <strong>{["52", "523+", "7", "5", "95", "6"][i]}</strong>
+                      <strong>{["52", "523+", "8", "5", "95", "5→1"][i]}</strong>
                     </div>
                   ))}
                 </div>

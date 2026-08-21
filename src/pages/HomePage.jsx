@@ -51,6 +51,10 @@ export default function HomePage() {
             </p>
           </div>
           <div className="tailark-preview" data-reveal>
+            <div className="dashboard-caption" data-dashboard-caption aria-live="polite">
+              <strong data-dashboard-caption-title>{t("home.dashboardSlides.items.0.title")}</strong>
+              <span data-dashboard-caption-desc>{t("home.dashboardSlides.items.0.description")}</span>
+            </div>
             <div className="preview-perspective" data-dashboard-frame>
               <div className="preview-skew">
                 <img className="tailark-dashboard-img" src="./assets/admin.webp" srcSet="./assets/admin-1280.webp 1280w, ./assets/admin-960.webp 960w, ./assets/admin-640.webp 640w" sizes="(max-width: 768px) 100vw, 1281px" alt="YeneSchool admin dashboard preview" data-dashboard-image width={1920} height={1198} loading="eager" fetchPriority="high" decoding="async" />

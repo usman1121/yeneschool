@@ -1616,11 +1616,8 @@ html.dark .preview-skew::after {
   z-index: 2;
   padding: 32px;
   border: 1px solid var(--line);
-  border-radius: 20px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    var(--card-bg);
-  backdrop-filter: blur(18px);
+  border-radius: 12px;
+  background: var(--soft-surface);
   box-shadow: none;
   display: flex;
   flex-direction: column;
@@ -2339,13 +2336,10 @@ pre {
   align-items: flex-start;
   padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    var(--card-bg);
-  backdrop-filter: blur(18px);
+  border-radius: 12px;
+  background: var(--soft-surface);
   scroll-margin-top: 108px;
-  transition: transform 200ms ease;
+  transition: transform 200ms ease, border-color 180ms ease;
   z-index: 1;
 }
 
@@ -3248,10 +3242,10 @@ pre {
   position: relative;
   width: var(--page-width);
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--card-bg);
+  background: var(--soft-surface);
 }
 
 .contact-map-frame iframe {
@@ -3466,12 +3460,8 @@ pre {
 .compare-table-wrapper {
   overflow-x: auto;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    var(--card-bg);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
+  border-radius: 12px;
+  background: var(--soft-surface);
 }
 
 .compare-table {
@@ -3565,13 +3555,9 @@ pre {
   overflow: hidden;
   padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    var(--card-bg);
-  box-shadow: none;
-  backdrop-filter: blur(18px);
-  transition: transform 200ms ease;
+  border-radius: 12px;
+  background: var(--soft-surface);
+  transition: transform 180ms ease, border-color 180ms ease;
   z-index: 1;
 }
 
@@ -3790,11 +3776,8 @@ tr:last-child td {
   flex: 0 0 auto;
   padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    var(--card-bg);
-  backdrop-filter: blur(18px);
+  border-radius: 12px;
+  background: var(--soft-surface);
   overflow: hidden;
 }
 
@@ -4478,11 +4461,8 @@ tr:last-child td {
   min-height: 790px;
   padding: 32px 24px;
   border: 1px solid var(--line);
-  border-radius: 16px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    var(--pricing-bg);
-  backdrop-filter: blur(18px);
+  border-radius: 12px;
+  background: var(--soft-surface);
   text-align: left;
   transform-style: preserve-3d;
   transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 220ms ease;
@@ -5668,19 +5648,12 @@ html.dark .scroll-to-top:focus-visible {
   flex-shrink: 0;
   padding: 24px 24px 22px;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--card-bg);
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.02),
-    0 8px 24px rgba(0, 0, 0, 0.04);
-  transition: transform 250ms ease, box-shadow 250ms ease;
+  border-radius: 12px;
+  background: var(--soft-surface);
 }
 
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.03),
-    0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(14, 165, 233, 0.42);
 }
 
 .testimonial-card-header {

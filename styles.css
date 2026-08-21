@@ -953,6 +953,55 @@ p {
   overflow: hidden;
 }
 
+.dashboard-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 68px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 32px;
+  text-align: center;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.dashboard-caption strong {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.dashboard-caption span {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 880px;
+  color: rgba(15, 23, 42, 0.78);
+}
+
+html.dark .dashboard-caption strong {
+  color: #ffffff;
+  text-shadow: 0 1px 8px rgba(2, 6, 23, 0.55);
+}
+
+html.dark .dashboard-caption span {
+  color: rgba(241, 245, 249, 0.92);
+  text-shadow: 0 1px 6px rgba(2, 6, 23, 0.5);
+}
+
+.dashboard-caption.is-swapping {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.dashboard-caption.is-swapping {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
 .hero-dashboard-switcher {
   width: fit-content;
   position: relative;
@@ -5079,6 +5128,19 @@ html.dark .service-plan {
 
   .tailark-preview {
     margin-top: -12px;
+  }
+
+  .dashboard-caption {
+    bottom: 62px;
+    padding: 0 16px;
+  }
+
+  .dashboard-caption strong {
+    font-size: 1.25rem;
+  }
+
+  .dashboard-caption span {
+    font-size: 1rem;
   }
 
   .preview-perspective {

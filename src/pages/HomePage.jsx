@@ -67,7 +67,7 @@ export default function HomePage() {
                 </svg>
               </button>
               <div className="dashboard-slide-dots" role="tablist" aria-label="Choose dashboard preview">
-                <button className="dashboard-dot is-active" type="button" role="tab" data-dashboard-slide={0} aria-label="Show Admin dashboard" aria-selected="true" />
+                <button className="dashboard-dot is-active" type="button" role="tab" data-dashboard-slide={0} aria-label="Show Director dashboard" aria-selected="true" />
                 <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={1} aria-label="Show Teacher dashboard" aria-selected="false" />
                 <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={2} aria-label="Show Parent dashboard" aria-selected="false" />
                 <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={3} aria-label="Show Finance dashboard" aria-selected="false" />

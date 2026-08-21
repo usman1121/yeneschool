@@ -62,10 +62,10 @@ export const en = {
         eyebrow: "Role-Based Workflows",
         title: "Every school team gets the workspace they actually need.",
         subtitle:
-          "YeneSchool SMS separates school ownership, academic operations, registration, teaching, finance, parent follow-up, student self-service, and IT support into role-specific dashboards. Each user sees the records, actions, alerts, and reports they are responsible for.",
+          "YeneSchool is a complete School ERP and Student Information System (SIS) built for Ethiopian schools. It separates school ownership, academic operations, registration, teaching, finance, parent follow-up, student self-service, supervision, and storekeeping into role-specific dashboards. Each user sees the records, actions, alerts, and reports they are responsible for.",
         cards: {
           admin: {
-            title: "Admin",
+            title: "Director",
             desc: "Runs academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion readiness, siren schedules, and school configuration.",
           },
           teacher: {
@@ -89,16 +89,148 @@ export const en = {
             desc: "Checks timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress.",
           },
           itManager: {
-            title: "IT Manager",
+            title: "Supervisor",
             desc: "Supports academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review without becoming the school owner.",
           },
+          storekeeper: {
+            title: "Storekeeper",
+            desc: "Manages school inventory, supplies, and asset records — tracking stock levels, issuing materials to departments, recording purchases and usage, and keeping store balances accurate.",
+          },
+        },
+      },
+      workflows: {
+        title: "Built around the daily work of real schools.",
+        items: [
+          {
+            title: "Student Management",
+            desc: "Student Information System · Admissions · Enrollment · Attendance · Student Profiles",
+          },
+          {
+            title: "Academic Management",
+            desc: "Classes & Subjects · Grade Management · Exams · Online Examinations · Report Cards · Syllabus · Homework",
+          },
+          {
+            title: "Teacher Workspace",
+            desc: "Teacher Dashboard · Class Management · Attendance · Grading · Syllabus Progress · Teacher Performance",
+          },
+          {
+            title: "Parent Portal",
+            desc: "Child Progress · Attendance · Grades · Homework · Fees · Announcements · Teacher Communication",
+          },
+          {
+            title: "School Finance",
+            desc: "Fee Management · Payments · Payment Verification · Expenses · Financial Reports",
+          },
+          {
+            title: "School Operations",
+            desc: "Timetables · Academic Calendar · Staff Management · School Reports · Announcements · Documents",
+          },
+          {
+            title: "AI-Powered Intelligence",
+            desc: "AI Assistant · Student Performance Intelligence · Early Warning · Teacher Performance Insights · School Analytics · AI-Powered Reports",
+          },
+          {
+            title: "Mobile Experience",
+            desc: "Parent App · Teacher App · Supervisor App · Notifications · Messaging",
+          },
+        ],
+      },
+      dashboardSlides: {
+        items: [
+          {
+            alt: "YeneSchool director dashboard preview",
+            title: "Director Dashboard",
+            description:
+              "Oversee academics, classes, sections, subjects, staff accounts, announcements, assessment setup, and full school configuration from one powerful control center built for school owners and directors.",
+          },
+          {
+            alt: "YeneSchool teacher leaderboard dashboard preview",
+            title: "Teacher Workspace",
+            description:
+              "Track attendance, submit lessons and assignments, enter grades, run online exams with access codes and timers, and follow class performance — all organized around your assigned classes, subjects, and daily timetable.",
+          },
+          {
+            alt: "YeneSchool parent dashboard preview",
+            title: "Parent Portal",
+            description:
+              "Follow your child's published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, and school notices — with real-time updates and a communication book that keeps you connected to every classroom moment.",
+          },
+          {
+            alt: "YeneSchool finance dashboard preview",
+            title: "Finance Dashboard",
+            description:
+              "Own fee structures, installment plans, student balances, discounts, receipts, and overdue follow-up — with payroll access, finance summaries, and parent-visible fee records that keep every transaction transparent and accountable.",
+          },
+          {
+            alt: "YeneSchool registrar dashboard preview",
+            title: "Registrar Desk",
+            description:
+              "Handle enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, and school-leaving workflows — keeping every student's journey from admission to graduation accurate and complete.",
+          },
+        ],
+      },
+      aiIntelligence: {
+        title: "AI intelligence built into every workflow.",
+        subtitle:
+          "YeneSchool doesn't just store school data. It turns that data into insights that help administrators, teachers, and school leaders make better decisions.",
+        cards: [
+          {
+            title: "Student Performance Intelligence",
+            desc: "Identify trends and understand how students are progressing.",
+          },
+          {
+            title: "At-Risk Student Detection",
+            desc: "Identify students who may need additional support.",
+          },
+          {
+            title: "Teacher Performance Analytics",
+            desc: "Measure meaningful indicators of teacher performance and student progress.",
+          },
+          {
+            title: "Syllabus & Curriculum Intelligence",
+            desc: "Track syllabus progress and identify where classes are falling behind.",
+          },
+          {
+            title: "Intelligent Timetable Generation",
+            desc: "Create optimized timetables around teachers, classes, subjects and constraints.",
+          },
+          {
+            title: "Finance Intelligence",
+            desc: "Identify unusual payment and financial patterns.",
+          },
+          {
+            title: "Parent Engagement Analytics",
+            desc: "Understand communication and engagement patterns.",
+          },
+          {
+            title: "Role-Specific AI Assistant",
+            desc: "Give administrators, teachers, parents and supervisors an AI assistant that understands their role and available school data.",
+          },
+        ],
+        assistant: {
+          title: "AI Assistant",
+          desc: "Ask questions in plain language and get instant answers from your school's own data. Attendance summaries, fee statuses, class performance, and daily schedules are available through a simple chat — no reports or menus needed.",
+          items: [
+            "Natural language queries across all school records",
+            "Instant answers for staff, teachers, and parents",
+            "Works within each role's permissions and data access",
+          ],
+        },
+        reports: {
+          title: "AI Report Generation",
+          desc: "Turn raw school data into polished, ready-to-share documents in seconds. Academic reports, performance summaries, finance overviews, and board presentations are generated automatically from live system data.",
+          items: [
+            "Academic, finance, and operational report templates",
+            "Auto-generated summaries, insights, and recommendations",
+            "Export-ready output for printing, sharing, and board meetings",
+          ],
         },
       },
       modules: {
         eyebrow: "Core Modules",
         title: "The modules schools actually use.",
         subtitle:
-          "A quick look at the connected workflows inside YeneSchool, including AI-powered features. The full modules page breaks each area down by what the school can manage.",
+          "A quick look at the connected workflows inside YeneSchool. The full modules page breaks each area down by what the school can manage.",
         viewAll: "View all modules",
         cards: {
           academic: {
@@ -135,7 +267,7 @@ export const en = {
           },
           ai: {
             title: "AI-Powered Intelligence",
-            desc: "AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment.",
+            desc: "AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment. Built-in AI integration connects every workflow to intelligent automation.",
           },
           backup: {
             title: "Backup & Data Export",
@@ -169,6 +301,13 @@ export const en = {
           reportCards: "Report cards",
           feeStatus: "Fee status",
           notices: "Notices",
+        },
+        badges: {
+          excellent: "Excellent",
+          paid: "Paid",
+          pending: "Pending",
+          applied: "Applied",
+          available: "Available",
         },
         panels: {
           attendance: {
@@ -336,7 +475,7 @@ export const en = {
         ],
         row2: [
           { name: "Sara Hailu", role: "Teacher", text: "Marking attendance and grades used to take hours. Now I do it in minutes. Parents are much more engaged since they can see everything in real time." },
-          { name: "Tadesse Mulugeta", role: "IT Administrator", text: "Setting up the system was straightforward. The role-based dashboards for admin, teachers, parents, and finance are exactly what we needed." },
+          { name: "Tadesse Mulugeta", role: "IT Administrator", text: "Setting up the system was straightforward. The role-based dashboards for director, teachers, parents, and finance are exactly what we needed." },
           { name: "Betelhem Wondimu", role: "Principal", text: "Having attendance, report cards, and discipline records all in one platform gives me a complete picture of each student's progress." },
         ],
       },
@@ -349,7 +488,7 @@ export const en = {
           "YeneSchool includes the common modules schools expect, plus standout features for offline work, Ethiopian calendar support, AI-powered intelligence, automation, analytics, and local language needs.",
         facts: [
           { value: "470", label: "declared backend endpoints across the SMS API catalog." },
-          { value: "7 roles", label: "admin, IT manager, registrar, teacher, student, parent, and finance workspaces." },
+          { value: "8 roles", label: "director, supervisor, registrar, teacher, student, parent, finance, and storekeeper workspaces." },
           { value: "24 domains", label: "from admissions and academics to online examinations, finance, reporting, lessons, discipline, siren operations, data quality, AI-powered intelligence, backup, ID cards, events, and staff messaging." },
           { value: "Offline-ready", label: "attendance and sync endpoints support schools when connectivity is unreliable." },
         ],
@@ -364,7 +503,7 @@ export const en = {
         academic: {
           title: "Academic Management",
           desc: "Controls the school structure that every other workflow depends on, including Ethiopian academic periods and school grade-system settings.",
-          roles: "Admin, IT Manager",
+          roles: "Director, Supervisor",
           items: [
             "Academic years, terms, quarters, semesters, and current-period selection",
             "Grade-system setup for Grade 1-8 or Grade 1-12 schools",
@@ -377,7 +516,7 @@ export const en = {
         student: {
           title: "Student Management",
           desc: "Manages the full student lifecycle from admission request to active enrollment, credentials, documents, and yearly movement.",
-          roles: "Admin, Registrar",
+          roles: "Director, Registrar",
           items: [
             "Enrollment requests with approval, rejection, waitlist, and credential generation",
             "Student profile records with parent and guardian relationships",
@@ -390,12 +529,12 @@ export const en = {
         attendance: {
           title: "Attendance",
           desc: "Session-based attendance built for teachers, admins, parents, and unreliable connectivity.",
-          roles: "Teacher, Admin, Parent",
+          roles: "Teacher, Director, Parent",
           items: [
             "Teacher attendance entry by class, section, date, and period context",
             "Attendance sessions with submitted status and per-student records",
             "Offline attendance capture and sync endpoints for local-first workflows",
-            "Admin attendance overview, missing-session follow-up, and reports",
+            "Director attendance overview, missing-session follow-up, and reports",
             "Parent and student attendance pages scoped to the selected academic year",
             "Absence and late notification flow for parent-visible updates",
           ],
@@ -403,7 +542,7 @@ export const en = {
         marks: {
           title: "Marks & Report Cards",
           desc: "Connects teacher score entry, assessment setup, publishing readiness, report cards, certificates, and year-end promotion.",
-          roles: "Admin, Teacher, Parent, Student",
+          roles: "Director, Teacher, Parent, Student",
           items: [
             "Assessment setup, assessment subjects, weights, score status, and grading scales",
             "Teacher marks entry with admin assessment and entry-progress visibility",
@@ -429,7 +568,7 @@ export const en = {
         communication: {
           title: "Communication Book",
           desc: "Combines public announcements, school communication books, internal messaging, notifications, and events.",
-          roles: "Admin, Teacher, Parent, Student",
+          roles: "Director, Teacher, Parent, Student",
           items: [
             "Announcements with active counts, audience filtering, and notification creation",
             "Communication book records with categories, status, and reply threads",
@@ -442,7 +581,7 @@ export const en = {
         localSupport: {
           title: "Local School Support",
           desc: "Handles the local constraints that generic school systems usually miss: languages, calendars, grade models, and Ethiopian academic periods.",
-          roles: "Admin, IT Manager",
+          roles: "Director, Supervisor",
           items: [
             "English, Amharic, Arabic, Oromo, and Somali UI language support",
             "Ethiopian and Gregorian calendar workflows for school operations",
@@ -465,12 +604,25 @@ export const en = {
             "Parent visibility into assigned learning tasks without separate message groups",
           ],
         },
+        syllabus: {
+          title: "Syllabus & Curriculum",
+          desc: "Organizes subject syllabi and curriculum coverage so teachers, directors, and supervisors can track what is taught against the academic calendar.",
+          roles: "Director, Teacher, Supervisor",
+          items: [
+            "Subject syllabus outlines with units, chapters, and topics per grade and section",
+            "Curriculum progress tracking against terms and the academic calendar",
+            "Teacher lesson-to-syllabus linking showing covered and remaining topics",
+            "Progress dashboards for directors and supervisors across classes and subjects",
+            "Pacing alerts when coverage falls behind the planned schedule",
+            "Syllabus documents and resources attached to each subject and class",
+          ],
+        },
         automation: {
           title: "Automation & Reporting",
           desc: "Turns operational data into dashboards, board-ready reports, and follow-up lists rather than disconnected exports.",
-          roles: "Admin, Finance, IT Manager",
+          roles: "Director, Finance, Supervisor",
           items: [
-            "Admin, teacher, parent, student, registrar, and finance dashboards",
+            "Director, teacher, parent, student, registrar, and finance dashboards",
             "Teacher leaderboard using attendance, grading timeliness, lessons, and related metrics",
             "Parent presentation report with overview, class comparison, subject comparison, and insights",
             "School data health checks for consistency and maintenance follow-up",
@@ -481,7 +633,7 @@ export const en = {
         operations: {
           title: "Operations",
           desc: "Supports the daily routines that keep the school moving: bells, templates, imports, device hooks, and operational alerts.",
-          roles: "Admin, IT Manager",
+          roles: "Director, Supervisor",
           items: [
             "Siren schedules, siren events, manual ring action, and browser audio fallback",
             "Hardware bell configuration and webhook-friendly siren controller routes",
@@ -494,7 +646,7 @@ export const en = {
         admissions: {
           title: "Admissions & Enrollment",
           desc: "Moves applicants from public enrollment into active student, parent, class, and credential records.",
-          roles: "Registrar, Admin",
+          roles: "Registrar, Director",
           items: [
             "Public school pages and enrollment request forms for applicants",
             "Registrar/admin review with approve, reject, and waitlist flows",
@@ -507,7 +659,7 @@ export const en = {
         exams: {
           title: "Exams",
           desc: "Covers formal school exams, seating logistics, result entry, publishing readiness, and exam-related registrar workflows.",
-          roles: "Admin, Teacher, Student, Registrar",
+          roles: "Director, Teacher, Student, Registrar",
           items: [
             "Assessment and exam setup, result entry, publish-results flow, rankings, and entry progress",
             "Exam seating plans, section assignments, exam-section students, and seating modes",
@@ -520,7 +672,7 @@ export const en = {
         onlineExams: {
           title: "Online Examinations",
           desc: "Lets teachers create controlled online exams while students complete timed attempts with saved answers and result feedback.",
-          roles: "Teacher, Student, Admin",
+          roles: "Teacher, Student, Director",
           items: [
             "Teacher-created online exams tied to assigned class, section, subject, grade, and stream",
             "Draft, ready, active, archived, duration, pass mark, access-code, and shuffle-question controls",
@@ -536,7 +688,7 @@ export const en = {
           roles: "All roles",
           items: [
             "Super admin portal for schools, admins, subscriptions, backups, and platform settings",
-            "Admin portal for academics, enrollment, reports, assessments, siren, people, and operations",
+            "Director portal for academics, enrollment, reports, assessments, siren, people, and operations",
             "Teacher portal for classes, attendance, lessons, timetable, grading, and online exams",
             "Parent portal for children, attendance, grades, fees, lessons, discipline, and timetable",
             "Student portal for timetable, attendance, lessons, grades, exams, and practice exams",
@@ -546,7 +698,7 @@ export const en = {
         staff: {
           title: "Staff Directory & Responsibilities",
           desc: "Connects people records to responsibilities, assignments, credentials, departments, and accountability reporting.",
-          roles: "Admin, IT Manager",
+          roles: "Director, Supervisor",
           items: [
             "Teacher profiles, staff records, departments, and employee documents",
             "Teacher subject assignments and class-subject responsibility tracking",
@@ -559,7 +711,7 @@ export const en = {
         security: {
           title: "Security & Permissions",
           desc: "Protects tenant data with role permissions, school scoping, subscription feature gates, rate limits, and maintenance controls.",
-          roles: "Super Admin, IT Manager",
+          roles: "Super Admin, Supervisor",
           items: [
             "JWT login with cookie or bearer token support, password reset, and password change flows",
             "Role guards for ADMIN, IT_MANAGER, REGISTRAR, TEACHER, STUDENT, PARENT, and FINANCE",
@@ -572,7 +724,7 @@ export const en = {
         search: {
           title: "Search & Data Quality",
           desc: "Helps staff find records quickly and keep operational data clean enough for reports, exports, and audits.",
-          roles: "Admin, IT Manager",
+          roles: "Director, Supervisor",
           items: [
             "Cross-entity search endpoints for fast record lookup",
             "Data consistency report page for school data health review",
@@ -585,7 +737,7 @@ export const en = {
           ai: {
             title: "AI-Powered Intelligence",
             desc: "Integrates AI into school operations for conversational assistance, automated reporting, smart alerts, recommendations, and school assessments.",
-            roles: "Admin, Teacher, Parent",
+            roles: "Director, Teacher, Parent",
             items: [
               "AI Assistant chatbot for instant answers to school-related queries from staff and parents",
               "AI Report Generator that produces academic reports, summaries, and insights from school data",
@@ -593,12 +745,15 @@ export const en = {
               "AI Recommendations engine for personalized student learning paths and school improvement suggestions",
               "AI School Assessment that evaluates overall school performance, trends, and benchmarking",
               "Natural language processing across attendance, marks, finance, and communication data",
+              "At-risk student detection based on attendance, grades, and engagement signals",
+              "Syllabus and curriculum progress tracking against the academic calendar",
+              "Role-specific AI assistant tailored to each dashboard's workflows and permissions",
             ],
           },
           backup: {
             title: "Backup & Data Export",
             desc: "Protects school data with automated platform backups, per-school export options, and downloadable archives.",
-            roles: "Super Admin, IT Manager",
+            roles: "Super Admin, Supervisor",
             items: [
               "Automated platform backup with full database and file system snapshot",
               "Per-school backup download with configurable data type selection",
@@ -611,7 +766,7 @@ export const en = {
           idCards: {
             title: "ID Cards & Certificates",
             desc: "Generates student ID cards and school certificates with customizable templates, watermarks, and bulk printing.",
-            roles: "Admin, Registrar",
+            roles: "Director, Registrar",
             items: [
               "Student ID card generation with template selection and watermark overlay",
               "Single and bulk PDF output with print-ready card layouts",
@@ -624,12 +779,12 @@ export const en = {
           discipline: {
             title: "Discipline & Conduct",
             desc: "Keeps behavior notes, conduct follow-up, and parent-visible discipline records connected to the student profile.",
-            roles: "Admin, Teacher, Parent",
+            roles: "Director, Teacher, Parent",
             items: [
               "Student discipline records scoped to the correct school and academic context",
               "Conduct notes that can support report-card and parent follow-up workflows",
               "Parent portal visibility for published discipline updates where the school allows it",
-              "Admin follow-up lists for student behavior and support actions",
+              "Director follow-up lists for student behavior and support actions",
               "Teacher and registrar context when reviewing a student profile",
               "Audit-friendly records for sensitive student conduct decisions",
             ],
@@ -637,7 +792,7 @@ export const en = {
           events: {
             title: "Events & Calendar",
             desc: "Manages school events, holidays, and calendar visibility for staff, students, and parents.",
-            roles: "Admin, Teacher, Student, Parent",
+            roles: "Director, Teacher, Student, Parent",
             items: [
               "School events CRUD with dates, descriptions, and category tagging",
               "Calendar feed integration for upcoming and active event visibility",
@@ -650,7 +805,7 @@ export const en = {
           messaging: {
             title: "Staff Messaging",
             desc: "Enables internal staff-to-staff communication with conversations, messages, and role-based access.",
-            roles: "Admin, Teacher, Finance, IT Manager",
+            roles: "Director, Teacher, Finance, Supervisor",
             items: [
               "Internal chat rooms and conversation management for staff collaboration",
               "Staff-to-staff messaging with participant tracking and conversation history",
@@ -706,8 +861,16 @@ export const en = {
           "Product walkthrough",
           "Implementation help",
         ],
+        trustLabels: {
+          email: "Email",
+          phone: "Phone",
+          telegram: "Telegram",
+        },
       },
       form: {
+        heading: "Contact Us",
+        title: "Send us a message.",
+        subtitle: "We reply with the clearest next step for your team.",
         name: "Name",
         school: "School name",
         email: "Email",
@@ -1066,14 +1229,15 @@ export const en = {
       },
       compare: {
         title: "Best School Management System in Ethiopia | Why YeneSchool?",
-        description:
-          "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 7-role, multi-tenant platform with native Ethiopian calendar support, offline-first workflows for attendance, grading, and more, and multi-language UI.",
+      description:
+        "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 8-role, multi-tenant platform with native Ethiopian calendar support, offline-first workflows for attendance, grading, and more, and multi-language UI.",
       },
     },
     compare: {
+      sideBySide: "Side by Side",
       hero: {
         title: "Why YeneSchool is the Best School Management System in Ethiopia",
-        desc: "Ethiopian schools face a choice between expensive international systems that don't fit our calendar, or rigid local portals without real depth. YeneSchool was built from the ground up for Ethiopian education — not adapted. With 52 backend modules, 523+ API endpoints, native Ethiopian calendar, AI-powered intelligence, offline-first workflows for attendance, grading, and more, smart siren & bell automation with IoT hardware, and 7 role-isolated dashboards, it replaces five disconnected systems with one unified platform.",
+        desc: "Ethiopian schools often choose between expensive international school management systems that ignore the Ethiopian calendar, or basic local school portals with limited features. YeneSchool is different: a complete, AI-powered school management system built in Ethiopia for Ethiopian schools. It combines 52 backend modules, 523+ API endpoints, native Ethiopian calendar support, offline-first attendance and grading, smart siren and bell automation with IoT hardware, AI-powered intelligence, and 8 role-isolated dashboards — replacing five disconnected systems with one unified school management platform.",
       },
       table: {
         title: "Feature Comparison",
@@ -1152,16 +1316,17 @@ export const en = {
         ],
       },
       roles: {
-        title: "The 7-Role Isolation Advantage",
-        desc: "Unlike generic software applications, YeneSchool completely eliminates administrative friction and communication bottlenecks by splitting ecosystem data access into seven strictly secured, role-based workspaces — each user sees the records, actions, alerts, and reports they are responsible for:",
+        title: "The 8-Role Isolation Advantage",
+        desc: "Unlike generic software applications, YeneSchool completely eliminates administrative friction and communication bottlenecks by splitting ecosystem data access into eight strictly secured, role-based workspaces — each user sees the records, actions, alerts, and reports they are responsible for:",
         items: [
-          { name: "Admin", desc: "Full school ownership: academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion, smart siren/bell schedules with IoT hardware integration, and school configuration." },
+          { name: "Director", desc: "Full school ownership: academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion, smart siren/bell schedules with IoT hardware integration, and school configuration." },
           { name: "Registrar", desc: "Enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, school-leaving workflows, and credential generation." },
           { name: "Teacher", desc: "Assigned classes and subjects: attendance entry, lesson plans, assignments, grade submissions, online exams, timetable, and class communication." },
           { name: "Student", desc: "Timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress." },
           { name: "Parent", desc: "Each linked child's attendance, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates." },
           { name: "Finance", desc: "Fee structures, installment plans, student balances, discounts, receipts, overdue follow-up, payroll access, finance summaries, and parent-visible fee records." },
-          { name: "IT Manager", desc: "Academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review." },
+          { name: "Supervisor", desc: "Academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review." },
+          { name: "Storekeeper", desc: "School inventory and store management: stock levels, supplies issuance to departments, purchase and usage records, asset tracking, and accurate store balances." },
 
         ],
       },
@@ -1173,7 +1338,7 @@ export const en = {
           "isolated roles",
           "languages",
           "data models",
-          "schools piloting",
+          "systems unified",
         ],
       },
       faq: {

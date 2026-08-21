@@ -4769,13 +4769,14 @@ html.dark .service-plan {
   width: 100%;
   position: relative;
   height: 3.5em;
-  border: 3px ridge #149CEA;
+  border: 1px solid var(--line);
   outline: none;
-  background: none;
-  background-color: transparent;
+  background: var(--soft-surface);
   color: var(--foreground);
-  transition: 1s;
-  border-radius: 0.3em;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+  border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -4783,58 +4784,17 @@ html.dark .service-plan {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   margin: 0 auto;
   padding: 0 20px;
   min-height: 0;
   box-shadow: none;
 }
 
-.pricing-btn::after,
-.booking-submit::after,
-.contact-submit::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 3%;
-  width: 95%;
-  height: 40%;
-  background-color: var(--card-bg);
-  transition: 0.5s;
-  transform-origin: center;
-}
-
-.pricing-btn::before,
-.booking-submit::before,
-.contact-submit::before {
-  content: "";
-  transform-origin: center;
-  position: absolute;
-  top: 80%;
-  left: 3%;
-  width: 95%;
-  height: 40%;
-  background-color: var(--card-bg);
-  transition: 0.5s;
-}
-
-.pricing-btn:hover::before,
-.pricing-btn:hover::after,
-.booking-submit:hover::before,
-.booking-submit:hover::after,
-.contact-submit:hover::before,
-.contact-submit:hover::after {
-  transform: scale(0)
-}
-
 .pricing-btn:hover,
 .booking-submit:hover,
 .contact-submit:hover {
-  box-shadow: inset 0px 0px 25px #1479EA;
-  border-color: #149CEA;
-  background: none;
-  background-color: transparent;
-  transform: none;
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.42);
 }
 
 .pricing-card.popular .pricing-btn {

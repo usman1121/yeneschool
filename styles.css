@@ -1360,7 +1360,57 @@ html.dark .preview-skew::after {
 .school-signals span:hover {
   transform: translateY(-2px);
   border-color: rgba(14, 165, 233, 0.42);
-  background: var(--card-bg-hover);
+}
+
+.workflow-grid {
+  width: min(1240px, 100%);
+  margin: 42px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .workflow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .workflow-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workflow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft-surface);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.workflow-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.42);
+}
+
+.workflow-card strong {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.workflow-card small {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
 }
 
 .role-section {

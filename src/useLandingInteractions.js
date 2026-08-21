@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { smoothScrollTo, smoothScrollToElement } from "./smoothScroll.js";
 import { toast } from "./components/toasts.jsx";
+import { translations } from "./i18n/translations.js";
 
 const waves = [
   {
@@ -77,6 +78,22 @@ const dashboardSlides = [
     srcset: "./assets/registrar-1280.webp 1280w, ./assets/registrar-960.webp 960w, ./assets/registrar-640.webp 640w",
   },
 ];
+
+function getStoredLanguage() {
+  try {
+    return localStorage.getItem("language") === "am" ? "am" : "en";
+  } catch {
+    return "en";
+  }
+}
+
+function getDashboardSlides() {
+  const items = translations[getStoredLanguage()]?.home?.dashboardSlides?.items;
+  return dashboardSlides.map((slide, index) => ({
+    ...slide,
+    ...(Array.isArray(items) && items[index] ? items[index] : {}),
+  }));
+}
 
 function readCssVar(styles, name, fallback) {
   return styles.getPropertyValue(name).trim() || fallback;
@@ -314,9 +331,10 @@ function setupDashboardSlider(cleanups) {
   let activeIndex = 0;
   let intervalId = 0;
   let idlePreloadId = 0;
+  const slides = getDashboardSlides();
 
   const preloadRemainingSlides = () => {
-    dashboardSlides.slice(1).forEach((slide) => {
+    slides.slice(1).forEach((slide) => {
       const preload = new Image();
       preload.src = slide.fallback || slide.image;
     });
@@ -329,8 +347,8 @@ function setupDashboardSlider(cleanups) {
   }
 
   const setActiveSlide = (index) => {
-    activeIndex = (index + dashboardSlides.length) % dashboardSlides.length;
-    const slide = dashboardSlides[activeIndex];
+    activeIndex = (index + slides.length) % slides.length;
+    const slide = slides[activeIndex];
 
     if (image.dataset.activeSlide === String(activeIndex)) return;
 

@@ -111,56 +111,31 @@ export default function HomePage() {
         </section>
         <section className="section modules-preview-section" id="modules" aria-labelledby="modules-title" data-reveal>
           <div className="section-heading modules-preview-heading">
-            <span className="section-kicker">Core Modules</span>
-            <h2 id="modules-title">The modules schools actually use.</h2>
+            <span className="section-kicker">{t("home.modules.eyebrow")}</span>
+            <h2 id="modules-title">{t("home.modules.title")}</h2>
             <p>
-              A quick look at the connected workflows inside YeneSchool. The full modules page breaks each area down by what the school can manage.
+              {t("home.modules.subtitle")}
             </p>
           </div>
           <div className="modules-preview-grid" aria-label="YeneSchool module highlights">
-            <a className="module-feature-card" href="/modules#academic-management">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-1.5Z" /><path d="M8 7h7M8 11h6" /></svg></span>
-              <strong>Academic Management</strong>
-              <small>Academic years, terms, Grade 1-8 or Grade 1-12 settings, classes, sections, subjects, assignments, and period times.</small>
-            </a>
-            <a className="module-feature-card" href="/modules#student-management">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2" /><circle cx={12} cy={7} r={4} /><path d="M20 8v6M23 11h-6" /></svg></span>
-              <strong>Student Records</strong>
-              <small>Admissions, registrar review, parent links, class placement, bulk import, credentials, ID cards, and promotion history.</small>
-            </a>
-            <a className="module-feature-card" href="/modules#marks-report-cards">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg></span>
-              <strong>Marks &amp; Report Cards</strong>
-              <small>Assessments, score entry, exam results, publishing readiness, certificates, parent-visible results, and promotion checks.</small>
-            </a>
-            <a className="module-feature-card" href="/modules#online-examinations">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x={3} y={4} width={18} height={12} rx={2} /><path d="M8 20h8M12 16v4M8 9h5M8 12h3M16 9l1.5 1.5L20 8" /></svg></span>
-              <strong>Online Examinations</strong>
-              <small>Teacher-created exams with access codes, timers, question banks, autosaved answers, submissions, scoring, and student result review.</small>
-            </a>
-            <a className="module-feature-card" href="/modules#local-school-support">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></svg></span>
-              <strong>Multi-language Support</strong>
-              <small>Support for 5 languages across local school workflows, calendars, labels, and parent-facing communication.</small>
-            </a>
-            <a className="module-feature-card" href="/modules#communication">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg></span>
-              <strong>{t("home.modules.cards.communication.title")}</strong>
-              <small>{t("home.modules.cards.communication.desc")}</small>
-            </a>
-            <a className="module-feature-card" href="/modules#automation-reporting">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18" /><path d="M7 15l4-4 3 3 5-7" /></svg></span>
-              <strong>Automation &amp; Reporting</strong>
-              <small>Dashboards, teacher leaderboard, entry progress, parent presentation reports, data-quality checks, search, exports, and backups.</small>
-            </a>
-            <a className="module-feature-card" href="/modules#ai">
-              <span className="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 8-10 10C6 20 2 17 2 12A10 10 0 0 1 12 2Z" /><path d="M8 12h8M12 8v8" /></svg></span>
-              <strong>AI-Powered Intelligence</strong>
-              <small>AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment. Built-in AI integration connects every workflow to intelligent automation.</small>
-            </a>
+            {[
+              { key: "academic", anchor: "academic-management" },
+              { key: "student", anchor: "student-management" },
+              { key: "marks", anchor: "marks-report-cards" },
+              { key: "onlineExams", anchor: "online-examinations" },
+              { key: "multiLang", anchor: "local-school-support" },
+              { key: "communication", anchor: "communication" },
+              { key: "automation", anchor: "automation-reporting" },
+              { key: "ai", anchor: "ai" },
+            ].map((module) => (
+              <a className="module-feature-card" href={`/modules#${module.anchor}`} key={module.key}>
+                <strong>{t(`home.modules.cards.${module.key}.title`)}</strong>
+                <small>{t(`home.modules.cards.${module.key}.desc`)}</small>
+              </a>
+            ))}
           </div>
           <div className="modules-preview-actions">
-            <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/modules">View all modules</a>
+            <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/modules">{t("home.modules.viewAll")}</a>
           </div>
         </section>
         <section className="section parent-section" id="parent-visibility" aria-labelledby="parent-title" data-reveal>

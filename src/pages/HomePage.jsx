@@ -254,7 +254,7 @@ export default function HomePage() {
                   <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.mathematics")}</span><span className="badge badge-good">A</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.english")}</span><span className="badge badge-good">A-</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.science")}</span><span className="badge badge-good">A</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.conductNote")}</span><span>Excellent</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.conductNote")}</span><span>{t("home.parent.badges.excellent")}</span></div>
                 </div>
               </div>
               <div className="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
@@ -273,10 +273,10 @@ export default function HomePage() {
                   <small>{t("home.parent.panels.fees.receiptAvailable")}</small>
                 </div>
                 <div className="parent-panel-card-list">
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.tuition")}</span><span className="badge badge-good">Paid</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.transport")}</span><span className="badge badge-warn">Pending</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.discount")}</span><span className="badge">Applied</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.latestReceipt")}</span><span className="badge">Available</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.tuition")}</span><span className="badge badge-good">{t("home.parent.badges.paid")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.transport")}</span><span className="badge badge-warn">{t("home.parent.badges.pending")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.discount")}</span><span className="badge">{t("home.parent.badges.applied")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.latestReceipt")}</span><span className="badge">{t("home.parent.badges.available")}</span></div>
                 </div>
               </div>
               <div className="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>

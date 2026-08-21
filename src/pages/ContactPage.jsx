@@ -40,6 +40,11 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="contact-form-shell">
+            <div className="book-form-heading">
+              <p>{t("contact.form.heading")}</p>
+              <h2>{t("contact.form.title")}</h2>
+              <span>{t("contact.form.subtitle")}</span>
+            </div>
             <form
               className="contact-form"
               aria-label={t("contact.form.title") || "Contact YeneSchool"}

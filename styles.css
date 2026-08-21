@@ -1184,6 +1184,148 @@ html.dark .preview-skew::after {
   letter-spacing: 0;
 }
 
+.ai-intelligence-section h2 {
+  max-width: 640px;
+  margin-right: auto;
+  text-align: left;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.15;
+}
+
+.ai-intelligence-subtitle {
+  max-width: 720px;
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.ai-intelligence-grid {
+  width: 100%;
+  margin: 42px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .ai-intelligence-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .ai-intelligence-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-intel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft-surface);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.ai-intel-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.42);
+}
+
+.ai-intel-card strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.ai-intel-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+
+.ai-intelligence-featured {
+  width: 100%;
+  margin: 14px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .ai-intelligence-featured {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-featured-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft-surface);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.ai-featured-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.42);
+}
+
+.ai-featured-card strong {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.ai-featured-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.ai-featured-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-featured-card li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+.ai-featured-card li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #0ea5e9;
+}
+
 .school-signals {
   width: min(1040px, 100%);
   margin: 42px auto 0;

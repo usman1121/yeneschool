@@ -34,9 +34,9 @@ export default function ContactPage() {
               {t("contact.hero.subtitle")}
             </p>
             <div className="contact-trust-row" aria-label="Contact support summary">
-              <span><b>Email</b> yeneschool@gmail.com</span>
-              <span><b>Phone</b> +251 983 355 598<br />+251 966 074 050<br />+251 912 207 180</span>
-              <span><b>Telegram</b> @YeneSchool</span>
+              <span><b>{t("contact.hero.trustLabels.email")}</b> yeneschool@gmail.com</span>
+              <span><b>{t("contact.hero.trustLabels.phone")}</b> +251 983 355 598<br />+251 966 074 050<br />+251 912 207 180</span>
+              <span><b>{t("contact.hero.trustLabels.telegram")}</b> @YeneSchool</span>
             </div>
           </div>
           <div className="contact-form-shell">

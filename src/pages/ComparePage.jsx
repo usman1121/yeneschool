@@ -75,7 +75,7 @@ export default function ComparePage() {
         </section>
 
         <section className="section compare-matrix" data-reveal>
-          <span className="section-kicker" style={{ marginBottom: 16, display: 'block' }}>Side by Side</span>
+          <span className="section-kicker" style={{ marginBottom: 16, display: 'block' }}>{t("compare.sideBySide")}</span>
           <div className="compare-table-wrapper">
             <table className="compare-table">
               <caption>{t("compare.table.caption")}</caption>

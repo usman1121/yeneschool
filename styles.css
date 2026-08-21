@@ -4799,11 +4799,6 @@ html.dark .service-plan {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .module-feature-card,
-  .module-feature-card:nth-child(-n + 2) {
-    grid-column: auto;
-  }
-
   .modules-directory-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -5273,11 +5268,6 @@ html.dark .service-plan {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .role-card,
-  .role-card:nth-child(n + 5) {
-    grid-column: auto;
-  }
-
   .parent-layout,
   .parent-panel {
     grid-template-columns: 1fr;
@@ -5371,8 +5361,7 @@ html.dark .service-plan {
     grid-template-columns: 1fr;
   }
 
-  .module-feature-card,
-  .module-feature-card:nth-child(-n + 2) {
+  .module-feature-card {
     min-height: auto;
   }
 

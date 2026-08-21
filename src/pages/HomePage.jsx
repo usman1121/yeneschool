@@ -82,22 +82,14 @@ export default function HomePage() {
           </div>
         </section>
         <section className="school-signals-section" aria-label="School workflows covered by YeneSchool" data-reveal>
-          <h2>Built around the daily work of real schools.</h2>
-          <div className="school-signals">
-            <span>Admissions</span>
-            <span>Student Information System</span>
-            <span>Attendance Management</span>
-            <span>Grade Management</span>
-            <span>Online examinations</span>
-            <span>Report cards</span>
-            <span>Parent Portal</span>
-            <span>Fee Management</span>
-            <span>Announcements</span>
-            <span>Teacher workspace</span>
-            <span>Timetables</span>
-            <span>School operations</span>
-            <span>AI Assistant</span>
-            <span>AI Integration</span>
+          <h2>{t("home.workflows.title")}</h2>
+          <div className="workflow-grid">
+            {t("home.workflows.items").map((workflow) => (
+              <article className="workflow-card" key={workflow.title}>
+                <strong>{workflow.title}</strong>
+                <small>{workflow.desc}</small>
+              </article>
+            ))}
           </div>
         </section>
         <section className="section role-section" id="roles" aria-labelledby="roles-title" data-reveal>

@@ -138,6 +138,44 @@ export default function HomePage() {
             <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/modules">{t("home.modules.viewAll")}</a>
           </div>
         </section>
+        <section className="school-signals-section ai-intelligence-section" aria-label="AI intelligence capabilities" data-reveal>
+          <h2>{t("home.aiIntelligence.title")}</h2>
+          <p className="ai-intelligence-subtitle">
+            {t("home.aiIntelligence.subtitle")}
+          </p>
+          <div className="ai-intelligence-grid">
+            {t("home.aiIntelligence.cards").map((card) => (
+              <article className="ai-intel-card" key={card.title}>
+                <strong>{card.title}</strong>
+                <p>{card.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="ai-intelligence-featured">
+            <article className="ai-featured-card">
+              <strong>{t("home.aiIntelligence.assistant.title")}</strong>
+              <p>
+                {t("home.aiIntelligence.assistant.desc")}
+              </p>
+              <ul>
+                {t("home.aiIntelligence.assistant.items").map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="ai-featured-card">
+              <strong>{t("home.aiIntelligence.reports.title")}</strong>
+              <p>
+                {t("home.aiIntelligence.reports.desc")}
+              </p>
+              <ul>
+                {t("home.aiIntelligence.reports.items").map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </section>
         <section className="section parent-section" id="parent-visibility" aria-labelledby="parent-title" data-reveal>
           <div className="parent-layout">
             <div className="parent-copy">

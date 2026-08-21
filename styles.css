@@ -2995,12 +2995,12 @@ pre {
   display: grid;
   align-content: start;
   gap: 22px;
-  padding: 26px;
 }
 
 .book-form-heading {
   display: grid;
   gap: 8px;
+  margin-bottom: 22px;
 }
 
 .book-form-heading p,

@@ -94,51 +94,19 @@ export default function HomePage() {
         </section>
         <section className="section role-section" id="roles" aria-labelledby="roles-title" data-reveal>
           <div className="role-heading">
-            <p className="eyebrow">Role-Based Workflows</p>
-            <h2 id="roles-title">Every school team gets the workspace they actually need.</h2>
+            <p className="eyebrow">{t("home.roles.eyebrow")}</p>
+            <h2 id="roles-title">{t("home.roles.title")}</h2>
             <p>
-              YeneSchool is a complete School ERP and Student Information System (SIS) built for
-              Ethiopian schools. It separates school ownership, academic operations, registration, teaching,
-              finance, parent follow-up, student self-service, and IT support into role-specific dashboards.
-              Each user sees the records, actions, alerts, and reports they are responsible for.
+              {t("home.roles.subtitle")}
             </p>
           </div>
           <div className="role-bento">
-            <article className="role-card">
-              <span className="role-icon">AD</span>
-              <h3>Admin</h3>
-              <p>Runs academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion readiness, siren schedules, and school configuration.</p>
-            </article>
-            <article className="role-card">
-              <span className="role-icon">TE</span>
-              <h3>Teacher</h3>
-              <p>Works from assigned classes and subjects to submit attendance, lessons, assignments, grade entries, online exams, timetable activity, and class communication.</p>
-            </article>
-            <article className="role-card">
-              <span className="role-icon">PA</span>
-              <h3>Parent</h3>
-              <p>Follows each linked child through published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates.</p>
-            </article>
-            <article className="role-card">
-              <span className="role-icon">RG</span>
-              <h3>Registrar</h3>
-              <p>Handles enrollment requests, student records, parent links, class placement, registrar dashboards, promotion movement, national-exam candidates, and school-leaving workflows.</p>
-            </article>
-            <article className="role-card">
-              <span className="role-icon">FI</span>
-              <h3>Finance</h3>
-              <p>Owns fee structures, installment plans, student balances, discounts, receipts, overdue follow-up, payroll access, finance summaries, and parent-visible fee records.</p>
-            </article>
-            <article className="role-card">
-              <span className="role-icon">ST</span>
-              <h3>Student</h3>
-              <p>Checks timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress.</p>
-            </article>
-            <article className="role-card">
-              <span className="role-icon">IT</span>
-              <h3>IT Manager</h3>
-              <p>Supports academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review without becoming the school owner.</p>
-            </article>
+            {["admin", "teacher", "parent", "registrar", "finance", "student", "itManager", "storekeeper"].map((roleKey) => (
+              <article className="role-card" key={roleKey}>
+                <h3>{t(`home.roles.cards.${roleKey}.title`)}</h3>
+                <p>{t(`home.roles.cards.${roleKey}.desc`)}</p>
+              </article>
+            ))}
           </div>
         </section>
         <section className="section modules-preview-section" id="modules" aria-labelledby="modules-title" data-reveal>

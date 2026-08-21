@@ -48,31 +48,41 @@ const waves = [
 
 const dashboardSlides = [
   {
-    alt: "YeneSchool admin dashboard preview",
+    alt: "YeneSchool director dashboard preview",
+    title: "Director Dashboard",
+    description: "Oversee academics, classes, sections, subjects, staff accounts, announcements, assessment setup, and full school configuration from one powerful control center built for school owners and directors.",
     image: "./assets/admin.webp",
     fallback: "./assets/admin.png",
     srcset: "./assets/admin-1280.webp 1280w, ./assets/admin-960.webp 960w, ./assets/admin-640.webp 640w",
   },
   {
     alt: "YeneSchool teacher leaderboard dashboard preview",
+    title: "Teacher Workspace",
+    description: "Track attendance, submit lessons and assignments, enter grades, run online exams with access codes and timers, and follow class performance — all organized around your assigned classes, subjects, and daily timetable.",
     image: "./assets/teacherleaderboard.webp",
     fallback: "./assets/teacherleaderboard.png",
     srcset: "./assets/teacherleaderboard-1280.webp 1280w, ./assets/teacherleaderboard-960.webp 960w, ./assets/teacherleaderboard-640.webp 640w",
   },
   {
     alt: "YeneSchool parent dashboard preview",
+    title: "Parent Portal",
+    description: "Follow your child's published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, and school notices — with real-time updates and a communication book that keeps you connected to every classroom moment.",
     image: "./assets/parent.webp",
     fallback: "./assets/parent.png",
     srcset: "./assets/parent-1280.webp 1280w, ./assets/parent-960.webp 960w, ./assets/parent-640.webp 640w",
   },
   {
     alt: "YeneSchool finance dashboard preview",
+    title: "Finance Dashboard",
+    description: "Own fee structures, installment plans, student balances, discounts, receipts, and overdue follow-up — with payroll access, finance summaries, and parent-visible fee records that keep every transaction transparent and accountable.",
     image: "./assets/finance.webp",
     fallback: "./assets/finance.png",
     srcset: "./assets/finance-1280.webp 1280w, ./assets/finance-960.webp 960w, ./assets/finance-640.webp 640w",
   },
   {
     alt: "YeneSchool registrar dashboard preview",
+    title: "Registrar Desk",
+    description: "Handle enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, and school-leaving workflows — keeping every student's journey from admission to graduation accurate and complete.",
     image: "./assets/registrar.webp",
     fallback: "./assets/registrar.png",
     srcset: "./assets/registrar-1280.webp 1280w, ./assets/registrar-960.webp 960w, ./assets/registrar-640.webp 640w",
@@ -325,6 +335,9 @@ function setupDashboardSlider(cleanups) {
   const frame = document.querySelector("[data-dashboard-frame]");
   const image = document.querySelector("[data-dashboard-image]");
   const dots = Array.from(document.querySelectorAll("[data-dashboard-slide]"));
+  const caption = document.querySelector("[data-dashboard-caption]");
+  const captionTitle = caption ? caption.querySelector("[data-dashboard-caption-title]") : null;
+  const captionDesc = caption ? caption.querySelector("[data-dashboard-caption-desc]") : null;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (!slider || !frame || !image || !dots.length) return;
 
@@ -368,6 +381,15 @@ function setupDashboardSlider(cleanups) {
       if (image.complete && image.naturalWidth) finishSwap();
     };
     window.setTimeout(swapImage, 220);
+
+    if (caption && captionTitle && captionDesc) {
+      caption.classList.add("is-swapping");
+      window.setTimeout(() => {
+        captionTitle.textContent = slide.title;
+        captionDesc.textContent = slide.description;
+        caption.classList.remove("is-swapping");
+      }, 220);
+    }
 
     dots.forEach((dot, dotIndex) => {
       const isActive = dotIndex === activeIndex;

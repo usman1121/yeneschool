@@ -30,24 +30,23 @@ export default function BookPage() {
   return (
     <PageShell activePage="book">
       <main id="top" className="book-page">
-        <section className="book-hero section" aria-labelledby="book-title" data-reveal>
-          <div className="book-hero-copy">
+        <section className="contact-hero section" aria-labelledby="book-title" data-reveal>
+          <div className="contact-hero-copy">
             <span className="section-kicker">{t("book.hero.kicker")}</span>
             <h1 id="book-title" ref={headingRef}>{splitTitle}</h1>
             <p>{t("book.hero.subtitle")}</p>
-          </div>
-          <div className="book-showcase">
             <div className="book-demo-brief" aria-label="Demo call details">
               {showcase.map((item) => (
                 <article key={item.value}><strong>{item.value}</strong><span>{item.label}</span></article>
               ))}
             </div>
-            <aside className="book-form-shell" aria-label="YeneSchool demo">
-              <div className="book-form-heading">
-                <p>{t("book.form.heading")}</p>
-                <h2>{t("book.form.title")}</h2>
-                <span>{t("book.form.subtitle")}</span>
-              </div>
+          </div>
+          <aside className="contact-form-shell book-form-shell" aria-label="YeneSchool demo">
+            <div className="book-form-heading">
+              <p>{t("book.form.heading")}</p>
+              <h2>{t("book.form.title")}</h2>
+              <span>{t("book.form.subtitle")}</span>
+            </div>
               <form
                 className="booking-form"
                 aria-label={t("book.form.title") || "Request a YeneSchool demo"}
@@ -80,8 +79,7 @@ export default function BookPage() {
                 <button className="primary-btn gradient-btn booking-submit" type="submit"><span data-contact-submit-label data-sending-label={t("contact.form.sending")}>{t("book.form.submit")}</span></button>
                 <p className="contact-form-status" data-contact-status role="status" aria-live="polite" />
               </form>
-            </aside>
-          </div>
+        </aside>
         </section>
       </main>
     </PageShell>

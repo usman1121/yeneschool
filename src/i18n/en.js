@@ -1285,7 +1285,7 @@ export const en = {
       sideBySide: "Side by Side",
       hero: {
         title: "Why YeneSchool is the Best School Management System in Ethiopia",
-        desc: "Ethiopian schools often choose between expensive international school management systems that ignore the Ethiopian calendar, or basic local school portals with limited features. YeneSchool is different: a complete, AI-powered school management system built in Ethiopia for Ethiopian schools. It combines 52 backend modules, 523+ API endpoints, native Ethiopian calendar support, offline-first attendance and grading, smart siren and bell automation with IoT hardware, AI-powered intelligence, and 8 role-isolated dashboards — replacing five disconnected systems with one unified school management platform.",
+        desc: "Ethiopian schools often choose between expensive international school management systems that ignore the Ethiopian calendar, or basic local school portals with limited features. YeneSchool is different: a complete, AI-powered school management system built in Ethiopia for Ethiopian schools. It combines comprehensive academic and administrative tools, native Ethiopian calendar support, offline-first attendance and grading, smart siren and bell automation with IoT hardware, AI-powered intelligence, and 8 role-isolated dashboards — replacing multiple disconnected systems with one unified school management platform.",
       },
       table: {
         title: "Feature Comparison",

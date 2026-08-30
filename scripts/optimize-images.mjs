@@ -16,6 +16,7 @@ const IMAGES = [
   { name: "quartersummary.png", widths: [640, 960, 1280, 1920] },
   { name: "schoolanalytics.png", widths: [640, 960, 1280, 1920] },
   { name: "schooldatahealth.png", widths: [640, 960, 1280, 1920] },
+  { name: "studentrisk.png", widths: [640, 960, 1280, 1920] },
   { name: "studentpromotion.png", widths: [640, 960, 1280, 1920] },
   { name: "syllubs.png", widths: [640, 960, 1280, 1920] },
   { name: "schoolsetting.png", widths: [640, 960, 1280, 1920] },

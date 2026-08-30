@@ -186,6 +186,12 @@ export const en = {
               "Automated integrity scans, missing record alerts, unassigned student detection, and data completeness auditing to keep school records pristine.",
           },
           {
+            alt: "YeneSchool at-risk student early warning dashboard preview",
+            title: "At-Risk Early Warning",
+            description:
+              "Intelligent multi-factor risk detection flagging attendance drops, discipline issues, and fee arrears with concrete intervention signals before quarter end.",
+          },
+          {
             alt: "YeneSchool student promotion and admissions preview",
             title: "Student Promotion & Placement",
             description:
@@ -1270,9 +1276,9 @@ export const en = {
         description: "The requested YeneSchool page could not be found.",
       },
       compare: {
-        title: "Best School Management System in Ethiopia | Why YeneSchool?",
-      description:
-        "Looking for the best school management system in Ethiopia? Compare YeneSchool vs international legacy systems and basic local portals. Discover our 8-role, multi-tenant platform with native Ethiopian calendar support, offline-first workflows for attendance, grading, and more, and multi-language UI.",
+        title: "Top 10 School Management Systems in Ethiopia (2026) | YeneSchool vs Others",
+        description:
+          "Searching for the top school management system in Ethiopia? Compare YeneSchool vs legacy software and local portals. Native Ethiopian calendar (13 months), offline attendance & grading, Telebirr integration, and AI analytics.",
       },
     },
     compare: {

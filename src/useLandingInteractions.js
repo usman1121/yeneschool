@@ -112,6 +112,14 @@ const dashboardSlides = [
     srcset: "./assets/schooldatahealth-1280.webp 1280w, ./assets/schooldatahealth-960.webp 960w, ./assets/schooldatahealth-640.webp 640w",
   },
   {
+    alt: "YeneSchool at-risk student early warning dashboard preview",
+    title: "At-Risk Early Warning",
+    description: "Intelligent multi-factor risk detection flagging attendance drops, discipline issues, and fee arrears with concrete intervention signals before quarter end.",
+    image: "./assets/studentrisk.webp",
+    fallback: "./assets/studentrisk.png",
+    srcset: "./assets/studentrisk-1280.webp 1280w, ./assets/studentrisk-960.webp 960w, ./assets/studentrisk-640.webp 640w",
+  },
+  {
     alt: "YeneSchool student promotion and admissions preview",
     title: "Student Promotion & Placement",
     description: "Seamless manual and automated student promotion between academic years, class placements, sections transitions, and graduation workflows.",

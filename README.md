@@ -291,6 +291,7 @@ NEXT_PUBLIC_API_URL="http://localhost:8001"
 ![Director Dashboard](public/assets/directordashbaord.png)  ![Teacher Workspace](public/assets/teacherleaderboard.png)
 ![Student Leaderboard](public/assets/studentleaderboard.png)  ![Parent Portal](public/assets/parent.png)
 ![Quarter Summary](public/assets/quartersummary.png)  ![School Analytics](public/assets/schoolanalytics.png)
+![Data Health](public/assets/schooldatahealth.png)  ![At-Risk Detection](public/assets/studentrisk.png)
 ![Student Promotion](public/assets/studentpromotion.png)  ![Syllabus Management](public/assets/syllubs.png)
 ![School Settings](public/assets/schoolsetting.png)  ![AI Intelligence](public/assets/aiimage.png)
 

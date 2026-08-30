@@ -14,6 +14,7 @@ const ROUTES = [
   { path: "/modules", file: path.join("modules", "index.html"), name: "modules" },
   { path: "/contact", file: path.join("contact", "index.html"), name: "contact" },
   { path: "/demo", file: path.join("demo", "index.html"), name: "demo" },
+  { path: "/about", file: path.join("about", "index.html"), name: "about" },
   { path: "/vs-others", file: path.join("vs-others", "index.html"), name: "compare" },
   { path: "/privacy", file: path.join("privacy", "index.html"), name: "privacy" },
   { path: "/terms", file: path.join("terms", "index.html"), name: "terms" },

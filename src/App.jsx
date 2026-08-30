@@ -15,12 +15,14 @@ const ModulesPage = lazyWithPreload(() => import("./pages/ModulesPage.jsx"));
 const ContactPage = lazyWithPreload(() => import("./pages/ContactPage.jsx"));
 const BookPage = lazyWithPreload(() => import("./pages/BookPage.jsx"));
 const ComparePage = lazyWithPreload(() => import("./pages/ComparePage.jsx"));
+const AboutPage = lazyWithPreload(() => import("./pages/AboutPage.jsx"));
 
 function getPageFromPathname(pathname) {
   const normalizedPath = pathname.replace(/\/+$/, "");
   if (normalizedPath === "") return "home";
   if (normalizedPath.endsWith("/modules") || normalizedPath.endsWith("/modules.html")) return "modules";
   if (normalizedPath.endsWith("/contact") || normalizedPath.endsWith("/contact.html")) return "contact";
+  if (normalizedPath.endsWith("/about") || normalizedPath.endsWith("/about.html")) return "about";
   if (normalizedPath.endsWith("/privacy") || normalizedPath.endsWith("/privacy.html")) return "privacy";
   if (normalizedPath.endsWith("/terms") || normalizedPath.endsWith("/terms.html")) return "terms";
   if (normalizedPath.endsWith("/cookie-policy") || normalizedPath.endsWith("/cookie-policy.html")) return "cookiePolicy";
@@ -33,6 +35,7 @@ function getPageFromPathname(pathname) {
 function preloadPage(page) {
   if (page === "modules") ModulesPage.preload();
   if (page === "contact") ContactPage.preload();
+  if (page === "about") AboutPage.preload();
   if (page === "book") BookPage.preload();
   if (page === "compare") ComparePage.preload();
 }
@@ -701,6 +704,16 @@ export default function App() {
       <Suspense fallback={<PageLoader />}>
         <PageRuntime page={page}>
           <ComparePage />
+        </PageRuntime>
+      </Suspense>
+    );
+  }
+
+  if (page === "about") {
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <PageRuntime page={page}>
+          <AboutPage />
         </PageRuntime>
       </Suspense>
     );

@@ -86,6 +86,9 @@ function Header({ activePage }) {
               <a href="/#pricing" data-scroll-target="pricing">
                 {t("nav.pricing")}
               </a>
+              <NavLink activePage={activePage} page="about" href="/about">
+                {t("nav.about")}
+              </NavLink>
               <NavLink activePage={activePage} page="compare" href="/vs-others">
                 {t("nav.compare")}
               </NavLink>
@@ -220,6 +223,11 @@ function Footer({ activePage }) {
                 <li>
                   <a href="/demo" {...isActive("book")}>
                     {t("footer.bookDemo")}
+                  </a>
+                </li>
+                <li>
+                  <a href="/about" {...isActive("about")}>
+                    {t("footer.about")}
                   </a>
                 </li>
                 <li>

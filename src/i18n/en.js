@@ -5,6 +5,7 @@ export const en = {
       features: "Features",
       modules: "Modules",
       pricing: "Pricing",
+      about: "About",
       compare: "Why Us?",
       book: "Demo",
       contact: "Contact",
@@ -26,6 +27,7 @@ export const en = {
       contactUs: "Contact Us",
       modules: "Modules",
       pricing: "Pricing",
+      about: "About Us",
       bookDemo: "Demo",
       compare: "Why Us?",
       privacy: "Privacy",
@@ -1280,6 +1282,11 @@ export const en = {
         description:
           "Searching for the top school management system in Ethiopia? Compare YeneSchool vs legacy software and local portals. Native Ethiopian calendar (13 months), offline attendance & grading, Telebirr integration, and AI analytics.",
       },
+      about: {
+        title: "About YeneSchool & Afro Digital | Mission, Vision & Story",
+        description:
+          "Learn about YeneSchool, the premier AI-powered Ethiopian school management system created by Afro Digital. Explore our history, mission, vision, and core values.",
+      },
     },
     compare: {
       sideBySide: "Side by Side",
@@ -1426,5 +1433,86 @@ export const en = {
           }
         ]
       }
+    },
+    about: {
+      hero: {
+        kicker: "About YeneSchool",
+        title: "Built in Ethiopia for the Future of African Education.",
+        subtitle: "YeneSchool was born from a simple belief: Ethiopian schools deserve modern, intelligent, and beautifully crafted software engineered specifically for our educational realities.",
+      },
+      missionVision: {
+        mission: {
+          kicker: "Our Mission",
+          title: "Eliminate administrative friction, elevate learning.",
+          description: "To empower Ethiopian and African schools with accessible, offline-resilient, and intelligent software that unifies school leadership, teachers, students, and parents into one seamless ecosystem.",
+        },
+        vision: {
+          kicker: "Our Vision",
+          title: "The digital backbone of 10,000+ African academies.",
+          description: "To become the continent's most trusted school operating system, bridging the digital divide with native local calendar compliance, AI-driven educational insights, and universal offline accessibility.",
+        },
+      },
+      values: {
+        kicker: "Core Values",
+        title: "The principles that guide everything we build.",
+        items: [
+          {
+            title: "Local-First Engineering",
+            desc: "We don't force generic Western software onto Ethiopian schools. From the 13-month calendar (Meskerem–Pagume) to local languages and Telebirr/CBE payment integration, we build for local realities.",
+          },
+          {
+            title: "Offline-First Resilience",
+            desc: "Internet outages shouldn't stop education. Our mobile and desktop systems empower teachers to mark attendance and grades seamlessly with zero connectivity.",
+          },
+          {
+            title: "AI with Purpose",
+            desc: "We don't build AI gimmicks. We leverage intelligent models for practical impact: predicting student risk factors, auto-generating report cards, and optimizing school timetables.",
+          },
+          {
+            title: "Role Isolation & Data Privacy",
+            desc: "School data is sacred. We enforce strict role-based data isolation for directors, teachers, finance staff, and parents with bank-grade encryption and automated backups.",
+          },
+        ],
+      },
+      history: {
+        kicker: "Our Journey",
+        title: "How YeneSchool came to life.",
+        steps: [
+          {
+            year: "The Problem",
+            title: "The Fragmented School Crisis",
+            desc: "Ethiopian school administrators were juggling stacks of paper folders, fragile Excel spreadsheets, and disconnected SMS tools, wasting hundreds of hours each term.",
+          },
+          {
+            year: "The Architecture",
+            title: "Purpose-Built for Ethiopia",
+            desc: "Engineered a full-stack platform supporting dual Ethiopian/Gregorian calendars, 8 isolated roles, and offline-first mobile sync tailored to Ethiopian infrastructure.",
+          },
+          {
+            year: "The Validation",
+            title: "Live Pilot Testing in Addis Ababa",
+            desc: "Tested across private and public school environments in Addis Ababa, validating automated report cards, instant parent fee tracking, and digital attendance.",
+          },
+          {
+            year: "The Future",
+            title: "AI Intelligence & IoT Integration",
+            desc: "Integrated smart IoT bell automation, automated at-risk early warning signals, timed CBT exams, and multi-language support (Amharic, Afaan Oromo, Somali, Arabic, English).",
+          },
+        ],
+      },
+      company: {
+        kicker: "The Company Behind",
+        title: "Engineered by Afro Digital",
+        desc: "YeneSchool is designed, engineered, and maintained by Afro Digital, a premier Ethiopian technology studio based in Addis Ababa. We specialize in building mission-critical educational software, enterprise platforms, and AI-driven systems tailored for African growth.",
+        tagline: "Empowering institutions through world-class software engineering.",
+        website: "Visit Afro Digital",
+        url: "https://afrodigital.dev",
+      },
+      cta: {
+        title: "Ready to modernize your school?",
+        subtitle: "Join progressive Ethiopian schools modernizing their daily operations with YeneSchool.",
+        demoBtn: "Book a Guided Demo",
+        contactBtn: "Contact Our Team",
+      },
     },
   };

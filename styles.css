@@ -5895,3 +5895,468 @@ html.dark .scroll-to-top:focus-visible {
     flex-direction: column;
   }
 }
+
+/* ==========================================================================
+   About Page Styles
+   ========================================================================== */
+
+.about-page {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  min-height: 100vh;
+}
+
+.about-hero {
+  padding: 64px 0 48px;
+}
+
+.about-hero-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-hero-copy h1 {
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.about-hero-desc {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.about-hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-hero-badge-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.about-glass-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 28px;
+  border-radius: 20px;
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(16px);
+}
+
+.about-glass-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-badge-icon {
+  font-size: 32px;
+}
+
+.about-glass-header div {
+  display: grid;
+  gap: 2px;
+}
+
+.about-glass-header strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.about-glass-header span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.about-glass-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.about-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+}
+
+.about-stat-item .stat-number {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.about-stat-item .stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Mission & Vision */
+.about-mv-section {
+  padding: 48px 0;
+}
+
+.about-mv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.about-mv-card {
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.about-mv-card:hover {
+  border-color: rgba(14, 165, 233, 0.45);
+  transform: translateY(-2px);
+}
+
+.mv-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  color: var(--primary);
+  border: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+
+.about-mv-card h2 {
+  font-size: clamp(24px, 2.5vw, 30px);
+  margin: 8px 0 16px;
+  line-height: 1.25;
+}
+
+.about-mv-card p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Core Values */
+.about-values-section {
+  padding: 64px 0 48px;
+}
+
+.about-section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.about-section-header h2 {
+  font-size: clamp(32px, 3.5vw, 44px);
+  margin-top: 10px;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.about-value-card {
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  position: relative;
+  transition: border-color 200ms ease;
+}
+
+.about-value-card:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.value-number {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.about-value-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about-value-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* History / Timeline */
+.about-history-section {
+  padding: 64px 0 48px;
+}
+
+.about-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 36px;
+}
+
+.about-timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: var(--line);
+}
+
+.timeline-node {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-node:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -36px;
+  top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--soft-surface);
+  border: 3px solid var(--primary);
+  display: block;
+}
+
+.timeline-year {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.timeline-content {
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  margin-left: 60px;
+}
+
+.timeline-content h3 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.timeline-content p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Company Behind: Afro Digital */
+.about-company-section {
+  padding: 64px 0 48px;
+}
+
+.about-company-box {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  padding: 48px;
+  border-radius: 24px;
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+}
+
+.about-company-copy h2 {
+  font-size: clamp(28px, 3vw, 38px);
+  margin: 10px 0 16px;
+}
+
+.company-desc {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.company-tagline {
+  color: var(--foreground);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.company-brand-card {
+  padding: 32px;
+  border-radius: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+}
+
+.company-badge-pill {
+  display: inline-block;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(14, 165, 233, 0.12);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.company-brand-card h3 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.company-brand-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.company-capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.company-capabilities span {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* About CTA */
+.about-cta-section {
+  padding: 64px 0 20px;
+}
+
+.about-cta-container {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  border-radius: 24px;
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+}
+
+.about-cta-container h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  margin-bottom: 12px;
+}
+
+.about-cta-container p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.about-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .about-hero-layout,
+  .about-mv-grid,
+  .about-values-grid,
+  .about-company-box {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-company-box {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page {
+    padding-top: 76px;
+  }
+
+  .about-hero {
+    padding: 40px 0 24px;
+  }
+
+  .about-mv-card {
+    padding: 24px;
+  }
+
+  .timeline-content {
+    margin-left: 20px;
+    padding: 18px;
+  }
+
+  .timeline-node {
+    margin-bottom: 32px;
+  }
+}

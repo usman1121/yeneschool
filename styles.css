@@ -5249,6 +5249,7 @@ html.dark .service-plan {
   }
 
   .modules-orbit-geo,
+  .about-hero-telemetry-wrap,
   .compare-hero-orbit {
     display: none;
   }
@@ -5933,86 +5934,215 @@ html.dark .scroll-to-top:focus-visible {
   margin-bottom: 32px;
 }
 
-.about-hero-actions {
+/* Telemetry Hub */
+.about-hero-telemetry-wrap {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
 }
 
-.about-hero-badge-wrap {
+.telemetry-hub {
+  position: relative;
+  width: 480px;
+  height: 480px;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.about-glass-card {
+.telemetry-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(14, 165, 233, 0.2);
+  pointer-events: none;
+}
+
+.ring-outer {
+  inset: 15px;
+  animation: telemetry-spin 60s linear infinite;
+}
+
+.ring-mid {
+  inset: 70px;
+  border-style: solid;
+  border-color: rgba(14, 165, 233, 0.12);
+  background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08), transparent 70%);
+  animation: telemetry-pulse 6s ease-in-out infinite;
+}
+
+.ring-inner {
+  inset: 135px;
+  border-color: rgba(14, 165, 233, 0.25);
+  animation: telemetry-spin-rev 40s linear infinite;
+}
+
+@keyframes telemetry-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes telemetry-spin-rev {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes telemetry-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+
+.telemetry-lines {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 380px;
-  padding: 28px;
-  border-radius: 20px;
-  background: var(--soft-surface);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(16px);
+  height: 100%;
+  pointer-events: none;
 }
 
-.about-glass-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--line);
-}
-
-.about-badge-icon {
-  font-size: 32px;
-}
-
-.about-glass-header div {
-  display: grid;
-  gap: 2px;
-}
-
-.about-glass-header strong {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--foreground);
-}
-
-.about-glass-header span {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.about-glass-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.about-stat-item {
+.telemetry-core {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 14px;
-  border-radius: 12px;
-  background: var(--card-bg);
-  border: 1px solid var(--line);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.25), transparent 70%),
+    var(--card-bg);
+  border: 1.5px solid rgba(14, 165, 233, 0.35);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 0 25px rgba(14, 165, 233, 0.25);
+  backdrop-filter: blur(16px);
+  gap: 3px;
+  pointer-events: none;
 }
 
-.about-stat-item .stat-number {
-  font-size: 26px;
+.core-beacon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
   font-weight: 800;
   color: var(--primary);
-  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
 }
 
-.about-stat-item .stat-label {
-  font-size: 12px;
+.core-brand {
+  font-family: "C8aTajra", serif;
+  font-size: 22px;
+  color: #60a5fa;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.core-sub {
+  font-size: 10.5px;
   font-weight: 600;
   color: var(--muted);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* 4 Telemetry Nodes */
+.telemetry-node {
+  position: absolute;
+  z-index: 3;
+  width: 185px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--soft-surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  animation: telemetry-float 4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1s);
+  cursor: default;
+}
+
+.telemetry-node:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 8px 30px rgba(14, 165, 233, 0.22);
+  transform: translateY(-4px) scale(1.03);
+}
+
+@keyframes telemetry-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.node-top-left {
+  top: 10px;
+  left: 0px;
+}
+
+.node-top-right {
+  top: 10px;
+  right: 0px;
+}
+
+.node-bottom-left {
+  bottom: 10px;
+  left: 0px;
+}
+
+.node-bottom-right {
+  bottom: 10px;
+  right: 0px;
+}
+
+.node-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.node-metric {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1;
+}
+
+.node-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--card-bg);
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.node-tag.good {
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.node-desc {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.35;
 }
 
 /* Mission & Vision */

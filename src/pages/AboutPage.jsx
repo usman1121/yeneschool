@@ -74,32 +74,59 @@ export default function AboutPage() {
                 </a>
               </div>
             </div>
-            <div className="about-hero-badge-wrap">
-              <div className="about-glass-card">
-                <div className="about-glass-header">
+            <div className="about-hero-telemetry-wrap">
+              <div className="telemetry-hub">
+                <div className="telemetry-ring ring-outer" />
+                <div className="telemetry-ring ring-mid" />
+                <div className="telemetry-ring ring-inner" />
 
-                  <div>
-                    <strong>YeneSchool</strong>
-                    <span>by Afro Digital</span>
+                <svg className="telemetry-lines" viewBox="0 0 480 480" preserveAspectRatio="xMidYMid meet">
+                  <line x1="240" y1="240" x2="85" y2="85" stroke="rgba(14, 165, 233, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  <line x1="240" y1="240" x2="395" y2="85" stroke="rgba(14, 165, 233, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  <line x1="240" y1="240" x2="85" y2="395" stroke="rgba(14, 165, 233, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  <line x1="240" y1="240" x2="395" y2="395" stroke="rgba(14, 165, 233, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  <circle cx="240" cy="240" r="70" fill="none" stroke="rgba(14, 165, 233, 0.2)" strokeWidth="1.5" strokeDasharray="3 3" />
+                </svg>
+
+                <div className="telemetry-core">
+                  <div className="core-beacon">
+                    <span className="live-pulse" />
+
                   </div>
+                  <strong className="core-brand">YeneSchool</strong>
+
                 </div>
-                <div className="about-glass-stats">
-                  <div className="about-stat-item">
-                    <span className="stat-number">13</span>
-                    <span className="stat-label">Months Support</span>
+
+                <div className="telemetry-node node-top-left" style={{ "--i": 0 }}>
+                  <div className="node-head">
+                    <span className="node-metric">99.98%</span>
+                    <span className="node-tag">Uptime</span>
                   </div>
-                  <div className="about-stat-item">
-                    <span className="stat-number">5</span>
-                    <span className="stat-label">Languages</span>
+                  <span className="node-desc">Resilient Edge Cluster</span>
+                </div>
+
+                <div className="telemetry-node node-top-right" style={{ "--i": 1 }}>
+                  <div className="node-head">
+                    <span className="node-metric">0% Loss</span>
+
                   </div>
-                  <div className="about-stat-item">
-                    <span className="stat-number">100%</span>
-                    <span className="stat-label">Offline Ready</span>
+                  <span className="node-desc">Dual-Layer Local Storage</span>
+                </div>
+
+                <div className="telemetry-node node-bottom-left" style={{ "--i": 2 }}>
+                  <div className="node-head">
+                    <span className="node-metric">&lt; 85ms</span>
+                    <span className="node-tag">Latency</span>
                   </div>
-                  <div className="about-stat-item">
-                    <span className="stat-number">8</span>
-                    <span className="stat-label">Isolated Roles</span>
+                  <span className="node-desc">Optimized for 3G / 4G</span>
+                </div>
+
+                <div className="telemetry-node node-bottom-right" style={{ "--i": 3 }}>
+                  <div className="node-head">
+                    <span className="node-metric">Zero-Trust</span>
+
                   </div>
+                  <span className="node-desc">Role-Scoped Isolation</span>
                 </div>
               </div>
             </div>

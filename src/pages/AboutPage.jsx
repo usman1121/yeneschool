@@ -66,18 +66,18 @@ export default function AboutPage() {
               <h1 ref={headingRef}>{splitTitle}</h1>
               <p className="about-hero-desc">{t("about.hero.subtitle")}</p>
               <div className="about-hero-actions">
-                <a href="/demo" className="btn btn-primary">
-                  {t("about.cta.demoBtn")}
+                <a href="/demo" className="primary-btn gradient-btn">
+                  <span>{t("about.cta.demoBtn")}</span>
                 </a>
-                <a href="/contact" className="btn btn-secondary">
-                  {t("about.cta.contactBtn")}
+                <a href="/contact" className="secondary-btn">
+                  <span>{t("about.cta.contactBtn")}</span>
                 </a>
               </div>
             </div>
             <div className="about-hero-badge-wrap">
               <div className="about-glass-card">
                 <div className="about-glass-header">
-                  <span className="about-badge-icon">🇪🇹</span>
+
                   <div>
                     <strong>YeneSchool</strong>
                     <span>by Afro Digital</span>
@@ -189,7 +189,7 @@ export default function AboutPage() {
                   href="https://afrodigital.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline"
+                  className="secondary-btn"
                 >
                   <span>{t("about.company.website")}</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -222,11 +222,11 @@ export default function AboutPage() {
             <h2>{t("about.cta.title")}</h2>
             <p>{t("about.cta.subtitle")}</p>
             <div className="about-cta-buttons">
-              <a href="/demo" className="btn btn-primary">
-                {t("about.cta.demoBtn")}
+              <a href="/demo" className="primary-btn gradient-btn">
+                <span>{t("about.cta.demoBtn")}</span>
               </a>
-              <a href="/contact" className="btn btn-secondary">
-                {t("about.cta.contactBtn")}
+              <a href="/contact" className="secondary-btn">
+                <span>{t("about.cta.contactBtn")}</span>
               </a>
             </div>
           </div>

@@ -98,21 +98,37 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-        <section className="section role-section" id="roles" aria-labelledby="roles-title" data-reveal>
+        <section className="section role-section" id="problem" aria-labelledby="problem-title" data-reveal>
           <div className="role-heading">
-            <p className="eyebrow">{t("home.roles.eyebrow")}</p>
-            <h2 id="roles-title">{t("home.roles.title")}</h2>
+            <p className="eyebrow">{t("home.problem.eyebrow")}</p>
+            <h2 id="problem-title">{t("home.problem.title")}</h2>
             <p>
-              {t("home.roles.subtitle")}
+              {t("home.problem.subtitle")}
             </p>
           </div>
           <div className="role-bento">
-            {["admin", "teacher", "parent", "registrar", "finance", "student", "itManager", "storekeeper"].map((roleKey) => (
-              <article className="role-card" key={roleKey}>
-                <h3>{t(`home.roles.cards.${roleKey}.title`)}</h3>
-                <p>{t(`home.roles.cards.${roleKey}.desc`)}</p>
+            {(t("home.problem.cards") || []).map((card, idx) => (
+              <article className="role-card" key={idx}>
+                <div className="role-icon">{card.tag || `0${idx + 1}`}</div>
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
               </article>
             ))}
+          </div>
+          <div className="problem-closing-banner" data-reveal>
+            <div className="problem-closing-inner">
+              <span className="section-kicker">{t("home.problem.closingKicker")}</span>
+              <h3>{t("home.problem.closingStatement")}</h3>
+              <p>{t("home.problem.closingSubtext")}</p>
+              <div className="modules-preview-actions" style={{ justifyContent: "center", marginTop: "24px" }}>
+                <a className="pricing-btn" style={{ width: "auto", margin: 0 }} href="/modules#online-examinations">
+                  {t("home.problem.ctaModules")}
+                </a>
+                <a className="secondary-btn" style={{ width: "auto" }} href="/demo">
+                  {t("home.problem.ctaDemo")}
+                </a>
+              </div>
+            </div>
           </div>
         </section>
         <section className="section modules-preview-section" id="modules" aria-labelledby="modules-title" data-reveal>
@@ -123,16 +139,16 @@ export default function HomePage() {
               {t("home.modules.subtitle")}
             </p>
           </div>
-          <div className="modules-preview-grid" aria-label="YeneSchool module highlights">
+          <div className="modules-preview-grid" aria-label="How YeneSchool fixes national exam issues">
             {[
-              { key: "academic", anchor: "academic-management" },
-              { key: "student", anchor: "student-management" },
-              { key: "marks", anchor: "marks-report-cards" },
-              { key: "onlineExams", anchor: "online-examinations" },
-              { key: "multiLang", anchor: "local-school-support" },
-              { key: "communication", anchor: "communication" },
-              { key: "automation", anchor: "automation-reporting" },
-              { key: "ai", anchor: "ai" },
+              { key: "diagnostics", anchor: "online-examinations" },
+              { key: "mockExams", anchor: "online-examinations" },
+              { key: "teacherHeatmaps", anchor: "academic-management" },
+              { key: "earlyWarning", anchor: "automation-reporting" },
+              { key: "aiGuidance", anchor: "ai" },
+              { key: "syllabusTracking", anchor: "academic-management" },
+              { key: "parentPortal", anchor: "communication" },
+              { key: "unifiedPlatform", anchor: "student-management" },
             ].map((module) => (
               <a className="module-feature-card" href={`/modules#${module.anchor}`} key={module.key}>
                 <strong>{t(`home.modules.cards.${module.key}.title`)}</strong>
@@ -180,6 +196,36 @@ export default function HomePage() {
                 ))}
               </ul>
             </article>
+          </div>
+        </section>
+        <section className="section role-section owner-advantages-section" id="owner-advantages" aria-labelledby="advantages-title" data-reveal>
+          <div className="role-heading">
+            <p className="eyebrow">{t("home.ownerAdvantages.eyebrow")}</p>
+            <h2 id="advantages-title">{t("home.ownerAdvantages.title")}</h2>
+            <p>
+              {t("home.ownerAdvantages.subtitle")}
+            </p>
+          </div>
+          <div className="role-bento">
+            {(t("home.ownerAdvantages.cards") || []).map((card, idx) => (
+              <article className="role-card" key={idx}>
+                <div className="role-icon">{card.tag}</div>
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="problem-closing-banner" data-reveal>
+            <div className="problem-closing-inner">
+              <div className="modules-preview-actions" style={{ justifyContent: "center", margin: 0 }}>
+                <a className="pricing-btn" style={{ width: "auto", margin: 0 }} href="/demo">
+                  {t("home.ownerAdvantages.ctaPilot")}
+                </a>
+                <a className="secondary-btn" style={{ width: "auto" }} href="/vs-others">
+                  {t("home.ownerAdvantages.ctaExplore")}
+                </a>
+              </div>
+            </div>
           </div>
         </section>
         <section className="section parent-section" id="parent-visibility" aria-labelledby="parent-title" data-reveal>

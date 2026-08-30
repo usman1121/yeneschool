@@ -1533,16 +1533,43 @@ html.dark .preview-skew::after {
 }
 
 .role-card h3 {
-  margin: 20px 0 10px;
+  margin: 16px 0 8px;
   color: var(--foreground);
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: -0.025em;
+  font-weight: 700;
 }
 
 .role-card p {
   margin: 0;
   color: var(--card-text);
   line-height: 1.65;
+  font-size: 15px;
+}
+
+.problem-closing-banner {
+  margin-top: 24px;
+  padding: 36px 32px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--soft-surface);
+  text-align: center;
+}
+
+.problem-closing-inner h3 {
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 800;
+  color: var(--foreground);
+  margin: 10px 0 10px;
+  letter-spacing: -0.03em;
+}
+
+.problem-closing-inner p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .parent-section {
@@ -5649,6 +5676,10 @@ html.dark .service-plan {
 
   .role-card {
     min-height: auto;
+  }
+
+  .problem-closing-banner {
+    padding: 24px 18px;
   }
 
   .parent-section {

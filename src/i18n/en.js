@@ -60,45 +60,59 @@ export const en = {
           "AI Assistant",
         ],
       },
-      roles: {
-        eyebrow: "Role-Based Workflows",
-        title: "Every school team gets the workspace they actually need.",
+      problem: {
+        eyebrow: "The Ethiopian Exam Reality",
+        title: "The Problem Isn't Just Studying More.",
         subtitle:
-          "YeneSchool is a complete School ERP and Student Information System (SIS) built for Ethiopian schools. It separates school ownership, academic operations, registration, teaching, finance, parent follow-up, student self-service, supervision, and storekeeping into role-specific dashboards. Each user sees the records, actions, alerts, and reports they are responsible for.",
-        cards: {
-          admin: {
-            title: "Director",
-            desc: "Runs academics, classes, sections, subjects, staff accounts, announcements, assessment setup, report publishing, promotion readiness, siren schedules, and school configuration.",
+          "Over 1,000 schools across Ethiopia had zero students pass the Grade 12 national entrance exam. It wasn't because students and teachers didn't work hard—it's because they spent hundreds of hours studying without knowing what they actually understand and what they don't.",
+        cards: [
+          {
+            tag: "01",
+            title: "Which topics hold them back?",
+            desc: "Without diagnostic feedback, students spend 80% of their revision re-reading easy chapters they already know, while the 3 or 4 difficult units that decide pass or fail remain hidden.",
           },
-          teacher: {
-            title: "Teacher",
-            desc: "Works from assigned classes and subjects to submit attendance, lessons, assignments, grade entries, online exams, timetable activity, and class communication.",
+          {
+            tag: "02",
+            title: "What should they study next?",
+            desc: "When students don't know their exact weak spots, studying becomes random guesswork instead of focusing on high-yield topics that actually raise national exam scores.",
           },
-          parent: {
-            title: "Parent",
-            desc: "Follows each linked child through published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, notices, and communication-book updates.",
+          {
+            tag: "03",
+            title: "Are they actually improving?",
+            desc: "High marks on lenient, familiar classroom tests give a false sense of security. Schools and parents need objective, continuous data to see if mastery is truly growing.",
           },
-          registrar: {
-            title: "Registrar",
-            desc: "Handles enrollment requests, student records, parent links, class placement, registrar dashboards, promotion movement, national-exam candidates, and school-leaving workflows.",
+          {
+            tag: "04",
+            title: "Are they national-exam ready?",
+            desc: "National exams are strictly timed and standardized. Without practicing under realistic timed mock exam conditions, students freeze under national exam pressure.",
           },
-          finance: {
-            title: "Finance",
-            desc: "Owns fee structures, installment plans, student balances, discounts, receipts, overdue follow-up, payroll access, finance summaries, and parent-visible fee records.",
+          {
+            tag: "05",
+            title: "Where to focus limited time?",
+            desc: "With only weeks before exam day, students cannot re-read entire textbooks. They need clear priorities so every single study hour directly improves their score.",
           },
-          student: {
-            title: "Student",
-            desc: "Checks timetable, attendance, lessons, assignments, grades, formal exams, online examination attempts, announcements, and published academic progress.",
+          {
+            tag: "06",
+            title: "Teachers flying without a map",
+            desc: "A dedicated teacher can't fix what they can't see. Without topic heatmaps, teachers assume the room understood a unit when half the students secretly fell behind.",
           },
-          itManager: {
-            title: "Supervisor",
-            desc: "Supports academic setup, timetable visibility, attendance/report monitoring, user access help, operational settings, backups, and data-quality review without becoming the school owner.",
+          {
+            tag: "07",
+            title: "Discovering gaps too late",
+            desc: "School owners and directors only find out their Grade 12 batch was in danger when the Ministry publishes results in August—when it is 12 months too late to help them.",
           },
-          storekeeper: {
-            title: "Storekeeper",
-            desc: "Manages school inventory, supplies, and asset records — tracking stock levels, issuing materials to departments, recording purchases and usage, and keeping store balances accurate.",
+          {
+            tag: "08",
+            title: "The YeneSchool clear path",
+            desc: "Turns classroom exams and mock tests into diagnostic intelligence—giving school owners, teachers, students, and parents a clear roadmap long before exam day.",
           },
-        },
+        ],
+        closingKicker: "The YeneSchool Difference",
+        closingStatement: "YeneSchool turns learning data into a clear path forward.",
+        closingSubtext:
+          "Give your school, teachers, and students the diagnostic roadmap they need to turn hard work into national exam triumph.",
+        ctaModules: "Explore Examination Modules",
+        ctaDemo: "Request School Demo",
       },
       workflows: {
         title: "Built around the daily work of real schools.",
@@ -277,69 +291,93 @@ export const en = {
         },
       },
       modules: {
-        eyebrow: "Core Modules",
-        title: "The modules schools actually use.",
+        eyebrow: "How YeneSchool Solves It",
+        title: "How YeneSchool turns exam struggle into measurable success.",
         subtitle:
-          "A quick look at the connected workflows inside YeneSchool. The full modules page breaks each area down by what the school can manage.",
-        viewAll: "View all modules",
+          "Instead of waiting for national exam day to reveal learning gaps, YeneSchool gives schools the diagnostic tools, mock examinations, and real-time intelligence needed to ensure every student is prepared.",
+        viewAll: "Explore all system modules",
         cards: {
-          academic: {
-            title: "Academic Management",
-            desc: "Academic years, terms, Grade 1-8 or Grade 1-12 settings, classes, sections, subjects, assignments, and period times.",
+          diagnostics: {
+            title: "Topic-Level Diagnostic Analytics",
+            desc: "Identifies the exact chapters and formulas holding students back across Math, Sciences, and English, eliminating wasted study time.",
+            anchor: "online-examinations",
           },
-          student: {
-            title: "Student Records",
-            desc: "Admissions, registrar review, parent links, class placement, bulk import, credentials, ID cards, and promotion history.",
+          mockExams: {
+            title: "Timed National Mock Exams",
+            desc: "Continuous multi-choice practice with countdown timers and standardized formats so students conquer exam-day pacing and pressure.",
+            anchor: "online-examinations",
           },
-          attendance: {
-            title: "Attendance",
-            desc: "Session-based attendance with submitted records, offline sync payloads, teacher entry, parent views, and absence/late notifications.",
+          teacherHeatmaps: {
+            title: "Teacher Mastery Heatmaps",
+            desc: "Gives educators instant visibility into which subject units an entire class is struggling with to run targeted remedial classes.",
+            anchor: "academic-management",
           },
-          marks: {
-            title: "Marks & Report Cards",
-            desc: "Assessments, score entry, exam results, publishing readiness, certificates, parent-visible results, and promotion checks.",
+          earlyWarning: {
+            title: "Director Early-Warning Alerts",
+            desc: "Alerts school owners and directors to at-risk Grade 12 sections months before national exam day, enabling early intervention.",
+            anchor: "automation-reporting",
           },
-          onlineExams: {
-            title: "Online Examinations",
-            desc: "Teacher-created exams with access codes, timers, question banks, autosaved answers, submissions, scoring, and student result review.",
+          aiGuidance: {
+            title: "AI-Powered Next-Study Guidance",
+            desc: "Automatically recommends what topics each student should revise next to achieve the highest possible national exam score gains.",
+            anchor: "ai",
           },
-          multiLang: {
-            title: "Multi-language Support",
-            desc: "Support for 5 languages across local school workflows, calendars, labels, and parent-facing communication.",
+          syllabusTracking: {
+            title: "Syllabus & Curriculum Tracking",
+            desc: "Monitors lesson coverage and curriculum completion across all departments to ensure no exam unit is rushed or skipped.",
+            anchor: "academic-management",
           },
-          communication: {
-            title: "Communication Book",
-            desc: "Announcements, communication book, internal messaging, read tracking, notification preferences, push subscriptions, and school events.",
+          parentPortal: {
+            title: "Parent Visibility & Follow-Up",
+            desc: "Keeps families informed with published grades, mock test results, and attendance records so parents support revision at home.",
+            anchor: "communication",
           },
-          automation: {
-            title: "Automation & Reporting",
-            desc: "Dashboards, teacher leaderboard, entry progress, parent presentation reports, data-quality checks, search, exports, and backups.",
-          },
-          ai: {
-            title: "AI-Powered Intelligence",
-            desc: "AI assistant chatbot, smart report generation, predictive recommendations, automated alerts, and AI-driven school assessment. Built-in AI integration connects every workflow to intelligent automation.",
-          },
-          backup: {
-            title: "Backup & Data Export",
-            desc: "Scheduled platform backups, per-school data exports, ZIP downloads, and secure archive management.",
-          },
-          idCards: {
-            title: "ID Cards & Certificates",
-            desc: "Student ID card generation, certificate templates, watermark upload, and bulk PDF/ZIP downloads.",
-          },
-          discipline: {
-            title: "Discipline & Conduct",
-            desc: "Behavior incident reports, severity tracking, student conduct history, and parent-visible discipline records.",
-          },
-          events: {
-            title: "Events & Calendar",
-            desc: "School events, holiday scheduling, academic calendar feeds, and upcoming event tracking.",
-          },
-          messaging: {
-            title: "Staff Messaging",
-            desc: "Internal staff messaging, conversation threads, read tracking, and school directory.",
+          unifiedPlatform: {
+            title: "Unified School Operations & SIS",
+            desc: "Brings attendance, assessments, student records, timetables, and exams together in one connected, easy-to-use platform.",
+            anchor: "student-management",
           },
         },
+      },
+      ownerAdvantages: {
+        eyebrow: "The School Owner's Advantage",
+        title: "Built for Ethiopian school owners who refuse to leave results to chance.",
+        subtitle:
+          "From protecting your school's reputation and enrollment to saving your teachers 40+ hours every quarter, YeneSchool is engineered for local school reality.",
+        cards: [
+          {
+            tag: "ROI",
+            title: "Reputation & Enrollment Protection",
+            desc: "National exam pass rates drive your next year's student enrollment. YeneSchool protects your school's brand by ensuring zero surprise failures.",
+          },
+          {
+            tag: "BANK",
+            title: "Ready-to-Use Exam Question Banks",
+            desc: "Pre-loaded with Ethiopian national exam past papers and chapter-by-chapter question banks across Math, Sciences, and English ready in 1 click.",
+          },
+          {
+            tag: "SYNC",
+            title: "Works Offline (Power & Internet Cuts)",
+            desc: "Classroom attendance, grading, and local examinations continue seamlessly during power or internet cuts, syncing automatically when reconnected.",
+          },
+          {
+            tag: "LOCAL",
+            title: "Dual Calendar & Ethiopian MoE Format",
+            desc: "Full native support for Ethiopian Calendar (Meskerem–Pagume), local grading rubrics, and multilingual report cards (Amharic & English).",
+          },
+          {
+            tag: "TIME",
+            title: "40+ Hours Saved per Teacher",
+            desc: "Eliminate manual Excel calculations. Auto-generate report cards, grade distributions, and topic analytics with a single click.",
+          },
+          {
+            tag: "PILOT",
+            title: "Risk-Free Grade 12 Pilot",
+            desc: "Start lean by testing our diagnostic examination system with your Grade 12 batch before rolling out the full school management system.",
+          },
+        ],
+        ctaPilot: "Book a Free Grade 12 Assessment Pilot",
+        ctaExplore: "Compare with Traditional Methods",
       },
       parent: {
         eyebrow: "Parent Visibility",

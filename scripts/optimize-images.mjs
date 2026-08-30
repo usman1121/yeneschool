@@ -8,11 +8,18 @@ const root = path.resolve(__dirname, "..");
 const assetsDir = path.resolve(root, "public", "assets");
 
 const IMAGES = [
-  { name: "admin.png", widths: [640, 960, 1280, 1920] },
-  { name: "teacherleaderboard.png", widths: [640, 960, 1280] },
-  { name: "parent.png", widths: [640, 960, 1280] },
-  { name: "finance.png", widths: [640, 960, 1280] },
-  { name: "registrar.png", widths: [640, 960, 1280] },
+  { name: "directordashbaord.png", widths: [640, 960, 1280, 1920] },
+  { name: "teacherleaderboard.png", widths: [640, 960, 1280, 1920] },
+  { name: "studentleaderboard.png", widths: [640, 960, 1280, 1920] },
+  { name: "parent.png", widths: [640, 960, 1280, 1920] },
+  { name: "financedashbaord.png", widths: [640, 960, 1280, 1920] },
+  { name: "quartersummary.png", widths: [640, 960, 1280, 1920] },
+  { name: "schoolanalytics.png", widths: [640, 960, 1280, 1920] },
+  { name: "schooldatahealth.png", widths: [640, 960, 1280, 1920] },
+  { name: "studentpromotion.png", widths: [640, 960, 1280, 1920] },
+  { name: "syllubs.png", widths: [640, 960, 1280, 1920] },
+  { name: "schoolsetting.png", widths: [640, 960, 1280, 1920] },
+  { name: "aiimage.png", widths: [640, 960, 1280, 1920] },
 ];
 
 async function optimize() {

@@ -64,31 +64,71 @@ export default function ModulesPage() {
               </p>
             </div>
             <div className="modules-hero-stats">
-              <div className="modules-orbit-geo">
-                <svg className="geo-lines" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
-                  <line x1="250" y1="250" x2="218" y2="53" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <line x1="250" y1="250" x2="427" y2="138" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <line x1="250" y1="250" x2="73" y2="138" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <line x1="250" y1="250" x2="427" y2="362" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <line x1="250" y1="250" x2="218" y2="447" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <line x1="250" y1="250" x2="73" y2="362" stroke="rgba(96,165,250,0.2)" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <circle cx="250" cy="250" r="55" fill="none" stroke="rgba(96,165,250,0.12)" strokeWidth="1" strokeDasharray="3 3" />
-                  <circle cx="250" cy="250" r="48" fill="none" stroke="rgba(96,165,250,0.06)" strokeWidth="1" strokeDasharray="2 4" />
-                  <text x="250" y="250" textAnchor="middle" dominantBaseline="central" fontSize="26" fontWeight="700" fill="#60a5fa" fontFamily="C8aTajra, serif">YeneSchool</text>
-                </svg>
-                {[
-                  { style: { top: 5, left: 170 }, label: t("modules.orbit.labels")[0], desc: t("modules.orbit.descs")[0] },
-                  { style: { top: 90, right: 25 }, label: t("modules.orbit.labels")[1], desc: t("modules.orbit.descs")[1] },
-                  { style: { top: 90, left: 25 }, label: t("modules.orbit.labels")[2], desc: t("modules.orbit.descs")[2] },
-                  { style: { bottom: 90, right: 25 }, label: t("modules.orbit.labels")[3], desc: t("modules.orbit.descs")[3] },
-                  { style: { bottom: 5, left: 170 }, label: t("modules.orbit.labels")[4], desc: t("modules.orbit.descs")[4] },
-                  { style: { bottom: 90, left: 25 }, label: t("modules.orbit.labels")[5], desc: t("modules.orbit.descs")[5] },
-                ].map((node, i) => (
-                  <div key={i} className="geo-node" style={{ "--i": i, ...node.style }}>
-                    <strong>{node.label}</strong>
-                    <span>{node.desc}</span>
+              <div className="modules-gyro-engine">
+                <div className="gyro-halo" aria-hidden="true" />
+                <div className="gyro-ring gyro-ring-1" />
+                <div className="gyro-ring gyro-ring-2" />
+                <div className="gyro-ring gyro-ring-3" />
+
+                <div className="gyro-core">
+
+                  <span className="gyro-core-badge">ERP ENGINE</span>
+                  <strong className="gyro-core-brand">YeneSchool</strong>
+                  <span className="gyro-core-tag">Modular Matrix</span>
+                </div>
+
+                <div className="gyro-satellite sat-1">
+                  <div className="sat-icon cyan">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                    </svg>
                   </div>
-                ))}
+                  <div className="sat-content">
+                    <strong>Academic Core</strong>
+                    <span>13-Month & G1–12 Scope</span>
+                  </div>
+                </div>
+
+                <div className="gyro-satellite sat-2">
+                  <div className="sat-icon emerald">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 20h9" />
+                      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                    </svg>
+                  </div>
+                  <div className="sat-content">
+                    <strong>Marks & Reports</strong>
+                    <span>Rankings & Bulk PDF</span>
+                  </div>
+                </div>
+
+                <div className="gyro-satellite sat-3">
+                  <div className="sat-icon amber">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="14" x="2" y="5" rx="4" />
+                      <line x1="2" x2="22" y1="10" y2="10" />
+                    </svg>
+                  </div>
+                  <div className="sat-content">
+                    <strong>Finance & Tuition</strong>
+                    <span>Telebirr & CBE Billing</span>
+                  </div>
+                </div>
+
+                <div className="gyro-satellite sat-4">
+                  <div className="sat-icon purple">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2v4" />
+                      <path d="m4.93 4.93 2.83 2.83" />
+                      <path d="M2 12h4" />
+                      <path d="m19.07 4.93-2.83 2.83" />
+                    </svg>
+                  </div>
+                  <div className="sat-content">
+                    <strong>AI Radar & IoT</strong>
+                    <span>At-Risk & Smart Siren</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -125,6 +165,6 @@ export default function ModulesPage() {
         </section>
       </main>
     </PageShell>
-    
+
   );
 }

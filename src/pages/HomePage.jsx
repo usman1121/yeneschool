@@ -57,7 +57,7 @@ export default function HomePage() {
             </div>
             <div className="preview-perspective" data-dashboard-frame>
               <div className="preview-skew">
-                <img className="tailark-dashboard-img" src="./assets/admin.webp" srcSet="./assets/admin-1280.webp 1280w, ./assets/admin-960.webp 960w, ./assets/admin-640.webp 640w" sizes="(max-width: 768px) 100vw, 1281px" alt="YeneSchool admin dashboard preview" data-dashboard-image width={1920} height={1198} loading="eager" fetchPriority="high" decoding="async" />
+                <img className="tailark-dashboard-img" src="./assets/directordashbaord.webp" srcSet="./assets/directordashbaord-1280.webp 1280w, ./assets/directordashbaord-960.webp 960w, ./assets/directordashbaord-640.webp 640w" sizes="(max-width: 768px) 100vw, 1281px" alt="YeneSchool director dashboard preview" data-dashboard-image width={1882} height={1131} loading="eager" fetchPriority="high" decoding="async" />
               </div>
             </div>
             <div className="hero-dashboard-switcher" data-dashboard-slider aria-label="Dashboard previews">
@@ -67,11 +67,17 @@ export default function HomePage() {
                 </svg>
               </button>
               <div className="dashboard-slide-dots" role="tablist" aria-label="Choose dashboard preview">
-                <button className="dashboard-dot is-active" type="button" role="tab" data-dashboard-slide={0} aria-label="Show Director dashboard" aria-selected="true" />
-                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={1} aria-label="Show Teacher dashboard" aria-selected="false" />
-                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={2} aria-label="Show Parent dashboard" aria-selected="false" />
-                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={3} aria-label="Show Finance dashboard" aria-selected="false" />
-                <button className="dashboard-dot" type="button" role="tab" data-dashboard-slide={4} aria-label="Show Registrar dashboard" aria-selected="false" />
+                {(t("home.dashboardSlides.items") || []).map((slide, index) => (
+                  <button
+                    key={index}
+                    className={`dashboard-dot${index === 0 ? " is-active" : ""}`}
+                    type="button"
+                    role="tab"
+                    data-dashboard-slide={index}
+                    aria-label={`Show ${slide.title}`}
+                    aria-selected={index === 0 ? "true" : "false"}
+                  />
+                ))}
               </div>
               <button className="dashboard-btn dashboard-next" type="button" data-dashboard-next aria-label="Next dashboard">
                 <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">

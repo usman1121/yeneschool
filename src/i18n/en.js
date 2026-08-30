@@ -141,31 +141,73 @@ export const en = {
             alt: "YeneSchool director dashboard preview",
             title: "Director Dashboard",
             description:
-              "Oversee academics, classes, sections, subjects, staff accounts, announcements, assessment setup, and full school configuration from one powerful control center built for school owners and directors.",
+              "Oversee academics, classes, sections, subjects, staff accounts, assessment setup, and full school configuration from one powerful control center built for school owners and directors.",
           },
           {
-            alt: "YeneSchool teacher leaderboard dashboard preview",
+            alt: "YeneSchool teacher leaderboard and workspace preview",
             title: "Teacher Workspace",
             description:
-              "Track attendance, submit lessons and assignments, enter grades, run online exams with access codes and timers, and follow class performance — all organized around your assigned classes, subjects, and daily timetable.",
+              "Track attendance, submit lessons and assignments, enter grades, run online exams with access codes and timers, and follow class performance and rankings.",
+          },
+          {
+            alt: "YeneSchool student leaderboard and portal preview",
+            title: "Student Leaderboard & Portal",
+            description:
+              "Empower students to monitor academic progress, assignments, upcoming assessments, attendance streaks, and leaderboard standing across quarters.",
           },
           {
             alt: "YeneSchool parent dashboard preview",
             title: "Parent Portal",
             description:
-              "Follow your child's published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, and school notices — with real-time updates and a communication book that keeps you connected to every classroom moment.",
+              "Follow your child's published attendance, grades, report cards, fee status, assignments, timetable, discipline notes, and school notices — with real-time updates and a communication book.",
           },
           {
             alt: "YeneSchool finance dashboard preview",
             title: "Finance Dashboard",
             description:
-              "Own fee structures, installment plans, student balances, discounts, receipts, and overdue follow-up — with payroll access, finance summaries, and parent-visible fee records that keep every transaction transparent and accountable.",
+              "Manage fee structures, installment plans, student balances, discounts, receipts, and overdue follow-up with complete audit trails and parent-visible fee records.",
           },
           {
-            alt: "YeneSchool registrar dashboard preview",
-            title: "Registrar Desk",
+            alt: "YeneSchool academic quarter summary and grades preview",
+            title: "Academic Quarter Summary",
             description:
-              "Handle enrollment requests, student records, parent links, class placement, promotion movement, national-exam candidates, and school-leaving workflows — keeping every student's journey from admission to graduation accurate and complete.",
+              "Deep-dive into student performance metrics, subject averages, grade distributions, and quarter-by-quarter progress tracking across all classes and sections.",
+          },
+          {
+            alt: "YeneSchool school analytics and operations preview",
+            title: "School Analytics",
+            description:
+              "Real-time school-wide intelligence across attendance rates, enrollment trends, revenue tracking, and academic performance distribution in dynamic charts.",
+          },
+          {
+            alt: "YeneSchool school data health preview",
+            title: "Data Health & Quality",
+            description:
+              "Automated integrity scans, missing record alerts, unassigned student detection, and data completeness auditing to keep school records pristine.",
+          },
+          {
+            alt: "YeneSchool student promotion and admissions preview",
+            title: "Student Promotion & Placement",
+            description:
+              "Seamless manual and automated student promotion between academic years, class placements, sections transitions, and graduation workflows.",
+          },
+          {
+            alt: "YeneSchool syllabus and curriculum tracking preview",
+            title: "Syllabus Management",
+            description:
+              "Track lesson plans, unit coverage, pacing guides, and curriculum milestones across subjects and grade levels in real time.",
+          },
+          {
+            alt: "YeneSchool school settings and configuration preview",
+            title: "School Settings & Control",
+            description:
+              "Configure academic years, grading scales, terms, periods, bell schedules, role permissions, and customized institutional workflows in one unified control panel.",
+          },
+          {
+            alt: "YeneSchool AI assistant and school intelligence preview",
+            title: "AI Assistant & Intelligence",
+            description:
+              "Leverage AI-powered insights, intelligent student performance analysis, at-risk student detection, automated report generation, and smart school decision support.",
           },
         ],
       },

@@ -288,9 +288,11 @@ NEXT_PUBLIC_API_URL="http://localhost:8001"
 
 ## Screenshots
 
-![Admin Dashboard](admin.png)  ![Finance](finance.png)
-![Parent Portal](parent.png)  ![Registrar](registrar.png)
-![Teacher Leaderboard](teacherleaderboard.png)
+![Director Dashboard](public/assets/directordashbaord.png)  ![Teacher Workspace](public/assets/teacherleaderboard.png)
+![Student Leaderboard](public/assets/studentleaderboard.png)  ![Parent Portal](public/assets/parent.png)
+![Quarter Summary](public/assets/quartersummary.png)  ![School Analytics](public/assets/schoolanalytics.png)
+![Student Promotion](public/assets/studentpromotion.png)  ![Syllabus Management](public/assets/syllubs.png)
+![School Settings](public/assets/schoolsetting.png)  ![AI Intelligence](public/assets/aiimage.png)
 
 ## License
 

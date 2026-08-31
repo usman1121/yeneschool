@@ -120,7 +120,7 @@ export default function HomePage() {
               <span className="section-kicker">{t("home.problem.closingKicker")}</span>
               <h3>{t("home.problem.closingStatement")}</h3>
               <p>{t("home.problem.closingSubtext")}</p>
-              <div className="modules-preview-actions" style={{ justifyContent: "center", marginTop: "24px" }}>
+              <div className="modules-preview-actions" style={{ justifyContent: "center", marginTop: "24px", gap: "16px" }}>
                 <a className="pricing-btn" style={{ width: "auto", margin: 0 }} href="/modules#online-examinations">
                   {t("home.problem.ctaModules")}
                 </a>

@@ -120,7 +120,7 @@ export default function HomePage() {
               <span className="section-kicker">{t("home.problem.closingKicker")}</span>
               <h3>{t("home.problem.closingStatement")}</h3>
               <p>{t("home.problem.closingSubtext")}</p>
-              <div className="modules-preview-actions" style={{ justifyContent: "center", marginTop: "24px", gap: "16px" }}>
+              <div className="modules-preview-actions" style={{ justifyContent: "center", marginTop: "24px", gap: "16px", flexWrap: "wrap" }}>
                 <a className="pricing-btn" style={{ width: "auto", margin: 0, background: "#60a5fa", color: "#fff" }} href="/modules#online-examinations">
                   {t("home.problem.ctaModules")}
                 </a>
@@ -156,7 +156,7 @@ export default function HomePage() {
               </a>
             ))}
           </div>
-          <div className="modules-preview-actions" style={{ gap: "12px" }}>
+          <div className="modules-preview-actions" style={{ gap: "12px", flexWrap: "wrap" }}>
             <a className="pricing-btn" style={{ width: 'auto', margin: 0, background: "#60a5fa", color: "#fff" }} href="/modules">{t("home.modules.viewAll")}</a>
           </div>
         </section>
@@ -217,7 +217,7 @@ export default function HomePage() {
           </div>
           <div className="problem-closing-banner" data-reveal>
             <div className="problem-closing-inner">
-              <div className="modules-preview-actions" style={{ justifyContent: "center", margin: 0, gap: "16px" }}>
+              <div className="modules-preview-actions" style={{ justifyContent: "center", margin: 0, gap: "16px", flexWrap: "wrap" }}>
                 <a className="pricing-btn" style={{ width: "auto", margin: 0, background: "#60a5fa", color: "#fff" }} href="/demo">
                   {t("home.ownerAdvantages.ctaPilot")}
                 </a>

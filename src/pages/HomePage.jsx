@@ -156,7 +156,7 @@ export default function HomePage() {
               </a>
             ))}
           </div>
-          <div className="modules-preview-actions">
+          <div className="modules-preview-actions" style={{ gap: "12px" }}>
             <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/modules">{t("home.modules.viewAll")}</a>
           </div>
         </section>
@@ -217,7 +217,7 @@ export default function HomePage() {
           </div>
           <div className="problem-closing-banner" data-reveal>
             <div className="problem-closing-inner">
-              <div className="modules-preview-actions" style={{ justifyContent: "center", margin: 0 }}>
+              <div className="modules-preview-actions" style={{ justifyContent: "center", margin: 0, gap: "16px" }}>
                 <a className="pricing-btn" style={{ width: "auto", margin: 0 }} href="/demo">
                   {t("home.ownerAdvantages.ctaPilot")}
                 </a>

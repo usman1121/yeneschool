@@ -157,7 +157,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="modules-preview-actions" style={{ gap: "12px" }}>
-            <a className="pricing-btn" style={{ width: 'auto', margin: 0 }} href="/modules">{t("home.modules.viewAll")}</a>
+            <a className="pricing-btn" style={{ width: 'auto', margin: 0, background: "#60a5fa", color: "#fff" }} href="/modules">{t("home.modules.viewAll")}</a>
           </div>
         </section>
         <section className="school-signals-section ai-intelligence-section" aria-label="AI intelligence capabilities" data-reveal>
@@ -218,7 +218,7 @@ export default function HomePage() {
           <div className="problem-closing-banner" data-reveal>
             <div className="problem-closing-inner">
               <div className="modules-preview-actions" style={{ justifyContent: "center", margin: 0, gap: "16px" }}>
-                <a className="pricing-btn" style={{ width: "auto", margin: 0 }} href="/demo">
+                <a className="pricing-btn" style={{ width: "auto", margin: 0, background: "#60a5fa", color: "#fff" }} href="/demo">
                   {t("home.ownerAdvantages.ctaPilot")}
                 </a>
                 <a className="secondary-btn" style={{ width: "auto" }} href="/vs-others">

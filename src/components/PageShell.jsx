@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslation } from "../i18n/I18nContext.jsx";
+import YeneSchoolNavbar from "./YeneSchoolNavbar.jsx";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -57,86 +58,11 @@ function NavLink({ activePage, page, href, children, ...props }) {
 }
 
 function Header({ activePage }) {
-  const { lang, setLanguage, t } = useTranslation();
-
   return (
     <>
       <canvas className="wave-canvas" data-wave-canvas aria-hidden="true" />
       <div className="page-glow" aria-hidden="true" />
-      <header className="site-header" data-site-header>
-        <div className="nav-inner">
-          <a className="brand" href="/" aria-label="YeneSchool" data-no-translate>
-            <Brand />
-          </a>
-          <button
-            className="mobile-toggle"
-            type="button"
-            data-mobile-toggle
-            aria-label={t("nav.openMenu") || "Open Menu"}
-            aria-expanded="false"
-            data-mobile-toggle-aria
-          >
-            <MenuIcon />
-          </button>
-          <div className="nav-panel" data-mobile-menu>
-            <nav className="nav-links" aria-label={t("nav.primary") || "Primary navigation"}>
-              <NavLink activePage={activePage} page="modules" href="/modules">
-                {t("nav.modules")}
-              </NavLink>
-              <a href="/#pricing" data-scroll-target="pricing">
-                {t("nav.pricing")}
-              </a>
-              <NavLink activePage={activePage} page="about" href="/about">
-                {t("nav.about")}
-              </NavLink>
-              <NavLink activePage={activePage} page="compare" href="/vs-others">
-                {t("nav.compare")}
-              </NavLink>
-              <NavLink activePage={activePage} page="book" href="/demo">
-                {t("nav.book")}
-              </NavLink>
-              <NavLink activePage={activePage} page="contact" href="/contact">
-                {t("nav.contact")}
-              </NavLink>
-            </nav>
-            <div className="header-actions">
-              <div className="language-switcher" role="group" aria-label={t("language.label") || "Language selection"} data-language-switcher>
-                <button
-                  className={`language-option${lang === "en" ? " is-active" : ""}`}
-                  type="button"
-                  data-language-option="en"
-                  aria-pressed={lang === "en"}
-                  onClick={() => setLanguage("en")}
-                >
-                  {t("language.en")}
-                </button>
-                <button
-                  className={`language-option${lang === "am" ? " is-active" : ""}`}
-                  type="button"
-                  data-language-option="am"
-                  aria-pressed={lang === "am"}
-                  onClick={() => setLanguage("am")}
-                >
-                  {t("language.am")}
-                </button>
-              </div>
-              <button
-                className="theme-switcher"
-                type="button"
-                data-theme-toggle
-                aria-label={t("theme.switchToLight")}
-                aria-pressed="true"
-                data-theme-toggle-aria
-              >
-                <span className="sr-only" data-theme-label>
-                  {t("theme.switchToLight")}
-                </span>
-                <ThemeIcon />
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <YeneSchoolNavbar activePage={activePage} />
     </>
   );
 }

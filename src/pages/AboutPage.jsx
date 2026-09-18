@@ -1,33 +1,12 @@
 import PageShell from "../components/PageShell.jsx";
 import { useTranslation } from "../i18n/I18nContext.jsx";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import BlurText from "../components/ui/BlurText.jsx";
 
 export default function AboutPage() {
   const { t } = useTranslation();
-  const headingRef = useRef(null);
   const heroTitle = t("about.hero.title") || "";
   const values = t("about.values.items") || [];
   const historySteps = t("about.history.steps") || [];
-
-  useEffect(() => {
-    if (!headingRef.current) return;
-    const words = headingRef.current.querySelectorAll(".word");
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        words,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "power2.out" }
-      );
-    }, headingRef);
-    return () => ctx.revert();
-  }, [heroTitle]);
-
-  const splitTitle = heroTitle.split(" ").map((word, i) => (
-    <span key={i} className="word">
-      {word}{" "}
-    </span>
-  ));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -59,11 +38,19 @@ export default function AboutPage() {
       />
       <main id="top" className="about-page">
         {/* Hero Section */}
-        <section className="about-hero section" data-reveal>
+        <section className="about-hero section" aria-labelledby="about-title" data-reveal>
           <div className="about-hero-layout">
             <div className="about-hero-copy">
               <span className="section-kicker">{t("about.hero.kicker")}</span>
-              <h1 ref={headingRef}>{splitTitle}</h1>
+              <BlurText
+                as="h1"
+                id="about-title"
+                text={heroTitle}
+                delay={90}
+                stepDuration={0.45}
+                animateBy="words"
+                direction="bottom"
+              />
               <p className="about-hero-desc">{t("about.hero.subtitle")}</p>
               <div className="about-hero-actions">
                 <a href="/demo" className="primary-btn gradient-btn">

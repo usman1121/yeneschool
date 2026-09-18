@@ -1,24 +1,9 @@
 import PageShell from "../components/PageShell.jsx";
 import { useTranslation } from "../i18n/I18nContext.jsx";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import BlurText from "../components/ui/BlurText.jsx";
 
 export default function ModulesPage() {
   const { t } = useTranslation();
-  const headingRef = useRef(null);
-
-  useEffect(() => {
-    if (!headingRef.current) return;
-    const words = headingRef.current.querySelectorAll(".word");
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        words,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: "power2.out" }
-      );
-    }, headingRef);
-    return () => ctx.revert();
-  }, []);
 
   const moduleCards = [
     { id: "academic-management", key: "academic", icon: <svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-1.5Z" /><path d="M8 7h7M8 11h6" /></svg> },
@@ -48,9 +33,6 @@ export default function ModulesPage() {
   ];
 
   const heading = t("modules.hero.title");
-  const splitHeading = heading.split(" ").map((word, i) =>
-    <span key={i} className="word">{word}</span>
-  );
   return (
     <PageShell activePage="modules">
       <main id="top" className="modules-page">
@@ -58,7 +40,15 @@ export default function ModulesPage() {
           <div className="modules-hero-layout">
             <div className="modules-hero-copy">
               <span className="section-kicker">{t("modules.hero.kicker")}</span>
-              <h1 id="modules-page-title" ref={headingRef}>{splitHeading}</h1>
+              <BlurText
+                as="h1"
+                id="modules-page-title"
+                text={heading}
+                delay={90}
+                stepDuration={0.45}
+                animateBy="words"
+                direction="bottom"
+              />
               <p>
                 {t("modules.hero.subtitle")}
               </p>

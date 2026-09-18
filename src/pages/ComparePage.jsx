@@ -1,7 +1,7 @@
 import PageShell from "../components/PageShell.jsx";
 import { useTranslation } from "../i18n/I18nContext.jsx";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import { useState } from "react";
+import BlurText from "../components/ui/BlurText.jsx";
 
 export default function ComparePage() {
   const { t } = useTranslation();
@@ -10,23 +10,7 @@ export default function ComparePage() {
   const faq = t("compare.faq");
   const [openIndex, setOpenIndex] = useState(null);
 
-  const headingRef = useRef(null);
   const compareTitle = t("compare.hero.title") || "";
-  const splitCompare = compareTitle.split(" ").map((word, i) =>
-    <span key={i} className="word">{word}</span>
-  );
-
-  useEffect(() => {
-    if (!headingRef.current) return;
-    const words = headingRef.current.querySelectorAll(".word");
-    const ctx = gsap.context(() => {
-      gsap.fromTo(words,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: "power2.out" }
-      );
-    }, headingRef);
-    return () => ctx.revert();
-  }, [compareTitle]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -52,7 +36,14 @@ export default function ComparePage() {
           <div className="compare-hero-layout">
             <div className="compare-hero-copy">
               <span className="section-kicker">{t("nav.compare")}</span>
-              <h1 ref={headingRef}>{splitCompare}</h1>
+              <BlurText
+                as="h1"
+                text={compareTitle}
+                delay={90}
+                stepDuration={0.45}
+                animateBy="words"
+                direction="bottom"
+              />
               <p>{t("compare.hero.desc")}</p>
             </div>
             <div className="compare-hero-stats">

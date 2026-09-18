@@ -37,10 +37,27 @@ export const en = {
     },
     home: {
       hero: {
-        title: "Bring your whole school into one complete system.",
+        title: "The World's First AI-Director-Driven School Operating System",
         subtitle:
-          "YeneSchool is an AI-powered school management platform that helps Ethiopian schools run daily operations, connect staff and families, and keep important decisions backed by clear, organized data and AI-powered intelligence. It is the complete school management system in Ethiopia for attendance, grading, fees, and parent communication.",
-        titleExtended: "YeneSchool | School Management System in Ethiopia",
+          "School operations on true autopilot. While you sleep, the AI Director audits yesterday’s attendance, flags syllabus delays, drafts 5E lesson plans, and balances fee records. By 07:00 AM, your leadership team receives an executive briefing with pre-resolved operational actions—no manual spreadsheets required.",
+        titleExtended: "The World's First AI-Director-Driven School Operating System",
+        subtitles: [
+          {
+            tag: "01 Autonomous Student Remediation",
+            lead: "Targeted online booster exams generated without teachers.",
+            text: "When a student struggles with a topic or scores below 50%, the AI automatically builds adaptive confidence booster practice questions directly on their portal. Zero teacher workload—the system schedules, tests, and updates parents automatically.",
+          },
+          {
+            tag: "02 AI 5E Lesson Planning & Prep",
+            lead: "Curriculum-aligned 5E lesson bundles mapped to timetables.",
+            text: "Teachers never face a blank slate. In one click, the AI generates complete weekly 5E lesson plans (Engage, Explore, Explain, Elaborate, Evaluate) with student book page mappings, differentiated scaffolding for struggling learners, and confidential teacher answer keys.",
+          },
+          {
+            tag: "03 Targeted Parent & Teacher Alerts",
+            lead: "Direct, student-specific issue alerts via Telegram & App.",
+            text: "The AI connects parents and subject teachers the moment grades drop. It dispatches personalized Telegram and app alerts in the teacher's voice with review exercises, escalating chronic multi-subject issues directly to the school director.",
+          },
+        ],
       },
       signals: {
         title: "Built around the daily work of real schools.",
@@ -57,7 +74,7 @@ export const en = {
           "Teacher workspace",
           "Timetables",
           "School operations",
-          "AI Assistant",
+          "Autonomous AI Director",
         ],
       },
       problem: {
@@ -142,8 +159,8 @@ export const en = {
             desc: "Timetables · Academic Calendar · Staff Management · School Reports · Announcements · Documents",
           },
           {
-            title: "AI-Powered Intelligence",
-            desc: "AI Assistant · Student Performance Intelligence · Early Warning · Teacher Performance Insights · School Analytics · AI-Powered Reports",
+            title: "Autonomous AI Director",
+            desc: "Midnight Operations Audits · 07:00 AM Briefings · Student Performance Intelligence · Early Warning · School Analytics · AI-Powered Reports",
           },
           {
             title: "Mobile Experience",
@@ -226,111 +243,111 @@ export const en = {
               "Configure academic years, grading scales, terms, periods, bell schedules, role permissions, and customized institutional workflows in one unified control panel.",
           },
           {
-            alt: "YeneSchool AI assistant and school intelligence preview",
-            title: "AI Assistant & Intelligence",
+            alt: "YeneSchool AI Director and school intelligence preview",
+            title: "Autonomous AI Director & Intelligence",
             description:
-              "Leverage AI-powered insights, intelligent student performance analysis, at-risk student detection, automated report generation, and smart school decision support.",
+              "Run school operations on autopilot with the AI Director: midnight operational audits, 07:00 AM executive briefings, at-risk student detection, and automated decision execution.",
           },
         ],
       },
       aiIntelligence: {
-        title: "AI intelligence built into every workflow.",
+        title: "The Autonomous Educational Engine",
         subtitle:
-          "YeneSchool doesn't just store school data. It turns that data into insights that help administrators, teachers, and school leaders make better decisions.",
+          "Not just another generic chatbot. YeneSchool runs specialized autonomous services that generate student practice exams without teachers, plan MoE curriculum lessons, and bridge parents with teachers on individual student issues.",
         cards: [
           {
-            title: "Student Performance Intelligence",
-            desc: "Identify trends and understand how students are progressing.",
+            title: "Teacherless Remedial Practice Exams",
+            desc: "When a student scores <50% on any assessment, the AI automatically generates adaptive confidence booster practice questions on their portal with step-by-step explanations.",
           },
           {
-            title: "At-Risk Student Detection",
-            desc: "Identify students who may need additional support.",
+            title: "MoE 5E Lesson Planning & Teacher Prep",
+            desc: "Generates weekly 5E lesson bundles (Engage, Explore, Explain, Elaborate, Evaluate) mapped to Ethiopian textbooks, with differentiated scaffolding and teacher answer keys.",
           },
           {
-            title: "Teacher Performance Analytics",
-            desc: "Measure meaningful indicators of teacher performance and student progress.",
+            title: "Proactive Parent-Teacher Academic Outreach",
+            desc: "Dispatches personalized Telegram & in-app alerts in the subject teacher's voice when a child needs help, saving teachers from making dozens of individual phone calls.",
           },
           {
-            title: "Syllabus & Curriculum Intelligence",
-            desc: "Track syllabus progress and identify where classes are falling behind.",
+            title: "01:00 AM Midnight Audit & 07:00 AM Briefing",
+            desc: "Audits operational rosters, unsubmitted marks, and lagging syllabus topics while staff sleeps, delivering an executive briefing with 1-click approvals by 07:00 AM.",
           },
           {
-            title: "Intelligent Timetable Generation",
-            desc: "Create optimized timetables around teachers, classes, subjects and constraints.",
+            title: "Chronic Risk & Director Escalation",
+            desc: "Monitors students across all subjects; if a student experiences performance drops in 3+ subjects, it automatically escalates to the Director persona for intervention.",
           },
           {
-            title: "Finance Intelligence",
-            desc: "Identify unusual payment and financial patterns.",
+            title: "Adaptive 3-Day Practice Cadence",
+            desc: "Schedules a structured Mon/Wed/Fri practice routine for struggling students, reinforcing difficult formulas and concepts until mastery is achieved.",
           },
           {
-            title: "Parent Engagement Analytics",
-            desc: "Understand communication and engagement patterns.",
+            title: "Attendance-Linked Syllabus Tracking",
+            desc: "Each classroom attendance submission automatically marks lessons as completed in the curriculum roadmap, highlighting pacing delays weeks before exams.",
           },
           {
-            title: "Role-Specific AI Assistant",
-            desc: "Give administrators, teachers, parents and supervisors an AI assistant that understands their role and available school data.",
+            title: "24/7 Multilingual Parent Inquiries",
+            desc: "Autonomously answers parent questions in Amharic, Afaan Oromo, Somali, and English about their child's specific homework, attendance, grades, and fees.",
           },
         ],
         assistant: {
-          title: "AI Assistant",
-          desc: "Ask questions in plain language and get instant answers from your school's own data. Attendance summaries, fee statuses, class performance, and daily schedules are available through a simple chat — no reports or menus needed.",
+          title: "Autonomous Student Remediation & AI Director",
+          desc: "Empowers struggling students with self-administered practice tests while giving school leadership total operational oversight without staff exhaustion.",
           items: [
-            "Natural language queries across all school records",
-            "Instant answers for staff, teachers, and parents",
-            "Works within each role's permissions and data access",
+            "Self-administered confidence booster practice questions for struggling students",
+            "Automated weekly 5E lesson planning mapped to Ethiopian MoE textbooks & timetables",
+            "01:00 AM midnight audit & 07:00 AM executive director briefing with 1-click actions",
           ],
         },
         reports: {
-          title: "AI Report Generation",
-          desc: "Turn raw school data into polished, ready-to-share documents in seconds. Academic reports, performance summaries, finance overviews, and board presentations are generated automatically from live system data.",
+          title: "Direct Parent-Teacher Academic Outreach",
+          desc: "Bridges the gap between classroom struggles and home support. Instead of waiting for term-end report cards, the AI initiates immediate interventions the moment scores drop.",
           items: [
-            "Academic, finance, and operational report templates",
-            "Auto-generated summaries, insights, and recommendations",
-            "Export-ready output for printing, sharing, and board meetings",
+            "Automated teacher-voiced Telegram/App messages to parents regarding specific quiz scores",
+            "Instant progress celebration updates sent to parents when students pass practice boosters",
+            "Multi-subject risk escalations sent directly to the Director's phone for proactive follow-up",
           ],
         },
       },
       modules: {
         eyebrow: "How YeneSchool Solves It",
-        title: "How YeneSchool turns exam struggle into measurable success.",
+        title: "From AI lesson planning to exam mastery: How YeneSchool turns struggle into measurable success.",
         subtitle:
-          "Instead of waiting for national exam day to reveal learning gaps, YeneSchool gives schools the diagnostic tools, mock examinations, and real-time intelligence needed to ensure every student is prepared.",
+          "Instead of waiting for national exam day to reveal learning gaps, YeneSchool begins directly in the classroom: teachers get AI-powered 5E lesson plans aligned with Ethiopian textbooks and auto-mapped to weekly timetable slots, while daily attendance syncs lesson coverage, triggers instant parent updates, and powers diagnostic mock exams to guarantee student readiness.",
         viewAll: "Explore all system modules",
         cards: {
-          diagnostics: {
-            title: "Topic-Level Diagnostic Analytics",
-            desc: "Identifies the exact chapters and formulas holding students back across Math, Sciences, and English, eliminating wasted study time.",
+          remedialPractice: {
+            title: "Teacherless Remedial Practice Exams",
+            desc: "When students struggle with a topic, the AI automatically generates adaptive online practice questions with step-by-step explanations, building mastery without teacher workload.",
             anchor: "online-examinations",
           },
+          lessonPlanning: {
+            title: "Timetable-Linked AI 5E Lesson Planning",
+            desc: "Generates curriculum-aligned 5E lesson plans with student book page references, teacher guide notes, differentiated scaffolding, and confidential answer keys—auto-scheduled into timetables.",
+            anchor: "academic-management",
+          },
+          academicOutreach: {
+            title: "Proactive Parent-Teacher Issue Alerts",
+            desc: "Dispatches personalized Telegram/app notifications in the teacher's voice when scores dip below 50%, sharing review exercises and keeping parents engaged.",
+            anchor: "communication",
+          },
+          syllabusTracking: {
+            title: "Real-Time Lesson & Syllabus Tracking",
+            desc: "Attendance-linked sync marks lessons as covered in 1 click, updating syllabus completion bars and dispatching homework automatically.",
+            anchor: "academic-management",
+          },
           mockExams: {
-            title: "Timed National Mock Exams",
-            desc: "Continuous multi-choice practice with countdown timers and standardized formats so students conquer exam-day pacing and pressure.",
+            title: "Timed National Mock Examinations",
+            desc: "Continuous multi-choice practice with countdown timers and standardized formats from national exam question banks so students conquer exam-day pressure.",
             anchor: "online-examinations",
           },
           teacherHeatmaps: {
-            title: "Teacher Mastery Heatmaps",
-            desc: "Gives educators instant visibility into which subject units an entire class is struggling with to run targeted remedial classes.",
+            title: "Teacher Mastery & Gap Heatmaps",
+            desc: "Gives educators instant visibility into which specific competencies or chapters an entire class is failing so they can run targeted reviews.",
             anchor: "academic-management",
           },
           earlyWarning: {
-            title: "Director Early-Warning Alerts",
-            desc: "Alerts school owners and directors to at-risk Grade 12 sections months before national exam day, enabling early intervention.",
+            title: "Director 01:00 AM Midnight Audit & Alerts",
+            desc: "Audits operational health, unsubmitted marks, and lagging Grade 8/12 classes nightly, delivering an executive 07:00 AM kickoff.",
             anchor: "automation-reporting",
-          },
-          aiGuidance: {
-            title: "AI-Powered Next-Study Guidance",
-            desc: "Automatically recommends what topics each student should revise next to achieve the highest possible national exam score gains.",
-            anchor: "ai",
-          },
-          syllabusTracking: {
-            title: "Syllabus & Curriculum Tracking",
-            desc: "Monitors lesson coverage and curriculum completion across all departments to ensure no exam unit is rushed or skipped.",
-            anchor: "academic-management",
-          },
-          parentPortal: {
-            title: "Parent Visibility & Follow-Up",
-            desc: "Keeps families informed with published grades, mock test results, and attendance records so parents support revision at home.",
-            anchor: "communication",
           },
           unifiedPlatform: {
             title: "Unified School Operations & SIS",
@@ -380,15 +397,18 @@ export const en = {
         ctaExplore: "Compare with Traditional Methods",
       },
       parent: {
-        eyebrow: "Parent Visibility",
-        title: "Families see what the school has actually published.",
+        eyebrow: "Parent Portal & Family Visibility",
+        title: "Total Transparency for Families. Seamless Billing & Academics.",
         subtitle:
-          "Parent pages stay tied to submitted school records, selected academic years, and published outputs so families get clear updates instead of confusing raw admin data.",
+          "Empower parents with direct online settlement for tuition, transport, uniforms, and admissions via Telebirr and CBE, period-by-period attendance tracking, digital report cards, and targeted practice boosters.",
         tabs: {
-          attendance: "Attendance",
-          reportCards: "Report cards",
-          feeStatus: "Fee status",
-          notices: "Notices",
+          fees: "Online Payments",
+          attendance: "Live Attendance",
+          reportCards: "Official Report Cards",
+          practice: "Practice Boosters",
+          notices: "School Circulars & Chat",
+          aiDialogue: "Practice Boosters",
+          feeStatus: "Online Payments",
         },
         badges: {
           excellent: "Excellent",
@@ -823,19 +843,20 @@ export const en = {
           ],
         },
           ai: {
-            title: "AI-Powered Intelligence",
-            desc: "Integrates AI into school operations for conversational assistance, automated reporting, smart alerts, recommendations, and school assessments.",
+            title: "Autonomous AI Director",
+            desc: "Conducts midnight operational audits, generates morning executive briefings, enforces assessment deadlines, and provides 24/7 multilingual parent dialogue.",
             roles: "Director, Teacher, Parent",
             items: [
-              "AI Assistant chatbot for instant answers to school-related queries from staff and parents",
-              "AI Report Generator that produces academic reports, summaries, and insights from school data",
-              "AI Smart Alerts that detect anomalies, attendance patterns, and operational issues requiring attention",
+              "Autonomous 01:00 AM midnight audit & 07:00 AM executive briefings",
+              "Proactive 24/7 multilingual parent dialogue in Amharic, Afaan Oromo, Somali, and English",
+              "AI Report Generator that produces academic reports, summaries, and executive insights from live school data",
+              "AI Smart Alerts that detect anomalies, attendance patterns, and operational bottlenecks requiring attention",
               "AI Recommendations engine for personalized student learning paths and school improvement suggestions",
               "AI School Assessment that evaluates overall school performance, trends, and benchmarking",
               "Natural language processing across attendance, marks, finance, and communication data",
               "At-risk student detection based on attendance, grades, and engagement signals",
               "Syllabus and curriculum progress tracking against the academic calendar",
-              "Role-specific AI assistant tailored to each dashboard's workflows and permissions",
+              "Standing autonomous operational directives with 1-click administrative authorization",
             ],
           },
           backup: {
@@ -1278,9 +1299,9 @@ export const en = {
     },
     pageMeta: {
       home: {
-        title: "YeneSchool | School Management System in Ethiopia",
+        title: "The World's First AI-Director-Driven School Operating System",
         description:
-          "The most complete school management system in Ethiopia for modern schools ready to run smarter, faster, and with confidence — now with AI-powered intelligence.",
+          "Run school operations on autopilot. YeneSchool features an autonomous AI Director for midnight operational audits, 07:00 AM executive briefings, assessment watchdogs, and 24/7 multilingual parent communication across Ethiopia.",
       },
       modules: {
         title: "Modules | YeneSchool",

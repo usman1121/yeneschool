@@ -80,7 +80,7 @@ export default function NavbarTwo({ activePage = "" }) {
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent">
       <div className="relative mx-auto flex h-14 w-full max-w-[1400px] items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Desktop Left Logo */}
-        <div className="hidden lg:flex items-center">
+        <div className="hidden lg:flex items-center pt-2">
           <a className="brand" href="/" aria-label="YeneSchool" data-no-translate>
             <span className="brand-wordmark" data-no-translate>
               <span>Yene</span>

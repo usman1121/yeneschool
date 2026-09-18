@@ -5264,9 +5264,10 @@ html.dark .service-plan {
   }
 
   .hero h1 {
-    padding: 0;
+    padding: 0 0 0.16em 0;
     font-size: clamp(38px, 12.5vw, 52px);
-    line-height: 1.06;
+    line-height: 1.18;
+    overflow: visible;
   }
 
   .hero-copy p {
@@ -5664,7 +5665,8 @@ html.dark .service-plan {
     padding-top: 74px;
   }
 
-  .role-heading h2 {
+  .role-heading h2,
+  .modules-preview-heading h2 {
     font-size: clamp(34px, 10vw, 44px);
   }
 

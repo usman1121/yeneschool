@@ -647,16 +647,14 @@ p {
 .hero h1 {
   max-width: 820px;
   margin-bottom: 24px;
-  padding: 0 24px;
-  background: var(--hero-title-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  padding: 0 24px 0.08em;
+  color: var(--foreground);
   font-size: clamp(40px, 6vw, 64px);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.05em;
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
   text-align: center;
+  overflow: visible;
 }
 
 
@@ -910,16 +908,14 @@ p {
 .tailark-hero h1 {
   max-width: none;
   margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, var(--foreground), var(--muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  padding: 0 0 0.08em 0;
+  color: var(--foreground);
   font-size: clamp(48px, 7vw, 96px);
   font-weight: 800;
-  line-height: 1.06;
+  line-height: 1.02;
   letter-spacing: -0.04em;
   text-wrap: balance;
+  overflow: visible;
 }
 
 .tailark-hero .hero-copy p {
@@ -2123,7 +2119,7 @@ pre {
 .hero-copy h1 .word {
   display: inline-block;
   margin-right: 0.35em;
-  padding: 4px 0;
+  padding: 1px 0;
   background: var(--hero-title-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -5623,6 +5619,9 @@ html.dark .service-plan {
 
   .tailark-hero h1 {
     font-size: clamp(42px, 12vw, 58px);
+    line-height: 1.05;
+    padding-bottom: 0.08em;
+    overflow: visible;
   }
 
   .tailark-hero .hero-copy p {

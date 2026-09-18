@@ -578,19 +578,22 @@ export default function HomePage() {
               {t("home.pricing.toggle.annual")} <span className="save-badge">{t("home.pricing.toggle.bestValue")}</span>
             </span>
           </div>
+          <div className="pricing-all-inclusive-badge">
+            <span className="pill-check">✓</span> {t("home.pricing.allFeaturesNotice")}
+          </div>
           <div className="pricing-grid">
             <article className="pricing-card pricing-side-left" data-plan="core">
               <div className="plan-header">
                 <p className="plan-name">{t("home.pricing.plans.core.name")}</p>
                 <p className="plan-audience">{t("home.pricing.plans.core.audience")}</p>
-                <p className="plan-students">{t("home.pricing.plans.core.students")}</p>
+                <p className="plan-students">{t("home.pricing.plans.core.students")}{t("home.pricing.plans.core.perStudent") ? <span className="student-rate"> ({t("home.pricing.plans.core.perStudent")})</span> : null}</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">180,000 ETB/year</span>
+                  <span className="renewal-price annual-only">300,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.core.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="15,000 ETB/mo" data-annual-price="135,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="25,000 ETB/mo" data-annual-price="225,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.core.monthlyNote")} data-annual-note={t("home.pricing.plans.core.annualNote")}>{t("home.pricing.plans.core.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">
@@ -625,14 +628,14 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">{t("home.pricing.plans.standard.name")}</p>
                 <p className="plan-audience">{t("home.pricing.plans.standard.audience")}</p>
-                <p className="plan-students">{t("home.pricing.plans.standard.students")}</p>
+                <p className="plan-students">{t("home.pricing.plans.standard.students")}{t("home.pricing.plans.standard.perStudent") ? <span className="student-rate"> ({t("home.pricing.plans.standard.perStudent")})</span> : null}</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">240,000 ETB/year</span>
+                  <span className="renewal-price annual-only">540,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.standard.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="20,000 ETB/mo" data-annual-price="180,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="45,000 ETB/mo" data-annual-price="405,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.standard.monthlyNote")} data-annual-note={t("home.pricing.plans.standard.annualNote")}>{t("home.pricing.plans.standard.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">
@@ -663,14 +666,14 @@ export default function HomePage() {
               <div className="plan-header">
                 <p className="plan-name">{t("home.pricing.plans.ultimate.name")}</p>
                 <p className="plan-audience">{t("home.pricing.plans.ultimate.audience")}</p>
-                <p className="plan-students">{t("home.pricing.plans.ultimate.students")}</p>
+                <p className="plan-students">{t("home.pricing.plans.ultimate.students")}{t("home.pricing.plans.ultimate.perStudent") ? <span className="student-rate"> ({t("home.pricing.plans.ultimate.perStudent")})</span> : null}</p>
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">420,000 ETB/year</span>
+                  <span className="renewal-price annual-only">840,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.ultimate.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="35,000 ETB/mo" data-annual-price="315,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="70,000 ETB/mo" data-annual-price="630,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.ultimate.monthlyNote")} data-annual-note={t("home.pricing.plans.ultimate.annualNote")}>{t("home.pricing.plans.ultimate.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">
@@ -697,6 +700,35 @@ export default function HomePage() {
               <hr className="plan-divider" />
               <a className="pricing-btn" href="/contact">{t("home.pricing.contactSales")}</a>
             </article>
+          </div>
+          <div className="pricing-enterprise-banner" data-reveal>
+            <div className="enterprise-banner-content">
+              <div className="enterprise-badge-group">
+                <span className="enterprise-badge">{t("home.pricing.enterprise.tag")}</span>
+                <span className="enterprise-capacity">{t("home.pricing.enterprise.students")}</span>
+              </div>
+              <h3 className="enterprise-title">{t("home.pricing.enterprise.name")}</h3>
+              <p className="enterprise-desc">{t("home.pricing.enterprise.desc")}</p>
+              <ul className="enterprise-features">
+                {t("home.pricing.enterprise.features").map((f, i) => (
+                  <li key={i}>
+                    <svg className="check-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="enterprise-banner-cta">
+              <div className="enterprise-price-box">
+                <p className="enterprise-price">
+                  {t("home.pricing.enterprise.priceDisplay")}
+                </p>
+                <span className="enterprise-price-sub">{t("home.pricing.enterprise.subtext")}</span>
+              </div>
+              <a className="pricing-btn enterprise-btn" href="/contact?type=enterprise">
+                {t("home.pricing.contactSales")}
+              </a>
+            </div>
           </div>
         </section>
         <section className="section testimonials-section" aria-labelledby="testimonials-heading">

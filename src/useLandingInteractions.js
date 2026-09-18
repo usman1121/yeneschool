@@ -144,9 +144,9 @@ const dashboardSlides = [
     srcset: "./assets/schoolsetting-1280.webp 1280w, ./assets/schoolsetting-960.webp 960w, ./assets/schoolsetting-640.webp 640w",
   },
   {
-    alt: "YeneSchool AI assistant and school intelligence preview",
-    title: "AI Assistant & Intelligence",
-    description: "Leverage AI-powered insights, intelligent student performance analysis, at-risk student detection, automated report generation, and smart school decision support.",
+    alt: "YeneSchool AI Director and autonomous school intelligence preview",
+    title: "Autonomous AI Director & Intelligence",
+    description: "Run school operations on autopilot with the AI Director: midnight operational audits, 07:00 AM executive briefings, at-risk student detection, and automated decision execution.",
     image: "./assets/aiimage.webp",
     fallback: "./assets/aiimage.png",
     srcset: "./assets/aiimage-1280.webp 1280w, ./assets/aiimage-960.webp 960w, ./assets/aiimage-640.webp 640w",

@@ -301,7 +301,11 @@ export default function HomePage() {
                 {t("home.parent.subtitle")}
               </p>
               <div className="parent-tabs" role="tablist" aria-label="Parent visibility views">
-                <button className="parent-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="parent-panel-attendance" id="parent-tab-attendance" data-parent-tab="attendance">
+                <button className="parent-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="parent-panel-fees" id="parent-tab-fees" data-parent-tab="fees">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" /></svg>
+                  {t("home.parent.tabs.fees")}
+                </button>
+                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-attendance" id="parent-tab-attendance" data-parent-tab="attendance">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
                   {t("home.parent.tabs.attendance")}
                 </button>
@@ -309,9 +313,9 @@ export default function HomePage() {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
                   {t("home.parent.tabs.reportCards")}
                 </button>
-                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-fees" id="parent-tab-fees" data-parent-tab="fees">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={10} /><path d="M12 6v12M8 12h8" /></svg>
-                  {t("home.parent.tabs.feeStatus")}
+                <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-practice" id="parent-tab-practice" data-parent-tab="practice">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" /></svg>
+                  {t("home.parent.tabs.practice")}
                 </button>
                 <button className="parent-tab" type="button" role="tab" aria-selected="false" aria-controls="parent-panel-notices" id="parent-tab-notices" data-parent-tab="notices">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
@@ -320,9 +324,96 @@ export default function HomePage() {
               </div>
             </div>
             <div className="parent-preview">
-              <div className="parent-panel is-active" role="tabpanel" id="parent-panel-attendance" aria-labelledby="parent-tab-attendance" data-parent-panel="attendance">
+              <div className="parent-panel is-active" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees">
                 <div className="parent-panel-card-content">
-                  <div className="parent-panel-card-icon">
+                  <div className="parent-panel-card-icon" style={{ background: "rgba(16, 185, 129, 0.1)", color: "#10b981", borderColor: "rgba(16, 185, 129, 0.25)" }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" /></svg>
+                  </div>
+                  <div className="parent-panel-card-text">
+                    <h3>{t("home.parent.panels.fees.title")}</h3>
+                    <p>{t("home.parent.panels.fees.desc")}</p>
+                  </div>
+                </div>
+
+                <div className="parent-fee-ledger">
+                  <div className="parent-fee-summary-header">
+                    <div className="parent-fee-summary-meta">
+                      <span className="parent-fee-tag">{t("home.parent.panels.fees.academicTerm")}</span>
+                      <strong className="parent-fee-student">{t("home.parent.panels.fees.studentContext")}</strong>
+                    </div>
+                    <div className="parent-fee-summary-due">
+                      <span className="parent-fee-due-label">{t("home.parent.panels.fees.outstandingBalance")}</span>
+                      <strong className="parent-fee-due-val">{t("home.parent.panels.fees.dueAmount")}</strong>
+                    </div>
+                  </div>
+
+                  <div className="parent-fee-channels">
+                    <span className="parent-fee-channels-label">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                      {t("home.parent.panels.fees.receiptBadge")}
+                    </span>
+                    <div className="parent-fee-actions">
+                      <button type="button" className="fee-pay-btn telebirr-btn" onClick={(e) => e.preventDefault()}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                        {t("home.parent.panels.fees.payTelebirr")}
+                      </button>
+                      <button type="button" className="fee-pay-btn cbe-btn" onClick={(e) => e.preventDefault()}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3L2 10h20L12 3z"/></svg>
+                        {t("home.parent.panels.fees.payCbe")}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="parent-panel-card-list">
+                    <div className="parent-list-row parent-fee-row">
+                      <div className="parent-fee-col">
+                        <span className="parent-fee-name">{t("home.parent.panels.fees.tuition")}</span>
+                        <span className="parent-fee-meta">{t("home.parent.panels.fees.tuitionSub")}</span>
+                      </div>
+                      <span className="badge badge-good">{t("home.parent.badges.paid")}</span>
+                    </div>
+                    <div className="parent-list-row parent-fee-row">
+                      <div className="parent-fee-col">
+                        <span className="parent-fee-name">{t("home.parent.panels.fees.transport")}</span>
+                        <span className="parent-fee-meta">{t("home.parent.panels.fees.transportSub")}</span>
+                      </div>
+                      <span className="badge badge-warn">{t("home.parent.badges.pending")}</span>
+                    </div>
+                    <div className="parent-list-row parent-fee-row">
+                      <div className="parent-fee-col">
+                        <span className="parent-fee-name">{t("home.parent.panels.fees.uniform")}</span>
+                        <span className="parent-fee-meta">{t("home.parent.panels.fees.uniformSub")}</span>
+                      </div>
+                      <span className="badge badge-good">{t("home.parent.badges.paid")}</span>
+                    </div>
+                    <div className="parent-list-row parent-fee-row">
+                      <div className="parent-fee-col">
+                        <span className="parent-fee-name">{t("home.parent.panels.fees.registration")}</span>
+                        <span className="parent-fee-meta">{t("home.parent.panels.fees.registrationSub")}</span>
+                      </div>
+                      <span className="badge badge-good">{t("home.parent.badges.paid")}</span>
+                    </div>
+                    <div className="parent-list-row parent-fee-row">
+                      <div className="parent-fee-col">
+                        <span className="parent-fee-name">{t("home.parent.panels.fees.discount")}</span>
+                        <span className="parent-fee-meta parent-fee-discount">{t("home.parent.panels.fees.discountSub")}</span>
+                      </div>
+                      <span className="badge badge-good">{t("home.parent.badges.applied")}</span>
+                    </div>
+                    <div className="parent-list-row parent-fee-row parent-receipt-row">
+                      <div className="parent-fee-col">
+                        <span className="parent-fee-name">{t("home.parent.panels.fees.latestReceipt")}</span>
+                        <span className="parent-fee-meta">{t("home.parent.panels.fees.latestReceiptSub")}</span>
+                      </div>
+                      <span className="badge badge-outline">{t("home.parent.badges.available")}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="parent-panel" role="tabpanel" id="parent-panel-attendance" aria-labelledby="parent-tab-attendance" data-parent-panel="attendance" hidden>
+                <div className="parent-panel-card-content">
+                  <div className="parent-panel-card-icon" style={{ background: "rgba(59, 130, 246, 0.1)", color: "#3b82f6", borderColor: "rgba(59, 130, 246, 0.25)" }}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11 12 14 22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
                   </div>
                   <div className="parent-panel-card-text">
@@ -332,28 +423,34 @@ export default function HomePage() {
                 </div>
                 <div className="parent-panel-card-stats">
                   <div className="parent-stat">
-                    <span className="parent-stat-value">18</span>
+                    <span className="parent-stat-value good">{t("home.parent.panels.attendance.statPresent")}</span>
                     <span className="parent-stat-label">{t("home.parent.panels.attendance.present")}</span>
                   </div>
                   <div className="parent-stat">
-                    <span className="parent-stat-value warn">1</span>
+                    <span className="parent-stat-value warn">{t("home.parent.panels.attendance.statLate")}</span>
                     <span className="parent-stat-label">{t("home.parent.panels.attendance.late")}</span>
                   </div>
                   <div className="parent-stat">
-                    <span className="parent-stat-value good">0</span>
+                    <span className="parent-stat-value good">{t("home.parent.panels.attendance.statAbsent")}</span>
                     <span className="parent-stat-label">{t("home.parent.panels.attendance.absent")}</span>
                   </div>
+                </div>
+                <div className="parent-telegram-banner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+                  <span>{t("home.parent.panels.attendance.telegramAlert")}</span>
                 </div>
                 <div className="parent-panel-card-list">
                   <div className="parent-list-row"><span>{t("home.parent.panels.attendance.monday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.attendance.tuesday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.attendance.wednesday")}</span><span className="badge badge-warn">{t("home.parent.panels.attendance.late")}</span></div>
                   <div className="parent-list-row"><span>{t("home.parent.panels.attendance.thursday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.attendance.friday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
                 </div>
               </div>
+
               <div className="parent-panel" role="tabpanel" id="parent-panel-reports" aria-labelledby="parent-tab-reports" data-parent-panel="reports" hidden>
                 <div className="parent-panel-card-content">
-                  <div className="parent-panel-card-icon">
+                  <div className="parent-panel-card-icon" style={{ background: "rgba(139, 92, 246, 0.1)", color: "#8b5cf6", borderColor: "rgba(139, 92, 246, 0.25)" }}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
                   </div>
                   <div className="parent-panel-card-text">
@@ -362,42 +459,88 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="parent-panel-card-highlight">
-                  <span>{t("home.parent.panels.reportCards.average")}</span>
-                  <strong>91%</strong>
+                  <div className="parent-highlight-top">
+                    <span>{t("home.parent.panels.reportCards.average")}</span>
+                    <span className="badge badge-good">{t("home.parent.panels.reportCards.rankBadge")}</span>
+                  </div>
+                  <strong>{t("home.parent.panels.reportCards.gpaValue")}</strong>
                   <small>{t("home.parent.panels.reportCards.released")}</small>
                 </div>
                 <div className="parent-panel-card-list">
-                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.mathematics")}</span><span className="badge badge-good">A</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.english")}</span><span className="badge badge-good">A-</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.science")}</span><span className="badge badge-good">A</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.conductNote")}</span><span>{t("home.parent.badges.excellent")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.mathematics")}</span><span className="badge badge-good">{t("home.parent.panels.reportCards.mathScore")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.science")}</span><span className="badge badge-good">{t("home.parent.panels.reportCards.scienceScore")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.english")}</span><span className="badge badge-good">{t("home.parent.panels.reportCards.englishScore")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.amharic")}</span><span className="badge badge-good">{t("home.parent.panels.reportCards.amharicScore")}</span></div>
+                  <div className="parent-list-row"><span>{t("home.parent.panels.reportCards.conductNote")}</span><span className="badge badge-good">{t("home.parent.panels.reportCards.conductValue")}</span></div>
+                </div>
+                <div className="parent-card-download-strip">
+                  <button type="button" className="parent-download-btn" onClick={(e) => e.preventDefault()}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    {t("home.parent.panels.reportCards.downloadPdf")}
+                  </button>
                 </div>
               </div>
-              <div className="parent-panel" role="tabpanel" id="parent-panel-fees" aria-labelledby="parent-tab-fees" data-parent-panel="fees" hidden>
+
+              <div className="parent-panel" role="tabpanel" id="parent-panel-practice" aria-labelledby="parent-tab-practice" data-parent-panel="practice" hidden>
                 <div className="parent-panel-card-content">
-                  <div className="parent-panel-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx={12} cy={12} r={10} /><path d="M12 6v12M8 12h8" /></svg>
+                  <div className="parent-panel-card-icon" style={{ background: "rgba(99, 102, 241, 0.1)", color: "#6366f1", borderColor: "rgba(99, 102, 241, 0.25)" }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" /></svg>
                   </div>
                   <div className="parent-panel-card-text">
-                    <h3>{t("home.parent.panels.fees.title")}</h3>
-                    <p>{t("home.parent.panels.fees.desc")}</p>
+                    <h3>{t("home.parent.panels.practice.title")}</h3>
+                    <p>{t("home.parent.panels.practice.desc")}</p>
                   </div>
                 </div>
-                <div className="parent-panel-card-highlight">
-                  <span>{t("home.parent.panels.fees.nextInstallment")}</span>
-                  <strong>{t("home.parent.panels.fees.dueIn")}</strong>
-                  <small>{t("home.parent.panels.fees.receiptAvailable")}</small>
-                </div>
-                <div className="parent-panel-card-list">
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.tuition")}</span><span className="badge badge-good">{t("home.parent.badges.paid")}</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.transport")}</span><span className="badge badge-warn">{t("home.parent.badges.pending")}</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.discount")}</span><span className="badge">{t("home.parent.badges.applied")}</span></div>
-                  <div className="parent-list-row"><span>{t("home.parent.panels.fees.latestReceipt")}</span><span className="badge">{t("home.parent.badges.available")}</span></div>
+                <div className="parent-chat-simulation">
+                  <div className="chat-channel-bar">
+                    <span className="chat-live-pulse" />
+                    <span className="chat-channel-name">{t("home.parent.panels.practice.guardianLabel")}</span>
+                    <span className="chat-verified-badge">{t("home.parent.badges.autonomous")}</span>
+                  </div>
+
+                  <div className="chat-message chat-incoming">
+                    <div className="chat-bubble">
+                      <p>{t("home.parent.panels.practice.guardianMsg")}</p>
+                      <span className="chat-timestamp">08:14 AM</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-message chat-outgoing">
+                    <div className="chat-avatar-ai">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                      </svg>
+                    </div>
+                    <div className="chat-bubble ai-bubble">
+                      <div className="chat-ai-header">
+                        <strong>{t("home.parent.panels.practice.aiLabel")}</strong>
+                        <span className="ai-secure-pill">{t("home.parent.panels.practice.aiBadge")}</span>
+                      </div>
+                      <p>{t("home.parent.panels.practice.aiMsgPart1")}</p>
+                      <p>{t("home.parent.panels.practice.aiMsgPart2")}</p>
+                      <div className="chat-action-strip">
+                        <button type="button" className="chat-telebirr-btn" onClick={(e) => e.preventDefault()}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="15" height="15"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                          {t("home.parent.panels.practice.actionBtn")}
+                        </button>
+                      </div>
+                      <p className="chat-supplementary">{t("home.parent.panels.practice.aiMsgPart3")}</p>
+                      <span className="chat-timestamp">08:35 PM • Verified Mastery</span>
+                    </div>
+                  </div>
+
+                  <div className="chat-security-footer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <span>{t("home.parent.panels.practice.verifiedNote")}</span>
+                  </div>
                 </div>
               </div>
+
               <div className="parent-panel" role="tabpanel" id="parent-panel-notices" aria-labelledby="parent-tab-notices" data-parent-panel="notices" hidden>
                 <div className="parent-panel-card-content">
-                  <div className="parent-panel-card-icon">
+                  <div className="parent-panel-card-icon" style={{ background: "rgba(245, 158, 11, 0.1)", color: "#f59e0b", borderColor: "rgba(245, 158, 11, 0.25)" }}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
                   </div>
                   <div className="parent-panel-card-text">

@@ -402,13 +402,13 @@ export const en = {
         subtitle:
           "Empower parents with direct online settlement for tuition, transport, uniforms, and admissions via Telebirr and CBE, period-by-period attendance tracking, digital report cards, and targeted practice boosters.",
         tabs: {
-          fees: "Online Payments",
+          fees: "Easy Payment",
           attendance: "Live Attendance",
           reportCards: "Official Report Cards",
           practice: "Practice Boosters",
           notices: "School Circulars & Chat",
           aiDialogue: "Practice Boosters",
-          feeStatus: "Online Payments",
+          feeStatus: "Easy Payment",
         },
         badges: {
           excellent: "Excellent",

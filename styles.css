@@ -1972,9 +1972,12 @@ pre {
 .section h2,
 .docs-cta h2 {
   margin-bottom: 0;
-  font-size: clamp(30px, 4vw, 54px);
+  color: var(--foreground);
+  font-family: "Lexend Deca", system-ui, sans-serif;
+  font-size: clamp(34px, 4.6vw, 58px);
+  font-weight: 800;
   line-height: 1.04;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.045em;
 }
 
 .modules-preview-section {

@@ -1,7 +1,8 @@
 import PageShell from "../components/PageShell.jsx";
 import { useTranslation } from "../i18n/I18nContext.jsx";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useState, useEffect } from "react";
+import TextGenerateEffect from "../components/ui/text-generate-effect.tsx";
+import BlurText from "../components/ui/BlurText.jsx";
 
 function splitHeading(title) {
   const separator = title.includes("።") ? "።" : ".";
@@ -16,21 +17,29 @@ export default function HomePage() {
   const [pricingTitleLead, pricingTitleRest] = splitHeading(pricingTitle);
   const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=100&w=100`;
 
-  const headingRef = useRef(null);
   const heroTitle = t("home.hero.titleExtended");
-  const splitHero = heroTitle.split(" ").map((word, i) =>
-    <span key={i} className={`word${word === "|" ? " word-separator" : ""}`}>{word}</span>
-  );
+
+  const [activeSubtitleIndex, setActiveSubtitleIndex] = useState(0);
+  const [isSubtitlePaused, setIsSubtitlePaused] = useState(false);
+
+  const rawSubtitles = t("home.hero.subtitles");
+  const subtitles = Array.isArray(rawSubtitles) && rawSubtitles.length > 0
+    ? rawSubtitles
+    : [
+        {
+          tag: "01 Operations & Autopilot",
+          lead: "School operations on true autopilot.",
+          text: t("home.hero.subtitle") || "",
+        },
+      ];
 
   useEffect(() => {
-    if (!headingRef.current) return;
-    const words = headingRef.current.querySelectorAll(".word");
-    gsap.set(words, { willChange: "transform, opacity" });
-    gsap.fromTo(words,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: "power3.out" }
-    );
-  }, []);
+    if (isSubtitlePaused || subtitles.length <= 1) return;
+    const timer = setInterval(() => {
+      setActiveSubtitleIndex((prev) => (prev + 1) % subtitles.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isSubtitlePaused, subtitles.length]);
 
   const avatars1 = [25856915, 33769839, 25849114];
   const avatars2 = [25856887, 25849069, 25849070];
@@ -45,10 +54,65 @@ export default function HomePage() {
             <span /><span /><span />
           </div>
           <div className="hero-copy">
-            <h1 id="hero-title" ref={headingRef}>{splitHero}</h1>
-            <p data-reveal>
-              {t("home.hero.subtitle")}
-            </p>
+            <BlurText
+              as="h1"
+              id="hero-title"
+              text={heroTitle}
+              delay={90}
+              stepDuration={0.45}
+              animateBy="words"
+              direction="bottom"
+              className="hero-blur-title"
+            />
+            <div
+              className="hero-subtitle-rotator"
+              onMouseEnter={() => setIsSubtitlePaused(true)}
+              onMouseLeave={() => setIsSubtitlePaused(false)}
+              aria-live="polite"
+              data-reveal
+            >
+              <div className="subtitle-dots-nav" role="tablist" aria-label="Choose subtitle slide">
+                {subtitles.map((sub, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeSubtitleIndex === i}
+                    className={`subtitle-dot${activeSubtitleIndex === i ? " is-active" : ""}`}
+                    onClick={() => setActiveSubtitleIndex(i)}
+                    aria-label={`Show slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+              <div className="subtitle-viewport">
+                {subtitles.map((sub, i) => {
+                  const isActive = activeSubtitleIndex === i;
+                  return (
+                    <div
+                      key={i}
+                      className={`subtitle-slide${isActive ? " is-active" : ""}`}
+                      aria-hidden={!isActive}
+                    >
+                      {isActive ? (
+                        <TextGenerateEffect
+                          key={`effect-${i}`}
+                          words={sub.text}
+                          lead={sub.lead}
+                          duration={0.35}
+                          staggerDelay={0.026}
+                          className="subtitle-text-effect"
+                        />
+                      ) : (
+                        <div className="subtitle-slide-ghost" aria-hidden="true">
+                          <strong className="subtitle-lead">{sub.lead}</strong>{" "}
+                          <span className="subtitle-body">{sub.text}</span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
           <div className="tailark-preview" data-reveal>
             <div className="dashboard-caption" data-dashboard-caption aria-live="polite">
@@ -141,13 +205,13 @@ export default function HomePage() {
           </div>
           <div className="modules-preview-grid" aria-label="How YeneSchool fixes national exam issues">
             {[
-              { key: "diagnostics", anchor: "online-examinations" },
+              { key: "remedialPractice", anchor: "online-examinations" },
+              { key: "lessonPlanning", anchor: "academic-management" },
+              { key: "academicOutreach", anchor: "communication" },
+              { key: "syllabusTracking", anchor: "academic-management" },
               { key: "mockExams", anchor: "online-examinations" },
               { key: "teacherHeatmaps", anchor: "academic-management" },
               { key: "earlyWarning", anchor: "automation-reporting" },
-              { key: "aiGuidance", anchor: "ai" },
-              { key: "syllabusTracking", anchor: "academic-management" },
-              { key: "parentPortal", anchor: "communication" },
               { key: "unifiedPlatform", anchor: "student-management" },
             ].map((module) => (
               <a className="module-feature-card" href={`/modules#${module.anchor}`} key={module.key}>

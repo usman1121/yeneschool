@@ -2,7 +2,7 @@
 
 > YeneSchool is a school management system for Ethiopian schools. It provides role-based workspaces for admin, teacher, parent, registrar, finance, student, and IT roles — covering admissions, attendance, marks, report cards, exams, finance, communication, and parent portals.
 
-The platform supports the Ethiopian calendar, multiple languages, offline attendance, and AI-powered assistance. It is built for Grade 1-8 and Grade 1-12 schools and serves as a multi-tenant, role-based SaaS.
+The platform supports the Ethiopian calendar, multiple languages, offline attendance, and an autonomous AI Director engine. It is built for Grade 1-8 and Grade 1-12 schools and serves as a multi-tenant, role-based SaaS.
 
 ## Pages
 
@@ -17,6 +17,6 @@ The platform supports the Ethiopian calendar, multiple languages, offline attend
 
 ## Optional
 
-- [Pricing](https://www.yeneschool.me/#pricing): Pricing plans for Core (up to 200 students, 15,000 ETB/mo), Standard (up to 2,000 students, 20,000 ETB/mo), and Ultimate (unlimited students, 35,000 ETB/mo)
+- [Pricing](https://www.yeneschool.me/#pricing): All features included across all plans. Tiered by student capacity: Starter (up to 300 students, 25,000 ETB/mo), Growth (301-1,200 students, 45,000 ETB/mo), Standard (1,201-2,500 students, 70,000 ETB/mo), and Enterprise & Multi-Campus (Custom pricing for 2,500+ students or multiple branches).
 - [Contact](mailto:yeneschool@gmail.com): yeneschool@gmail.com
 - [Telegram](https://t.me/YeneSchool): @YeneSchool

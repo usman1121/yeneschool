@@ -9,6 +9,8 @@ export const am = {
     compare: "ለምን እኛ?",
     book: "ማሳያ",
     contact: "ያግኙን",
+    docs: "ዶክስ",
+    docsShort: "ዶክስ",
   },
   theme: {
     switchToLight: "ወደ ብርሃን ሁኔታ ቀይር",
@@ -30,10 +32,11 @@ export const am = {
     about: "ስለ እኛ",
     bookDemo: "ማሳያ",
     compare: "ለምን እኛ?",
+    docs: "ዶክስ",
     privacy: "ግላዊነት",
     terms: "ውሎች",
     cookiePolicy: "የኩኪ ፖሊሲ",
-    allRightsReserved: "መብቱ በሕግ የተጠበቀ ነው።",
+    allRightsReserved: "መብቱ በህግ የተጠበቀ ነው።",
   },
   home: {
     hero: {

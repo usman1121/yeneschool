@@ -9,6 +9,8 @@ export const en = {
       compare: "Why Us?",
       book: "Demo",
       contact: "Contact",
+      docs: "Docs",
+      docsShort: "Docs",
     },
     theme: {
       switchToLight: "Switch to light mode",
@@ -30,6 +32,7 @@ export const en = {
       about: "About Us",
       bookDemo: "Demo",
       compare: "Why Us?",
+      docs: "Docs",
       privacy: "Privacy",
       terms: "Terms",
       cookiePolicy: "Cookie Policy",

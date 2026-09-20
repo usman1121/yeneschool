@@ -161,6 +161,11 @@ function Footer({ activePage }) {
                     {t("footer.compare")}
                   </a>
                 </li>
+                <li>
+                  <a href="https://yeneschooldocumentation.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    {t("footer.docs") || "Documentation"}
+                  </a>
+                </li>
               </ul>
             </nav>
             <nav aria-labelledby="footer-legal-heading" data-reveal>

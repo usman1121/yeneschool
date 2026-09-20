@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { BookOpen, ExternalLink, Menu, X } from "lucide-react";
 import { useTranslation } from "../i18n/I18nContext.jsx";
 
 function ThemeIcon() {
@@ -143,8 +143,21 @@ export default function NavbarTwo({ activePage = "" }) {
           </div>
         </div>
 
-        {/* Desktop Right (Language & Theme Switcher) */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Desktop Right (Docs, Language & Theme Switcher) */}
+        <div className="hidden lg:flex items-center gap-2.5">
+          {/* Documentation Link */}
+          <a
+            href="https://yeneschooldocumentation.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="docs-nav-btn"
+            aria-label={t("nav.docs") || "Docs"}
+          >
+            <BookOpen className="size-3.5 text-blue-500" />
+            <span>{t("nav.docs") || "Docs"}</span>
+            <ExternalLink className="size-3 opacity-60 ml-0.5" />
+          </a>
+
           {/* Language Switcher */}
           <div
             className="language-switcher"
@@ -197,6 +210,19 @@ export default function NavbarTwo({ activePage = "" }) {
           </a>
 
           <div className="flex items-center gap-2">
+            {/* Mobile Docs Link */}
+            <a
+              href="https://yeneschooldocumentation.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-8 items-center gap-1 px-2.5 rounded-full border border-[var(--line)] bg-[var(--soft-surface)] text-xs font-bold text-[var(--foreground)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-colors"
+              aria-label={t("nav.docs") || "Docs"}
+              title={t("nav.docs") || "Docs"}
+            >
+              <BookOpen className="size-3.5 text-blue-500" />
+              <span>{t("nav.docs") || "Docs"}</span>
+            </a>
+
             <button
               type="button"
               onClick={() => setLanguage(lang === "en" ? "am" : "en")}
@@ -252,6 +278,19 @@ export default function NavbarTwo({ activePage = "" }) {
                   {item.label}
                 </a>
               ))}
+              <a
+                href="https://yeneschooldocumentation.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-bold text-white bg-white/15 hover:bg-white/25 mt-1 transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <BookOpen className="size-4" />
+                  {t("nav.docs") || "Docs"}
+                </span>
+                <ExternalLink className="size-3.5 opacity-80" />
+              </a>
             </div>
           </motion.div>
         )}

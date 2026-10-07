@@ -17,15 +17,10 @@ export default function AboutPage() {
       "@type": "Organization",
       "name": "YeneSchool",
       "url": "https://www.yeneschool.me",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Afro Digital",
-        "url": "https://afrodigital.dev",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Addis Ababa",
-          "addressCountry": "ET"
-        }
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Addis Ababa",
+        "addressCountry": "ET"
       }
     }
   };
@@ -188,47 +183,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Company Behind: Afro Digital */}
-        <section className="section about-company-section" data-reveal>
-          <div className="about-company-box">
-            <div className="about-company-copy">
-              <span className="section-kicker">{t("about.company.kicker")}</span>
-              <h2>{t("about.company.title")}</h2>
-              <p className="company-desc">{t("about.company.desc")}</p>
-              <p className="company-tagline">
-                <em>"{t("about.company.tagline")}"</em>
-              </p>
-              <div className="company-action">
-                <a
-                  href="https://afrodigital.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="secondary-btn"
-                >
-                  <span>{t("about.company.website")}</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div className="about-company-visual">
-              <div className="company-brand-card">
-                <div className="company-badge-pill">Technology & AI Studio</div>
-                <h3>Afro Digital</h3>
-                <p>Addis Ababa, Ethiopia</p>
-                <div className="company-capabilities">
-                  <span>EdTech ERP</span>
-                  <span>AI Solutions</span>
-                  <span>Enterprise Cloud</span>
-                  <span>IoT Integration</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* CTA Section */}
         <section className="section about-cta-section" data-reveal>

@@ -173,7 +173,7 @@ function useClientNavigation(setPage) {
 
 const pageMeta = {
   home: {
-    title: "The World's First AI-Director-Driven School Operating System",
+    title: "Africa's First AI-Director-Driven School Operating System",
     description:
       "School operations on true autopilot. While you sleep, the AI Director audits yesterday’s attendance, flags syllabus delays, drafts 5E lesson plans, and balances fee records. By 07:00 AM, leadership receives an executive briefing with pre-resolved operational actions.",
     path: "/",

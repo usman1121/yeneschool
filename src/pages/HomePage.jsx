@@ -361,6 +361,10 @@ export default function HomePage() {
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3L2 10h20L12 3z"/></svg>
                         {t("home.parent.panels.fees.payCbe")}
                       </button>
+                      <button type="button" className="fee-pay-btn awash-btn" onClick={(e) => e.preventDefault()}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        {t("home.parent.panels.fees.payAwash")}
+                      </button>
                     </div>
                   </div>
 
@@ -438,6 +442,15 @@ export default function HomePage() {
                 <div className="parent-telegram-banner">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
                   <span>{t("home.parent.panels.attendance.telegramAlert")}</span>
+                </div>
+                <div className="parent-telegram-bot-strip">
+                  <small className="bot-hint-label">{t("home.parent.panels.attendance.telegramBotHint")}</small>
+                  <div className="bot-commands-row">
+                    <span className="bot-cmd-chip">{t("home.parent.panels.attendance.botCmdAttendance")}</span>
+                    <span className="bot-cmd-chip">{t("home.parent.panels.attendance.botCmdGrades")}</span>
+                    <span className="bot-cmd-chip">{t("home.parent.panels.attendance.botCmdFees")}</span>
+                    <span className="bot-cmd-chip">{t("home.parent.panels.attendance.botCmdExamPlan")}</span>
+                  </div>
                 </div>
                 <div className="parent-panel-card-list">
                   <div className="parent-list-row"><span>{t("home.parent.panels.attendance.monday")}</span><span className="badge badge-good">{t("home.parent.panels.attendance.present")}</span></div>
@@ -590,10 +603,10 @@ export default function HomePage() {
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">300,000 ETB/year</span>
+                  <span className="renewal-price annual-only">82,800 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.core.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="25,000 ETB/mo" data-annual-price="225,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="6,900 ETB/mo" data-annual-price="62,000 ETB/year">{t("home.pricing.plans.core.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.core.monthlyNote")} data-annual-note={t("home.pricing.plans.core.annualNote")}>{t("home.pricing.plans.core.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">
@@ -632,10 +645,10 @@ export default function HomePage() {
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">540,000 ETB/year</span>
+                  <span className="renewal-price annual-only">174,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.standard.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="45,000 ETB/mo" data-annual-price="405,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="14,500 ETB/mo" data-annual-price="130,000 ETB/year">{t("home.pricing.plans.standard.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.standard.monthlyNote")} data-annual-note={t("home.pricing.plans.standard.annualNote")}>{t("home.pricing.plans.standard.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">
@@ -670,10 +683,10 @@ export default function HomePage() {
               </div>
               <div className="launch-price-box">
                 <div className="price-meta">
-                  <span className="renewal-price annual-only">840,000 ETB/year</span>
+                  <span className="renewal-price annual-only">294,000 ETB/year</span>
                   <span className="launch-badge" data-billing-badge>{t("home.pricing.plans.ultimate.monthlyLabel")}</span>
                 </div>
-                <p className="launch-price" data-monthly-price="70,000 ETB/mo" data-annual-price="630,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
+                <p className="launch-price" data-monthly-price="24,500 ETB/mo" data-annual-price="220,000 ETB/year">{t("home.pricing.plans.ultimate.monthlyPrice")}</p>
                 <p className="first-year-note" data-monthly-note={t("home.pricing.plans.ultimate.monthlyNote")} data-annual-note={t("home.pricing.plans.ultimate.annualNote")}>{t("home.pricing.plans.ultimate.monthlyNote")}</p>
               </div>
               <div className="service-plans" role="radiogroup" aria-label="Service payment options">

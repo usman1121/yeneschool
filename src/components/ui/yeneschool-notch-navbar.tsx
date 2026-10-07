@@ -73,17 +73,19 @@ export function YeneSchoolNotchNavbar({
   const LogoSlot = (
     <a
       href="/"
-      className="flex items-center gap-2 h-8.5 text-zinc-50 dark:text-zinc-950 select-none group"
+      className="flex items-center h-8.5 select-none group"
       aria-label="YeneSchool Home"
     >
       <img
-        src="/assets/logo.svg"
+        src="/logo-dark.svg"
         alt="YeneSchool"
-        className="size-6 object-contain filter drop-shadow group-hover:scale-105 transition-transform"
+        className="brand-svg-logo brand-svg-logo-sm brand-svg-logo-dark"
       />
-      <span className="font-extrabold text-sm sm:text-base tracking-tight bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent dark:text-zinc-950">
-        YeneSchool
-      </span>
+      <img
+        src="/logo-light.svg"
+        alt="YeneSchool"
+        className="brand-svg-logo brand-svg-logo-sm brand-svg-logo-light"
+      />
     </a>
   );
 

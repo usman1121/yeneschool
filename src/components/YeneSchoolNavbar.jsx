@@ -80,12 +80,22 @@ export default function NavbarTwo({ activePage = "" }) {
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent">
       <div className="relative mx-auto flex h-14 w-full max-w-[1400px] items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Desktop Left Logo */}
-        <div className="hidden lg:flex items-center pt-2">
+        <div className="hidden lg:flex items-center -ml-2 lg:-ml-3">
           <a className="brand" href="/" aria-label="YeneSchool" data-no-translate>
-            <span className="brand-wordmark" data-no-translate>
-              <span>Yene</span>
-              <span>School</span>
-            </span>
+            <img
+              src="/logo-dark.svg"
+              alt="YeneSchool"
+              width="312"
+              height="42"
+              className="brand-svg-logo brand-svg-logo-dark"
+            />
+            <img
+              src="/logo-light.svg"
+              alt="YeneSchool"
+              width="312"
+              height="42"
+              className="brand-svg-logo brand-svg-logo-light"
+            />
           </a>
         </div>
 
@@ -202,11 +212,21 @@ export default function NavbarTwo({ activePage = "" }) {
 
         {/* Mobile Header Bar */}
         <div className="flex h-14 w-full items-center justify-between lg:hidden">
-          <a className="brand" href="/" aria-label="YeneSchool" data-no-translate>
-            <span className="brand-wordmark text-sm" data-no-translate>
-              <span>Yene</span>
-              <span>School</span>
-            </span>
+          <a className="brand min-w-0 -ml-1.5" href="/" aria-label="YeneSchool" data-no-translate>
+            <img
+              src="/logo-dark.svg"
+              alt="YeneSchool"
+              width="208"
+              height="28"
+              className="brand-svg-logo brand-svg-logo-sm brand-svg-logo-dark"
+            />
+            <img
+              src="/logo-light.svg"
+              alt="YeneSchool"
+              width="208"
+              height="28"
+              className="brand-svg-logo brand-svg-logo-sm brand-svg-logo-light"
+            />
           </a>
 
           <div className="flex items-center gap-2">

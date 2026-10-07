@@ -247,9 +247,87 @@ code {
   flex: 1 0 160px;
   justify-content: flex-start;
   min-width: 160px;
-  height: 40px;
+  height: auto;
+  min-height: 40px;
   position: relative;
   z-index: 10;
+  gap: 10px;
+}
+
+.brand-logo-icon {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+  transform-origin: center center;
+}
+
+.brand-logo-icon-sm {
+  height: 26px;
+}
+
+.brand:hover .brand-logo-icon,
+.brand:focus-visible .brand-logo-icon {
+  transform: scale(1.06);
+}
+
+.brand-svg-logo {
+  height: 38px;
+  width: auto;
+  max-width: 300px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: none;
+}
+
+@media (min-width: 1280px) {
+  .brand-svg-logo {
+    height: 42px;
+    max-width: 325px;
+  }
+}
+
+.brand-svg-logo-sm {
+  height: 28px;
+  max-width: 215px;
+}
+
+@media (max-width: 480px) {
+  .brand-svg-logo-sm {
+    height: 25px;
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-svg-logo-sm {
+    height: 22px;
+    max-width: 165px;
+  }
+}
+
+.brand:hover .brand-svg-logo,
+.brand:focus-visible .brand-svg-logo {
+  transform: none;
+}
+
+.brand-svg-logo-dark {
+  display: none;
+}
+
+.brand-svg-logo-light {
+  display: block;
+}
+
+html.dark .brand-svg-logo-dark,
+[data-theme="dark"] .brand-svg-logo-dark {
+  display: block;
+}
+
+html.dark .brand-svg-logo-light,
+[data-theme="dark"] .brand-svg-logo-light {
+  display: none;
 }
 
 .brand-wordmark {
@@ -4351,13 +4429,21 @@ tr:last-child td {
 }
 
 .footer-wordmark {
-  font-size: 45px;
-  color: #60a5fa;
-  font-family: "C8aTajra", serif;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  transition: color 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 180ms ease;
+}
+
+.footer-svg-logo {
+  height: 44px;
+  max-width: 330px;
+}
+
+@media (max-width: 640px) {
+  .footer-svg-logo {
+    height: 36px;
+    max-width: 270px;
+  }
 }
 
 .footer-desc {
@@ -6549,15 +6635,30 @@ html.dark .scroll-to-top:focus-visible {
 }
 
 .fee-pay-btn.telebirr-btn {
-  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  background: #0284c7;
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.25);
+}
+
+.fee-pay-btn.telebirr-btn:hover {
+  background: #0369a1;
 }
 
 .fee-pay-btn.cbe-btn {
-  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  background: #7c3aed;
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
+}
+
+.fee-pay-btn.cbe-btn:hover {
+  background: #6d28d9;
+}
+
+.fee-pay-btn.awash-btn {
+  background: #0d9488;
+  color: #ffffff;
+}
+
+.fee-pay-btn.awash-btn:hover {
+  background: #0f766e;
 }
 
 .parent-fee-row {
@@ -6587,7 +6688,6 @@ html.dark .scroll-to-top:focus-visible {
   font-weight: 600;
 }
 
-/* Parent Attendance Telegram Alert Banner */
 .parent-telegram-banner {
   display: flex;
   align-items: center;
@@ -6604,6 +6704,42 @@ html.dark .scroll-to-top:focus-visible {
 .parent-telegram-banner svg {
   color: #0284c7;
   flex-shrink: 0;
+}
+
+.parent-telegram-bot-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--soft-surface, rgba(15, 23, 42, 0.03));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.bot-hint-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.bot-commands-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bot-cmd-chip {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  letter-spacing: 0.03em;
 }
 
 /* Parent Report Card Highlight & Download */
@@ -6715,14 +6851,13 @@ html.dark .scroll-to-top:focus-visible {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  background: #3b82f6;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
 .chat-outgoing .ai-bubble {
@@ -6778,19 +6913,18 @@ html.dark .scroll-to-top:focus-visible {
   gap: 7px;
   padding: 9px 16px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  background: #0284c7;
   color: #ffffff;
   font-size: 13px;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(14, 165, 233, 0.28);
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition: background-color 150ms ease, transform 150ms ease;
 }
 
 .chat-telebirr-btn:hover {
+  background: #0369a1;
   transform: translateY(-1px);
-  box-shadow: 0 5px 14px rgba(14, 165, 233, 0.4);
 }
 
 .chat-supplementary {
@@ -7286,89 +7420,6 @@ html.dark .scroll-to-top:focus-visible {
   margin: 0;
 }
 
-/* Company Behind: Afro Digital */
-.about-company-section {
-  padding: 64px 0 48px;
-}
-
-.about-company-box {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
-  padding: 48px;
-  border-radius: 24px;
-  background: var(--soft-surface);
-  border: 1px solid var(--line);
-}
-
-.about-company-copy h2 {
-  font-size: clamp(28px, 3vw, 38px);
-  margin: 10px 0 16px;
-}
-
-.company-desc {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.company-tagline {
-  color: var(--foreground);
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-
-.company-brand-card {
-  padding: 32px;
-  border-radius: 18px;
-  background: var(--card-bg);
-  border: 1px solid var(--line);
-  display: grid;
-  gap: 12px;
-}
-
-.company-badge-pill {
-  display: inline-block;
-  width: fit-content;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(14, 165, 233, 0.12);
-  color: var(--primary);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.company-brand-card h3 {
-  font-size: 26px;
-  font-weight: 800;
-  margin: 0;
-}
-
-.company-brand-card p {
-  color: var(--muted);
-  font-size: 14px;
-  margin: 0;
-}
-
-.company-capabilities {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.company-capabilities span {
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: var(--soft-surface);
-  border: 1px solid var(--line);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--foreground);
-}
 
 /* About CTA */
 .about-cta-section {

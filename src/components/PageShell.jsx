@@ -42,8 +42,20 @@ function Brand({ footer = false }) {
       id={footer ? "footer-title" : undefined}
       data-no-translate
     >
-      <span>Yene</span>
-      <span>School</span>
+      <img
+        src="/logo-dark.svg"
+        alt="YeneSchool"
+        width="312"
+        height="42"
+        className={`brand-svg-logo ${footer ? "footer-svg-logo " : ""}brand-svg-logo-dark`}
+      />
+      <img
+        src="/logo-light.svg"
+        alt="YeneSchool"
+        width="312"
+        height="42"
+        className={`brand-svg-logo ${footer ? "footer-svg-logo " : ""}brand-svg-logo-light`}
+      />
     </span>
   );
 }
@@ -225,7 +237,7 @@ function Footer({ activePage }) {
             <span>{t("footer.allRightsReserved")}</span>
           </p>
           <p>
-            &copy; <span data-current-year /> YeneSchool by <a href="https://afrodigital.dev" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Afro Digital</a>
+            &copy; <span data-current-year /> YeneSchool
           </p>
         </div>
       </div>

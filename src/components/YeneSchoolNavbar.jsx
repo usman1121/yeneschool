@@ -243,14 +243,6 @@ export default function NavbarTwo({ activePage = "" }) {
               <span>{t("nav.docs") || "Docs"}</span>
             </a>
 
-            <button
-              type="button"
-              onClick={() => setLanguage(lang === "en" ? "am" : "en")}
-              className="px-2 py-1 rounded-md text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition-colors"
-            >
-              {lang === "en" ? "አማ" : "EN"}
-            </button>
-
             {/* Mobile Theme Toggle */}
             <button
               className="theme-switcher mobile-theme-switcher"
@@ -311,6 +303,37 @@ export default function NavbarTwo({ activePage = "" }) {
                 </span>
                 <ExternalLink className="size-3.5 opacity-80" />
               </a>
+
+              {/* Language Switcher inside Mobile Dropdown Menu */}
+              <div className="mt-2 pt-2 border-t border-white/20 flex items-center justify-between px-2">
+                <span className="text-xs font-semibold text-white/80">
+                  {t("language.label") || "Language"}:
+                </span>
+                <div className="inline-flex rounded-lg bg-black/20 p-0.5" role="group">
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("en")}
+                    className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${
+                      lang === "en"
+                        ? "bg-white text-blue-600 shadow-sm"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                  >
+                    {t("language.en") || "English"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("am")}
+                    className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${
+                      lang === "am"
+                        ? "bg-white text-blue-600 shadow-sm"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                  >
+                    {t("language.am") || "አማርኛ"}
+                  </button>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

@@ -343,6 +343,21 @@ html.dark .mobile-theme-switcher::before {
   height: 14px;
 }
 
+.subtle-glass-header {
+  background: rgba(248, 251, 255, 0.45);
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  border-bottom: none;
+}
+
+html.dark .subtle-glass-header,
+[data-theme="dark"] .subtle-glass-header {
+  background: rgba(8, 11, 18, 0.45);
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  border-bottom: none;
+}
+
 .brand:hover .brand-svg-logo,
 .brand:focus-visible .brand-svg-logo {
   transform: none;

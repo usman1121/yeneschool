@@ -22,6 +22,7 @@ function ThemeIcon() {
 export default function NavbarTwo({ activePage = "" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const { lang, setLanguage, t } = useTranslation();
 
   useEffect(() => {
@@ -35,6 +36,15 @@ export default function NavbarTwo({ activePage = "" }) {
       attributeFilter: ["class", "data-theme"],
     });
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
@@ -77,7 +87,12 @@ export default function NavbarTwo({ activePage = "" }) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full border-0 outline-none transition-all duration-300 ${
+        scrolled ? "subtle-glass-header" : "bg-transparent border-transparent shadow-none"
+      }`}
+      style={{ borderBottom: "none", outline: "none", boxShadow: "none" }}
+    >
       <div className="relative mx-auto flex h-14 w-full max-w-[1400px] items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Desktop Left Logo */}
         <div className="hidden lg:flex items-center -ml-2 lg:-ml-3">

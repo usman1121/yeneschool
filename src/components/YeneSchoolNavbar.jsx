@@ -211,8 +211,8 @@ export default function NavbarTwo({ activePage = "" }) {
         </div>
 
         {/* Mobile Header Bar */}
-        <div className="flex h-14 w-full items-center justify-between lg:hidden">
-          <a className="brand min-w-0 -ml-1.5" href="/" aria-label="YeneSchool" data-no-translate>
+        <div className="flex h-14 w-full items-center justify-between gap-2 lg:hidden">
+          <a className="mobile-brand-link flex items-center min-w-0 flex-shrink" href="/" aria-label="YeneSchool" data-no-translate>
             <img
               src="/logo-dark.svg"
               alt="YeneSchool"
@@ -229,13 +229,13 @@ export default function NavbarTwo({ activePage = "" }) {
             />
           </a>
 
-          <div className="flex items-center gap-2">
-            {/* Mobile Docs Link */}
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+            {/* Mobile Docs Link (shown on sm+, accessible in hamburger dropdown on all phones) */}
             <a
               href="https://yeneschooldocumentation.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-8 items-center gap-1 px-2.5 rounded-full border border-[var(--line)] bg-[var(--soft-surface)] text-xs font-bold text-[var(--foreground)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-colors"
+              className="hidden sm:inline-flex h-8 items-center gap-1 px-2.5 rounded-full border border-[var(--line)] bg-[var(--soft-surface)] text-xs font-bold text-[var(--foreground)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-colors"
               aria-label={t("nav.docs") || "Docs"}
               title={t("nav.docs") || "Docs"}
             >
@@ -246,14 +246,14 @@ export default function NavbarTwo({ activePage = "" }) {
             <button
               type="button"
               onClick={() => setLanguage(lang === "en" ? "am" : "en")}
-              className="px-2 py-1 rounded-md text-xs font-semibold bg-white/10 text-white"
+              className="px-2 py-1 rounded-md text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition-colors"
             >
               {lang === "en" ? "አማ" : "EN"}
             </button>
 
             {/* Mobile Theme Toggle */}
             <button
-              className="theme-switcher"
+              className="theme-switcher mobile-theme-switcher"
               type="button"
               aria-label={isDark ? t("theme.switchToLight") : t("theme.switchToDark")}
               aria-pressed={isDark}
@@ -268,7 +268,7 @@ export default function NavbarTwo({ activePage = "" }) {
             <button
               type="button"
               onClick={() => setMobileOpen((open) => !open)}
-              className="grid size-9 place-items-center rounded-lg border border-blue-200 bg-white/90 text-[#60a5fa] shadow-sm"
+              className="grid size-9 place-items-center rounded-lg border border-blue-200 bg-white/90 text-[#60a5fa] shadow-sm hover:bg-white transition-colors"
               aria-label="Toggle navigation menu"
             >
               {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
